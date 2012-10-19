@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.vafer.FeedbackReporter.App</string>
+	<string>com.figure53.F53FeedbackKit.App</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -16,15 +16,15 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>NSMainNibFile</key>
-	<string>App</string>
-	<key>NSPrincipalClass</key>
-	<string>FRExceptionReportingApplication</string>
-	<key>FRFeedbackReporter.targetURL</key>
-	<string>http://vafer.org/feedback/submit.php?project=%@</string>
 	<key>FRFeedbackReporter.defaultSender</key>
 	<string>firstEmail</string>
 	<key>FRFeedbackReporter.sendDetailsIsOptional</key>
 	<string>YES</string>
+	<key>FRFeedbackReporter.targetURL</key>
+	<string>http://vafer.org/feedback/submit.php?project=%@</string>
+	<key>NSMainNibFile</key>
+	<string>App</string>
+	<key>NSPrincipalClass</key>
+	<string>FRExceptionReportingApplication</string>
 </dict>
 </plist>
