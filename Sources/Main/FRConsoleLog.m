@@ -21,6 +21,9 @@
 #import <asl.h>
 #import <unistd.h>
 
+// Uncomment the below line if you want to include only console logs from this app, not all apps
+//#define FR_CONSOLELOG_APP_ONLY
+
 #define FR_CONSOLELOG_TIME 0
 #define FR_CONSOLELOG_TEXT 1
 
@@ -49,15 +52,17 @@
 	
     if (query != NULL) {
 
-        NSString *applicationName = [FRApplication applicationName];
         NSString *sinceString = [NSString stringWithFormat:@"%01f", [since timeIntervalSince1970]];
-
-        asl_set_query(query, ASL_KEY_SENDER, [applicationName UTF8String], ASL_QUERY_OP_EQUAL);
         asl_set_query(query, ASL_KEY_TIME, [sinceString UTF8String], ASL_QUERY_OP_GREATER_EQUAL);
-
+        // Prevent premature garbage collection (UTF8String returns an inner pointer).
+        [sinceString self];
+        
+#ifdef FR_CONSOLELOG_APP_ONLY
+        NSString *applicationName = [FRApplication applicationName];
+        asl_set_query(query, ASL_KEY_SENDER, [applicationName UTF8String], ASL_QUERY_OP_EQUAL);
         // Prevent premature garbage collection (UTF8String returns an inner pointer).
         [applicationName self];
-        [sinceString self];
+#endif
 
         // This function is very slow. <rdar://problem/7695589>
         aslresponse response = asl_search(NULL, query);
