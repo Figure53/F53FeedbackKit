@@ -17,5 +17,5 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 
-	#define FRLocalizedString(key,comment) NSLocalizedStringFromTableInBundle(key, @"FeedbackReporter", [NSBundle bundleWithIdentifier:@"org.vafer.FeedbackReporter"], comment)
+	#define FRLocalizedString(key,comment) NSLocalizedStringFromTableInBundle(key, @"FeedbackReporter", [NSBundle bundleWithIdentifier:@"com.figure53.F53FeedbackKit"], comment)
 #endif
