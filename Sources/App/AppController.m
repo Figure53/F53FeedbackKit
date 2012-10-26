@@ -15,7 +15,6 @@
  */
 
 #import "AppController.h"
-#import <FeedbackReporter/FRFeedbackReporter.h>
 
 @implementation AppController
 

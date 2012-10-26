@@ -15,7 +15,7 @@
  */
  
 #import <Cocoa/Cocoa.h>
-#import <FeedbackReporter/FRFeedbackReporter.h>
+#import <F53FeedbackKit/FRFeedbackReporter.h>
 
 @interface AppController : NSObject <FRFeedbackReporterDelegate> {
 @private
