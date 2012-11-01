@@ -16,6 +16,8 @@
 
 #import "FRUploader.h"
 
+// Uncomment the below line if you want to send form data instead of JSON
+//#define FR_UPLOAD_FORM_DATA
 
 @implementation FRUploader
 
@@ -69,6 +71,30 @@
     return [result autorelease];
 }
 
+- (NSData *)generateJSONData:(NSDictionary *)dict
+{
+    NSError *err;
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionaryWithCapacity:[dict count]];
+    NSArray *keys = [dict allKeys];
+    
+    for (NSUInteger i = 0; i < [keys count]; i++) {
+        id value = [dict valueForKey:[keys objectAtIndex:i]];
+        
+        // TODO this does not handle other classes like NSURL, though I cannot find anywhere in the code that puts them in the dict
+        if ([value isKindOfClass:[NSString class]]) {
+            [jsonDict setObject:value forKey:[keys objectAtIndex:i]];
+        }
+        else {
+            NSLog(@"Error inserting item into JSON as it is not a string: %@", value);
+        }
+    }
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:&err];
+    if (!jsonData)
+        NSLog(@"Error creating JSON data: %@", err);
+    return jsonData;
+}
+
 
 - (NSString*) post:(NSDictionary*)dict
 {
@@ -102,16 +128,24 @@
 
 - (void) postAndNotify:(NSDictionary*)dict
 {
-    NSString *formBoundary = [[NSProcessInfo processInfo] globallyUniqueString];
+    NSData *formData;
 
-    NSData *formData = [self generateFormData:dict forBoundary:formBoundary];
+#ifdef FR_UPLOAD_FORM_DATA
+    NSString *formBoundary = [[NSProcessInfo processInfo] globallyUniqueString];
+    formData = [self generateFormData:dict forBoundary:formBoundary];
+#else
+    formData = [self generateJSONData:dict];
+#endif
 
     NSLog(@"Posting %lu bytes to %@", (unsigned long)[formData length], target);
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:target]];
     
+#ifdef FR_UPLOAD_FORM_DATA
     NSString *boundaryString = [NSString stringWithFormat: @"multipart/form-data; boundary=%@", formBoundary];
     [request addValue: boundaryString forHTTPHeaderField: @"Content-Type"];
+#endif
+    
     [request setHTTPMethod: @"POST"];
     [request setHTTPBody:formData];
 
