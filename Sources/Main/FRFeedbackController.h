@@ -16,6 +16,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FRUploader.h"
+#import "FRDocumentList.h"
 
 #define FR_FEEDBACK  @"feedback"
 #define FR_EXCEPTION @"exception"
@@ -51,6 +52,7 @@
     IBOutlet NSTabViewItem *tabScript;
     IBOutlet NSTabViewItem *tabPreferences;
     IBOutlet NSTabViewItem *tabException;
+    IBOutlet NSTabViewItem *tabDocuments;
 
     IBOutlet NSTableView *systemView;
     IBOutlet NSTextView *consoleView;
@@ -58,6 +60,7 @@
     IBOutlet NSTextView *scriptView;
     IBOutlet NSTextView *preferencesView;
     IBOutlet NSTextView *exceptionView;
+    IBOutlet NSTableView *documentsView;
 
     IBOutlet NSProgressIndicator *indicator;
 
@@ -66,6 +69,8 @@
 		
     
     FRUploader *uploader;
+    
+    FRDocumentList *documentList;
     
     id delegate;
     

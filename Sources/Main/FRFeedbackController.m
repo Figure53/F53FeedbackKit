@@ -41,6 +41,7 @@
     self = [super initWithWindowNibName:@"FeedbackReporter"];
     if (self != nil) {
         detailsShown = YES;
+        documentList = nil;
     }
     return self;
 }
@@ -52,12 +53,14 @@
     [tabScript retain];
     [tabPreferences retain];
     [tabException retain];
+    [tabDocuments retain];
 }
 
 #pragma mark Destruction
 
 - (void) dealloc
 {
+    [documentList release];
     [type release];
 
     [tabConsole release];
@@ -65,6 +68,7 @@
     [tabScript release];
     [tabPreferences release];
     [tabException release];
+    [tabDocuments release];
 
     [super dealloc];
 }
@@ -653,6 +657,12 @@
 
 - (void) showWindow:(id)sender
 {
+    [documentList release];
+    documentList = [[FRDocumentList alloc] init];
+    [documentsView setDelegate:documentList];
+    [documentsView setDataSource:documentList];
+    [documentsView reloadData];
+    
     if ([type isEqualToString:FR_FEEDBACK]) {
         [messageLabel setStringValue:FRLocalizedString(@"Feedback comment label", nil)];
     } else {
