@@ -36,7 +36,7 @@
 	NSUInteger i;
 	NSUInteger len = [self length];
 	int paddingBytes = 0;
-    const char *bytes = [self bytes];
+    const unsigned char *bytes = [self bytes];
 	
 	for (i = 0; i < len; i+=3)
 	{
