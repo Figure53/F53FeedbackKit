@@ -45,6 +45,12 @@
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>FRFeedbackReporter.defaultSender</key>
+	<string>firstEmail</string>
+	<key>FRFeedbackReporter.sendDetailsIsOptional</key>
+	<string>YES</string>
+	<key>FRFeedbackReporter.targetURL</key>
+	<string>http://localhost/F53FeedbackKit/submitJSON.php?project=DocumentApp</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
