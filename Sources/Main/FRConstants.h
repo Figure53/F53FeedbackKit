@@ -59,6 +59,7 @@
 #define POST_KEY_SHELL          @"shell"
 #define POST_KEY_PREFERENCES    @"preferences"
 #define POST_KEY_EXCEPTION      @"exception"
+#define POST_KEY_DOCUMENTS      @"documents"
 #define POST_KEY_VERSION_LONG   @"version_long"   // Corresponds to CFBundleLongVersionString. Discouraged.
 #define POST_KEY_VERSION_SHORT  @"version_short"  // Corresponds to CFBundleShortVersionString.
 #define POST_KEY_VERSION_BUNDLE @"version_bundle" // Corresponds to CFBundleVersion.

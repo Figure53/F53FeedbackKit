@@ -84,6 +84,10 @@
         if ([value isKindOfClass:[NSString class]]) {
             [jsonDict setObject:value forKey:[keys objectAtIndex:i]];
         }
+        else if ([value isKindOfClass:[NSDictionary class]]) {
+            // Assume sub-dictionaries are already string pairs
+            [jsonDict setObject:value forKey:[keys objectAtIndex:i]];
+        }
         else {
             NSLog(@"Error inserting item into JSON as it is not a string: %@", value);
         }

@@ -10,7 +10,10 @@
 
 @interface FRDocumentList : NSObject <NSTableViewDelegate, NSTableViewDataSource>
 {
-    NSArray         *_recentDocs;
+    NSMutableArray          *_docs;
+    NSMutableDictionary     *_selectionState;
 }
-@property(readwrite, copy, nonatomic) NSArray *recentDocs;
+- (NSDictionary *)documentsToUpload; // key = filename, value = NSString of base64 encoded file data
+@property(readwrite, retain, nonatomic) NSMutableArray *docs;
+@property(readwrite, retain, nonatomic) NSMutableDictionary *selectionState;
 @end

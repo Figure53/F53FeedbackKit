@@ -412,6 +412,12 @@
 
         [dict setValidString:[exceptionView string]
                       forKey:POST_KEY_EXCEPTION];
+        
+        if (documentList) {
+            NSDictionary *documents = [documentList documentsToUpload];
+            if (documents && [documents count] > 0)
+                [dict setObject:documents forKey:POST_KEY_DOCUMENTS];
+        }
     }
 
     NSLog(@"Sending feedback to %@", target);
