@@ -33,7 +33,7 @@
 {
 	char *base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	NSMutableString *result = [NSMutableString new];
-	int i;
+	NSUInteger i;
 	NSUInteger len = [self length];
 	int paddingBytes = 0;
     const char *bytes = [self bytes];
@@ -68,7 +68,7 @@
 {
 	char *base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	NSMutableString *result = [NSMutableString new];
-	int i;
+	NSUInteger i;
 	NSUInteger len = [self length];
 	int paddingBytes = 0;
 	
