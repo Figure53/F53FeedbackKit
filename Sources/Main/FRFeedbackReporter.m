@@ -209,4 +209,42 @@
     return YES;
 }
 
+- (BOOL)reportSupportNeed
+{
+    FRFeedbackController *controller = [self feedbackController];
+    
+    @synchronized (controller) {
+        
+        if ([controller isShown]) {
+            NSLog(@"Controller already shown");
+            return NO;
+        }
+        
+        [controller reset];
+        
+        NSString * applicationName = nil;
+        if ([delegate respondsToSelector:@selector(feedbackDisplayName)]) {
+            applicationName = [delegate feedbackDisplayName];
+        }
+        else {
+            applicationName =[FRApplication applicationName];
+        }
+        
+        [controller setHeading:[NSString stringWithFormat:
+                                FRLocalizedString(@"Need help with %@?", nil),
+                                applicationName]];
+        
+        [controller setSubheading:FRLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)];
+        
+        [controller setType:FR_SUPPORT];
+        
+        [controller setDelegate:delegate];
+        
+        [controller showWindow:self];
+        
+    }
+	
+    return YES;
+}
+
 @end

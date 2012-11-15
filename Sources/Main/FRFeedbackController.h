@@ -21,6 +21,7 @@
 #define FR_FEEDBACK  @"feedback"
 #define FR_EXCEPTION @"exception"
 #define FR_CRASH     @"crash"
+#define FR_SUPPORT   @"support"
 
 @interface FRFeedbackController : NSWindowController 
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= 1060 // on lines like this to not confuse IB

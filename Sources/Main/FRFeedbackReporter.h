@@ -47,4 +47,7 @@
 // Displays the feedback user interface for the given exception. Do not pass nil. Returns YES if it was able to display the UI, NO otherwise.
 - (BOOL) reportException:(NSException *)exception;
 
+// Displays the feedback user interface allowing the user to submit problems in order to get help. Returns YES if it was able to display the UI, NO otherwise.
+- (BOOL)reportSupportNeed;
+
 @end

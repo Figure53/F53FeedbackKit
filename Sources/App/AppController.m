@@ -88,4 +88,9 @@
     *c = 0;
 }
 
+- (IBAction) buttonSupport:(id)sender
+{
+    [[FRFeedbackReporter sharedReporter] reportSupportNeed];
+}
+
 @end

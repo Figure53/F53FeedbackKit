@@ -665,7 +665,7 @@
 {
     [documentList release];
     documentList = [[FRDocumentList alloc] init];
-    if ([type isEqual:FR_FEEDBACK])
+    if ([type isEqual:FR_SUPPORT])
         [documentList selectMostRecentDocument];
     [documentList setupOtherButton:otherDocumentButton];
     [documentList setTableView:documentsView];
@@ -675,6 +675,8 @@
     
     if ([type isEqualToString:FR_FEEDBACK]) {
         [messageLabel setStringValue:FRLocalizedString(@"Feedback comment label", nil)];
+    } else if ([type isEqualToString:FR_SUPPORT]) {
+        [messageLabel setStringValue:FRLocalizedString(@"Describe the problem:", nil)];
     } else {
         [messageLabel setStringValue:FRLocalizedString(@"Comments:", nil)];
     }
@@ -686,7 +688,7 @@
         [tabView selectTabViewItemWithIdentifier:@"System"];
     }
     
-    if ([type isEqual:FR_FEEDBACK]) {
+    if ([type isEqual:FR_SUPPORT]) {
         [self showDetails:YES animate:NO];
         [detailsButton setState:NSOnState];
         if ([[documentList docs] count] > 0)
