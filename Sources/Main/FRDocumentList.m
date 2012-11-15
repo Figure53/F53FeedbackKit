@@ -140,7 +140,6 @@
                 return nil;
             }
             NSString *encodedData = [fileData encodeBase64];
-            NSLog(@"encodedData = %@", encodedData);
             
             NSString *rootfname = [[url path] lastPathComponent];
             NSString *fname = rootfname;
