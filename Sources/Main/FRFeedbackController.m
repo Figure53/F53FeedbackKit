@@ -689,7 +689,8 @@
     if ([type isEqual:FR_FEEDBACK]) {
         [self showDetails:YES animate:NO];
         [detailsButton setState:NSOnState];
-        [tabView selectTabViewItemWithIdentifier:@"Documents"];
+        if ([[documentList docs] count] > 0)
+            [tabView selectTabViewItemWithIdentifier:@"Documents"];
     }
 
     [NSThread detachNewThreadSelector:@selector(populate) toTarget:self withObject:nil];
