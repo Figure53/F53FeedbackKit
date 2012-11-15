@@ -685,6 +685,12 @@
     } else {
         [tabView selectTabViewItemWithIdentifier:@"System"];
     }
+    
+    if ([type isEqual:FR_FEEDBACK]) {
+        [self showDetails:YES animate:NO];
+        [detailsButton setState:NSOnState];
+        [tabView selectTabViewItemWithIdentifier:@"Documents"];
+    }
 
     [NSThread detachNewThreadSelector:@selector(populate) toTarget:self withObject:nil];
 
