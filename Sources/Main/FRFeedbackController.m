@@ -307,6 +307,35 @@
     [self showDetails:show animate:YES];
 }
 
+- (IBAction) sendDetailsChecked:(id)sender
+{
+    if ([sendDetailsCheckbox state] == NSOnState)
+        [includeConsoleCheckbox setEnabled:YES];
+    else
+        [includeConsoleCheckbox setEnabled:NO];
+}
+
+- (IBAction) includeConsoleChecked:(id)sender
+{
+    if ([includeConsoleCheckbox state] == NSOnState) {
+        [indicator setHidden:NO];
+        [indicator startAnimation:self];
+        [sendButton setEnabled:NO];
+        [NSThread detachNewThreadSelector:@selector(loadConsole) toTarget:self withObject:nil];
+    }
+    else {
+        [tabView removeTabViewItem:tabConsole];
+    }
+}
+
+- (void)loadConsole
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    [self populateConsole];
+    [self performSelectorOnMainThread:@selector(stopSpinner) withObject:self waitUntilDone:YES];
+    [pool drain];
+}
+
 - (IBAction) cancel:(id)sender
 {
     [uploader cancel], uploader = nil;
@@ -398,8 +427,9 @@
         [dict setValidString:[self systemProfileAsString]
                       forKey:POST_KEY_SYSTEM];
 
-        [dict setValidString:[consoleView string]
-                      forKey:POST_KEY_CONSOLE];
+        if ([includeConsoleCheckbox state] == NSOnState)
+            [dict setValidString:[consoleView string]
+                          forKey:POST_KEY_CONSOLE];
 
         [dict setValidString:[crashesView string]
                       forKey:POST_KEY_CRASHES];
@@ -569,15 +599,21 @@
     [tabView insertTabViewItem:theTabViewItem atIndex:1];
 }
 
-- (void) populate
+- (void)populateConsole
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
     NSString *consoleLog = [self consoleLog];
     if ([consoleLog length] > 0) {
         [self performSelectorOnMainThread:@selector(addTabViewItem:) withObject:tabConsole waitUntilDone:YES];
         [consoleView performSelectorOnMainThread:@selector(setString:) withObject:consoleLog waitUntilDone:YES];
     }
+}
+
+- (void) populate
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    if ([includeConsoleCheckbox state] == NSOnState)
+        [self populateConsole];
 
     NSString *crashLog = [self crashLog];
     if ([crashLog length] > 0) {
@@ -655,9 +691,19 @@
     if (sendDetailsIsOptional && [sendDetailsIsOptional isEqualToString:@"YES"]) {
         [detailsLabel setHidden:YES];
         [sendDetailsCheckbox setHidden:NO];
+        
+        [sendDetailsCheckbox sizeToFit];
+        [includeConsoleCheckbox sizeToFit];
+        NSRect sendFrame = [sendDetailsCheckbox frame];
+        NSRect consoleFrame = [includeConsoleCheckbox frame];
+        CGFloat buffer = 20.0;
+        consoleFrame.origin.x = sendFrame.origin.x + sendFrame.size.width + buffer;
+        [includeConsoleCheckbox setFrame:consoleFrame];
+        [includeConsoleCheckbox setState:NSOffState];
     } else {
         [detailsLabel setHidden:NO];
         [sendDetailsCheckbox setHidden:YES];
+        [includeConsoleCheckbox setHidden:YES];
     }
 }
 

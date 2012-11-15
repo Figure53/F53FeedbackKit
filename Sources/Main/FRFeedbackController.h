@@ -45,6 +45,7 @@
     BOOL detailsShown;
 
 	IBOutlet NSButton *sendDetailsCheckbox;
+    IBOutlet NSButton *includeConsoleCheckbox;
 
     IBOutlet NSTabView *tabView;
     IBOutlet NSTabViewItem *tabSystem;
@@ -94,6 +95,8 @@
 #pragma mark UI
 
 - (IBAction) showDetails:(id)sender;
+- (IBAction) sendDetailsChecked:(id)sender;
+- (IBAction) includeConsoleChecked:(id)sender;
 - (IBAction) cancel:(id)sender;
 - (IBAction) send:(id)sender;
 
