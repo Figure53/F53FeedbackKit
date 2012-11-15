@@ -29,7 +29,6 @@
 }
 
 - (id) initWithTarget:(NSString*)target delegate:(id<FRUploaderDelegate>)delegate;
-- (NSString*) post:(NSDictionary*)dict;
 - (void) postAndNotify:(NSDictionary*)dict;
 - (void) cancel;
 - (NSString*) response;

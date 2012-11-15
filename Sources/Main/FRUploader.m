@@ -99,37 +99,6 @@
     return jsonData;
 }
 
-
-- (NSString*) post:(NSDictionary*)dict
-{
-    NSString *formBoundary = [[NSProcessInfo processInfo] globallyUniqueString];
-
-    NSData *formData = [self generateFormData:dict forBoundary:formBoundary];
-
-    NSLog(@"Posting %lu bytes to %@", (unsigned long)[formData length], target);
-
-    NSMutableURLRequest *post = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:target]];
-    
-    NSString *boundaryString = [NSString stringWithFormat: @"multipart/form-data; boundary=%@", formBoundary];
-    [post addValue: boundaryString forHTTPHeaderField: @"Content-Type"];
-    [post setHTTPMethod: @"POST"];
-    [post setHTTPBody:formData];
-    [post setCachePolicy:NSURLRequestReloadIgnoringCacheData];
-
-    NSURLResponse *response = nil;
-    NSError *error = nil;
-    NSData *result = [NSURLConnection sendSynchronousRequest: post
-                                           returningResponse: &response
-                                                       error: &error];
-
-    if(result == nil) {
-        NSLog(@"Post failed. Error: %ld, Description: %@", (long)[error code], [error localizedDescription]);
-    }
-
-    return [[[NSString alloc] initWithData:result
-                                  encoding:NSUTF8StringEncoding] autorelease];
-}
-
 - (void) postAndNotify:(NSDictionary*)dict
 {
     NSData *formData;
