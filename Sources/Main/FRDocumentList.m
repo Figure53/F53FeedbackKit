@@ -56,13 +56,37 @@
         NSButton *checkbox = [[[NSButton alloc] init] autorelease];
         [checkbox setButtonType:NSSwitchButton];
         [checkbox setTitle:fname];
+        [checkbox setTag:row];
         if ([[[self selectionState] objectForKey:url] boolValue])
             [checkbox setState:NSOnState];
         else
             [checkbox setState:NSOffState];
+        [checkbox setTarget:self];
+        [checkbox setAction:@selector(checkboxChanged:)];
         return checkbox;
     }
     return nil;
+}
+
+- (IBAction)checkboxChanged:(id)sender
+{
+    if (!sender || ![sender isKindOfClass:[NSButton class]]) {
+        NSLog(@"Error in document list, checkboxChanged: called from something that is not a checkbox: %@", sender);
+        return;
+    }
+    NSButton *checkbox = (NSButton *)sender;
+    BOOL newState = NO;
+    if ([checkbox state] == NSOnState)
+        newState = YES;
+    NSInteger row = [checkbox tag];
+    if (row < (NSInteger)[[self docs] count]) {
+        NSURL *url = [[self docs] objectAtIndex:row];
+        [[self selectionState] setObject:[NSNumber numberWithBool:newState] forKey:url];
+    }
+    else {
+        NSLog(@"Error, checkbox pressed is beyond list of documents");
+        return;
+    }
 }
 
 - (NSDictionary *)documentsToUpload
