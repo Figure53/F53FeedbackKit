@@ -1503,7 +1503,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																<object class="NSMutableArray" key="NSTableColumns">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
 																	<object class="NSTableColumn" id="828071826">
-																		<double key="NSWidth">116</double>
+																		<double key="NSWidth">516</double>
 																		<double key="NSMinWidth">40</double>
 																		<double key="NSMaxWidth">1000</double>
 																		<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -1568,7 +1568,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 														<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 														<reference key="NSTarget" ref="468216638"/>
 														<string key="NSAction">_doScroller:</string>
-														<double key="NSPercent">0.99583333333333335</double>
+														<double key="NSPercent">0.92146596858638741</double>
 													</object>
 													<object class="NSScroller" id="196799962">
 														<reference key="NSNextResponder" ref="468216638"/>
@@ -2145,7 +2145,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 								<object class="NSTextField" id="420342823">
 									<reference key="NSNextResponder" ref="832027607"/>
 									<int key="NSvFlags">266</int>
-									<string key="NSFrameSize">{116, 17}</string>
+									<string key="NSFrameSize">{516, 17}</string>
 									<reference key="NSSuperview" ref="832027607"/>
 									<string key="NSAntiCompressionPriority">{250, 750}</string>
 									<bool key="NSEnabled">YES</bool>
@@ -2161,7 +2161,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								</object>
 							</object>
-							<string key="NSFrame">{{1, 1}, {116, 17}}</string>
+							<string key="NSFrame">{{1, 1}, {516, 17}}</string>
 						</object>
 						<reference key="destination" ref="420342823"/>
 					</object>
@@ -3101,11 +3101,9 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<string>cancel:</string>
 							<string>send:</string>
 							<string>showDetails:</string>
-							<string>showWindow:</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3118,7 +3116,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<string>cancel:</string>
 							<string>send:</string>
 							<string>showDetails:</string>
-							<string>showWindow:</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -3133,224 +3130,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<object class="IBActionInfo">
 								<string key="name">showDetails:</string>
 								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">showWindow:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>cancelButton</string>
-							<string>consoleView</string>
-							<string>crashesView</string>
-							<string>detailsButton</string>
-							<string>detailsLabel</string>
-							<string>documentsView</string>
-							<string>emailBox</string>
-							<string>emailLabel</string>
-							<string>exceptionView</string>
-							<string>headingField</string>
-							<string>indicator</string>
-							<string>messageLabel</string>
-							<string>messageView</string>
-							<string>otherDocumentButton</string>
-							<string>preferencesView</string>
-							<string>scriptView</string>
-							<string>sendButton</string>
-							<string>sendDetailsCheckbox</string>
-							<string>subheadingField</string>
-							<string>systemView</string>
-							<string>tabConsole</string>
-							<string>tabCrash</string>
-							<string>tabDocuments</string>
-							<string>tabException</string>
-							<string>tabPreferences</string>
-							<string>tabScript</string>
-							<string>tabSystem</string>
-							<string>tabView</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSButton</string>
-							<string>NSTextView</string>
-							<string>NSTextView</string>
-							<string>NSButton</string>
-							<string>NSTextField</string>
-							<string>NSTableView</string>
-							<string>NSComboBox</string>
-							<string>NSTextField</string>
-							<string>NSTextView</string>
-							<string>NSTextField</string>
-							<string>NSProgressIndicator</string>
-							<string>NSTextField</string>
-							<string>NSTextView</string>
-							<string>NSButton</string>
-							<string>NSTextView</string>
-							<string>NSTextView</string>
-							<string>NSButton</string>
-							<string>NSButton</string>
-							<string>NSTextField</string>
-							<string>NSTableView</string>
-							<string>NSTabViewItem</string>
-							<string>NSTabViewItem</string>
-							<string>NSTabViewItem</string>
-							<string>NSTabViewItem</string>
-							<string>NSTabViewItem</string>
-							<string>NSTabViewItem</string>
-							<string>NSTabViewItem</string>
-							<string>NSTabView</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>cancelButton</string>
-							<string>consoleView</string>
-							<string>crashesView</string>
-							<string>detailsButton</string>
-							<string>detailsLabel</string>
-							<string>documentsView</string>
-							<string>emailBox</string>
-							<string>emailLabel</string>
-							<string>exceptionView</string>
-							<string>headingField</string>
-							<string>indicator</string>
-							<string>messageLabel</string>
-							<string>messageView</string>
-							<string>otherDocumentButton</string>
-							<string>preferencesView</string>
-							<string>scriptView</string>
-							<string>sendButton</string>
-							<string>sendDetailsCheckbox</string>
-							<string>subheadingField</string>
-							<string>systemView</string>
-							<string>tabConsole</string>
-							<string>tabCrash</string>
-							<string>tabDocuments</string>
-							<string>tabException</string>
-							<string>tabPreferences</string>
-							<string>tabScript</string>
-							<string>tabSystem</string>
-							<string>tabView</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">cancelButton</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">consoleView</string>
-								<string key="candidateClassName">NSTextView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">crashesView</string>
-								<string key="candidateClassName">NSTextView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">detailsButton</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">detailsLabel</string>
-								<string key="candidateClassName">NSTextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">documentsView</string>
-								<string key="candidateClassName">NSTableView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">emailBox</string>
-								<string key="candidateClassName">NSComboBox</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">emailLabel</string>
-								<string key="candidateClassName">NSTextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">exceptionView</string>
-								<string key="candidateClassName">NSTextView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">headingField</string>
-								<string key="candidateClassName">NSTextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">indicator</string>
-								<string key="candidateClassName">NSProgressIndicator</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">messageLabel</string>
-								<string key="candidateClassName">NSTextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">messageView</string>
-								<string key="candidateClassName">NSTextView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">otherDocumentButton</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">preferencesView</string>
-								<string key="candidateClassName">NSTextView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">scriptView</string>
-								<string key="candidateClassName">NSTextView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">sendButton</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">sendDetailsCheckbox</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">subheadingField</string>
-								<string key="candidateClassName">NSTextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">systemView</string>
-								<string key="candidateClassName">NSTableView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabConsole</string>
-								<string key="candidateClassName">NSTabViewItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabCrash</string>
-								<string key="candidateClassName">NSTabViewItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabDocuments</string>
-								<string key="candidateClassName">NSTabViewItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabException</string>
-								<string key="candidateClassName">NSTabViewItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabPreferences</string>
-								<string key="candidateClassName">NSTabViewItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabScript</string>
-								<string key="candidateClassName">NSTabViewItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabSystem</string>
-								<string key="candidateClassName">NSTabViewItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">tabView</string>
-								<string key="candidateClassName">NSTabView</string>
 							</object>
 						</object>
 					</object>
