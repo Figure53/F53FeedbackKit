@@ -26,10 +26,7 @@
             [self setDocs:[NSMutableArray arrayWithArray:docs]];
             NSMutableDictionary *docDict = [NSMutableDictionary dictionaryWithCapacity:[docs count]];
             for (NSUInteger i = 0; i < [docs count]; i++) {
-                if (i == 0)
-                    [docDict setObject:[NSNumber numberWithBool:YES] forKey:[docs objectAtIndex:i]];
-                else
-                    [docDict setObject:[NSNumber numberWithBool:NO] forKey:[docs objectAtIndex:i]];
+                [docDict setObject:[NSNumber numberWithBool:NO] forKey:[docs objectAtIndex:i]];
             }
             [self setSelectionState:docDict];
         }
@@ -42,6 +39,14 @@
     [_docs release];
     [_selectionState release];
     [super dealloc];
+}
+
+- (void)selectMostRecentDocument
+{
+    if ([self docs] && [[self docs] count] > 0) {
+        NSURL *firstDoc = [[self docs] objectAtIndex:0];
+        [[self selectionState] setObject:[NSNumber numberWithBool:YES] forKey:firstDoc];
+    }
 }
 
 - (void)setupOtherButton:(NSButton *)otherButton

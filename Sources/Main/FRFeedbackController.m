@@ -665,6 +665,8 @@
 {
     [documentList release];
     documentList = [[FRDocumentList alloc] init];
+    if ([type isEqual:FR_FEEDBACK])
+        [documentList selectMostRecentDocument];
     [documentList setupOtherButton:otherDocumentButton];
     [documentList setTableView:documentsView];
     [documentsView setDelegate:documentList];
