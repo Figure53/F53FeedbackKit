@@ -61,6 +61,8 @@
     IBOutlet NSTextView *preferencesView;
     IBOutlet NSTextView *exceptionView;
     IBOutlet NSTableView *documentsView;
+    
+    IBOutlet NSButton *otherDocumentButton;
 
     IBOutlet NSProgressIndicator *indicator;
 

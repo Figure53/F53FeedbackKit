@@ -665,6 +665,8 @@
 {
     [documentList release];
     documentList = [[FRDocumentList alloc] init];
+    [documentList setupOtherButton:otherDocumentButton];
+    [documentList setTableView:documentsView];
     [documentsView setDelegate:documentList];
     [documentsView setDataSource:documentList];
     [documentsView reloadData];

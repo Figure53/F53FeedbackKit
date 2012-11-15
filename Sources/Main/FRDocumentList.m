@@ -13,6 +13,7 @@
 
 @synthesize docs = _docs;
 @synthesize selectionState = _selectionState;
+@synthesize tableView = _tableView;
 
 - (id)init
 {
@@ -41,6 +42,12 @@
     [_docs release];
     [_selectionState release];
     [super dealloc];
+}
+
+- (void)setupOtherButton:(NSButton *)otherButton
+{
+    [otherButton setTarget:self];
+    [otherButton setAction:@selector(otherButtonPressed:)];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
@@ -87,6 +94,34 @@
         NSLog(@"Error, checkbox pressed is beyond list of documents");
         return;
     }
+}
+
+- (IBAction)otherButtonPressed:(id)sender
+{
+    NSOpenPanel *oPanel = [NSOpenPanel openPanel];
+    [oPanel setAllowsMultipleSelection:YES];
+    [oPanel setCanCreateDirectories:NO];
+    [oPanel setCanChooseDirectories:YES];
+    [oPanel setCanChooseFiles:YES];
+    [oPanel setTitle:@"Add document to upload"];
+    [oPanel setMessage:@"Select another document to send"];
+    [oPanel setNameFieldLabel:@"Document:"];
+    [oPanel setPrompt:@"Choose"];
+    NSInteger result = [oPanel runModal];
+    if (result == NSFileHandlingPanelOKButton) {
+        NSArray *newDocs = [oPanel URLs];
+        for (NSURL *newDoc in newDocs) {
+            [self addDocumentToList:newDoc];
+        }
+    }
+}
+
+- (void)addDocumentToList:(NSURL *)newDoc
+{
+    // TODO check for duplicates
+    [[self docs] addObject:newDoc];
+    [[self selectionState] setObject:[NSNumber numberWithBool:YES] forKey:newDoc];
+    [[self tableView] reloadData];
 }
 
 - (NSDictionary *)documentsToUpload
