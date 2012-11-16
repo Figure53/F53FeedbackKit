@@ -123,8 +123,8 @@
 
 - (void)addDocumentToList:(NSURL *)newDoc
 {
-    // TODO check for duplicates
-    [[self docs] addObject:newDoc];
+    if (![[self docs] containsObject:newDoc])
+        [[self docs] addObject:newDoc];
     [[self selectionState] setObject:[NSNumber numberWithBool:YES] forKey:newDoc];
     [[self tableView] reloadData];
 }
