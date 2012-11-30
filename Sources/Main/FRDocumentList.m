@@ -147,15 +147,15 @@
             }
             
             // Zip up file
-            NSString *zipName = [[[path lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"zip"];
+            NSString *zipName = [[path lastPathComponent] stringByAppendingPathExtension:@"zip"];
             NSString *zipPath = [tmpPath stringByAppendingPathComponent:zipName];
             NSTask *compressor = [[NSTask alloc] init];
             [compressor setLaunchPath:@"/usr/bin/zip"];
-            [compressor setArguments:[NSArray arrayWithObjects:@"-r9", zipPath, [url path], nil]];
+            [compressor setArguments:[NSArray arrayWithObjects:@"-r9", zipPath, [[url path] lastPathComponent], nil]];
             [compressor setStandardError:[NSFileHandle fileHandleWithNullDevice]];
             [compressor setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
             [compressor setStandardOutput:[NSFileHandle fileHandleWithNullDevice]];
-            [compressor setCurrentDirectoryPath:tmpPath];
+            [compressor setCurrentDirectoryPath:[[url path] stringByDeletingLastPathComponent]];
             @try {
                 [compressor launch];
             }
@@ -188,7 +188,7 @@
                 fname = [rootfname stringByAppendingFormat:@"-%u", i];
                 i++;
             }
-            [ret setObject:encodedData forKey:fname];
+            [ret setObject:encodedData forKey:zipName];
             if (![fm removeItemAtPath:tmpPath error:&err])
                 NSLog(@"Failed to remove temporary items, continuing anyway. Error: %@", err);
         }
