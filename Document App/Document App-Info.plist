@@ -50,7 +50,7 @@
 	<key>FRFeedbackReporter.sendDetailsIsOptional</key>
 	<string>YES</string>
 	<key>FRFeedbackReporter.targetURL</key>
-	<string>http://localhost/F53FeedbackKit/submitJSON.php?project=DocumentApp</string>
+	<string>http://localhost/F53FeedbackKit/submit.php?project=DocumentApp</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
