@@ -32,6 +32,8 @@
 		636062CA164701CD00A0E716 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB6353A0E4DDCB700C72888 /* AppController.m */; };
 		636062CB164701F500A0E716 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* F53FeedbackKit.framework */; };
 		636062D0164702E900A0E716 /* F53FeedbackKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* F53FeedbackKit.framework */; };
+		6379C41616694FA200AC6F9A /* FRProgressWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6379C41416694FA200AC6F9A /* FRProgressWindow.h */; };
+		6379C41716694FA200AC6F9A /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6379C41516694FA200AC6F9A /* FRProgressWindow.m */; };
 		63F67EC716430FD100373342 /* FRDocumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = 63F67EC516430FD100373342 /* FRDocumentList.h */; };
 		63F67EC816430FD100373342 /* FRDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F67EC616430FD100373342 /* FRDocumentList.m */; };
 		9D006DF60E1438F6000B6AFC /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D006DF50E1438F6000B6AFC /* FRConsoleLog.m */; };
@@ -160,6 +162,8 @@
 		636062BE1646FE4E00A0E716 /* FRDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRDocument.m; sourceTree = "<group>"; };
 		636062C11646FE4E00A0E716 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FRDocument.xib; sourceTree = "<group>"; };
 		636062C41646FE4F00A0E716 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6379C41416694FA200AC6F9A /* FRProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRProgressWindow.h; path = Sources/Main/FRProgressWindow.h; sourceTree = "<group>"; };
+		6379C41516694FA200AC6F9A /* FRProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRProgressWindow.m; path = Sources/Main/FRProgressWindow.m; sourceTree = "<group>"; };
 		63F67EC516430FD100373342 /* FRDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRDocumentList.h; path = Sources/Main/FRDocumentList.h; sourceTree = "<group>"; };
 		63F67EC616430FD100373342 /* FRDocumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRDocumentList.m; path = Sources/Main/FRDocumentList.m; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* F53FeedbackKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = F53FeedbackKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,6 +325,8 @@
 				9D5FB36B0E0B269900CF1BE0 /* FRConstants.h */,
 				9D90077A0DEB96C10000330E /* Info.plist */,
 				9DC077900E4CE75E00014424 /* FeedbackReporter.pch */,
+				6379C41416694FA200AC6F9A /* FRProgressWindow.h */,
+				6379C41516694FA200AC6F9A /* FRProgressWindow.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				FC369CBB1100D505004C27F8 /* NSMutableDictionary+Additions.h in Headers */,
 				63F67EC716430FD100373342 /* FRDocumentList.h in Headers */,
 				63207ABA164D648B00CA73A7 /* NSString+Base64.h in Headers */,
+				6379C41616694FA200AC6F9A /* FRProgressWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +643,7 @@
 				FC369CBC1100D505004C27F8 /* NSMutableDictionary+Additions.m in Sources */,
 				63F67EC816430FD100373342 /* FRDocumentList.m in Sources */,
 				63207ABB164D648B00CA73A7 /* NSString+Base64.m in Sources */,
+				6379C41716694FA200AC6F9A /* FRProgressWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

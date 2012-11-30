@@ -8,6 +8,7 @@
 
 #import "FRDocumentList.h"
 #import "NSString+Base64.h"
+#import "FRProgressWindow.h"
 
 @implementation FRDocumentList
 
@@ -131,68 +132,88 @@
 
 - (NSDictionary *)documentsToUpload
 {
-    NSError *err;
-    NSFileManager *fm = [[[NSFileManager alloc] init] autorelease];
     NSMutableDictionary *ret = [NSMutableDictionary dictionary];
-    for (NSURL *url in [self docs]) {
-        if ([[[self selectionState] objectForKey:url] boolValue]) {
-            NSString *path = [url path];
-            
-            // Create temporary folder
-            NSString *tmpFolder = [NSString stringWithFormat:@"%@-%u", @"f53feedbackkit", arc4random() % 1000000];
-            NSString *tmpPath = [[self cacheDir] stringByAppendingPathComponent:tmpFolder];
-            if (![fm createDirectoryAtPath:tmpPath withIntermediateDirectories:YES attributes:nil error:&err]) {
-                NSLog(@"Failed to create temporary directory at %@: %@", tmpPath, err);
-                return nil;
-            }
-            
-            // Zip up file
-            NSString *zipName = [[path lastPathComponent] stringByAppendingPathExtension:@"zip"];
-            NSString *zipPath = [tmpPath stringByAppendingPathComponent:zipName];
-            NSTask *compressor = [[NSTask alloc] init];
-            [compressor setLaunchPath:@"/usr/bin/zip"];
-            [compressor setArguments:[NSArray arrayWithObjects:@"-r9", zipPath, [[url path] lastPathComponent], nil]];
-            [compressor setStandardError:[NSFileHandle fileHandleWithNullDevice]];
-            [compressor setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
-            [compressor setStandardOutput:[NSFileHandle fileHandleWithNullDevice]];
-            [compressor setCurrentDirectoryPath:[[url path] stringByDeletingLastPathComponent]];
-            @try {
-                [compressor launch];
-            }
-            @catch (NSException *e) {
-                NSLog(@"Failed to zip document: %@", e);
+    __block BOOL success = YES;
+    __block BOOL done = NO;
+    dispatch_queue_t aQ = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(aQ, ^{
+        NSError *err;
+        NSFileManager *fm = [[[NSFileManager alloc] init] autorelease];
+        for (NSURL *url in [self docs]) {
+            if ([[[self selectionState] objectForKey:url] boolValue]) {
+                NSString *path = [url path];
+                
+                // Create temporary folder
+                NSString *tmpFolder = [NSString stringWithFormat:@"%@-%u", @"f53feedbackkit", arc4random() % 1000000];
+                NSString *tmpPath = [[self cacheDir] stringByAppendingPathComponent:tmpFolder];
+                if (![fm createDirectoryAtPath:tmpPath withIntermediateDirectories:YES attributes:nil error:&err]) {
+                    NSLog(@"Failed to create temporary directory at %@: %@", tmpPath, err);
+                    success = NO;
+                    break;
+                }
+                
+                // Zip up file
+                NSString *zipName = [[path lastPathComponent] stringByAppendingPathExtension:@"zip"];
+                NSString *zipPath = [tmpPath stringByAppendingPathComponent:zipName];
+                NSTask *compressor = [[NSTask alloc] init];
+                [compressor setLaunchPath:@"/usr/bin/zip"];
+                [compressor setArguments:[NSArray arrayWithObjects:@"-r9", zipPath, [[url path] lastPathComponent], nil]];
+                [compressor setStandardError:[NSFileHandle fileHandleWithNullDevice]];
+                [compressor setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
+                [compressor setStandardOutput:[NSFileHandle fileHandleWithNullDevice]];
+                [compressor setCurrentDirectoryPath:[[url path] stringByDeletingLastPathComponent]];
+                @try {
+                    [compressor launch];
+                }
+                @catch (NSException *e) {
+                    NSLog(@"Failed to zip document: %@", e);
+                    [compressor release];
+                    success = NO;
+                    break;
+                }
+                [compressor waitUntilExit];
+                int status = [compressor terminationStatus];
+                if (status != 0) {
+                    NSLog(@"Failed to zip document with exit status: %d", status);
+                    [compressor release];
+                    success = NO;
+                    break;
+                }
                 [compressor release];
-                return nil;
+                
+                // Get file data
+                NSData *fileData = [NSData dataWithContentsOfFile:zipPath options:0 error:&err];
+                if (!fileData) {
+                    NSLog(@"Failed to get contents of document %@: %@", url, err);
+                    success = NO;
+                    break;
+                }
+                NSString *encodedData = [fileData encodeBase64];
+                
+                NSString *rootfname = [[url path] lastPathComponent];
+                NSString *fname = rootfname;
+                unsigned int i = 1;
+                while ([ret objectForKey:fname]) {
+                    fname = [rootfname stringByAppendingFormat:@"-%u", i];
+                    i++;
+                }
+                [ret setObject:encodedData forKey:zipName];
+                if (![fm removeItemAtPath:tmpPath error:&err])
+                    NSLog(@"Failed to remove temporary items, continuing anyway. Error: %@", err);
             }
-            [compressor waitUntilExit];
-            int status = [compressor terminationStatus];
-            if (status != 0) {
-                NSLog(@"Failed to zip document with exit status: %d", status);
-                [compressor release];
-                return nil;
-            }
-            [compressor release];
-            
-            // Get file data
-            NSData *fileData = [NSData dataWithContentsOfFile:zipPath options:0 error:&err];
-            if (!fileData) {
-                NSLog(@"Failed to get contents of document %@: %@", url, err);
-                return nil;
-            }
-            NSString *encodedData = [fileData encodeBase64];
-            
-            NSString *rootfname = [[url path] lastPathComponent];
-            NSString *fname = rootfname;
-            unsigned int i = 1;
-            while ([ret objectForKey:fname]) {
-                fname = [rootfname stringByAppendingFormat:@"-%u", i];
-                i++;
-            }
-            [ret setObject:encodedData forKey:zipName];
-            if (![fm removeItemAtPath:tmpPath error:&err])
-                NSLog(@"Failed to remove temporary items, continuing anyway. Error: %@", err);
         }
+        done = YES;
+    });
+    FRProgressWindow *progWindow = [[FRProgressWindow alloc] initWithText:@"Preparing document files"];
+    [progWindow show];
+    while (!done) {
+        [[NSApplication sharedApplication] runModalSession:[progWindow modalSession]];
+        [NSThread sleepForTimeInterval:0.01];
     }
+    [progWindow hide];
+    [progWindow release];
+    if (!success)
+        return nil;
     return ret;
 }
 
