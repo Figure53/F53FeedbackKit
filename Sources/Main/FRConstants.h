@@ -43,6 +43,10 @@
 // If set to 'YES' the application will exit after an exception has been caught
 #define PLIST_KEY_EXITAFTEREXCEPTION    @"FRFeedbackReporter.exitAfterException"
 
+// Array of regular expressions corresponding to files that should be emptied
+// when sending documents.
+#define PLIST_KEY_EMPTYDOCUMENTFILES    @"FRFeedbackReporter.emptyDocumentFiles"
+
 // Keys store in the user defaults
 #define DEFAULTS_KEY_LASTCRASHCHECKDATE @"FRFeedbackReporter.lastCrashCheckDate"
 #define DEFAULTS_KEY_LASTSUBMISSIONDATE @"FRFeedbackReporter.lastSubmissionDate"

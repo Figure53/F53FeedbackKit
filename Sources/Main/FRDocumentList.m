@@ -9,6 +9,7 @@
 #import "FRDocumentList.h"
 #import "NSString+Base64.h"
 #import "FRProgressWindow.h"
+#import "FRConstants.h"
 
 @implementation FRDocumentList
 
@@ -130,6 +131,66 @@
     [[self tableView] reloadData];
 }
 
+- (void)emptyFile:(NSString *)path
+{
+    NSError *err;
+    NSFileManager *fm = [[NSFileManager alloc] init];
+    NSDictionary *attrs = [fm attributesOfItemAtPath:path error:&err];
+    if (attrs) {
+        long long fileSize = -1;
+        NSNumber *sizeNum = [attrs objectForKey:NSFileSize];
+        if (sizeNum)
+            fileSize = [sizeNum longLongValue];
+        NSString *contents = [NSString stringWithFormat:@"File emptied for submission. Original file was %lld bytes.\n", fileSize];
+        if (![contents writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&err])
+            NSLog(@"Failed to empty file %@: %@", path, err);
+    }
+    else {
+        NSLog(@"Failed to get file attributes for %@ while emptying: %@", path, err);
+    }
+    [fm release];
+}
+
+- (NSString *)emptyDocument:(NSString *)documentPath tmpPath:(NSString *)tmpPath
+{
+    NSArray *emptyDocumentExpressions = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_EMPTYDOCUMENTFILES];
+    if (emptyDocumentExpressions && [emptyDocumentExpressions count] > 0) {
+        NSError *err;
+        NSFileManager *fm = [[[NSFileManager alloc] init] autorelease];
+        NSString *tmpDocPath = [tmpPath stringByAppendingPathComponent:[documentPath lastPathComponent]];
+        if (![fm copyItemAtPath:documentPath toPath:tmpDocPath error:&err]) {
+            NSLog(@"Failed to copy document %@ to %@ for emptying", documentPath, tmpDocPath);
+            return documentPath;
+        }
+        NSArray *subPaths = [fm subpathsOfDirectoryAtPath:tmpDocPath error:&err];
+        if (!subPaths) {
+            NSLog(@"Failed to look inside document for emptying files: %@", err);
+            return documentPath;
+        }
+        for (NSString *subPath in subPaths) {
+            NSString *fullSubPath = [tmpDocPath stringByAppendingPathComponent:subPath];
+            // Make sure this is a regular file
+            NSDictionary *attrs = [fm attributesOfItemAtPath:fullSubPath error:&err];
+            if (attrs) {
+                NSString *fileType = [attrs objectForKey:NSFileType];
+                if (!fileType || ![fileType isEqualToString:NSFileTypeRegular])
+                    continue;
+            }
+            for (NSString *emptyRegEx in emptyDocumentExpressions) {
+                if (emptyRegEx) {
+                    NSRange rng = [subPath rangeOfString:emptyRegEx options:NSRegularExpressionSearch];
+                    if (rng.location != NSNotFound) {
+                        [self emptyFile:fullSubPath];
+                        break;
+                    }
+                }
+            }
+        }
+        return tmpDocPath;
+    }
+    return documentPath;
+}
+
 - (NSDictionary *)documentsToUpload
 {
     NSMutableDictionary *ret = [NSMutableDictionary dictionary];
@@ -152,16 +213,18 @@
                     break;
                 }
                 
+                path = [self emptyDocument:path tmpPath:tmpPath];
+                
                 // Zip up file
                 NSString *zipName = [[path lastPathComponent] stringByAppendingPathExtension:@"zip"];
                 NSString *zipPath = [tmpPath stringByAppendingPathComponent:zipName];
                 NSTask *compressor = [[NSTask alloc] init];
                 [compressor setLaunchPath:@"/usr/bin/zip"];
-                [compressor setArguments:[NSArray arrayWithObjects:@"-r9", zipPath, [[url path] lastPathComponent], nil]];
+                [compressor setArguments:[NSArray arrayWithObjects:@"-r9", zipPath, [path lastPathComponent], nil]];
                 [compressor setStandardError:[NSFileHandle fileHandleWithNullDevice]];
                 [compressor setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
                 [compressor setStandardOutput:[NSFileHandle fileHandleWithNullDevice]];
-                [compressor setCurrentDirectoryPath:[[url path] stringByDeletingLastPathComponent]];
+                [compressor setCurrentDirectoryPath:[path stringByDeletingLastPathComponent]];
                 @try {
                     [compressor launch];
                 }

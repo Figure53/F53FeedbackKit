@@ -51,6 +51,10 @@
 	<string>YES</string>
 	<key>FRFeedbackReporter.targetURL</key>
 	<string>http://localhost/F53FeedbackKit/submit.php?project=DocumentApp</string>
+	<key>FRFeedbackReporter.emptyDocumentFiles</key>
+	<array>
+		<string>^Media/.*</string>
+	</array>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
