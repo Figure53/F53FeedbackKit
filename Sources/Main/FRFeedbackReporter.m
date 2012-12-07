@@ -29,8 +29,7 @@
 
 #pragma mark Construction
 
-
-+ (FRFeedbackReporter *)sharedReporter
++ (FRFeedbackReporter *) sharedReporter
 {
     static FRFeedbackReporter *sharedReporter = nil;
 
@@ -70,7 +69,6 @@
 {
     delegate = pDelegate;
 }
-
 
 #pragma mark Reports
 
@@ -209,7 +207,7 @@
     return YES;
 }
 
-- (BOOL)reportSupportNeed
+- (BOOL) reportSupportNeed
 {
     FRFeedbackController *controller = [self feedbackController];
     
