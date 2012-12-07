@@ -228,6 +228,7 @@
             applicationName =[FRApplication applicationName];
         }
         
+        [[controller window] setTitle:FRLocalizedString(@"Contact Support", nil)];
         [controller setHeading:[NSString stringWithFormat:
                                 FRLocalizedString(@"Need help with %@?", nil),
                                 applicationName]];
