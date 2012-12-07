@@ -78,10 +78,8 @@
 
     @synchronized (controller) {
     
-        if ([controller isShown]) {
-            NSLog(@"Controller already shown");
+        if ([controller isShown])
             return NO;
-        }
         
         [controller reset];
 
@@ -127,10 +125,8 @@
 
         @synchronized (controller) {
         
-            if ([controller isShown]) {
-                NSLog(@"Controller already shown");
+            if ([controller isShown])
                 return NO;
-            }
 
             [controller reset];
 
@@ -170,10 +166,8 @@
 
     @synchronized (controller) {
 
-        if ([controller isShown]) {
-            NSLog(@"Controller already shown");
+        if ([controller isShown])
             return NO;
-        }
 
         [controller reset];
        
@@ -216,10 +210,8 @@
     
     @synchronized (controller) {
         
-        if ([controller isShown]) {
-            NSLog(@"Controller already shown");
+        if ([controller isShown])
             return NO;
-        }
         
         [controller reset];
         
