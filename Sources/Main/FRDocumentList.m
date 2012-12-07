@@ -253,14 +253,13 @@
                 }
                 NSString *encodedData = [fileData encodeBase64];
                 
-                NSString *rootfname = [[url path] lastPathComponent];
-                NSString *fname = rootfname;
+                NSString *fname = zipName;
                 unsigned int i = 1;
                 while ([ret objectForKey:fname]) {
-                    fname = [rootfname stringByAppendingFormat:@"-%u", i];
+                    fname = [zipName stringByAppendingFormat:@"-%u", i];
                     i++;
                 }
-                [ret setObject:encodedData forKey:zipName];
+                [ret setObject:encodedData forKey:fname];
                 if (![fm removeItemAtPath:tmpPath error:&err])
                     NSLog(@"Failed to remove temporary items, continuing anyway. Error: %@", err);
             }
