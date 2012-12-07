@@ -104,6 +104,7 @@
         [controller setDelegate:delegate];
 
         [controller showWindow:self];
+        [[controller window] center];
 
     }
 	
@@ -152,6 +153,7 @@
             [controller setDelegate:delegate];
 
             [controller showWindow:self];
+            [[controller window] center];
 
         }
         
@@ -201,6 +203,7 @@
         [controller setDelegate:delegate];
 
         [controller showWindow:self];
+        [[controller window] center];
 
     }
     
@@ -240,6 +243,7 @@
         [controller setDelegate:delegate];
         
         [controller showWindow:self];
+        [[controller window] center];
         
     }
 	
