@@ -43,6 +43,7 @@
     [super dealloc];
 }
 
+// Auto-select the most recent document. Was used whenever the report type was support, but then we changed our mind. Not used now.
 - (void)selectMostRecentDocument
 {
     if ([self docs] && [[self docs] count] > 0) {
