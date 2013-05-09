@@ -79,6 +79,8 @@
     id delegate;
     
     NSString *type;
+    NSArray *emailRequiredTypes;
+    NSArray *emailStronglySuggestedTypes;
 }
 
 #pragma mark Accessors

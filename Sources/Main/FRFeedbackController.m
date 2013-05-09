@@ -42,6 +42,8 @@
     if (self != nil) {
         detailsShown = YES;
         documentList = nil;
+        emailRequiredTypes = [[NSArray arrayWithObject:FR_SUPPORT] retain];
+        emailStronglySuggestedTypes = [[NSArray arrayWithObject:FR_FEEDBACK] retain];
     }
     return self;
 }
@@ -62,6 +64,8 @@
 {
     [documentList release];
     [type release];
+    [emailRequiredTypes release];
+    [emailStronglySuggestedTypes release];
 
     [tabConsole release];
     [tabCrash release];
@@ -348,6 +352,24 @@
     if (uploader != nil) {
         NSLog(@"Still uploading");
         return;
+    }
+    
+    // Check that email is present
+    if ([emailBox stringValue] == nil || [[emailBox stringValue] isEqualToString:@""]) {
+        for (NSString *aType in emailRequiredTypes) {
+            if ([aType isEqualToString:type]) {
+                [[NSAlert alertWithMessageText:@"Email required" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"You must enter an email address so that we can respond to you."] runModal];
+                return;
+            }
+        }
+        for (NSString *aType in emailStronglySuggestedTypes) {
+            if ([aType isEqualToString:type]) {
+                NSInteger buttonPressed = [[NSAlert alertWithMessageText:@"Email missing" defaultButton:@"OK" alternateButton:@"Continue anyway" otherButton:nil informativeTextWithFormat:@"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?"] runModal];
+                if (buttonPressed == NSAlertDefaultReturn)
+                    return;
+                break;
+            }
+        }
     }
 
     NSString *target = [[FRApplication feedbackURL] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
