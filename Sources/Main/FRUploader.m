@@ -74,11 +74,12 @@
     return [result autorelease];
 }
 
-- (NSData *)generateJSONData:(NSDictionary *)dict
+- (NSData *)generateJSONData:(NSDictionary *)dict forBoundary:(NSString*)formBoundary
 {
     NSError *err;
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionaryWithCapacity:[dict count]];
     NSArray *keys = [dict allKeys];
+    NSMutableData *result = [[[NSMutableData alloc] initWithCapacity:100] autorelease];
     
     for (NSUInteger i = 0; i < [keys count]; i++) {
         id value = [dict valueForKey:[keys objectAtIndex:i]];
@@ -97,34 +98,41 @@
     }
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:&err];
-    if (!jsonData)
+    if (!jsonData) {
         NSLog(@"Error creating JSON data: %@", err);
+        result = nil;
+    }
     else {
 #ifdef FR_JSON_SENT_AS_PARAM
-        NSMutableData *param = [[[@"payload=" dataUsingEncoding:NSUTF8StringEncoding] mutableCopy] autorelease];
-        [param appendData:jsonData];
-        jsonData = param;
+        NSString *param = @"payload";
+        [result appendData:[[NSString stringWithFormat:@"--%@\r\n", formBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [result appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+#endif
+        [result appendData:jsonData];
+#ifdef FR_JSON_SENT_AS_PARAM
+        [result appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [result appendData:[[NSString stringWithFormat:@"--%@--\r\n", formBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
 #endif
     }
-    return jsonData;
+    return result;
 }
 
 - (void) postAndNotify:(NSDictionary*)dict
 {
     NSData *formData;
 
-#ifdef FR_UPLOAD_FORM_DATA
     NSString *formBoundary = [[NSProcessInfo processInfo] globallyUniqueString];
+#ifdef FR_UPLOAD_FORM_DATA
     formData = [self generateFormData:dict forBoundary:formBoundary];
 #else
-    formData = [self generateJSONData:dict];
+    formData = [self generateJSONData:dict forBoundary:formBoundary];
 #endif
 
     NSLog(@"Posting %lu bytes to %@", (unsigned long)[formData length], target);
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:target]];
     
-#ifdef FR_UPLOAD_FORM_DATA
+#if defined(FR_UPLOAD_FORM_DATA) || defined(FR_JSON_SENT_AS_PARAM)
     NSString *boundaryString = [NSString stringWithFormat: @"multipart/form-data; boundary=%@", formBoundary];
     [request addValue: boundaryString forHTTPHeaderField: @"Content-Type"];
 #endif
