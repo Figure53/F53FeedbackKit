@@ -19,6 +19,9 @@
 // Uncomment the below line if you want to send form data instead of JSON
 //#define FR_UPLOAD_FORM_DATA
 
+// Comment out the below line if you want JSON data to not be a parameter
+#define FR_JSON_SENT_AS_PARAM
+
 @implementation FRUploader
 
 - (id) initWithTarget:(NSString*)pTarget delegate:(id<FRUploaderDelegate>)pDelegate
@@ -96,6 +99,13 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:&err];
     if (!jsonData)
         NSLog(@"Error creating JSON data: %@", err);
+    else {
+#ifdef FR_JSON_SENT_AS_PARAM
+        NSMutableData *param = [[[@"payload=" dataUsingEncoding:NSUTF8StringEncoding] mutableCopy] autorelease];
+        [param appendData:jsonData];
+        jsonData = param;
+#endif
+    }
     return jsonData;
 }
 
