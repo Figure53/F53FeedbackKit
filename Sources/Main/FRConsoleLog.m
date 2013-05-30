@@ -26,6 +26,7 @@
 
 #define FR_CONSOLELOG_TIME 0
 #define FR_CONSOLELOG_TEXT 1
+#define FR_CONSOLELOG_SENDER 2
 
 @implementation FRConsoleLog
 
@@ -87,16 +88,22 @@
                 if (msgText == NULL) {
                     continue;
                 }
+                
+                const char *msgSender = asl_get(msg, ASL_KEY_SENDER);
+                
+                if (msgSender == NULL) {
+                    msgSender = "";
+                }
 
                 // Ensure sufficient capacity to store this line in the local cache
                 consoleLinesProcessed++;
                 if (consoleLinesProcessed > rawConsoleLinesCapacity) {
-                    rawConsoleLinesCapacity *= 2;
+                    rawConsoleLinesCapacity *= 3;
                     rawConsoleLines = reallocf(rawConsoleLines, rawConsoleLinesCapacity * sizeof(char **));
                 }
 
                 // Add a new entry for this console line
-                char **rawLineContents = malloc(2 * sizeof(char *));
+                char **rawLineContents = malloc(3 * sizeof(char *));
 				
 				size_t length = strlen(msgTime) + 1;
                 rawLineContents[FR_CONSOLELOG_TIME] = malloc(length);
@@ -105,6 +112,10 @@
                 length = strlen(msgText) + 1;
 				rawLineContents[FR_CONSOLELOG_TEXT] = malloc(length);
                 strlcpy(rawLineContents[FR_CONSOLELOG_TEXT], msgText, length);
+                
+                length = strlen(msgSender) + 1;
+                rawLineContents[FR_CONSOLELOG_SENDER] = malloc(length);
+                strlcpy(rawLineContents[FR_CONSOLELOG_SENDER], msgSender, length);
 
                 rawConsoleLines[consoleLinesProcessed-1] = rawLineContents;
             }
@@ -116,7 +127,7 @@
                 for (NSInteger i = consoleLinesProcessed - 1; i >= 0; i--) {
                     char **line = rawConsoleLines[i];
                     NSDate *date = [NSDate dateWithTimeIntervalSince1970:atof(line[FR_CONSOLELOG_TIME])];
-                    [consoleLines addObject:[NSString stringWithFormat:@"%@: %s\n", [dateFormatter stringFromDate:date], line[FR_CONSOLELOG_TEXT]]];
+                    [consoleLines addObject:[NSString stringWithFormat:@"%@ %s: %s\n", [dateFormatter stringFromDate:date], line[FR_CONSOLELOG_SENDER], line[FR_CONSOLELOG_TEXT]]];
 
                     // If a maximum size has been provided, respect it and abort if necessary
                     if (maximumSize != nil) {
@@ -138,6 +149,7 @@
     // Free data stores
     [consoleLines release];
     for (NSUInteger i = 0; i < consoleLinesProcessed; i++) {
+        free(rawConsoleLines[i][FR_CONSOLELOG_SENDER]);
         free(rawConsoleLines[i][FR_CONSOLELOG_TEXT]);
         free(rawConsoleLines[i][FR_CONSOLELOG_TIME]);
         free(rawConsoleLines[i]);
