@@ -81,6 +81,8 @@
         if ([controller isShown])
             return NO;
         
+        [controller setType:FR_FEEDBACK];
+        
         [controller reset];
 
         NSString * applicationName = nil;
@@ -96,8 +98,6 @@
             applicationName]];
         
         [controller setSubheading:FRLocalizedString(@"Send feedback", nil)];
-
-        [controller setType:FR_FEEDBACK];
 
         [controller setDelegate:delegate];
 
@@ -128,6 +128,8 @@
             if ([controller isShown])
                 return NO;
 
+            [controller setType:FR_CRASH];
+            
             [controller reset];
 
             NSString * applicationName = nil;
@@ -144,8 +146,6 @@
             
             [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
             
-            [controller setType:FR_CRASH];
-
             [controller setDelegate:delegate];
 
             [controller showWindow:self];
@@ -169,6 +169,8 @@
         if ([controller isShown])
             return NO;
 
+        [controller setType:FR_EXCEPTION];
+        
         [controller reset];
        
         NSString * applicationName = nil;
@@ -192,8 +194,6 @@
                                     [exception reason],
                                     callStack ? callStack : @""]];
 
-        [controller setType:FR_EXCEPTION];
-
         [controller setDelegate:delegate];
 
         [controller showWindow:self];
@@ -213,6 +213,8 @@
         if ([controller isShown])
             return NO;
         
+        [controller setType:FR_SUPPORT];
+        
         [controller reset];
         
         NSString * applicationName = nil;
@@ -229,8 +231,6 @@
                                 applicationName]];
         
         [controller setSubheading:FRLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)];
-        
-        [controller setType:FR_SUPPORT];
         
         [controller setDelegate:delegate];
         

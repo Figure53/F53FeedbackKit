@@ -43,7 +43,7 @@
         detailsShown = YES;
         documentList = nil;
         emailRequiredTypes = [[NSArray arrayWithObject:FR_SUPPORT] retain];
-        emailStronglySuggestedTypes = [[NSArray arrayWithObject:FR_FEEDBACK] retain];
+        emailStronglySuggestedTypes = [[NSArray arrayWithObjects:FR_FEEDBACK, FR_CRASH, nil] retain];
     }
     return self;
 }
@@ -355,7 +355,7 @@
     }
     
     // Check that email is present
-    if ([emailBox stringValue] == nil || [[emailBox stringValue] isEqualToString:@""]) {
+    if ([emailBox stringValue] == nil || [[emailBox stringValue] isEqualToString:@""] || [[emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
         for (NSString *aType in emailRequiredTypes) {
             if ([aType isEqualToString:type]) {
                 [[NSAlert alertWithMessageText:@"Email required" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"You must enter an email address so that we can respond to you."] runModal];
@@ -694,6 +694,15 @@
         NSUInteger idx = (defaultSender && [defaultSender isEqualToString:@"firstEmail"]) ? 1 : 0;
         [emailBox selectItemAtIndex:idx];
     }
+    
+    if (([emailRequiredTypes containsObject:type] || [emailStronglySuggestedTypes containsObject:type]) &&
+        ([emailBox stringValue] == nil || [[emailBox stringValue] isEqualToString:@""] || [[emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)])) {
+        [emailLabel setTextColor:[NSColor redColor]];
+    }
+    else {
+        [emailLabel setTextColor:[NSColor blackColor]];
+    }
+
 
     [headingField setStringValue:@""];
     [messageView setString:@""];
