@@ -21,6 +21,8 @@
 
 - (void) testSimple
 {
+
+    NSLog(@"HELLO");
     FRCommand *cmd = [[FRCommand alloc] initWithPath:@"/bin/ls"];
     
     NSMutableString *err = [[NSMutableString alloc] init];
@@ -31,14 +33,14 @@
     
     int result = [cmd execute];
 
-    STAssertTrue(result == 0, @"Return code was %d", result);    
-    STAssertTrue([out length] > 0, @"Found no output on stdout");
-    STAssertTrue([err length] == 0, @"Found output on stderr");
+    XCTAssertTrue(result == 0, @"Return code was %d", result);    
+    XCTAssertTrue([out length] > 0, @"Found no output on stdout");
+    XCTAssertTrue([err length] == 0, @"Found output on stderr");
 
-    [err release], err = nil;
-    [out release], out = nil;
+    err = nil;
+    out = nil;
     
-    [cmd release], cmd = nil;
+    cmd = nil;
 }
 
 @end

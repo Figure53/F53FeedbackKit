@@ -36,12 +36,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_docs release];
-    [_selectionState release];
-    [super dealloc];
-}
 
 // Auto-select the most recent document. Was used whenever the report type was support, but then we changed our mind. Not used now.
 - (void)selectMostRecentDocument
@@ -68,7 +62,7 @@
     if (row < (NSInteger)[[self docs] count]) {
         NSURL *url = [[self docs] objectAtIndex:row];
         NSString *fname = [[url path] lastPathComponent];
-        NSButton *checkbox = [[[NSButton alloc] init] autorelease];
+        NSButton *checkbox = [[NSButton alloc] init];
         [checkbox setButtonType:NSSwitchButton];
         [checkbox setTitle:fname];
         [checkbox setTag:row];
@@ -149,7 +143,6 @@
     else {
         NSLog(@"Failed to get file attributes for %@ while emptying: %@", path, err);
     }
-    [fm release];
 }
 
 - (NSString *)emptyDocument:(NSString *)documentPath tmpPath:(NSString *)tmpPath
@@ -157,7 +150,7 @@
     NSArray *emptyDocumentExpressions = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_EMPTYDOCUMENTFILES];
     if (emptyDocumentExpressions && [emptyDocumentExpressions count] > 0) {
         NSError *err;
-        NSFileManager *fm = [[[NSFileManager alloc] init] autorelease];
+        NSFileManager *fm = [[NSFileManager alloc] init];
         NSString *tmpDocPath = [tmpPath stringByAppendingPathComponent:[documentPath lastPathComponent]];
         if (![fm copyItemAtPath:documentPath toPath:tmpDocPath error:&err]) {
             NSLog(@"Failed to copy document %@ to %@ for emptying", documentPath, tmpDocPath);
@@ -200,7 +193,7 @@
     dispatch_queue_t aQ = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(aQ, ^{
         NSError *err;
-        NSFileManager *fm = [[[NSFileManager alloc] init] autorelease];
+        NSFileManager *fm = [[NSFileManager alloc] init];
         for (NSURL *url in [self docs]) {
             if ([[[self selectionState] objectForKey:url] boolValue]) {
                 NSString *path = [url path];
@@ -231,7 +224,6 @@
                 }
                 @catch (NSException *e) {
                     NSLog(@"Failed to zip document: %@", e);
-                    [compressor release];
                     success = NO;
                     break;
                 }
@@ -239,11 +231,9 @@
                 int status = [compressor terminationStatus];
                 if (status != 0) {
                     NSLog(@"Failed to zip document with exit status: %d", status);
-                    [compressor release];
                     success = NO;
                     break;
                 }
-                [compressor release];
                 
                 // Get file data
                 NSData *fileData = [NSData dataWithContentsOfFile:zipPath options:0 error:&err];
@@ -274,7 +264,6 @@
         [NSThread sleepForTimeInterval:0.01];
     }
     [progWindow hide];
-    [progWindow release];
     if (!success)
         return nil;
     return ret;

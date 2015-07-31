@@ -80,10 +80,8 @@
     // execute returns -1 if command does not exist
 
     if([cmd execute] != 0) {
-        [cmd release];
         return nil;
     }
-    [cmd release];
     
     NSMutableString *result = [NSMutableString string];
 

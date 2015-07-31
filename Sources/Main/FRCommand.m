@@ -24,8 +24,8 @@
     self = [super init];
     if (self != nil) {
         task = [[NSTask alloc] init];
-        args = [[NSArray array] retain];
-        path = [inPath retain];
+        args = [NSArray array];
+        path = inPath;
         error = nil;
         output = nil;
         terminated = NO;
@@ -34,37 +34,21 @@
     return self;
 }
 
--(void)dealloc
-{
-    [task release];
-    [args release];
-    [path release];
-    [error release];
-    [output release];
-
-    [super dealloc];
-}
 
 
 
 - (void) setArgs:(NSArray*)pArgs
 {
-    [pArgs retain];
-    [args release];
     args = pArgs;
 }
 
 - (void) setError:(NSMutableString*)pError
 {
-    [pError retain];
-    [error release];
     error = pError;
 }
 
 - (void) setOutput:(NSMutableString*)pOutput
 {
-    [pOutput retain];
-    [output release];
     output = pOutput;
 }
 
@@ -87,7 +71,6 @@
             [string appendString:s];
             //NSLog(@"| %@", s);
 
-            [s release];
         }
     }
 
@@ -161,15 +144,13 @@
 
     [task launch];
 
-    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
     while(!terminated) {
-        if (![[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:100000]]) {
-            break;
+        @autoreleasepool {
+            if (![[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:100000]]) {
+                break;
+            }
         }
-        [pool drain];
-        pool = [[NSAutoreleasePool alloc] init];
     }
-    [pool drain];
 
     [self appendDataFrom:outFile to:output];
     [self appendDataFrom:errFile to:error];

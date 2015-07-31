@@ -36,12 +36,6 @@
     return self;
 }
 
-- (void) dealloc
-{
-    [responseData release];
-    
-    [super dealloc];
-}
 
 - (NSData *) generateFormData: (NSDictionary *)dict forBoundary:(NSString*)formBoundary
 {
@@ -71,7 +65,7 @@
 
     [result appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
-    return [result autorelease];
+    return result;
 }
 
 - (NSData *)generateJSONData:(NSDictionary *)dict forBoundary:(NSString*)formBoundary
@@ -79,7 +73,7 @@
     NSError *err;
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionaryWithCapacity:[dict count]];
     NSArray *keys = [dict allKeys];
-    NSMutableData *result = [[[NSMutableData alloc] initWithCapacity:100] autorelease];
+    NSMutableData *result = [[NSMutableData alloc] initWithCapacity:100];
     
     for (NSUInteger i = 0; i < [keys count]; i++) {
         id value = [dict valueForKey:[keys objectAtIndex:i]];
@@ -174,8 +168,7 @@
 
         [delegate performSelector:@selector(uploaderFailed:withError:) withObject:self withObject:error];
     }
-        
-    [connection autorelease];
+
 }
 
 - (void) connectionDidFinishLoading: (NSURLConnection *)pConnection
@@ -185,21 +178,20 @@
     if ([delegate respondsToSelector: @selector(uploaderFinished:)]) {
         [delegate performSelector:@selector(uploaderFinished:) withObject:self];
     }
-    
-    [connection autorelease];
+
 }
 
 
 - (void) cancel
 {
     [connection cancel];
-    [connection autorelease], connection = nil;
+    connection = nil;
 }
 
 - (NSString*) response
 {
-    return [[[NSString alloc] initWithData:responseData
-                                  encoding:NSUTF8StringEncoding] autorelease];
+    return [[NSString alloc] initWithData:responseData
+                                  encoding:NSUTF8StringEncoding];
 }
 
 @end

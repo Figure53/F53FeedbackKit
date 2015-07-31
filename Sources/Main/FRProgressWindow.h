@@ -15,9 +15,9 @@
     NSProgressIndicator   *_progressIndicator;
     NSModalSession        _modalSession;
 }
-@property(nonatomic, readwrite, retain) NSWindow *window;
-@property(nonatomic, readwrite, retain) NSTextField *textField;
-@property(nonatomic, readwrite, retain) NSProgressIndicator *progressIndicator;
+@property(nonatomic, readwrite, strong) NSWindow *window;
+@property(nonatomic, readwrite, strong) NSTextField *textField;
+@property(nonatomic, readwrite, strong) NSProgressIndicator *progressIndicator;
 @property(nonatomic, readwrite) NSModalSession modalSession;
 
 - (id)initWithText:(NSString *)text;

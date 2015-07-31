@@ -33,14 +33,12 @@
         [tf setBordered:NO];
         [tf setBackgroundColor:[NSColor clearColor]];
         [self setTextField:tf];
-        [tf release];
         
         NSProgressIndicator *progIndic = [[NSProgressIndicator alloc] initWithFrame:NSMakeRect(windowWidth / 8.0, windowHeight - ((margin + textHeight) * (CGFloat)2.0), windowWidth * 3.0 / 4.0, textHeight)];
         [progIndic setStyle:NSProgressIndicatorBarStyle];
         [progIndic setUsesThreadedAnimation:YES];
         [progIndic setIndeterminate:YES];
         [self setProgressIndicator:progIndic];
-        [progIndic release];
         
         NSWindow *window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0.0, 0.0, windowWidth, windowHeight) styleMask:NSTitledWindowMask backing:NSBackingStoreBuffered defer:YES];
         [[window contentView] addSubview:[self textField]];
@@ -55,13 +53,6 @@
     return [self initWithText:@""];
 }
 
-- (void)dealloc
-{
-    [_window release];
-    [_textField release];
-    [_progressIndicator release];
-    [super dealloc];
-}
 
 - (void)show
 {

@@ -55,7 +55,7 @@
 		 paddingBytes > 0 ? '=' : base64Chars[ threeBytes       & 0x3f]];
 	}
 	
-	return [result autorelease];
+	return result;
 }
 
 @end
@@ -89,7 +89,7 @@
 		 paddingBytes > 0 ? '=' : base64Chars[ threeBytes       & 0x3f]];
 	}
 	
-	return [result autorelease];
+	return result;
 }
 
 

@@ -12,12 +12,12 @@
 {
     NSMutableArray          *_docs;
     NSMutableDictionary     *_selectionState;
-    NSTableView             *_tableView;
+    NSTableView             *__strong _tableView;
 }
 - (void)selectMostRecentDocument;
 - (void)setupOtherButton:(NSButton *)otherButton;
 - (NSDictionary *)documentsToUpload; // key = filename, value = NSString of base64 encoded file data
-@property(readwrite, retain, nonatomic) NSMutableArray *docs;
-@property(readwrite, retain, nonatomic) NSMutableDictionary *selectionState;
-@property(readwrite, assign, nonatomic) NSTableView *tableView;
+@property(readwrite, strong, nonatomic) NSMutableArray *docs;
+@property(readwrite, strong, nonatomic) NSMutableDictionary *selectionState;
+@property(readwrite, strong, nonatomic) NSTableView *tableView;
 @end
