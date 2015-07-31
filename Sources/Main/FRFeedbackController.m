@@ -26,12 +26,8 @@
 
 #import "NSMutableDictionary+Additions.h"
 
-#import <AddressBook/ABAddressBook.h>
-#import <AddressBook/ABPerson.h>
-#import <AddressBook/ABMultiValue.h>
-#import <SystemConfiguration/SCNetwork.h>
-#import <SystemConfiguration/SCNetworkReachability.h>
-
+#import <AddressBook/AddressBook.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 
 @implementation FRFeedbackController
 
