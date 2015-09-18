@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1711301BACC11D0094EF89 /* FRExceptionReportingApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */; settings = {ASSET_TAGS = (); }; };
+		3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
+		3D1711331BACC18B0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
 		3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A0E61BAC979000789333 /* F53FeedbackKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A0EE1BAC979000789333 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3D77A1051BAC97BC00789333 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,12 +37,7 @@
 		3D77A1681BAC987700789333 /* FRExceptionReportingApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A1691BAC987700789333 /* FRExceptionReportingApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A16C1BAC987700789333 /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; };
-		3D77A16D1BAC987700789333 /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; };
 		3D77A16E1BAC987700789333 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
-		3D77A16F1BAC987700789333 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
-		3D77A1711BAC987700789333 /* FRFeedbackController_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12F1BAC987700789333 /* FRFeedbackController_iOS.h */; };
-		3D77A1721BAC987700789333 /* FRFeedbackController_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1301BAC987700789333 /* FRFeedbackController_iOS.m */; };
-		3D77A1731BAC987700789333 /* FRFeedbackController_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1301BAC987700789333 /* FRFeedbackController_iOS.m */; };
 		3D77A1741BAC987700789333 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A1751BAC987700789333 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A1781BAC987700789333 /* FRProgressWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1331BAC987700789333 /* FRProgressWindow.h */; };
@@ -130,12 +128,10 @@
 		3D77A1281BAC987700789333 /* FRCrashLogFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRCrashLogFinder.m; sourceTree = "<group>"; };
 		3D77A1291BAC987700789333 /* FRDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDocumentList.h; sourceTree = "<group>"; };
 		3D77A12A1BAC987700789333 /* FRDocumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDocumentList.m; sourceTree = "<group>"; };
-		3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRExceptionReportingApplication.h; sourceTree = "<group>"; };
-		3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRExceptionReportingApplication.m; sourceTree = "<group>"; };
+		3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRExceptionReportingApplication.h; path = ../Sources/Main/FRExceptionReportingApplication.h; sourceTree = "<group>"; };
+		3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRExceptionReportingApplication.m; path = ../Sources/Main/FRExceptionReportingApplication.m; sourceTree = "<group>"; };
 		3D77A12D1BAC987700789333 /* FRFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFeedbackController.h; sourceTree = "<group>"; };
 		3D77A12E1BAC987700789333 /* FRFeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFeedbackController.m; sourceTree = "<group>"; };
-		3D77A12F1BAC987700789333 /* FRFeedbackController_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFeedbackController_iOS.h; sourceTree = "<group>"; };
-		3D77A1301BAC987700789333 /* FRFeedbackController_iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFeedbackController_iOS.m; sourceTree = "<group>"; };
 		3D77A1311BAC987700789333 /* FRFeedbackReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFeedbackReporter.h; sourceTree = "<group>"; };
 		3D77A1321BAC987700789333 /* FRFeedbackReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFeedbackReporter.m; sourceTree = "<group>"; };
 		3D77A1331BAC987700789333 /* FRProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRProgressWindow.h; sourceTree = "<group>"; };
@@ -238,6 +234,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1711311BACC1310094EF89 /* Exported */ = {
+			isa = PBXGroup;
+			children = (
+				3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */,
+				3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */,
+			);
+			name = Exported;
+			sourceTree = "<group>";
+		};
 		3D77A0D91BAC979000789333 = {
 			isa = PBXGroup;
 			children = (
@@ -325,8 +330,6 @@
 				3D77A1361BAC987700789333 /* FRSystemProfile.m */,
 				3D77A12D1BAC987700789333 /* FRFeedbackController.h */,
 				3D77A12E1BAC987700789333 /* FRFeedbackController.m */,
-				3D77A12F1BAC987700789333 /* FRFeedbackController_iOS.h */,
-				3D77A1301BAC987700789333 /* FRFeedbackController_iOS.m */,
 				3D77A1371BAC987700789333 /* FRUploader.h */,
 				3D77A1381BAC987700789333 /* FRUploader.m */,
 				3D77A1291BAC987700789333 /* FRDocumentList.h */,
@@ -347,6 +350,7 @@
 				3D77A1BE1BAC9ADD00789333 /* Assets.xcassets */,
 				3D77A1CB1BAC9CE400789333 /* App.xib */,
 				3D77A1C31BAC9ADD00789333 /* Info.plist */,
+				3D1711311BACC1310094EF89 /* Exported */,
 				3D77A1BB1BAC9ADD00789333 /* Supporting Files */,
 			);
 			path = App;
@@ -412,8 +416,6 @@
 		3DBACD071BACA9D100FEAFCE /* Exported */ = {
 			isa = PBXGroup;
 			children = (
-				3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */,
-				3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */,
 				3D77A1311BAC987700789333 /* FRFeedbackReporter.h */,
 				3D77A1321BAC987700789333 /* FRFeedbackReporter.m */,
 			);
@@ -452,7 +454,6 @@
 			files = (
 				3D77A1651BAC987700789333 /* FRDocumentList.h in Headers */,
 				3D77A1531BAC987700789333 /* FRApplication.h in Headers */,
-				3D77A1711BAC987700789333 /* FRFeedbackController_iOS.h in Headers */,
 				3D77A1571BAC987700789333 /* FRCommand.h in Headers */,
 				3D77A1611BAC987700789333 /* FRCrashLogFinder.h in Headers */,
 				3D77A18B1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */,
@@ -463,7 +464,6 @@
 				3D77A18F1BAC987700789333 /* NSString+Base64.h in Headers */,
 				3DBACD0D1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch in Headers */,
 				3D77A15F1BAC987700789333 /* FRConstants.h in Headers */,
-				3D77A16D1BAC987700789333 /* FRFeedbackController.h in Headers */,
 				3D77A1051BAC97BC00789333 /* F53FeedbackKit_iOS.h in Headers */,
 				3D77A1751BAC987700789333 /* FRFeedbackReporter.h in Headers */,
 				3D77A1791BAC987700789333 /* FRProgressWindow.h in Headers */,
@@ -697,7 +697,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77A1721BAC987700789333 /* FRFeedbackController_iOS.m in Sources */,
 				3D77A1541BAC987700789333 /* FRApplication.m in Sources */,
 				3D77A17A1BAC987700789333 /* FRProgressWindow.m in Sources */,
 				3D77A17E1BAC987700789333 /* FRSystemProfile.m in Sources */,
@@ -708,6 +707,7 @@
 				3D77A1661BAC987700789333 /* FRDocumentList.m in Sources */,
 				3D77A1821BAC987700789333 /* FRUploader.m in Sources */,
 				3D77A1621BAC987700789333 /* FRCrashLogFinder.m in Sources */,
+				3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */,
 				3D77A1581BAC987700789333 /* FRCommand.m in Sources */,
 				3D77A1881BAC987700789333 /* NSException+Callstack.m in Sources */,
 			);
@@ -728,17 +728,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77A1731BAC987700789333 /* FRFeedbackController_iOS.m in Sources */,
 				3D77A1551BAC987700789333 /* FRApplication.m in Sources */,
 				3D77A17B1BAC987700789333 /* FRProgressWindow.m in Sources */,
 				3D77A17F1BAC987700789333 /* FRSystemProfile.m in Sources */,
-				3D77A16F1BAC987700789333 /* FRFeedbackController.m in Sources */,
 				3D77A1911BAC987700789333 /* NSString+Base64.m in Sources */,
 				3D77A18D1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */,
 				3D77A15D1BAC987700789333 /* FRConsoleLog.m in Sources */,
 				3D77A1671BAC987700789333 /* FRDocumentList.m in Sources */,
 				3D77A1831BAC987700789333 /* FRUploader.m in Sources */,
 				3D77A1631BAC987700789333 /* FRCrashLogFinder.m in Sources */,
+				3D1711331BACC18B0094EF89 /* FRFeedbackReporter.m in Sources */,
 				3D77A1591BAC987700789333 /* FRCommand.m in Sources */,
 				3D77A1891BAC987700789333 /* NSException+Callstack.m in Sources */,
 			);
@@ -760,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D77A1BD1BAC9ADD00789333 /* main.m in Sources */,
+				3D1711301BACC11D0094EF89 /* FRExceptionReportingApplication.m in Sources */,
 				3D77A1BA1BAC9ADD00789333 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
