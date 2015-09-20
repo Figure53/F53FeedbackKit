@@ -21,17 +21,17 @@
 @interface FRUploader : NSObject {
 
 @private
-    NSString *target;
-    id<FRUploaderDelegate> delegate;
+    NSString *_target;
+    id<FRUploaderDelegate> _delegate;
 
-    NSURLConnection *connection;
-    NSMutableData *responseData;
+    NSURLSessionUploadTask *_uploadTask;
+    NSMutableData *_responseData;
 }
 
-- (id) initWithTarget:(NSString*)target delegate:(id<FRUploaderDelegate>)delegate;
-- (void) postAndNotify:(NSDictionary*)dict;
+- (id) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate;
+- (void) postAndNotify:(NSDictionary *)dict;
 - (void) cancel;
-- (NSString*) response;
+- (NSString *) response;
 
 @end
 
@@ -39,8 +39,8 @@
 @protocol FRUploaderDelegate <NSObject>
 
 @optional
-- (void) uploaderStarted:(FRUploader*)uploader;
-- (void) uploaderFailed:(FRUploader*)uploader withError:(NSError*)error;
-- (void) uploaderFinished:(FRUploader*)uploader;
+- (void) uploaderStarted:(FRUploader *)uploader;
+- (void) uploaderFailed:(FRUploader *)uploader withError:(NSError *)error;
+- (void) uploaderFinished:(FRUploader *)uploader;
 
 @end

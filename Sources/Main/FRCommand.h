@@ -20,24 +20,24 @@
 @interface FRCommand : NSObject {
 
 @private
-    NSTask *task;
+    NSTask *_task;
 
-    NSString *path;
-    NSArray *args;
+    NSString *_path;
+    NSArray *_args;
     
-    NSMutableString *output;
-    NSMutableString *error;
+    NSMutableString *_output;
+    NSMutableString *_error;
     
-    BOOL terminated;
+    BOOL _terminated;
 }
 
 
-- (id) initWithPath:(NSString*)inPath;
+- (id) initWithPath:(NSString *)path;
 
-- (void) setArgs:(NSArray*)args;
+- (void) setArgs:(NSArray *)args;
 
-- (void) setError:(NSMutableString*)error;
-- (void) setOutput:(NSMutableString*)output;
+- (void) setError:(NSMutableString *)error;
+- (void) setOutput:(NSMutableString *)output;
 
 - (int) execute;
 

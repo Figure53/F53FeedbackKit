@@ -19,16 +19,16 @@
 
 @implementation FRCommand
 
-- (id) initWithPath:(NSString*)inPath
+- (id) initWithPath:(NSString *)path
 {
     self = [super init];
     if (self != nil) {
-        task = [[NSTask alloc] init];
-        args = [NSArray array];
-        path = inPath;
-        error = nil;
-        output = nil;
-        terminated = NO;
+        _task = [[NSTask alloc] init];
+        _args = [NSArray array];
+        _path = path;
+        _error = nil;
+        _output = nil;
+        _terminated = NO;
     }
     
     return self;
@@ -37,23 +37,23 @@
 
 
 
-- (void) setArgs:(NSArray*)pArgs
+- (void) setArgs:(NSArray *)args
 {
-    args = pArgs;
+    _args = args;
 }
 
-- (void) setError:(NSMutableString*)pError
+- (void) setError:(NSMutableString *)error
 {
-    error = pError;
+    _error = error;
 }
 
-- (void) setOutput:(NSMutableString*)pOutput
+- (void) setOutput:(NSMutableString *)output
 {
-    output = pOutput;
+    _output = output;
 }
 
 
--(void) appendDataFrom:(NSFileHandle*)fileHandle to:(NSMutableString*)string
+- (void) appendDataFrom:(NSFileHandle *)fileHandle to:(NSMutableString *)string
 {
     NSData *data = [fileHandle availableData];
 
@@ -77,49 +77,49 @@
     [fileHandle waitForDataInBackgroundAndNotify];
 }
 
--(void) outData: (NSNotification *) notification
+- (void) outData:(NSNotification *)notification
 {
-    NSFileHandle *fileHandle = (NSFileHandle*) [notification object];
+    NSFileHandle *fileHandle = (NSFileHandle *)[notification object];
 
-    [self appendDataFrom:fileHandle to:output];
+    [self appendDataFrom:fileHandle to:_output];
 
     [fileHandle waitForDataInBackgroundAndNotify];
 }
 
--(void) errData: (NSNotification *) notification
+- (void) errData:(NSNotification *)notification
 {
-    NSFileHandle *fileHandle = (NSFileHandle*) [notification object];
+    NSFileHandle *fileHandle = (NSFileHandle *)[notification object];
 
-    [self appendDataFrom:fileHandle to:output];
+    [self appendDataFrom:fileHandle to:_output];
 
     [fileHandle waitForDataInBackgroundAndNotify];
 }
 
 
-- (void) terminated: (NSNotification *)notification
+- (void) terminated:(NSNotification *)notification
 {
     // NSLog(@"Task terminated");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    terminated = YES;
+    _terminated = YES;
 }
 
 - (int) execute
 {
-    if (![[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
+    if (![[NSFileManager defaultManager] isExecutableFileAtPath:_path]) {
         // executable not found
         return -1;
     }
 
-    [task setLaunchPath:path];
-    [task setArguments:args];
+    [_task setLaunchPath:_path];
+    [_task setArguments:_args];
 
     NSPipe *outPipe = [NSPipe pipe];
     NSPipe *errPipe = [NSPipe pipe];
 
-    [task setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
-    [task setStandardOutput:outPipe];
-    [task setStandardError:errPipe];
+    [_task setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
+    [_task setStandardOutput:outPipe];
+    [_task setStandardError:errPipe];
 
     NSFileHandle *outFile = [outPipe fileHandleForReading];
     NSFileHandle *errFile = [errPipe fileHandleForReading]; 
@@ -137,14 +137,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(terminated:)
                                                  name:NSTaskDidTerminateNotification
-                                               object:task];
+                                               object:_task];
 
     [outFile waitForDataInBackgroundAndNotify];
     [errFile waitForDataInBackgroundAndNotify];
 
-    [task launch];
+    [_task launch];
 
-    while(!terminated) {
+    while(!_terminated) {
         @autoreleasepool {
             if (![[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:100000]]) {
                 break;
@@ -152,10 +152,10 @@
         }
     }
 
-    [self appendDataFrom:outFile to:output];
-    [self appendDataFrom:errFile to:error];
+    [self appendDataFrom:outFile to:_output];
+    [self appendDataFrom:errFile to:_error];
 
-    int result = [task terminationStatus];
+    int result = [_task terminationStatus];
 
     return result;
 }

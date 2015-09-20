@@ -19,6 +19,6 @@
 
 @interface FRCrashLogFinder : NSObject
 
-+ (NSArray*) findCrashLogsSince:(NSDate*)date;
++ (NSArray *) findCrashLogsSince:(NSDate *)date;
 
 @end

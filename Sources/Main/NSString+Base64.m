@@ -38,7 +38,7 @@
 	int paddingBytes = 0;
     const unsigned char *bytes = [self bytes];
 	
-	for (i = 0; i < len; i+=3)
+	for ( i = 0; i < len; i += 3 )
 	{
 		UInt32 threeBytes = bytes[i] * 0x10000;
         
@@ -72,15 +72,19 @@
 	NSUInteger len = [self length];
 	int paddingBytes = 0;
 	
-	for (i = 0; i < len; i+=3)
+	for ( i = 0; i < len; i += 3 )
 	{
 		UInt32 threeBytes = [self characterAtIndex:i] * 0x10000;
 
-		if (i < len - 1) threeBytes += [self characterAtIndex:i+1] * 0x100;
-		else paddingBytes++;
+		if ( i < len - 1 )
+            threeBytes += [self characterAtIndex:i+1] * 0x100;
+		else
+            paddingBytes++;
 		
-		if (i < len - 2) threeBytes += [self characterAtIndex:i+2];
-		else paddingBytes++;
+		if ( i < len - 2 )
+            threeBytes += [self characterAtIndex:i+2];
+		else
+            paddingBytes++;
 		
 		[result appendFormat:@"%c%c%c%c",
 		 base64Chars[(threeBytes >> 18) & 0x3f],

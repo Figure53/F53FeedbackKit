@@ -30,7 +30,7 @@
 
 @implementation FRConsoleLog
 
-+ (NSString*) logSince:(NSDate*)since maxSize:(NSNumber*)maximumSize
++ (NSString *) logSince:(NSDate *)since maxSize:(NSNumber *)maximumSize
 {
     NSUInteger consoleOutputLength = 0;
     NSUInteger rawConsoleLinesCapacity = 100;

@@ -19,6 +19,6 @@
 
 @interface NSMutableDictionary (Additions)
 
-- (void) setValidString: (NSString*) string forKey: (NSString*) key;
+- (void) setValidString:(NSString *)string forKey:(NSString *)key;
 
 @end

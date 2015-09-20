@@ -19,7 +19,7 @@
 
 @implementation FRCrashLogFinder
 
-+ (BOOL)file:(NSString*)path isNewerThan:(NSDate*)date
++ (BOOL) file:(NSString *)path isNewerThan:(NSDate *)date
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
@@ -31,8 +31,8 @@
         return YES;
     }
 
-    NSError* error = nil;
-    NSDate* fileDate = [[fileManager attributesOfItemAtPath:path error:&error] fileModificationDate];
+    NSError *error = nil;
+    NSDate *fileDate = [[fileManager attributesOfItemAtPath:path error:&error] fileModificationDate];
     if (!fileDate) {
         NSLog(@"Error while fetching file attributes: %@", [error localizedDescription]);
     }
@@ -44,7 +44,7 @@
     return YES;
 }
 
-+ (NSArray*) findCrashLogsSince:(NSDate*)date
++ (NSArray *) findCrashLogsSince:(NSDate *)date
 {
     NSMutableArray *files = [NSMutableArray array];
 
@@ -54,12 +54,12 @@
 
     NSUInteger i = [libraryDirectories count];
     while(i--) {
-        NSString* libraryDirectory = [libraryDirectories objectAtIndex:i];
+        NSString *libraryDirectory = [libraryDirectories objectAtIndex:i];
 
         NSDirectoryEnumerator *enumerator = nil;
         NSString *file = nil;
         
-        NSString* logDir = @"Logs/CrashReporter/";
+        NSString *logDir = @"Logs/CrashReporter/";
         logDir = [[libraryDirectory stringByAppendingPathComponent:logDir] stringByExpandingTildeInPath];
 
         // NSLog(@"Searching for crash files at %@", logDir2);
@@ -78,7 +78,7 @@
 
                     // NSLog(@"Checking crash file %@", file);
                     
-                    NSString* expectedPrefix = [[FRApplication applicationName] stringByAppendingString:@"_"];
+                    NSString *expectedPrefix = [[FRApplication applicationName] stringByAppendingString:@"_"];
                     if ([[file pathExtension] isEqualToString:@"crash"] && [[file stringByDeletingPathExtension] hasPrefix:expectedPrefix]) {
 
                         file = [[crashDir stringByAppendingPathComponent:file] stringByExpandingTildeInPath];
@@ -94,7 +94,7 @@
             }
         }
 
-        NSString* logDir3 = [NSString stringWithFormat: @"Logs/HangReporter/%@/", [FRApplication applicationName]];
+        NSString *logDir3 = [NSString stringWithFormat:@"Logs/HangReporter/%@/", [FRApplication applicationName]];
         logDir3 = [[libraryDirectory stringByAppendingPathComponent:logDir3] stringByExpandingTildeInPath];
 
         // NSLog(@"Searching for hang files at %@", logDir3);

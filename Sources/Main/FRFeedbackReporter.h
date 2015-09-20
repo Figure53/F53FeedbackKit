@@ -17,26 +17,22 @@
 #import <Cocoa/Cocoa.h>
 
 @protocol FRFeedbackReporterDelegate <NSObject>
+
 @optional
-- (NSDictionary*) customParametersForFeedbackReport;
-- (NSMutableDictionary*) anonymizePreferencesForFeedbackReport:(NSMutableDictionary *)preferences;
+- (NSDictionary *) customParametersForFeedbackReport;
+- (NSMutableDictionary *) anonymizePreferencesForFeedbackReport:(NSMutableDictionary *)preferences;
 - (NSString *) targetUrlForFeedbackReport;
 - (NSString *) feedbackDisplayName;
+
 @end
 
-@interface FRFeedbackReporter : NSObject {
 
-    @private
-        id feedbackController;
-        id<FRFeedbackReporterDelegate> delegate;
-}
+@interface FRFeedbackReporter : NSObject
+
+@property (nonatomic, weak)     id<FRFeedbackReporterDelegate> delegate;
 
 // Creates and returns the singleton FRFeedbackReporter. Does not perform any checks or other real work.
 + (FRFeedbackReporter *)sharedReporter;
-
-// Gets/sets the delegate.
-- (id<FRFeedbackReporterDelegate>) delegate;
-- (void) setDelegate:(id<FRFeedbackReporterDelegate>) delegate;
 
 // Displays the feedback user interface allowing the user to provide general feedback. Returns YES if it was able to display the UI, NO otherwise.
 - (BOOL) reportFeedback;

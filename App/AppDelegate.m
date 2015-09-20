@@ -19,12 +19,13 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+
 @end
 
 
 @implementation AppDelegate
 
--(void)applicationDidFinishLaunching:(NSNotification*)aNotification
+- (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [[FRFeedbackReporter sharedReporter] setDelegate:self];
     
@@ -32,7 +33,7 @@
     [[FRFeedbackReporter sharedReporter] reportIfCrash];
 }
 
-- (NSDictionary*) customParametersForFeedbackReport
+- (NSDictionary *) customParametersForFeedbackReport
 {
     NSLog(@"adding custom parameters");
     
@@ -56,8 +57,8 @@
 - (NSString *)targetUrlForFeedbackReport
 {
     NSString *targetUrlFormat = @"http://myserver.com/submit.php?project=%@&version=%@";
-    NSString *project = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleExecutable"];
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleVersion"];
+    NSString *project = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleExecutable"];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
     return [NSString stringWithFormat:targetUrlFormat, project, version];
 }*/
 

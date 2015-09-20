@@ -23,7 +23,7 @@
 
 - (void) reportException:(NSException *)x
 {
-    [super reportException: x];
+    [super reportException:x];
     
     @try {
         if (!pthread_main_np()) {

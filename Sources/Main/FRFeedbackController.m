@@ -26,21 +26,30 @@
 
 #import "NSMutableDictionary+Additions.h"
 
-#import <AddressBook/AddressBook.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+
+
+@interface FRFeedbackController ()
+
+@property (nonatomic, strong)       FRUploader *uploader;
+@property (nonatomic, strong)       NSArray *emailRequiredTypes;
+@property (nonatomic, strong)       NSArray *emailStronglySuggestedTypes;
+
+
+@end
 
 @implementation FRFeedbackController
 
 #pragma mark Construction
 
-- (id) init
+- (instancetype) init
 {
     self = [super initWithWindowNibName:@"FeedbackReporter"];
     if (self != nil) {
         detailsShown = YES;
         documentList = nil;
-        emailRequiredTypes = [NSArray arrayWithObject:FR_SUPPORT];
-        emailStronglySuggestedTypes = [NSArray arrayWithObjects:FR_FEEDBACK, FR_CRASH, nil];
+        self.emailRequiredTypes = [NSArray arrayWithObject:FR_SUPPORT];
+        self.emailStronglySuggestedTypes = [NSArray arrayWithObjects:FR_FEEDBACK, FR_CRASH, nil];
     }
     return self;
 }
@@ -55,17 +64,7 @@
 
 #pragma mark Accessors
 
-- (id) delegate
-{
-    return delegate;
-}
-
-- (void) setDelegate:(id) pDelegate
-{
-    delegate = pDelegate;
-}
-
-- (void) setHeading:(NSString*)message
+- (void) setHeading:(NSString *)message
 {
     [headingField setStringValue:message];
 }
@@ -75,22 +74,16 @@
     [subheadingField setStringValue:informativeText];
 }
 
-- (void) setMessage:(NSString*)message
+- (void) setMessage:(NSString *)message
 {
     [messageView setString:message];
 }
 
-- (void) setException:(NSString*)exception
+- (void) setException:(NSString *)exception
 {
     [exceptionView setString:exception];
 }
 
-- (void) setType:(NSString*)theType
-{
-    if (theType != type) {
-        type = theType;
-    }
-}
 
 #pragma mark information gathering
 
@@ -112,18 +105,18 @@
 }
 
 
-- (NSArray*) systemProfile
+- (NSArray *) systemProfile
 {
     static NSArray *systemProfile = nil;
-
+    
     if (systemProfile == nil) {
         systemProfile = [FRSystemProfile discover];
     }
-
+    
     return systemProfile;
 }
 
-- (NSString*) systemProfileAsString
+- (NSString *) systemProfileAsString
 {
     NSMutableString *string = [NSMutableString string];
     NSArray *dicts = [self systemProfile];

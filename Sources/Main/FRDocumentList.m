@@ -13,10 +13,6 @@
 
 @implementation FRDocumentList
 
-@synthesize docs = _docs;
-@synthesize selectionState = _selectionState;
-@synthesize tableView = _tableView;
-
 - (id)init
 {
     self = [super init];

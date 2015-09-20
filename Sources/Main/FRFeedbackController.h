@@ -23,12 +23,6 @@
 #define FR_CRASH     @"crash"
 #define FR_SUPPORT   @"support"
 
-@interface FRFeedbackController : NSWindowController 
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1060 // on lines like this to not confuse IB
-<FRUploaderDelegate, NSWindowDelegate>
-#else
-<FRUploaderDelegate>
-#endif
 {
 @private
     IBOutlet NSTextField *headingField;
@@ -36,6 +30,7 @@
 
     IBOutlet NSTextField *messageLabel;
     IBOutlet NSTextView *messageView;
+@interface FRFeedbackController : NSWindowController <FRUploaderDelegate, NSWindowDelegate>
 
     IBOutlet NSTextField *emailLabel;
     IBOutlet NSComboBox *emailBox;
@@ -72,27 +67,20 @@
     IBOutlet NSButton *sendButton;
 		
     
-    FRUploader *uploader;
     
     FRDocumentList *documentList;
     
-    id delegate;
-    
-    NSString *type;
-    NSArray *emailRequiredTypes;
-    NSArray *emailStronglySuggestedTypes;
 }
+@property (nonatomic, weak)     id<FRFeedbackReporterDelegate> delegate;
+@property (nonatomic, strong)   NSString *type;
 
 #pragma mark Accessors
 
-- (id) delegate;
-- (void) setDelegate:(id) delegate;
 
-- (void) setHeading:(NSString*)message;
+- (void) setHeading:(NSString *)message;
 - (void) setSubheading:(NSString *)informativeText;
-- (void) setMessage:(NSString*)message;
-- (void) setException:(NSString*)exception;
-- (void) setType:(NSString*)type;
+- (void) setMessage:(NSString *)message;
+- (void) setException:(NSString *)exception;
 
 #pragma mark UI
 
