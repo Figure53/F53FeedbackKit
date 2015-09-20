@@ -17,14 +17,14 @@
 {
     self = [super init];
     if (self) {
-        _docs = nil;
+        _docs = [NSMutableArray array];
         _selectionState = nil;
         NSArray *docs = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
         if (docs && [docs count] > 0) {
-            [self setDocs:[NSMutableArray arrayWithArray:docs]];
+            [_docs addObjectsFromArray:docs];
             NSMutableDictionary *docDict = [NSMutableDictionary dictionaryWithCapacity:[docs count]];
-            for (NSUInteger i = 0; i < [docs count]; i++) {
-                [docDict setObject:[NSNumber numberWithBool:NO] forKey:[docs objectAtIndex:i]];
+            for ( NSURL *aDoc in docs ) {
+                [docDict setObject:@NO forKey:aDoc];
             }
             [self setSelectionState:docDict];
         }
