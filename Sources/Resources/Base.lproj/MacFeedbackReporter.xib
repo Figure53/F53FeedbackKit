@@ -5,38 +5,38 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="FRFeedbackController">
+        <customObject id="-2" userLabel="File's Owner" customClass="FRMacFeedbackWindowController">
             <connections>
-                <outlet property="cancelButton" destination="18" id="319"/>
-                <outlet property="consoleView" destination="389" id="395"/>
-                <outlet property="crashesView" destination="393" id="394"/>
-                <outlet property="detailsButton" destination="24" id="745"/>
-                <outlet property="detailsLabel" destination="26" id="772"/>
-                <outlet property="documentsView" destination="996" id="1007"/>
-                <outlet property="emailBox" destination="974" id="986"/>
-                <outlet property="emailLabel" destination="342" id="987"/>
-                <outlet property="exceptionView" destination="618" id="619"/>
-                <outlet property="headingField" destination="12" id="984"/>
-                <outlet property="includeConsoleCheckbox" destination="1017" id="1019"/>
-                <outlet property="indicator" destination="467" id="468"/>
-                <outlet property="messageLabel" destination="20" id="990"/>
-                <outlet property="messageView" destination="269" id="991"/>
-                <outlet property="otherDocumentButton" destination="1004" id="1016"/>
-                <outlet property="preferencesView" destination="588" id="590"/>
-                <outlet property="scriptView" destination="518" id="949"/>
-                <outlet property="sendButton" destination="16" id="320"/>
-                <outlet property="sendDetailsCheckbox" destination="980" id="982"/>
-                <outlet property="subheadingField" destination="977" id="985"/>
-                <outlet property="systemView" destination="673" id="680"/>
-                <outlet property="tabConsole" destination="377" id="874"/>
-                <outlet property="tabCrash" destination="380" id="899"/>
-                <outlet property="tabDocuments" destination="992" id="1006"/>
-                <outlet property="tabException" destination="613" id="715"/>
-                <outlet property="tabPreferences" destination="583" id="716"/>
-                <outlet property="tabScript" destination="418" id="924"/>
-                <outlet property="tabSystem" destination="376" id="720"/>
-                <outlet property="tabView" destination="375" id="445"/>
-                <outlet property="window" destination="5" id="56"/>
+                <outlet property="cancelButton" destination="18" id="Uwm-ZS-zzK"/>
+                <outlet property="consoleView" destination="389" id="R4J-3G-eUj"/>
+                <outlet property="crashesView" destination="393" id="zzs-lf-Wrl"/>
+                <outlet property="detailsButton" destination="24" id="Qnh-JX-tAv"/>
+                <outlet property="detailsLabel" destination="26" id="1tj-ne-zci"/>
+                <outlet property="documentsView" destination="996" id="b5V-Ib-nWv"/>
+                <outlet property="emailBox" destination="974" id="L3h-aN-d51"/>
+                <outlet property="emailLabel" destination="342" id="9B5-p0-97C"/>
+                <outlet property="exceptionView" destination="618" id="X2a-T0-d4e"/>
+                <outlet property="headingField" destination="12" id="IX8-Ux-9bC"/>
+                <outlet property="includeConsoleCheckbox" destination="1017" id="l2a-HW-0ve"/>
+                <outlet property="indicator" destination="467" id="hIM-ZM-dgE"/>
+                <outlet property="messageLabel" destination="20" id="jTh-H1-3JD"/>
+                <outlet property="messageView" destination="269" id="RMI-HT-h6Q"/>
+                <outlet property="otherDocumentButton" destination="1004" id="ecr-9q-Oin"/>
+                <outlet property="preferencesView" destination="588" id="CaE-89-hUP"/>
+                <outlet property="scriptView" destination="518" id="w0w-2W-FvY"/>
+                <outlet property="sendButton" destination="16" id="Vkn-Sb-aIS"/>
+                <outlet property="sendDetailsCheckbox" destination="980" id="XM0-ax-GVv"/>
+                <outlet property="subheadingField" destination="977" id="5CE-4K-ZMB"/>
+                <outlet property="systemView" destination="673" id="gCs-p7-sGE"/>
+                <outlet property="tabConsole" destination="377" id="1bF-IK-tYP"/>
+                <outlet property="tabCrash" destination="380" id="Tkn-r5-JCU"/>
+                <outlet property="tabDocuments" destination="992" id="nly-yI-Y2H"/>
+                <outlet property="tabException" destination="613" id="DeT-Vl-CuJ"/>
+                <outlet property="tabPreferences" destination="583" id="gQg-PJ-klJ"/>
+                <outlet property="tabScript" destination="418" id="gQM-zs-LQ9"/>
+                <outlet property="tabSystem" destination="376" id="BG8-zu-ECK"/>
+                <outlet property="tabView" destination="375" id="VgI-ep-GDj"/>
+                <outlet property="window" destination="5" id="hEW-Vt-4Lt"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -649,6 +649,9 @@ DQ
                     </button>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="55b-OE-dRs"/>
+            </connections>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="371" userLabel="Shared User Defaults Controller"/>
         <arrayController id="681" userLabel="SystemDiscovery">

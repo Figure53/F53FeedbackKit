@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
 @interface FRApplication : NSObject
 
 + (NSString*) applicationBundleVersion;

@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
-
 @interface FRConsoleLog : NSObject
 
 + (NSString *) logSince:(NSDate *)since maxSize:(NSNumber *)maximumSize;

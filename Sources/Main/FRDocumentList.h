@@ -6,8 +6,6 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
-
 @interface FRDocumentList : NSObject <NSTableViewDelegate, NSTableViewDataSource>
 
 - (void)selectMostRecentDocument;

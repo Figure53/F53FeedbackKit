@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
-
 @interface FRCrashLogFinder : NSObject
 
 + (NSArray *) findCrashLogsSince:(NSDate *)date;

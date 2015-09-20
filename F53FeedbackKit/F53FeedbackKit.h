@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char F53FeedbackKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <F53FeedbackKit/PublicHeader.h>
 
-
+#import <F53FeedbackKit/FRFeedbackReporter.h>

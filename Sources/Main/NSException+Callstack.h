@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
-
 @interface NSException (Callstack)
 
 // Returns a textual, human-readable backtrace of the point where the exception was thrown

@@ -19,31 +19,20 @@
 		3D77A1541BAC987700789333 /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
 		3D77A1551BAC987700789333 /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
 		3D77A1561BAC987700789333 /* FRCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1221BAC987700789333 /* FRCommand.h */; };
-		3D77A1571BAC987700789333 /* FRCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1221BAC987700789333 /* FRCommand.h */; };
 		3D77A1581BAC987700789333 /* FRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1231BAC987700789333 /* FRCommand.m */; };
-		3D77A1591BAC987700789333 /* FRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1231BAC987700789333 /* FRCommand.m */; };
 		3D77A15C1BAC987700789333 /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
-		3D77A15D1BAC987700789333 /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
 		3D77A15E1BAC987700789333 /* FRConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1261BAC987700789333 /* FRConstants.h */; };
 		3D77A15F1BAC987700789333 /* FRConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1261BAC987700789333 /* FRConstants.h */; };
 		3D77A1601BAC987700789333 /* FRCrashLogFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1271BAC987700789333 /* FRCrashLogFinder.h */; };
-		3D77A1611BAC987700789333 /* FRCrashLogFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1271BAC987700789333 /* FRCrashLogFinder.h */; };
 		3D77A1621BAC987700789333 /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; };
-		3D77A1631BAC987700789333 /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; };
 		3D77A1641BAC987700789333 /* FRDocumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1291BAC987700789333 /* FRDocumentList.h */; };
-		3D77A1651BAC987700789333 /* FRDocumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1291BAC987700789333 /* FRDocumentList.h */; };
 		3D77A1661BAC987700789333 /* FRDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12A1BAC987700789333 /* FRDocumentList.m */; };
-		3D77A1671BAC987700789333 /* FRDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12A1BAC987700789333 /* FRDocumentList.m */; };
-		3D77A1681BAC987700789333 /* FRExceptionReportingApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D77A1691BAC987700789333 /* FRExceptionReportingApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A16C1BAC987700789333 /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; };
 		3D77A16E1BAC987700789333 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
 		3D77A1741BAC987700789333 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A1751BAC987700789333 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A1781BAC987700789333 /* FRProgressWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1331BAC987700789333 /* FRProgressWindow.h */; };
-		3D77A1791BAC987700789333 /* FRProgressWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1331BAC987700789333 /* FRProgressWindow.h */; };
 		3D77A17A1BAC987700789333 /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1341BAC987700789333 /* FRProgressWindow.m */; };
-		3D77A17B1BAC987700789333 /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1341BAC987700789333 /* FRProgressWindow.m */; };
 		3D77A17C1BAC987700789333 /* FRSystemProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1351BAC987700789333 /* FRSystemProfile.h */; };
 		3D77A17D1BAC987700789333 /* FRSystemProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1351BAC987700789333 /* FRSystemProfile.h */; };
 		3D77A17E1BAC987700789333 /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; };
@@ -52,10 +41,6 @@
 		3D77A1811BAC987700789333 /* FRUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1371BAC987700789333 /* FRUploader.h */; };
 		3D77A1821BAC987700789333 /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
 		3D77A1831BAC987700789333 /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
-		3D77A1861BAC987700789333 /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; };
-		3D77A1871BAC987700789333 /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; };
-		3D77A1881BAC987700789333 /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
-		3D77A1891BAC987700789333 /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
 		3D77A18A1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; };
 		3D77A18B1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; };
 		3D77A18C1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; };
@@ -67,14 +52,12 @@
 		3D77A1A91BAC9A5A00789333 /* CommandTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A61BAC9A5A00789333 /* CommandTestCase.m */; };
 		3D77A1AA1BAC9A5A00789333 /* SystemProfileTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A71BAC9A5A00789333 /* SystemProfileTestCase.m */; };
 		3D77A1AB1BAC9A5A00789333 /* UploaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A81BAC9A5A00789333 /* UploaderTestCase.m */; };
-		3D77A1AF1BAC9A7C00789333 /* CommandTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1AC1BAC9A7C00789333 /* CommandTestCase.m */; };
 		3D77A1B01BAC9A7C00789333 /* SystemProfileTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1AD1BAC9A7C00789333 /* SystemProfileTestCase.m */; };
 		3D77A1B11BAC9A7C00789333 /* UploaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1AE1BAC9A7C00789333 /* UploaderTestCase.m */; };
 		3D77A1BA1BAC9ADD00789333 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1B91BAC9ADD00789333 /* AppDelegate.m */; };
 		3D77A1BD1BAC9ADD00789333 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1BC1BAC9ADD00789333 /* main.m */; };
 		3D77A1BF1BAC9ADD00789333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1BE1BAC9ADD00789333 /* Assets.xcassets */; };
 		3D77A1C91BAC9CE400789333 /* App.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1CB1BAC9CE400789333 /* App.xib */; };
-		3D77A1D41BAC9D5A00789333 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1D31BAC9D5A00789333 /* AppDelegate.m */; };
 		3D77A1D71BAC9D5A00789333 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1D61BAC9D5A00789333 /* main.m */; };
 		3D77A1DA1BAC9D5A00789333 /* FRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1D91BAC9D5A00789333 /* FRDocument.m */; };
 		3D77A1DD1BAC9D5A00789333 /* FRDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1DB1BAC9D5A00789333 /* FRDocument.xib */; };
@@ -82,11 +65,25 @@
 		3D77A1E21BAC9D5A00789333 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1E01BAC9D5A00789333 /* MainMenu.xib */; };
 		3D77A1EE1BAC9F3500789333 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1F01BAC9F3500789333 /* Credits.rtf */; };
 		3D77A1F11BAC9F3F00789333 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1F31BAC9F3F00789333 /* InfoPlist.strings */; };
-		3D77A2351BACA4EF00789333 /* FeedbackReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FeedbackReporter.xib */; };
+		3D77A2351BACA4EF00789333 /* MacFeedbackReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* MacFeedbackReporter.xib */; };
+		3D9AEC381BAD7EF5008074AC /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC3A1BAD7EF9008074AC /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC431BAE00EC008074AC /* FRCrashLogFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1271BAC987700789333 /* FRCrashLogFinder.h */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC441BAE00EF008074AC /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC451BAE016D008074AC /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC461BAE0171008074AC /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; settings = {ASSET_TAGS = (); }; };
+		3D9AEC471BAE0E61008074AC /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
+		3D9AEC481BAE0E66008074AC /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3DBACD081BACAA5300FEAFCE /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
-		3DBACD091BACAA5300FEAFCE /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
 		3DBACD0B1BACAF0B00FEAFCE /* F53FeedbackKit.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DBACD0A1BACAF0B00FEAFCE /* F53FeedbackKit.pch */; };
 		3DBACD0D1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DBACD0C1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch */; };
+		3DE8CF8B1BAEC985007BD1BB /* FRMacFeedbackWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */; settings = {ASSET_TAGS = (); }; };
+		3DE8CF8C1BAEC985007BD1BB /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		3DE8CF8D1BAEDC68007BD1BB /* FRConsoleLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1241BAC987700789333 /* FRConsoleLog.h */; settings = {ASSET_TAGS = (); }; };
+		3DE8CF8E1BAEEE18007BD1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1B91BAC9ADD00789333 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		3DE8CF8F1BAEEE44007BD1BB /* FRExceptionReportingApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +146,6 @@
 		3D77A1A61BAC9A5A00789333 /* CommandTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandTestCase.m; sourceTree = "<group>"; };
 		3D77A1A71BAC9A5A00789333 /* SystemProfileTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemProfileTestCase.m; sourceTree = "<group>"; };
 		3D77A1A81BAC9A5A00789333 /* UploaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploaderTestCase.m; sourceTree = "<group>"; };
-		3D77A1AC1BAC9A7C00789333 /* CommandTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandTestCase.m; sourceTree = "<group>"; };
 		3D77A1AD1BAC9A7C00789333 /* SystemProfileTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemProfileTestCase.m; sourceTree = "<group>"; };
 		3D77A1AE1BAC9A7C00789333 /* UploaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploaderTestCase.m; sourceTree = "<group>"; };
 		3D77A1B61BAC9ADD00789333 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,8 +156,6 @@
 		3D77A1C31BAC9ADD00789333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D77A1CA1BAC9CE400789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/App.xib; sourceTree = "<group>"; };
 		3D77A1D01BAC9D5A00789333 /* Document App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Document App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D77A1D21BAC9D5A00789333 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3D77A1D31BAC9D5A00789333 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3D77A1D61BAC9D5A00789333 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D77A1D81BAC9D5A00789333 /* FRDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRDocument.h; sourceTree = "<group>"; };
 		3D77A1D91BAC9D5A00789333 /* FRDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRDocument.m; sourceTree = "<group>"; };
@@ -172,18 +166,20 @@
 		3D77A1EF1BAC9F3500789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3D77A1F21BAC9F3F00789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3D77A1F41BAC9FA500789333 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D77A2361BACA50100789333 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A2371BACA50F00789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FeedbackReporter.xib; sourceTree = "<group>"; };
-		3D77A2381BACA52500789333 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A2391BACA52F00789333 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A23A1BACA53E00789333 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A23B1BACA54C00789333 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A23C1BACA55800789333 /* hy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hy; path = hy.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A23D1BACA56600789333 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A23E1BACA57500789333 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D77A23F1BACA5A000789333 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/FeedbackReporter.strings"; sourceTree = "<group>"; };
+		3D77A2361BACA50100789333 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A2371BACA50F00789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MacFeedbackReporter.xib; sourceTree = "<group>"; };
+		3D77A2381BACA52500789333 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A2391BACA52F00789333 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A23A1BACA53E00789333 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A23B1BACA54C00789333 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A23C1BACA55800789333 /* hy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hy; path = hy.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A23D1BACA56600789333 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A23E1BACA57500789333 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MacFeedbackReporter.strings; sourceTree = "<group>"; };
+		3D77A23F1BACA5A000789333 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MacFeedbackReporter.strings"; sourceTree = "<group>"; };
 		3DBACD0A1BACAF0B00FEAFCE /* F53FeedbackKit.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53FeedbackKit.pch; path = F53FeedbackKit/F53FeedbackKit.pch; sourceTree = SOURCE_ROOT; };
 		3DBACD0C1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOS.pch; sourceTree = "<group>"; };
+		3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMacFeedbackWindowController.h; sourceTree = "<group>"; };
+		3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRMacFeedbackWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9AEC471BAE0E61008074AC /* F53FeedbackKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9AEC481BAE0E66008074AC /* F53FeedbackKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,8 +235,6 @@
 		3D1711311BACC1310094EF89 /* Exported */ = {
 			isa = PBXGroup;
 			children = (
-				3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */,
-				3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */,
 			);
 			name = Exported;
 			sourceTree = "<group>";
@@ -305,7 +301,6 @@
 		3D77A10F1BAC97BC00789333 /* F53FeedbackKit_iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D77A1AC1BAC9A7C00789333 /* CommandTestCase.m */,
 				3D77A1AD1BAC9A7C00789333 /* SystemProfileTestCase.m */,
 				3D77A1AE1BAC9A7C00789333 /* UploaderTestCase.m */,
 				3D77A1121BAC97BC00789333 /* Info.plist */,
@@ -320,10 +315,6 @@
 				3DBACD061BACA81100FEAFCE /* Additions */,
 				3D77A1201BAC987700789333 /* FRApplication.h */,
 				3D77A1211BAC987700789333 /* FRApplication.m */,
-				3D77A1221BAC987700789333 /* FRCommand.h */,
-				3D77A1231BAC987700789333 /* FRCommand.m */,
-				3D77A1241BAC987700789333 /* FRConsoleLog.h */,
-				3D77A1251BAC987700789333 /* FRConsoleLog.m */,
 				3D77A1271BAC987700789333 /* FRCrashLogFinder.h */,
 				3D77A1281BAC987700789333 /* FRCrashLogFinder.m */,
 				3D77A1351BAC987700789333 /* FRSystemProfile.h */,
@@ -332,11 +323,8 @@
 				3D77A12E1BAC987700789333 /* FRFeedbackController.m */,
 				3D77A1371BAC987700789333 /* FRUploader.h */,
 				3D77A1381BAC987700789333 /* FRUploader.m */,
-				3D77A1291BAC987700789333 /* FRDocumentList.h */,
-				3D77A12A1BAC987700789333 /* FRDocumentList.m */,
 				3D77A1261BAC987700789333 /* FRConstants.h */,
-				3D77A1331BAC987700789333 /* FRProgressWindow.h */,
-				3D77A1341BAC987700789333 /* FRProgressWindow.m */,
+				3D9AEC3C1BAD8533008074AC /* Mac */,
 			);
 			name = Main;
 			path = Sources/Main;
@@ -347,6 +335,8 @@
 			children = (
 				3D77A1B81BAC9ADD00789333 /* AppDelegate.h */,
 				3D77A1B91BAC9ADD00789333 /* AppDelegate.m */,
+				3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */,
+				3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */,
 				3D77A1BE1BAC9ADD00789333 /* Assets.xcassets */,
 				3D77A1CB1BAC9CE400789333 /* App.xib */,
 				3D77A1C31BAC9ADD00789333 /* Info.plist */,
@@ -367,8 +357,6 @@
 		3D77A1D11BAC9D5A00789333 /* Document App */ = {
 			isa = PBXGroup;
 			children = (
-				3D77A1D21BAC9D5A00789333 /* AppDelegate.h */,
-				3D77A1D31BAC9D5A00789333 /* AppDelegate.m */,
 				3D77A1D81BAC9D5A00789333 /* FRDocument.h */,
 				3D77A1D91BAC9D5A00789333 /* FRDocument.m */,
 				3D77A1DE1BAC9D5A00789333 /* Assets.xcassets */,
@@ -394,10 +382,27 @@
 		3D77A2201BACA4EF00789333 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3D77A2231BACA4EF00789333 /* FeedbackReporter.xib */,
+				3D77A2231BACA4EF00789333 /* MacFeedbackReporter.xib */,
 			);
 			name = Resources;
 			path = Sources/Resources;
+			sourceTree = "<group>";
+		};
+		3D9AEC3C1BAD8533008074AC /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */,
+				3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */,
+				3D77A1221BAC987700789333 /* FRCommand.h */,
+				3D77A1231BAC987700789333 /* FRCommand.m */,
+				3D77A1241BAC987700789333 /* FRConsoleLog.h */,
+				3D77A1251BAC987700789333 /* FRConsoleLog.m */,
+				3D77A1291BAC987700789333 /* FRDocumentList.h */,
+				3D77A12A1BAC987700789333 /* FRDocumentList.m */,
+				3D77A1331BAC987700789333 /* FRProgressWindow.h */,
+				3D77A1341BAC987700789333 /* FRProgressWindow.m */,
+			);
+			name = Mac;
 			sourceTree = "<group>";
 		};
 		3DBACD061BACA81100FEAFCE /* Additions */ = {
@@ -436,15 +441,16 @@
 				3D77A18A1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */,
 				3D77A1801BAC987700789333 /* FRUploader.h in Headers */,
 				3D77A17C1BAC987700789333 /* FRSystemProfile.h in Headers */,
-				3D77A1861BAC987700789333 /* NSException+Callstack.h in Headers */,
-				3D77A1681BAC987700789333 /* FRExceptionReportingApplication.h in Headers */,
 				3D77A18E1BAC987700789333 /* NSString+Base64.h in Headers */,
 				3D77A15E1BAC987700789333 /* FRConstants.h in Headers */,
+				3DE8CF8D1BAEDC68007BD1BB /* FRConsoleLog.h in Headers */,
 				3D77A16C1BAC987700789333 /* FRFeedbackController.h in Headers */,
+				3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */,
 				3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */,
 				3D77A1741BAC987700789333 /* FRFeedbackReporter.h in Headers */,
 				3DBACD0B1BACAF0B00FEAFCE /* F53FeedbackKit.pch in Headers */,
 				3D77A1781BAC987700789333 /* FRProgressWindow.h in Headers */,
+				3DE8CF8B1BAEC985007BD1BB /* FRMacFeedbackWindowController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,21 +458,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77A1651BAC987700789333 /* FRDocumentList.h in Headers */,
 				3D77A1531BAC987700789333 /* FRApplication.h in Headers */,
-				3D77A1571BAC987700789333 /* FRCommand.h in Headers */,
-				3D77A1611BAC987700789333 /* FRCrashLogFinder.h in Headers */,
+				3D9AEC431BAE00EC008074AC /* FRCrashLogFinder.h in Headers */,
+				3D9AEC381BAD7EF5008074AC /* NSException+Callstack.h in Headers */,
 				3D77A18B1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */,
 				3D77A1811BAC987700789333 /* FRUploader.h in Headers */,
 				3D77A17D1BAC987700789333 /* FRSystemProfile.h in Headers */,
-				3D77A1871BAC987700789333 /* NSException+Callstack.h in Headers */,
-				3D77A1691BAC987700789333 /* FRExceptionReportingApplication.h in Headers */,
 				3D77A18F1BAC987700789333 /* NSString+Base64.h in Headers */,
 				3DBACD0D1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch in Headers */,
 				3D77A15F1BAC987700789333 /* FRConstants.h in Headers */,
+				3D9AEC451BAE016D008074AC /* FRFeedbackController.h in Headers */,
 				3D77A1051BAC97BC00789333 /* F53FeedbackKit_iOS.h in Headers */,
 				3D77A1751BAC987700789333 /* FRFeedbackReporter.h in Headers */,
-				3D77A1791BAC987700789333 /* FRProgressWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,7 +647,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77A2351BACA4EF00789333 /* FeedbackReporter.xib in Resources */,
+				3D77A2351BACA4EF00789333 /* MacFeedbackReporter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,9 +710,10 @@
 				3D77A1661BAC987700789333 /* FRDocumentList.m in Sources */,
 				3D77A1821BAC987700789333 /* FRUploader.m in Sources */,
 				3D77A1621BAC987700789333 /* FRCrashLogFinder.m in Sources */,
+				3DE8CF8C1BAEC985007BD1BB /* FRMacFeedbackWindowController.m in Sources */,
+				3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */,
 				3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */,
 				3D77A1581BAC987700789333 /* FRCommand.m in Sources */,
-				3D77A1881BAC987700789333 /* NSException+Callstack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,18 +732,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9AEC441BAE00EF008074AC /* FRCrashLogFinder.m in Sources */,
+				3D9AEC461BAE0171008074AC /* FRFeedbackController.m in Sources */,
 				3D77A1551BAC987700789333 /* FRApplication.m in Sources */,
-				3D77A17B1BAC987700789333 /* FRProgressWindow.m in Sources */,
 				3D77A17F1BAC987700789333 /* FRSystemProfile.m in Sources */,
 				3D77A1911BAC987700789333 /* NSString+Base64.m in Sources */,
 				3D77A18D1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */,
-				3D77A15D1BAC987700789333 /* FRConsoleLog.m in Sources */,
-				3D77A1671BAC987700789333 /* FRDocumentList.m in Sources */,
 				3D77A1831BAC987700789333 /* FRUploader.m in Sources */,
-				3D77A1631BAC987700789333 /* FRCrashLogFinder.m in Sources */,
 				3D1711331BACC18B0094EF89 /* FRFeedbackReporter.m in Sources */,
-				3D77A1591BAC987700789333 /* FRCommand.m in Sources */,
-				3D77A1891BAC987700789333 /* NSException+Callstack.m in Sources */,
+				3D9AEC3A1BAD7EF9008074AC /* NSException+Callstack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,8 +749,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D77A1B01BAC9A7C00789333 /* SystemProfileTestCase.m in Sources */,
-				3D77A1AF1BAC9A7C00789333 /* CommandTestCase.m in Sources */,
-				3DBACD091BACAA5300FEAFCE /* FRConsoleLog.m in Sources */,
 				3D77A1B11BAC9A7C00789333 /* UploaderTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,9 +767,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE8CF8E1BAEEE18007BD1BB /* AppDelegate.m in Sources */,
 				3D77A1DA1BAC9D5A00789333 /* FRDocument.m in Sources */,
 				3D77A1D71BAC9D5A00789333 /* main.m in Sources */,
-				3D77A1D41BAC9D5A00789333 /* AppDelegate.m in Sources */,
+				3DE8CF8F1BAEEE44007BD1BB /* FRExceptionReportingApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,7 +830,7 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3D77A2231BACA4EF00789333 /* FeedbackReporter.xib */ = {
+		3D77A2231BACA4EF00789333 /* MacFeedbackReporter.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3D77A2361BACA50100789333 /* ar */,
@@ -844,7 +844,7 @@
 				3D77A23E1BACA57500789333 /* ru */,
 				3D77A23F1BACA5A000789333 /* pt-BR */,
 			);
-			name = FeedbackReporter.xib;
+			name = MacFeedbackReporter.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
 @protocol FRUploaderDelegate;
 
 @interface FRUploader : NSObject {

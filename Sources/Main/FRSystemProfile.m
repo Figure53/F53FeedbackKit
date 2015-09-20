@@ -16,6 +16,7 @@
 
 #import "FRSystemProfile.h"
 #import <sys/sysctl.h>
+#import <mach/machine.h>
 
 @implementation FRSystemProfile
 

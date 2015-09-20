@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
 #import "FRUploader.h"
 #import "FRDocumentList.h"
 
