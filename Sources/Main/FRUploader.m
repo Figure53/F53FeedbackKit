@@ -131,12 +131,12 @@
     [request addValue:boundaryString forHTTPHeaderField:@"Content-Type"];
 #endif
     
-    [request setHTTPBody:formData];
-
-    connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-
-    if (connection != nil) {
     [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:formData];
+    
+    _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
+    if (_connection != nil) {
         if ([_delegate respondsToSelector:@selector(uploaderStarted:)]) {
             [_delegate performSelector:@selector(uploaderStarted:) withObject:self];
         }
@@ -151,16 +151,30 @@
     }
 }
 
+- (void) cancel
+{
+    [_connection cancel];
+    _connection = nil;
+}
+
+- (NSString *) response
+{
+    return [[NSString alloc] initWithData:_responseData
+                                 encoding:NSUTF8StringEncoding];
+}
 
 
-- (void) connection: (NSURLConnection *)pConnection didReceiveData: (NSData *)data
+
+#pragma mark NSURLConnectionDataDelegate methods
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSLog(@"Connection received data");
 
     [_responseData appendData:data];
 }
 
-- (void) connection:(NSURLConnection *)pConnection didFailWithError:(NSError *)error
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"Connection failed");
     
@@ -171,7 +185,7 @@
 
 }
 
-- (void) connectionDidFinishLoading: (NSURLConnection *)pConnection
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
     // NSLog(@"Connection finished");
     
@@ -179,18 +193,6 @@
         [_delegate performSelector:@selector(uploaderFinished:) withObject:self];
     }
     
-}
-
-- (void) cancel
-{
-    [connection cancel];
-    connection = nil;
-}
-
-- (NSString *) response
-{
-    return [[NSString alloc] initWithData:_responseData
-                                  encoding:NSUTF8StringEncoding];
 }
 
 @end

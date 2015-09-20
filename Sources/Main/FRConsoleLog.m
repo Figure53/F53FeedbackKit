@@ -75,7 +75,7 @@
 
             aslmsg msg = NULL;
 
-            while (NULL != (msg = aslresponse_next(response))) {
+            while (NULL != (msg = asl_next(response))) {
 
                 const char *msgTime = asl_get(msg, ASL_KEY_TIME);
                 
@@ -120,7 +120,7 @@
                 rawConsoleLines[consoleLinesProcessed-1] = rawLineContents;
             }
 
-            aslresponse_free(response);
+            asl_release(response);
 
             // Loop through the console lines in reverse order, converting to NSStrings
             if (consoleLinesProcessed) {

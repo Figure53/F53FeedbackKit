@@ -16,13 +16,13 @@
 
 @protocol FRUploaderDelegate;
 
-@interface FRUploader : NSObject {
+@interface FRUploader : NSObject <NSURLConnectionDataDelegate> {
 
 @private
     NSString *_target;
     id<FRUploaderDelegate> _delegate;
 
-    NSURLSessionUploadTask *_uploadTask;
+    NSURLConnection *_connection;
     NSMutableData *_responseData;
 }
 
