@@ -87,17 +87,17 @@
 
 #pragma mark information gathering
 
-- (NSString*) consoleLog
+- (NSString *) consoleLog
 {
     NSNumber *hours = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_LOGHOURS];
 
-    int h = 24;
+    NSInteger h = 24;
 
     if (hours != nil) {
-        h = [hours intValue];
+        h = [hours integerValue];
     }
-
-    NSDate *since = [[NSCalendarDate calendarDate] dateByAddingYears:0 months:0 days:0 hours:-h minutes:0 seconds:0];
+    
+    NSDate *since = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitHour value:-h toDate:[NSDate date] options:0];
 
     NSNumber *maximumSize = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_MAXCONSOLELOGSIZE];
 
