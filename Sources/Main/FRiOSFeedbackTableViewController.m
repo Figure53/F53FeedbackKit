@@ -770,6 +770,7 @@
 
 - (void) send:(id)sender
 {
+    [self.tableView endEditing:YES];
     [self.feedbackController send:sender];
 }
 
