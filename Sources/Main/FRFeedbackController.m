@@ -62,6 +62,9 @@
 
 @property (nonatomic, strong)       FRiOSFeedbackTableViewController *controller;
 
+@property (nonatomic)               BOOL allowSendWithoutEmailAddress;
+@property (nonatomic)               BOOL allowAttemptSendForUnreachableHost;
+
 @end
 #endif
 
@@ -626,16 +629,42 @@
     if (self.controller.emailBoxText == nil || [self.controller.emailBoxText isEqualToString:@""] || [self.controller.emailBoxText isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
         for (NSString *aType in self.emailRequiredTypes) {
             if ([aType isEqualToString:self.type]) {
-//                [[NSAlert alertWithMessageText:@"Email required" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"You must enter an email address so that we can respond to you."] runModal];
+                
+                NSString *title = @"Email required";
+                NSString *message = @"You must enter an email address so that we can respond to you.";
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+                
+                [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+                
                 return NO;
             }
         }
         for (NSString *aType in self.emailStronglySuggestedTypes) {
             if ([aType isEqualToString:self.type]) {
-//                NSInteger buttonPressed = [[NSAlert alertWithMessageText:@"Email missing" defaultButton:@"OK" alternateButton:@"Continue anyway" otherButton:nil informativeTextWithFormat:@"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?"] runModal];
-//                if (buttonPressed == NSAlertDefaultReturn)
-//                    return NO;
-                break;
+                
+                // UIAlertController actions below can set this flag and then resubmit send:
+                // - only reset sets the flag back to NO to preserve this response, in case we are passing by here because of a shouldAttemptSendForUnreachableHost: alert action calling send: a second time
+                if ( self.allowSendWithoutEmailAddress ) {
+                    return YES;
+                }
+                
+                NSString *title = @"Email missing";
+                NSString *message = @"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?";
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"Go back" style:UIAlertActionStyleCancel handler:nil]];
+                [alert addAction:[UIAlertAction actionWithTitle:@"Send anyway" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    self.allowSendWithoutEmailAddress = YES;
+                    [self send:self];
+                    
+                }]];
+                
+                [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+                
+                return NO;
             }
         }
     }
@@ -644,18 +673,26 @@
 
 - (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host
 {
-//    NSInteger alertResult = [[NSAlert alertWithMessageText:FRLocalizedString(@"Feedback Host Not Reachable", nil)
-//                                             defaultButton:FRLocalizedString(@"Proceed Anyway", nil)
-//                                           alternateButton:FRLocalizedString(@"Cancel", nil)
-//                                               otherButton:nil
-//                                 informativeTextWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host
-//                              ] runModal];
-//    
-//    if (alertResult != NSAlertDefaultReturn) {
-//        return NO;
-//    }
-//    
-    return YES;
+    // UIAlertController action below sets this flag and then resubmits send:
+    if ( self.allowAttemptSendForUnreachableHost ) {
+        return YES;
+    }
+    
+    NSString *title = FRLocalizedString(@"Feedback Host Not Reachable", nil);
+    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Proceed Anyway", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        self.allowAttemptSendForUnreachableHost = YES;
+        [self send:self];
+        
+    }]];
+    
+    [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+
+    return NO;
 }
 
 - (NSMutableDictionary *) parametersForFeedbackReport
@@ -788,6 +825,9 @@
 
 - (void) reset
 {
+    self.allowSendWithoutEmailAddress = NO;
+    self.allowAttemptSendForUnreachableHost = NO;
+    
     BOOL emailRequired = ( [self.emailRequiredTypes containsObject:self.type] || [self.emailStronglySuggestedTypes containsObject:self.type] );
     [self.controller resetWithEmailRequired:emailRequired];
 }
