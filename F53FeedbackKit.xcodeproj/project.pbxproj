@@ -104,6 +104,13 @@
 		3DC3AA2D1BB06BD4001E1765 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC3AA2B1BB06BD4001E1765 /* LaunchScreen.storyboard */; };
 		3DC3AA321BB06DAA001E1765 /* F53FeedbackKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */; };
 		3DDBAB391BB1CB210071E076 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; settings = {ASSET_TAGS = (); }; };
+		3DE27C731BB33C7B007B7D50 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C721BB33C7B007B7D50 /* AddressBook.framework */; };
+		3DE27C751BB33C82007B7D50 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C741BB33C82007B7D50 /* AppKit.framework */; };
+		3DE27C771BB33C8C007B7D50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C761BB33C8C007B7D50 /* Foundation.framework */; };
+		3DE27C791BB33C95007B7D50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C781BB33C95007B7D50 /* SystemConfiguration.framework */; };
+		3DE27C7B1BB33C9D007B7D50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C7A1BB33C9D007B7D50 /* UIKit.framework */; };
+		3DE27C7D1BB33CA4007B7D50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C7C1BB33CA4007B7D50 /* SystemConfiguration.framework */; };
+		3DE27C7F1BB33CAD007B7D50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C7E1BB33CAD007B7D50 /* Foundation.framework */; };
 		3DE8CF8B1BAEC985007BD1BB /* FRMacFeedbackWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */; settings = {ASSET_TAGS = (); }; };
 		3DE8CF8C1BAEC985007BD1BB /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */; settings = {ASSET_TAGS = (); }; };
 		3DE8CF8D1BAEDC68007BD1BB /* FRConsoleLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1241BAC987700789333 /* FRConsoleLog.h */; settings = {ASSET_TAGS = (); }; };
@@ -229,6 +236,13 @@
 		3DC3AA291BB06BD4001E1765 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC3AA2C1BB06BD4001E1765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC3AA2E1BB06BD4001E1765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE27C721BB33C7B007B7D50 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3DE27C741BB33C82007B7D50 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3DE27C761BB33C8C007B7D50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3DE27C781BB33C95007B7D50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3DE27C7A1BB33C9D007B7D50 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3DE27C7C1BB33CA4007B7D50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		3DE27C7E1BB33CAD007B7D50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMacFeedbackWindowController.h; sourceTree = "<group>"; };
 		3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRMacFeedbackWindowController.m; sourceTree = "<group>"; };
 		3DF048431BB17D560085F6BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +253,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE27C791BB33C95007B7D50 /* SystemConfiguration.framework in Frameworks */,
+				3DE27C771BB33C8C007B7D50 /* Foundation.framework in Frameworks */,
+				3DE27C751BB33C82007B7D50 /* AppKit.framework in Frameworks */,
+				3DE27C731BB33C7B007B7D50 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +272,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE27C7F1BB33CAD007B7D50 /* Foundation.framework in Frameworks */,
+				3DE27C7D1BB33CA4007B7D50 /* SystemConfiguration.framework in Frameworks */,
+				3DE27C7B1BB33C9D007B7D50 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +323,13 @@
 		3D77A0D91BAC979000789333 = {
 			isa = PBXGroup;
 			children = (
+				3DE27C7E1BB33CAD007B7D50 /* Foundation.framework */,
+				3DE27C7C1BB33CA4007B7D50 /* SystemConfiguration.framework */,
+				3DE27C7A1BB33C9D007B7D50 /* UIKit.framework */,
+				3DE27C781BB33C95007B7D50 /* SystemConfiguration.framework */,
+				3DE27C761BB33C8C007B7D50 /* Foundation.framework */,
+				3DE27C741BB33C82007B7D50 /* AppKit.framework */,
+				3DE27C721BB33C7B007B7D50 /* AddressBook.framework */,
 				3D77A11E1BAC987700789333 /* Main */,
 				3D77A2201BACA4EF00789333 /* Resources */,
 				3D77A1B71BAC9ADD00789333 /* App */,

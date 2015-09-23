@@ -265,23 +265,26 @@
     
     NSURL *url = [NSURL URLWithString:target];
     
-    SCNetworkConnectionFlags reachabilityFlags = 0;
-    
     NSString *host = [url host];
     const char *hostname = [host UTF8String];
     
+    SCNetworkConnectionFlags reachabilityFlags = 0;
+    Boolean reachabilityResult = FALSE;
+    
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, hostname);
-    Boolean reachabilityResult = SCNetworkReachabilityGetFlags(reachability, &reachabilityFlags);
-    CFRelease(reachability);
+    if (reachability) {
+        reachabilityResult = SCNetworkReachabilityGetFlags(reachability, &reachabilityFlags);
+        CFRelease(reachability);
+    }
     
     // Prevent premature release (UTF8String returns an inner pointer).
     [host self];
     
     BOOL reachable = reachabilityResult
-    &&  (reachabilityFlags & kSCNetworkFlagsReachable)
-    && !(reachabilityFlags & kSCNetworkFlagsConnectionRequired)
-    && !(reachabilityFlags & kSCNetworkFlagsConnectionAutomatic)
-    && !(reachabilityFlags & kSCNetworkFlagsInterventionRequired);
+        &&  (reachabilityFlags & kSCNetworkFlagsReachable)
+        && !(reachabilityFlags & kSCNetworkFlagsConnectionRequired)
+        && !(reachabilityFlags & kSCNetworkFlagsConnectionAutomatic)
+        && !(reachabilityFlags & kSCNetworkFlagsInterventionRequired);
     
     if (!reachable) {
         if ( [self shouldAttemptSendForUnreachableHost:host] == NO ) {
