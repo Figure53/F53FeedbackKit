@@ -92,10 +92,10 @@
         
         [controller setSubheading:FRLocalizedString(@"Send feedback", nil)];
 
-        [controller showWindow:self];
-        [[controller window] center];
         [controller setDelegate:self.delegate];
 
+        [controller show];
+        
     }
 	
     return YES;
@@ -140,8 +140,7 @@
             
             [controller setDelegate:self.delegate];
 
-            [controller showWindow:self];
-            [[controller window] center];
+            [controller show];
 
         }
         
@@ -188,8 +187,7 @@
 
         [controller setDelegate:self.delegate];
 
-        [controller showWindow:self];
-        [[controller window] center];
+        [controller show];
 
     }
     
@@ -217,7 +215,7 @@
             applicationName =[FRApplication applicationName];
         }
         
-        [[controller window] setTitle:FRLocalizedString(@"Contact Support", nil)];
+        [controller setTitle:FRLocalizedString(@"Contact Support", nil)];
         [controller setHeading:[NSString stringWithFormat:
                                 FRLocalizedString(@"Need help with %@?", nil),
                                 applicationName]];
@@ -226,8 +224,7 @@
         
         [controller setDelegate:self.delegate];
         
-        [controller showWindow:self];
-        [[controller window] center];
+        [controller show];
         
     }
 	
