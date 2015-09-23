@@ -24,8 +24,8 @@
 		3D1711301BACC11D0094EF89 /* FRExceptionReportingApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */; settings = {ASSET_TAGS = (); }; };
 		3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
 		3D1711331BACC18B0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
-		3D69752D1BB30C50005AC2B8 /* FeedbackReporter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D6975301BB30C50005AC2B8 /* FeedbackReporter.strings */; };
 		3D69753C1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D69753A1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings */; settings = {ASSET_TAGS = (); }; };
+		3D6F54701BB31C7F00401F16 /* FeedbackReporter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D6975301BB30C50005AC2B8 /* FeedbackReporter.strings */; settings = {ASSET_TAGS = (); }; };
 		3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A0E61BAC979000789333 /* F53FeedbackKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A0EE1BAC979000789333 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3D77A1051BAC97BC00789333 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -784,8 +784,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6F54701BB31C7F00401F16 /* FeedbackReporter.strings in Resources */,
 				3D77A2351BACA4EF00789333 /* FRMacFeedbackWindowController.xib in Resources */,
-				3D69752D1BB30C50005AC2B8 /* FeedbackReporter.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,7 +1124,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1170,7 +1170,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1264,6 +1264,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REEXPORTED_FRAMEWORK_NAMES = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -1288,6 +1289,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REEXPORTED_FRAMEWORK_NAMES = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
