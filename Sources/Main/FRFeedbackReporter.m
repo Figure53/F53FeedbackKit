@@ -78,7 +78,7 @@
         
         [controller reset];
 
-        NSString * applicationName = nil;
+        NSString *applicationName = nil;
         if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
             applicationName = [self.delegate feedbackDisplayName];
         }
@@ -86,7 +86,7 @@
             applicationName =[FRApplication applicationName];
         }
 
-       [controller setHeading:[NSString stringWithFormat:
+        [controller setHeading:[NSString stringWithFormat:
             FRLocalizedString(@"Got a problem with %@?", nil),
             applicationName]];
         
@@ -124,7 +124,7 @@
             
             [controller reset];
 
-            NSString * applicationName = nil;
+            NSString *applicationName = nil;
             if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
                applicationName = [self.delegate feedbackDisplayName];
             }
@@ -165,7 +165,7 @@
         
         [controller reset];
        
-        NSString * applicationName = nil;
+        NSString *applicationName = nil;
         if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
             applicationName = [self.delegate feedbackDisplayName];
         }
@@ -180,7 +180,7 @@
         
         [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
 
-        NSString* callStack = [exception my_callStack];
+        NSString *callStack = [exception my_callStack];
         [controller setException:[NSString stringWithFormat: @"%@\n\n%@\n\n%@",
                                     [exception name],
                                     [exception reason],
@@ -209,7 +209,7 @@
         
         [controller reset];
         
-        NSString * applicationName = nil;
+        NSString *applicationName = nil;
         if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
             applicationName = [self.delegate feedbackDisplayName];
         }
