@@ -628,6 +628,7 @@
 				3D77A0DF1BAC979000789333 /* Frameworks */,
 				3D77A0E01BAC979000789333 /* Headers */,
 				3D77A0E11BAC979000789333 /* Resources */,
+				3DE27C821BB3501D007B7D50 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -664,6 +665,7 @@
 				3D77A0FE1BAC97BC00789333 /* Frameworks */,
 				3D77A0FF1BAC97BC00789333 /* Headers */,
 				3D77A1001BAC97BC00789333 /* Resources */,
+				3DE27C811BB35017007B7D50 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -875,6 +877,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DE27C811BB35017007B7D50 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$F53_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport F53_BUILD_IN_PROGRESS=1\n\nF53_FRAMEWORK_NAME=${TARGET_NAME}\nF53_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${F53_FRAMEWORK_NAME}.framework\"\n\n# Copy the framework to the user's desktop\nditto \"${F53_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${F53_FRAMEWORK_NAME}.framework\"";
+		};
+		3DE27C821BB3501D007B7D50 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$F53_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport F53_BUILD_IN_PROGRESS=1\n\nF53_FRAMEWORK_NAME=${TARGET_NAME}\nF53_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${F53_FRAMEWORK_NAME}.framework\"\n\n# Copy the framework to the user's desktop\nditto \"${F53_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${F53_FRAMEWORK_NAME}.framework\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D77A0DE1BAC979000789333 /* Sources */ = {
