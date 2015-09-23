@@ -14,6 +14,8 @@ static NSString * FRiOSFeedbackTableViewTabPickerCellTabItemDidChangeNotificatio
 
 @interface FRiOSFeedbackTableViewTabPickerCell : UITableViewCell
 
+@property (weak, nonatomic)     IBOutlet UISegmentedControl *tabControl;
+
 - (void) configureControlWithItems:(NSArray *)tabItems selectedItem:(id)selectedItem;
 
 @end

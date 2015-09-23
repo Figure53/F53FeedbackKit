@@ -19,6 +19,7 @@
 
 @interface FRiOSFeedbackTableViewController ()
 
+@property (nonatomic, strong)   UIColor *delegateTintColor;
 @property (nonatomic, strong)   UIColor *emailBoxTextColor;
 @property (nonatomic, strong)   NSString *detailsLabelText;
 @property (nonatomic, strong)   NSArray *systemProfile;
@@ -126,10 +127,14 @@
     self.navigationItem.leftBarButtonItem = self.cancelButton;
 }
 
-
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if ( [self.feedbackController.delegate respondsToSelector:@selector( feedbackControllerTintColor )] ) {
+        self.delegateTintColor = [self.feedbackController.delegate feedbackControllerTintColor];
+        self.navigationController.navigationBar.tintColor = self.delegateTintColor;
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector( handleTextViewDidEndEditing: ) name:FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector( handleEmailTextDidEndEditing: ) name:FRiOSFeedbackTableViewEmailCellDidEndEditingNotification object:nil];
@@ -240,6 +245,7 @@
                 case SECTION_MESSAGE_ROW_MESSAGE: {
                     
                     FRiOSFeedbackTableViewTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FRiOSFeedbackTableViewTextViewCellIdentifier forIndexPath:indexPath];
+                    cell.tintColor = self.delegateTintColor;
                     
                     cell.textView.text = self.messageViewText;
                     cell.textView.tag = [self getTagFromIndexPath:indexPath];
@@ -252,6 +258,7 @@
                 case SECTION_MESSAGE_ROW_EMAIL: {
                     
                     FRiOSFeedbackTableViewEmailCell *cell = [tableView dequeueReusableCellWithIdentifier:FRiOSFeedbackTableViewEmailCellIdentifier forIndexPath:indexPath];
+                    cell.tintColor = self.delegateTintColor;
                     
                     cell.emailBox.text = self.emailBoxText;
                     cell.emailBox.textColor = self.emailBoxTextColor;
@@ -274,6 +281,7 @@
                     
                     FRiOSFeedbackTableViewCheckmarkCell *cell = [tableView dequeueReusableCellWithIdentifier:FRiOSFeedbackTableViewCheckmarkCellIdentifier forIndexPath:indexPath];
                     cell.hidden = !self.sendDetailsIsOptional;
+                    cell.tintColor = self.delegateTintColor;
                     
                     cell.textLabel.text = FRLocalizedString(@"Send details", nil);
                     cell.checkmarkOn = self.sendDetails;
@@ -286,6 +294,7 @@
                     
                     FRiOSFeedbackTableViewCheckmarkCell *cell = [tableView dequeueReusableCellWithIdentifier:FRiOSFeedbackTableViewCheckmarkCellIdentifier forIndexPath:indexPath];
                     cell.hidden = !self.sendDetailsIsOptional;
+                    cell.tintColor = self.delegateTintColor;
                     //cell.indentationLevel = 2;
                     
                     cell.textLabel.text = FRLocalizedString(@"Include console logs", nil);
@@ -304,6 +313,8 @@
                 case SECTION_DETAILS_ROW_TABS: {
                     
                     FRiOSFeedbackTableViewTabPickerCell *cell = [tableView dequeueReusableCellWithIdentifier:FRiOSFeedbackTableViewTabPickerCellIdentifier forIndexPath:indexPath];
+                    cell.tintColor = self.delegateTintColor;
+                    cell.tabControl.tintColor = self.delegateTintColor;
                     
                     [cell configureControlWithItems:self.detailsTabItems selectedItem:self.selectedDetailTabItem];
                     
@@ -314,6 +325,7 @@
                 case SECTION_DETAILS_ROW_TAB_TEXT: {
                     
                     FRiOSFeedbackTableViewTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FRiOSFeedbackTableViewTextViewCellIdentifier forIndexPath:indexPath];
+                    cell.tintColor = self.delegateTintColor;
                     
                     cell.textView.text = [self.selectedDetailTabItem objectForKey:@"text"];
                     cell.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];

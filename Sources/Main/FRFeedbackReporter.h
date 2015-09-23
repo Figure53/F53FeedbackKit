@@ -22,6 +22,10 @@
 - (NSString *) targetUrlForFeedbackReport;
 - (NSString *) feedbackDisplayName;
 
+#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+- (UIColor *) feedbackControllerTintColor;
+#endif
+
 @end
 
 

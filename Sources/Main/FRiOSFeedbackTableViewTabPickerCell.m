@@ -10,8 +10,6 @@
 
 @interface FRiOSFeedbackTableViewTabPickerCell ()
 
-@property (weak, nonatomic)     IBOutlet UISegmentedControl *tabControl;
-
 @property (nonatomic, strong)   NSArray *tabItems;
 
 - (IBAction)handleSegmentedControlDidChange:(UISegmentedControl *)sender;
