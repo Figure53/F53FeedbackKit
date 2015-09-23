@@ -16,15 +16,15 @@
 
 @interface FRSystemProfile : NSObject
 
-+ (NSArray*) discover;
++ (NSArray *) discover;
 
-+ (NSString*) cputype;
++ (NSString *) cputype;
 + (BOOL) is64bit;
-+ (NSString*) osversion;
-+ (NSString*) architecture;
++ (NSString *) osversion;
++ (NSString *) architecture;
 + (int) cpucount;
-+ (NSString*) machinemodel;
-+ (NSString*) language;
++ (NSString *) machinemodel;
++ (NSString *) language;
 + (long long) cpuspeed;
 + (long long) ramsize;
 

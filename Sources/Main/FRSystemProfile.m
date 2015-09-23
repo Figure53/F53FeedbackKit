@@ -20,7 +20,7 @@
 
 @implementation FRSystemProfile
 
-+ (NSArray*) discover
++ (NSArray *) discover
 {
     NSMutableArray *discoveryArray = [[NSMutableArray alloc] init];
     NSArray *discoveryKeys = [NSArray arrayWithObjects:@"key", @"visibleKey", @"value", @"visibleValue", nil];
@@ -93,7 +93,7 @@
     return is64bit;
 }
 
-+ (NSString*) cputype
++ (NSString *) cputype
 {
     int error = 0;
     
@@ -174,7 +174,7 @@
 }
 
 
-+ (NSString*) osversion
++ (NSString *) osversion
 {
     NSProcessInfo *info = [NSProcessInfo processInfo];
     NSString *version = [info operatingSystemVersionString];
@@ -186,7 +186,7 @@
     return version;
 }
 
-+ (NSString*) architecture
++ (NSString *) architecture
 {
     int error = 0;
     int value = 0;
@@ -225,7 +225,7 @@
     return value;
 }
 
-+ (NSString*) machinemodel
++ (NSString *) machinemodel
 {
     int error = 0;
     size_t length = 0;
@@ -254,7 +254,7 @@
     return machinemodel;
 }
 
-+ (NSString*) language
++ (NSString *) language
 {
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
     NSArray *languages = [defs objectForKey:@"AppleLanguages"];
