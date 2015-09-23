@@ -144,6 +144,15 @@
         self.title = self.titleText;
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_MESSAGE_ROW_MESSAGE inSection:SECTION_MESSAGE];
+    FRiOSFeedbackTableViewTextViewCell *messageViewCell = (FRiOSFeedbackTableViewTextViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [messageViewCell.textView becomeFirstResponder];
+}
+
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -226,7 +235,7 @@
     
     switch ( section ) {
         case SECTION_MESSAGE:
-            title = [self.subheadingText stringByAppendingString:@"\n\n"];
+            title = [self.subheadingText stringByAppendingString:@"\n"];
             break;
             
         default:
