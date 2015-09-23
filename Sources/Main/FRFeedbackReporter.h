@@ -38,6 +38,9 @@
 // Searches the disk for crash logs, and displays the feedback user interface if there are crash logs newer than since the last check. Updates the 'last crash check date' in user defaults. Returns YES if it was able to display the UI, NO otherwise.
 - (BOOL) reportIfCrash;
 
+// Displays the feedback user interface with the provided crash data, ignoring 'last crash check date'. Returns YES if it was able to display the UI, NO otherwise.
+- (BOOL) reportCrash:(NSString *)crashLogText;
+
 // Displays the feedback user interface for the given exception. Do not pass nil. Returns YES if it was able to display the UI, NO otherwise.
 - (BOOL) reportException:(NSException *)exception;
 

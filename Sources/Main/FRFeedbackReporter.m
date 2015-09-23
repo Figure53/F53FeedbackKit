@@ -151,6 +151,50 @@
     return NO;
 }
 
+- (BOOL) reportCrash:(NSString *)crashLogText
+{
+    if ( crashLogText && [crashLogText isEqualToString:@""] == NO ) {
+        
+        FRFeedbackController *controller = [self feedbackController];
+        
+        @synchronized (controller) {
+            
+            if ([controller isShown])
+                return NO;
+            
+            [controller setType:FR_CRASH];
+            
+            [controller reset];
+            
+            NSString *applicationName = nil;
+            if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
+                applicationName = [self.delegate feedbackDisplayName];
+            }
+            else {
+                applicationName =[FRApplication applicationName];
+            }
+            
+            [controller setHeading:[NSString stringWithFormat:
+                                    FRLocalizedString(@"%@ has recently crashed!", nil),
+                                    applicationName]];
+            
+            [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
+            
+            [controller setCrash:crashLogText];
+            
+            [controller setDelegate:self.delegate];
+            
+            [controller show];
+            
+        }
+        
+        return YES;
+        
+    }
+    
+    return NO;
+}
+
 - (BOOL) reportException:(NSException *)exception
 {
     FRFeedbackController *controller = [self feedbackController];
