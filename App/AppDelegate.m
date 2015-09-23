@@ -100,4 +100,9 @@
     [[FRFeedbackReporter sharedReporter] reportSupportNeed];
 }
 
+- (IBAction) buttonSendCrash:(id)sender
+{
+    [[FRFeedbackReporter sharedReporter] reportCrash:@"dummy crash report text here"];
+}
+
 @end

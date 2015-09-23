@@ -24,5 +24,6 @@
 - (IBAction) buttonExceptionInThread:(id)sender;
 - (IBAction) buttonCrash:(id)sender;
 - (IBAction) buttonSupport:(id)sender;
+- (IBAction) buttonSendCrash:(id)sender;
 
 @end

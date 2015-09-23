@@ -105,7 +105,9 @@
         if ([self.includeConsoleCheckbox state] == NSOnState)
             [self populateConsole];
         
-        NSString *crashLog = [self crashLog];
+        NSString *crashLog = self.crashesView.string;
+        if ( !crashLog )
+            crashLog = [self crashLog];
         if ([crashLog length] > 0) {
             [self performSelectorOnMainThread:@selector(addTabViewItem:) withObject:self.tabCrash waitUntilDone:YES];
             [self.crashesView performSelectorOnMainThread:@selector(setString:) withObject:crashLog waitUntilDone:YES];
