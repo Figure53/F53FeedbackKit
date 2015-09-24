@@ -124,6 +124,40 @@
                 return brandString;
         }
     }
+    else if (cputype == CPU_TYPE_ARM) {
+        
+        cpu_subtype_t cpusubtype;
+        length = sizeof(cpusubtype);
+        sysctlbyname("hw.cpusubtype", &cpusubtype, &length, NULL, 0);
+        
+        switch( cpusubtype )
+        {
+            case CPU_SUBTYPE_ARM_V7:
+                return @"ARMV7";
+                
+            case CPU_SUBTYPE_ARM_V7S:
+                return @"ARMV7S";
+                
+            default:
+                return @"ARM";
+        }
+    }
+    else if (cputype == CPU_TYPE_ARM64) {
+        
+        cpu_subtype_t cpusubtype;
+        length = sizeof(cpusubtype);
+        sysctlbyname("hw.cpusubtype", &cpusubtype, &length, NULL, 0);
+        
+        switch( cpusubtype )
+        {
+            case CPU_SUBTYPE_ARM64_V8:
+                return @"ARM64_V8";
+                
+            default:
+                return @"ARM64";
+        }
+    }
+    
     
     int cpufamily = -1;
     length = sizeof(cpufamily);
@@ -234,9 +268,15 @@
 
 + (NSString *) machinemodel
 {
+    const char *name = "hw.model";
+#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+    // .model on iOS returns internal model name (e.g. "N51AP") when we'd prefer to see the model identifier here ("iPhone6,1")
+    name = "hw.machine";
+#endif
+    
     int error = 0;
     size_t length = 0;
-    error = sysctlbyname("hw.model", NULL, &length, NULL, 0);
+    error = sysctlbyname(name, NULL, &length, NULL, 0);
     
     if (error != 0) {
         NSLog(@"Failed to obtain CPU model");
@@ -245,7 +285,7 @@
 
     char *p = malloc(sizeof(char) * length);
     if (p) {
-		error = sysctlbyname("hw.model", p, &length, NULL, 0);
+		error = sysctlbyname(name, p, &length, NULL, 0);
     }
 	
     if (error != 0) {
