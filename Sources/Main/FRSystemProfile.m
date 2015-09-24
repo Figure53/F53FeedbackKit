@@ -25,6 +25,13 @@
     NSMutableArray *discoveryArray = [[NSMutableArray alloc] init];
     NSArray *discoveryKeys = [NSArray arrayWithObjects:@"key", @"visibleKey", @"value", @"visibleValue", nil];
 
+#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+    NSString *vendorIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    [discoveryArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
+        @"UUID", @"Vendor Identifier", vendorIdentifier, vendorIdentifier, nil]
+        forKeys:discoveryKeys]];
+#endif
+    
     NSString *osversion = [NSString stringWithFormat:@"%@", [self osversion]];
     [discoveryArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
         @"OS_VERSION", @"OS Version", osversion, osversion, nil]
