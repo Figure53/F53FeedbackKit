@@ -6,6 +6,7 @@
 //  Copyright © 2015 Figure 53, LLC. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

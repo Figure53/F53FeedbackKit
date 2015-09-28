@@ -27,6 +27,15 @@
 		3D37BB571BB998AB00030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
 		3D37BB581BB998B100030264 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37BB501BB9985200030264 /* Cocoa.framework */; };
 		3D37BB591BB998B800030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
+		3D37BB5A1BB99BB200030264 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
+		3D37BB5B1BB99BB700030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAD1BB4B14000370315 /* Foundation.framework */; };
+		3D37BB5C1BB99BBD00030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
+		3D37BB5D1BB99BC800030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */; };
+		3D37BB5E1BB99C1500030264 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37BB501BB9985200030264 /* Cocoa.framework */; };
+		3D37BB5F1BB99D6C00030264 /* F53FeedbackKit_iOSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOSApp.framework */; };
+		3D37BB601BB99D7100030264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531E1BB5A3450056E64F /* UIKit.framework */; };
+		3D37BB611BB99D7600030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE053201BB5A3490056E64F /* SystemConfiguration.framework */; };
+		3D37BB621BB99D7D00030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531C1BB5A33F0056E64F /* Foundation.framework */; };
 		3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A0E61BAC979000789333 /* F53FeedbackKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A0EE1BAC979000789333 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3D77A1521BAC987700789333 /* FRApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1201BAC987700789333 /* FRApplication.h */; };
@@ -227,7 +236,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3D0361551BB4558300AE4C80 /* F53FeedbackKit_iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "F53FeedbackKit_iOS copy-Info.plist"; path = "/Users/balord/Development/F53FeedbackKit/F53FeedbackKit_iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		3D07BF531BB19693006BEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewEmailCell.xib; sourceTree = "<group>"; };
 		3D07BF561BB19697006BEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewTextViewCell.xib; sourceTree = "<group>"; };
 		3D07BF641BB1A008006BEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewTabPickerCell.xib; sourceTree = "<group>"; };
@@ -237,6 +245,10 @@
 		3D2E0CAB1BB4B13800370315 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3D2E0CAD1BB4B14000370315 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3D37BB501BB9985200030264 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		3D5A461F1BB9A10200D3E031 /* F53FeedbackKit_iOS.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = F53FeedbackKit_iOS.podspec; sourceTree = SOURCE_ROOT; };
+		3D5A46201BB9A10D00D3E031 /* HISTORY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HISTORY.md; sourceTree = SOURCE_ROOT; };
+		3D5A46211BB9A11700D3E031 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		3D5A46221BB9A11700D3E031 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3D69753B1BB30D53005AC2B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/FeedbackReporter_iOS.strings; sourceTree = "<group>"; };
 		3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = F53FeedbackKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77A0E61BAC979000789333 /* F53FeedbackKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit.h; sourceTree = "<group>"; };
@@ -360,6 +372,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D37BB5E1BB99C1500030264 /* Cocoa.framework in Frameworks */,
+				3D37BB5D1BB99BC800030264 /* SystemConfiguration.framework in Frameworks */,
+				3D37BB5C1BB99BBD00030264 /* AddressBook.framework in Frameworks */,
+				3D37BB5B1BB99BB700030264 /* Foundation.framework in Frameworks */,
+				3D37BB5A1BB99BB200030264 /* AppKit.framework in Frameworks */,
 				3D77A0EE1BAC979000789333 /* F53FeedbackKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +385,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D37BB621BB99D7D00030264 /* Foundation.framework in Frameworks */,
+				3D37BB611BB99D7600030264 /* SystemConfiguration.framework in Frameworks */,
+				3D37BB601BB99D7100030264 /* UIKit.framework in Frameworks */,
+				3D37BB5F1BB99D6C00030264 /* F53FeedbackKit_iOSApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,13 +452,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D1711311BACC1310094EF89 /* Exported */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Exported;
-			sourceTree = "<group>";
-		};
 		3D2E0CBB1BB4B18400370315 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,17 +472,16 @@
 			children = (
 				3D77A11E1BAC987700789333 /* Main */,
 				3D77A2201BACA4EF00789333 /* Resources */,
-				3D77A1B71BAC9ADD00789333 /* App */,
-				3D77A1D11BAC9D5A00789333 /* Document App */,
-				3DC3AA1C1BB06BD4001E1765 /* iOSApp */,
 				3D77A0E51BAC979000789333 /* F53FeedbackKit */,
 				3D77A0F11BAC979000789333 /* F53FeedbackKitTests */,
 				3D77A1031BAC97BC00789333 /* F53FeedbackKit_iOS */,
 				3D77A10F1BAC97BC00789333 /* F53FeedbackKit_iOSTests */,
+				3D77A1B71BAC9ADD00789333 /* App */,
+				3D77A1D11BAC9D5A00789333 /* Document App */,
+				3DC3AA1C1BB06BD4001E1765 /* iOSApp */,
 				3DC68D8C1BB602E80002242A /* F53FeedbackKit_iOSApp */,
 				3D2E0CBB1BB4B18400370315 /* Frameworks */,
 				3D77A0E41BAC979000789333 /* Products */,
-				3D0361551BB4558300AE4C80 /* F53FeedbackKit_iOS copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -562,7 +575,6 @@
 				3DE052E01BB595E70056E64F /* FRExceptionReportingApplication.m */,
 				3D77A1CB1BAC9CE400789333 /* App.xib */,
 				3D77A1C31BAC9ADD00789333 /* Info.plist */,
-				3D1711311BACC1310094EF89 /* Exported */,
 				3D77A1BB1BAC9ADD00789333 /* Supporting Files */,
 			);
 			path = App;
@@ -612,6 +624,10 @@
 				3D07BF541BB19693006BEC2B /* FRiOSFeedbackTableViewEmailCell.xib */,
 				3D07BF651BB1A008006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.xib */,
 				3D07BF571BB19697006BEC2B /* FRiOSFeedbackTableViewTextViewCell.xib */,
+				3D5A461F1BB9A10200D3E031 /* F53FeedbackKit_iOS.podspec */,
+				3D5A46201BB9A10D00D3E031 /* HISTORY.md */,
+				3D5A46211BB9A11700D3E031 /* LICENSE.txt */,
+				3D5A46221BB9A11700D3E031 /* README.md */,
 			);
 			name = Resources;
 			path = Sources/Resources;
@@ -1484,6 +1500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
 				INFOPLIST_FILE = F53FeedbackKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKitTests;
@@ -1495,6 +1512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
 				INFOPLIST_FILE = F53FeedbackKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKitTests;
@@ -1506,6 +1524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				INFOPLIST_FILE = F53FeedbackKit_iOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
@@ -1521,6 +1540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				INFOPLIST_FILE = F53FeedbackKit_iOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
@@ -1686,6 +1706,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1701,6 +1722,7 @@
 				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
 			};
