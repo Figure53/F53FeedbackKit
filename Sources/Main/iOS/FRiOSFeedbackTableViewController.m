@@ -124,6 +124,8 @@
         
     }
     
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewCheckmarkCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewCheckmarkCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewEmailCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewEmailCellIdentifier];
