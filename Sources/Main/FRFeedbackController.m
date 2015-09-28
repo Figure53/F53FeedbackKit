@@ -761,14 +761,14 @@
     
     self.controller.uploading = NO;
     
-//    NSAlert *alert = [[NSAlert alloc] init];
-//    [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
-//    [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
-//    [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]]];
-//    [alert setAlertStyle:NSWarningAlertStyle];
-//    [alert runModal];
+    NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]];
     
-    [self close];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]]; // rather than call [self close] and disscard the view controller -- and all of the user's typing, just dismiss and give the user a chance to attempt a recovery. They can press cancel if they want to bail.
+    
+    [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+    
 }
 
 - (void) uploaderFinished:(FRUploader *)uploader
@@ -794,12 +794,13 @@
             
             NSLog (@"Failed to submit to server: %@", response);
             
-//            NSAlert *alert = [[NSAlert alloc] init];
-//            [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
-//            [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
-//            [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line]];
-//            [alert setAlertStyle:NSWarningAlertStyle];
-//            [alert runModal];
+            NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+            NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line];
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+            
+            [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
             
             return;
         }
