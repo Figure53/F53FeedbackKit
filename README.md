@@ -1,5 +1,7 @@
-This is a support framework suitable for including in
-Mac OS X apps that allows users to submit several pieces of information
+# F53FeedbackKit
+
+This is a support framework suitable for including in Mac OS X and iOS
+apps that allows users to submit several pieces of information
 from within the app when they are having trouble. This includes:
 
  * Crash reports
@@ -45,14 +47,14 @@ differently though, which was the reason for this fork. These include:
 [1]: https://github.com/tcurdt/feedbackreporter
 
 
-# F53FeedbackKit_iOS
+## F53FeedbackKit_iOS
 
-## Components
+### Components
 
 - `F53FeedbackKit_iOS` - Contains the iOS-compatible version of F53FeedbackKit.
 - `iOSApp` - A version of `App` for testing feedback integration examples in the iOS SDK.
 
-## Compatibility
+### Compatibility
 
 - The API and the uploaded content of the iOS framework are identical to the Mac framework.
 - F53FeedbackKit_iOS does not currently support the Documents tab.
@@ -61,7 +63,7 @@ differently though, which was the reason for this fork. These include:
 - System profile `CPU_SPEED` will almost always report "-1", as reportedly Apple does not provide results for `HW_CPU_FREQ` on all iOS devices. CPU speeds are, however, well-documented per device model and could be cross-referenced server-side.
 - System profile will include an additional element `UUID` on iOS, which is the value of `[[UIDevice currentDevice] identifierForVendor]`.
 
-## How To Get Started
+### How To Get Started
 
 Currently, the F53FeedbackKit Xcode project is not configured to build a 'fat' framework suitable for iOS development (meaning it does not contains support for both Simulator and device CPU architectures). To install a framework that will build in both the Simulator and on iOS devices, use CocoaPods:
 
@@ -72,6 +74,11 @@ platform :ios, '8.4'
 pod 'F53FeedbackKit_iOS', :git => 'https://github.com/Figure53/F53FeedbackKit.git', :branch => 'mac+ios'
 ```
 
+- Import the header file:
+```objective-c
+#import "F53FeedbackKit_iOS.h"
+```
+- Designate one of your app's objects as conforming to the FRFeedbackReporterDelegate protocol and call ```[[FRFeedbackReporter sharedReporter] setDelegate:self];```
 - Add these key/value pairs to your app's Info.plist:
  - FRFeedbackReporter.logHours
  - FRFeedbackReporter.sendDetailsIsOptional
@@ -84,7 +91,7 @@ NOTE: if your targetURL server does not support HTTPS, don't forget to add the d
 - The interface presents as a full-screen modal on compact interfaces and as a form sheet on regular interfaces.
 
 
-## Example Implementation (using PLCrashReporter)
+### Example Implementation (using PLCrashReporter)
 
 ```objective-c
 PLCrashReporter *crashReporter = [[UIApplication sharedApplication] delegate].crashReporter;
@@ -98,6 +105,6 @@ if ( [crashReporter hasPendingCrashReport] ) {
 ```
 
 
-## Version Support
+### Version Support
 
 F53FeedbackKit_iOS supports iOS 8.4+.
