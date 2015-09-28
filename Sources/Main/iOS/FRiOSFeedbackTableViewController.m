@@ -41,6 +41,7 @@
 
 @property (nonatomic, strong)   UIBarButtonItem *cancelButton;
 @property (nonatomic, strong)   UIBarButtonItem *sendButton;
+@property (nonatomic, strong)   UIBarButtonItem *sendingSpinner;
 
 @property (nonatomic, strong)   NSString *preferences;
 
@@ -137,6 +138,11 @@
     
     self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector( cancel: )];
     self.navigationItem.leftBarButtonItem = self.cancelButton;
+    
+    UIActivityIndicatorView *sendingSpinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    sendingSpinnerView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+    self.sendingSpinner = [[UIBarButtonItem alloc] initWithCustomView:sendingSpinnerView];
+
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -657,8 +663,14 @@
         
         _uploading = uploading;
         
-//        [self.indicator setHidden:NO];
-//        [self.indicator startAnimation:self];
+        if ( _uploading ) {
+            [(UIActivityIndicatorView *)self.sendingSpinner.customView startAnimating];
+            self.navigationItem.rightBarButtonItem = self.sendingSpinner;
+        }
+        else {
+            self.navigationItem.rightBarButtonItem = self.sendButton;
+            [(UIActivityIndicatorView *)self.sendingSpinner.customView stopAnimating];
+        }
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_MESSAGE_ROW_MESSAGE inSection:SECTION_MESSAGE];
         FRiOSFeedbackTableViewTextViewCell *cell = (FRiOSFeedbackTableViewTextViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
