@@ -6,8 +6,6 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-
 @interface FRProgressWindow : NSObject
 
 @property (nonatomic, strong)   NSWindow *window;

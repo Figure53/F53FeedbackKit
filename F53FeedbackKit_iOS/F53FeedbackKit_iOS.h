@@ -8,13 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for F53FeedbackKit_iOS.
-FOUNDATION_EXPORT double F53FeedbackKit_iOSVersionNumber;
+#import "FRFeedbackReporter.h"
 
-//! Project version string for F53FeedbackKit_iOS.
-FOUNDATION_EXPORT const unsigned char F53FeedbackKit_iOSVersionString[];
+#import "FRApplication.h"
+#import "FRConsoleLog.h"
+#import "FRConstants.h"
+#import "FRCrashLogFinder.h"
+#import "FRFeedbackController.h"
+#import "FRSystemProfile.h"
+#import "FRUploader.h"
+#import "FRiOSFeedbackTableViewCheckmarkCell.h"
+#import "FRiOSFeedbackTableViewController.h"
+#import "FRiOSFeedbackTableViewEmailCell.h"
+#import "FRiOSFeedbackTableViewTabPickerCell.h"
+#import "FRiOSFeedbackTableViewTextViewCell.h"
 
-// In this header, you should import all the public headers of your framework using statements like #import <F53FeedbackKit_iOS/PublicHeader.h>
-
-#import <F53FeedbackKit_iOS/FRFeedbackReporter.h>
-
+#import "NSException+Callstack.h"
+#import "NSMutableDictionary+Additions.h"
+#import "NSString+Base64.h"

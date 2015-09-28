@@ -7,63 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D07BF3A1BB17E52006BEC2B /* FRiOSFeedbackTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D07BF381BB17E52006BEC2B /* FRiOSFeedbackTableViewController.h */; settings = {ASSET_TAGS = (); }; };
-		3D07BF3B1BB17E52006BEC2B /* FRiOSFeedbackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D07BF391BB17E52006BEC2B /* FRiOSFeedbackTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		3D07BF461BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D07BF441BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.h */; settings = {ASSET_TAGS = (); }; };
-		3D07BF471BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D07BF451BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		3D07BF501BB19682006BEC2B /* FRiOSFeedbackTableViewEmailCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D07BF4E1BB19681006BEC2B /* FRiOSFeedbackTableViewEmailCell.h */; settings = {ASSET_TAGS = (); }; };
-		3D07BF511BB19682006BEC2B /* FRiOSFeedbackTableViewEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D07BF4F1BB19681006BEC2B /* FRiOSFeedbackTableViewEmailCell.m */; settings = {ASSET_TAGS = (); }; };
-		3D07BF521BB19693006BEC2B /* FRiOSFeedbackTableViewEmailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF541BB19693006BEC2B /* FRiOSFeedbackTableViewEmailCell.xib */; };
-		3D07BF551BB19697006BEC2B /* FRiOSFeedbackTableViewTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF571BB19697006BEC2B /* FRiOSFeedbackTableViewTextViewCell.xib */; };
-		3D07BF5B1BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D07BF581BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.h */; settings = {ASSET_TAGS = (); }; };
-		3D07BF5C1BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D07BF591BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.m */; settings = {ASSET_TAGS = (); }; };
-		3D07BF631BB1A008006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF651BB1A008006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.xib */; };
-		3D07BF6D1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D07BF6A1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.h */; settings = {ASSET_TAGS = (); }; };
-		3D07BF6E1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D07BF6B1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.m */; settings = {ASSET_TAGS = (); }; };
-		3D07BF721BB1C29D006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF741BB1C29D006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.xib */; };
-		3D1711301BACC11D0094EF89 /* FRExceptionReportingApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */; settings = {ASSET_TAGS = (); }; };
-		3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
-		3D1711331BACC18B0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
-		3D69753C1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D69753A1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings */; settings = {ASSET_TAGS = (); }; };
-		3D6F54701BB31C7F00401F16 /* FeedbackReporter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D6975301BB30C50005AC2B8 /* FeedbackReporter.strings */; settings = {ASSET_TAGS = (); }; };
+		3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
+		3D2E0C2A1BB49A6900370315 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D2E0C7C1BB4A99400370315 /* FRMacFeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */; settings = {ASSET_TAGS = (); }; };
+		3D2E0CA81BB4B11B00370315 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
+		3D2E0CAA1BB4B12D00370315 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */; };
+		3D2E0CAC1BB4B13800370315 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
+		3D2E0CAE1BB4B14000370315 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAD1BB4B14000370315 /* Foundation.framework */; };
+		3D37BB4C1BB9981D00030264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531E1BB5A3450056E64F /* UIKit.framework */; };
+		3D37BB4D1BB9982500030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531C1BB5A33F0056E64F /* Foundation.framework */; };
+		3D37BB4E1BB9982B00030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE053201BB5A3490056E64F /* SystemConfiguration.framework */; };
+		3D37BB4F1BB9984B00030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAD1BB4B14000370315 /* Foundation.framework */; };
+		3D37BB511BB9985200030264 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37BB501BB9985200030264 /* Cocoa.framework */; };
+		3D37BB521BB9985700030264 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
+		3D37BB531BB9985D00030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */; };
+		3D37BB541BB9989E00030264 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
+		3D37BB551BB998A300030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAD1BB4B14000370315 /* Foundation.framework */; };
+		3D37BB561BB998A700030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */; };
+		3D37BB571BB998AB00030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
+		3D37BB581BB998B100030264 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37BB501BB9985200030264 /* Cocoa.framework */; };
+		3D37BB591BB998B800030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
 		3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A0E61BAC979000789333 /* F53FeedbackKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A0EE1BAC979000789333 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
-		3D77A1051BAC97BC00789333 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D77A10C1BAC97BC00789333 /* F53FeedbackKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */; };
 		3D77A1521BAC987700789333 /* FRApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1201BAC987700789333 /* FRApplication.h */; };
-		3D77A1531BAC987700789333 /* FRApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1201BAC987700789333 /* FRApplication.h */; };
 		3D77A1541BAC987700789333 /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
-		3D77A1551BAC987700789333 /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
-		3D77A1561BAC987700789333 /* FRCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1221BAC987700789333 /* FRCommand.h */; };
-		3D77A1581BAC987700789333 /* FRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1231BAC987700789333 /* FRCommand.m */; };
 		3D77A15C1BAC987700789333 /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
 		3D77A15E1BAC987700789333 /* FRConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1261BAC987700789333 /* FRConstants.h */; };
-		3D77A15F1BAC987700789333 /* FRConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1261BAC987700789333 /* FRConstants.h */; };
 		3D77A1601BAC987700789333 /* FRCrashLogFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1271BAC987700789333 /* FRCrashLogFinder.h */; };
 		3D77A1621BAC987700789333 /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; };
-		3D77A1641BAC987700789333 /* FRDocumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1291BAC987700789333 /* FRDocumentList.h */; };
-		3D77A1661BAC987700789333 /* FRDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12A1BAC987700789333 /* FRDocumentList.m */; };
 		3D77A16C1BAC987700789333 /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; };
-		3D77A1741BAC987700789333 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D77A1751BAC987700789333 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D77A1781BAC987700789333 /* FRProgressWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1331BAC987700789333 /* FRProgressWindow.h */; };
-		3D77A17A1BAC987700789333 /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1341BAC987700789333 /* FRProgressWindow.m */; };
 		3D77A17C1BAC987700789333 /* FRSystemProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1351BAC987700789333 /* FRSystemProfile.h */; };
-		3D77A17D1BAC987700789333 /* FRSystemProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1351BAC987700789333 /* FRSystemProfile.h */; };
 		3D77A17E1BAC987700789333 /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; };
-		3D77A17F1BAC987700789333 /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; };
 		3D77A1801BAC987700789333 /* FRUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1371BAC987700789333 /* FRUploader.h */; };
-		3D77A1811BAC987700789333 /* FRUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1371BAC987700789333 /* FRUploader.h */; };
 		3D77A1821BAC987700789333 /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
-		3D77A1831BAC987700789333 /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
 		3D77A18A1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; };
-		3D77A18B1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; };
 		3D77A18C1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; };
-		3D77A18D1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; };
 		3D77A18E1BAC987700789333 /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+Base64.h */; };
-		3D77A18F1BAC987700789333 /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+Base64.h */; };
 		3D77A1901BAC987700789333 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; };
-		3D77A1911BAC987700789333 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; };
 		3D77A1A91BAC9A5A00789333 /* CommandTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A61BAC9A5A00789333 /* CommandTestCase.m */; };
 		3D77A1AA1BAC9A5A00789333 /* SystemProfileTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A71BAC9A5A00789333 /* SystemProfileTestCase.m */; };
 		3D77A1AB1BAC9A5A00789333 /* UploaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A81BAC9A5A00789333 /* UploaderTestCase.m */; };
@@ -79,46 +59,113 @@
 		3D77A1DF1BAC9D5A00789333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1DE1BAC9D5A00789333 /* Assets.xcassets */; };
 		3D77A1E21BAC9D5A00789333 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1E01BAC9D5A00789333 /* MainMenu.xib */; };
 		3D77A1EE1BAC9F3500789333 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1F01BAC9F3500789333 /* Credits.rtf */; };
-		3D77A2351BACA4EF00789333 /* FRMacFeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */; };
-		3D9AEC381BAD7EF5008074AC /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC3A1BAD7EF9008074AC /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC431BAE00EC008074AC /* FRCrashLogFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1271BAC987700789333 /* FRCrashLogFinder.h */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC441BAE00EF008074AC /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC451BAE016D008074AC /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC461BAE0171008074AC /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; settings = {ASSET_TAGS = (); }; };
-		3D9AEC471BAE0E61008074AC /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
+		3D958C0F1BB995AB005B7C65 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
+		3D958C101BB995AB005B7C65 /* F53FeedbackKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; };
+		3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
 		3D9AEC481BAE0E66008074AC /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3DBACD081BACAA5300FEAFCE /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
-		3DBACD0B1BACAF0B00FEAFCE /* F53FeedbackKit.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DBACD0A1BACAF0B00FEAFCE /* F53FeedbackKit.pch */; };
-		3DBACD0D1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DBACD0C1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch */; };
-		3DC3AA131BB0515E001E1765 /* FRConsoleLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1241BAC987700789333 /* FRConsoleLog.h */; settings = {ASSET_TAGS = (); }; };
-		3DC3AA151BB05163001E1765 /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; settings = {ASSET_TAGS = (); }; };
-		3DC3AA161BB05163001E1765 /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; settings = {ASSET_TAGS = (); }; };
+		3DC3AA151BB05163001E1765 /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
 		3DC3AA1F1BB06BD4001E1765 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3AA1E1BB06BD4001E1765 /* main.m */; };
 		3DC3AA221BB06BD4001E1765 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3AA211BB06BD4001E1765 /* AppDelegate.m */; };
 		3DC3AA251BB06BD4001E1765 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3AA241BB06BD4001E1765 /* TableViewController.m */; };
 		3DC3AA281BB06BD4001E1765 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC3AA261BB06BD4001E1765 /* Main.storyboard */; };
 		3DC3AA2A1BB06BD4001E1765 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC3AA291BB06BD4001E1765 /* Assets.xcassets */; };
 		3DC3AA2D1BB06BD4001E1765 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC3AA2B1BB06BD4001E1765 /* LaunchScreen.storyboard */; };
-		3DC3AA321BB06DAA001E1765 /* F53FeedbackKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */; };
-		3DDBAB391BB1CB210071E076 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; settings = {ASSET_TAGS = (); }; };
-		3DE27C731BB33C7B007B7D50 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C721BB33C7B007B7D50 /* AddressBook.framework */; };
-		3DE27C751BB33C82007B7D50 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C741BB33C82007B7D50 /* AppKit.framework */; };
-		3DE27C771BB33C8C007B7D50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C761BB33C8C007B7D50 /* Foundation.framework */; };
-		3DE27C791BB33C95007B7D50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C781BB33C95007B7D50 /* SystemConfiguration.framework */; };
-		3DE27C7B1BB33C9D007B7D50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C7A1BB33C9D007B7D50 /* UIKit.framework */; };
-		3DE27C7D1BB33CA4007B7D50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C7C1BB33CA4007B7D50 /* SystemConfiguration.framework */; };
-		3DE27C7F1BB33CAD007B7D50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE27C7E1BB33CAD007B7D50 /* Foundation.framework */; };
-		3DE27C831BB433D9007B7D50 /* F53FeedbackKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */; };
-		3DE27C841BB433D9007B7D50 /* F53FeedbackKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3DE8CF8B1BAEC985007BD1BB /* FRMacFeedbackWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */; settings = {ASSET_TAGS = (); }; };
-		3DE8CF8C1BAEC985007BD1BB /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */; settings = {ASSET_TAGS = (); }; };
-		3DE8CF8D1BAEDC68007BD1BB /* FRConsoleLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1241BAC987700789333 /* FRConsoleLog.h */; settings = {ASSET_TAGS = (); }; };
-		3DE8CF8E1BAEEE18007BD1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1B91BAC9ADD00789333 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		3DE8CF8F1BAEEE44007BD1BB /* FRExceptionReportingApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */; settings = {ASSET_TAGS = (); }; };
-		3DF048441BB17D560085F6BC /* FRiOSFeedbackTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF048421BB17D560085F6BC /* FRiOSFeedbackTableViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		3DC68D7F1BB5E3C00002242A /* F53FeedbackKit_iOS.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DE0532C1BB5ACE20056E64F /* F53FeedbackKit_iOS.pch */; settings = {ASSET_TAGS = (); }; };
+		3DC68D811BB5F1AB0002242A /* FRiOSFeedbackTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C31BB5927A0056E64F /* FRiOSFeedbackTableViewController.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D821BB5F1AB0002242A /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C11BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D831BB5F1AB0002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C51BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D841BB5F1AB0002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C71BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D851BB5F1AB0002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C91BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D8E1BB602E80002242A /* F53FeedbackKit_iOSApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DC68D8D1BB602E80002242A /* F53FeedbackKit_iOSApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DC68D921BB602E80002242A /* F53FeedbackKit_iOSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOSApp.framework */; };
+		3DC68D931BB602E80002242A /* F53FeedbackKit_iOSApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOSApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DC68D971BB602EF0002242A /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DC68D981BB602F40002242A /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68D991BB602F80002242A /* FRApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1201BAC987700789333 /* FRApplication.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D9A1BB602FC0002242A /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68D9B1BB602FC0002242A /* FRConsoleLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1241BAC987700789333 /* FRConsoleLog.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D9C1BB602FC0002242A /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68D9D1BB602FC0002242A /* FRCrashLogFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1271BAC987700789333 /* FRCrashLogFinder.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68D9E1BB602FC0002242A /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68D9F1BB602FC0002242A /* FRSystemProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1351BAC987700789333 /* FRSystemProfile.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA01BB602FC0002242A /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA11BB602FC0002242A /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA21BB602FC0002242A /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA31BB602FC0002242A /* FRUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1371BAC987700789333 /* FRUploader.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA41BB602FC0002242A /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA51BB602FC0002242A /* FRConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1261BAC987700789333 /* FRConstants.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA61BB603050002242A /* FRiOSFeedbackTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C31BB5927A0056E64F /* FRiOSFeedbackTableViewController.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA71BB603050002242A /* FRiOSFeedbackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C41BB5927A0056E64F /* FRiOSFeedbackTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA81BB603050002242A /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C11BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DA91BB603050002242A /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C21BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DAA1BB603050002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C51BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DAB1BB603050002242A /* FRiOSFeedbackTableViewEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C61BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DAC1BB603050002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C71BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DAD1BB603050002242A /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C81BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DAE1BB603050002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C91BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DAF1BB603050002242A /* FRiOSFeedbackTableViewTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052CA1BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DB51BB6030E0002242A /* FeedbackReporter_iOS.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D69753A1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings */; settings = {ASSET_TAGS = (); }; };
+		3DC68DB61BB6030E0002242A /* FRiOSFeedbackTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF048421BB17D560085F6BC /* FRiOSFeedbackTableViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		3DC68DB71BB6030E0002242A /* FRiOSFeedbackTableViewCheckmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF741BB1C29D006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.xib */; settings = {ASSET_TAGS = (); }; };
+		3DC68DB81BB6030E0002242A /* FRiOSFeedbackTableViewEmailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF541BB19693006BEC2B /* FRiOSFeedbackTableViewEmailCell.xib */; settings = {ASSET_TAGS = (); }; };
+		3DC68DB91BB6030E0002242A /* FRiOSFeedbackTableViewTabPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF651BB1A008006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.xib */; settings = {ASSET_TAGS = (); }; };
+		3DC68DBA1BB6030E0002242A /* FRiOSFeedbackTableViewTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07BF571BB19697006BEC2B /* FRiOSFeedbackTableViewTextViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		3DC68DBD1BB604660002242A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531C1BB5A33F0056E64F /* Foundation.framework */; };
+		3DC68DBE1BB6046C0002242A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE053201BB5A3490056E64F /* SystemConfiguration.framework */; };
+		3DC68DBF1BB604710002242A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531E1BB5A3450056E64F /* UIKit.framework */; };
+		3DC68DC01BB6054E0002242A /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC11BB6054E0002242A /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC21BB6054E0002242A /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC31BB6054E0002242A /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC41BB6054E0002242A /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+Base64.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC51BB6054E0002242A /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC61BB605650002242A /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC71BB605650002242A /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DC81BB605650002242A /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+Base64.h */; settings = {ASSET_TAGS = (); }; };
+		3DC68DCF1BB605E80002242A /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; settings = {ASSET_TAGS = (); }; };
+		3DDBAB391BB1CB210071E076 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
+		3DE052B71BB592340056E64F /* FRCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052B11BB592340056E64F /* FRCommand.h */; settings = {ASSET_TAGS = (); }; };
+		3DE052B81BB592340056E64F /* FRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B21BB592340056E64F /* FRCommand.m */; settings = {ASSET_TAGS = (); }; };
+		3DE052B91BB592340056E64F /* FRDocumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052B31BB592340056E64F /* FRDocumentList.h */; settings = {ASSET_TAGS = (); }; };
+		3DE052BA1BB592340056E64F /* FRDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B41BB592340056E64F /* FRDocumentList.m */; settings = {ASSET_TAGS = (); }; };
+		3DE052BB1BB592340056E64F /* FRProgressWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052B51BB592340056E64F /* FRProgressWindow.h */; settings = {ASSET_TAGS = (); }; };
+		3DE052BC1BB592350056E64F /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B61BB592340056E64F /* FRProgressWindow.m */; settings = {ASSET_TAGS = (); }; };
+		3DE052BF1BB5925A0056E64F /* FRMacFeedbackWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052BD1BB5925A0056E64F /* FRMacFeedbackWindowController.h */; settings = {ASSET_TAGS = (); }; };
+		3DE052C01BB5925A0056E64F /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		3DE052E11BB595E70056E64F /* FRExceptionReportingApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052E01BB595E70056E64F /* FRExceptionReportingApplication.m */; settings = {ASSET_TAGS = (); }; };
+		3DE052E41BB597AB0056E64F /* FeedbackReporter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE052E21BB597AB0056E64F /* FeedbackReporter.strings */; settings = {ASSET_TAGS = (); }; };
+		3DE0530C1BB5A2140056E64F /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; settings = {ASSET_TAGS = (); }; };
+		3DE0530D1BB5A2200056E64F /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; settings = {ASSET_TAGS = (); }; };
+		3DE0530E1BB5A2200056E64F /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; settings = {ASSET_TAGS = (); }; };
+		3DE0530F1BB5A2200056E64F /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053101BB5A22D0056E64F /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053111BB5A22D0056E64F /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053121BB5A22D0056E64F /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053131BB5A22D0056E64F /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053141BB5A22D0056E64F /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053151BB5A22D0056E64F /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053161BB5A2400056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C21BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053171BB5A2400056E64F /* FRiOSFeedbackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C41BB5927A0056E64F /* FRiOSFeedbackTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053181BB5A2400056E64F /* FRiOSFeedbackTableViewEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C61BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DE053191BB5A2400056E64F /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C81BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DE0531A1BB5A2400056E64F /* FRiOSFeedbackTableViewTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052CA1BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		3DE0531D1BB5A33F0056E64F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531C1BB5A33F0056E64F /* Foundation.framework */; };
+		3DE0531F1BB5A3450056E64F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531E1BB5A3450056E64F /* UIKit.framework */; };
+		3DE053211BB5A3490056E64F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE053201BB5A3490056E64F /* SystemConfiguration.framework */; };
+		3DE0532E1BB5ACEE0056E64F /* F53FeedbackKit.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DE0532D1BB5ACEE0056E64F /* F53FeedbackKit.pch */; settings = {ASSET_TAGS = (); }; };
+		3DE053301BB5B6C10056E64F /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE053311BB5B6CE0056E64F /* FRApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1201BAC987700789333 /* FRApplication.h */; settings = {ASSET_TAGS = (); }; };
+		3DE053321BB5B6CE0056E64F /* FRConsoleLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1241BAC987700789333 /* FRConsoleLog.h */; settings = {ASSET_TAGS = (); }; };
+		3DE053331BB5B6CE0056E64F /* FRCrashLogFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1271BAC987700789333 /* FRCrashLogFinder.h */; settings = {ASSET_TAGS = (); }; };
+		3DE053341BB5B6CE0056E64F /* FRSystemProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1351BAC987700789333 /* FRSystemProfile.h */; settings = {ASSET_TAGS = (); }; };
+		3DE053351BB5B6CE0056E64F /* FRFeedbackController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A12D1BAC987700789333 /* FRFeedbackController.h */; settings = {ASSET_TAGS = (); }; };
+		3DE053361BB5B6CE0056E64F /* FRUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1371BAC987700789333 /* FRUploader.h */; settings = {ASSET_TAGS = (); }; };
+		3DE053371BB5B6CE0056E64F /* FRConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1261BAC987700789333 /* FRConstants.h */; settings = {ASSET_TAGS = (); }; };
+		3DE0533A1BB5B6F20056E64F /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; settings = {ASSET_TAGS = (); }; };
+		3DE8CF8D1BAEDC68007BD1BB /* FRConsoleLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1241BAC987700789333 /* FRConsoleLog.h */; };
+		3DE8CF8E1BAEEE18007BD1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1B91BAC9ADD00789333 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,30 +176,50 @@
 			remoteGlobalIDString = 3D77A0E21BAC979000789333;
 			remoteInfo = F53FeedbackKit;
 		};
-		3D77A10D1BAC97BC00789333 /* PBXContainerItemProxy */ = {
+		3D958C111BB995AB005B7C65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3D77A0DA1BAC979000789333 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3D77A1011BAC97BC00789333;
-			remoteInfo = F53FeedbackKit_iOS;
+			remoteGlobalIDString = 3D77A0E21BAC979000789333;
+			remoteInfo = F53FeedbackKit;
 		};
-		3DE27C851BB433D9007B7D50 /* PBXContainerItemProxy */ = {
+		3DC68D901BB602E80002242A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3D77A0DA1BAC979000789333 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3D77A1011BAC97BC00789333;
-			remoteInfo = F53FeedbackKit_iOS;
+			remoteGlobalIDString = 3DC68D8A1BB602E80002242A;
+			remoteInfo = F53FeedbackKit_iOSApp;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3D958C131BB995AB005B7C65 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3D958C101BB995AB005B7C65 /* F53FeedbackKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE053011BB5A1FE0056E64F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DE27C871BB433D9007B7D50 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3DE27C841BB433D9007B7D50 /* F53FeedbackKit_iOS.framework in Embed Frameworks */,
+				3DC68D931BB602E80002242A /* F53FeedbackKit_iOSApp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,60 +227,37 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3D07BF381BB17E52006BEC2B /* FRiOSFeedbackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRiOSFeedbackTableViewController.h; sourceTree = "<group>"; };
-		3D07BF391BB17E52006BEC2B /* FRiOSFeedbackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRiOSFeedbackTableViewController.m; sourceTree = "<group>"; };
-		3D07BF441BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRiOSFeedbackTableViewTextViewCell.h; sourceTree = "<group>"; };
-		3D07BF451BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRiOSFeedbackTableViewTextViewCell.m; sourceTree = "<group>"; };
-		3D07BF4E1BB19681006BEC2B /* FRiOSFeedbackTableViewEmailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRiOSFeedbackTableViewEmailCell.h; sourceTree = "<group>"; };
-		3D07BF4F1BB19681006BEC2B /* FRiOSFeedbackTableViewEmailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRiOSFeedbackTableViewEmailCell.m; sourceTree = "<group>"; };
+		3D0361551BB4558300AE4C80 /* F53FeedbackKit_iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "F53FeedbackKit_iOS copy-Info.plist"; path = "/Users/balord/Development/F53FeedbackKit/F53FeedbackKit_iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		3D07BF531BB19693006BEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewEmailCell.xib; sourceTree = "<group>"; };
 		3D07BF561BB19697006BEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewTextViewCell.xib; sourceTree = "<group>"; };
-		3D07BF581BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRiOSFeedbackTableViewTabPickerCell.h; sourceTree = "<group>"; };
-		3D07BF591BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRiOSFeedbackTableViewTabPickerCell.m; sourceTree = "<group>"; };
 		3D07BF641BB1A008006BEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewTabPickerCell.xib; sourceTree = "<group>"; };
-		3D07BF6A1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRiOSFeedbackTableViewCheckmarkCell.h; sourceTree = "<group>"; };
-		3D07BF6B1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRiOSFeedbackTableViewCheckmarkCell.m; sourceTree = "<group>"; };
 		3D07BF731BB1C29D006BEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewCheckmarkCell.xib; sourceTree = "<group>"; };
-		3D69752F1BB30C50005AC2B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975311BB30C8D005AC2B8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975321BB30C8E005AC2B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975331BB30C91005AC2B8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975341BB30C93005AC2B8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975351BB30C95005AC2B8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975361BB30C97005AC2B8 /* hy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hy; path = hy.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975371BB30C9F005AC2B8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975381BB30CA1005AC2B8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
-		3D6975391BB30CA4005AC2B8 /* pt-br */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-br"; path = "pt-br.lproj/FeedbackReporter.strings"; sourceTree = "<group>"; };
+		3D2E0CA71BB4B11B00370315 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3D2E0CAB1BB4B13800370315 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3D2E0CAD1BB4B14000370315 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3D37BB501BB9985200030264 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3D69753B1BB30D53005AC2B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/FeedbackReporter_iOS.strings; sourceTree = "<group>"; };
 		3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = F53FeedbackKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77A0E61BAC979000789333 /* F53FeedbackKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit.h; sourceTree = "<group>"; };
 		3D77A0E81BAC979000789333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D77A0ED1BAC979000789333 /* F53FeedbackKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F53FeedbackKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77A0F41BAC979000789333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = F53FeedbackKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOS.h; sourceTree = "<group>"; };
 		3D77A1061BAC97BC00789333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D77A10B1BAC97BC00789333 /* F53FeedbackKit_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F53FeedbackKit_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D77A1121BAC97BC00789333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D77A1201BAC987700789333 /* FRApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRApplication.h; sourceTree = "<group>"; };
 		3D77A1211BAC987700789333 /* FRApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRApplication.m; sourceTree = "<group>"; };
-		3D77A1221BAC987700789333 /* FRCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRCommand.h; sourceTree = "<group>"; };
-		3D77A1231BAC987700789333 /* FRCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRCommand.m; sourceTree = "<group>"; };
 		3D77A1241BAC987700789333 /* FRConsoleLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRConsoleLog.h; sourceTree = "<group>"; };
 		3D77A1251BAC987700789333 /* FRConsoleLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRConsoleLog.m; sourceTree = "<group>"; };
 		3D77A1261BAC987700789333 /* FRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRConstants.h; sourceTree = "<group>"; };
 		3D77A1271BAC987700789333 /* FRCrashLogFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRCrashLogFinder.h; sourceTree = "<group>"; };
 		3D77A1281BAC987700789333 /* FRCrashLogFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRCrashLogFinder.m; sourceTree = "<group>"; };
-		3D77A1291BAC987700789333 /* FRDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDocumentList.h; sourceTree = "<group>"; };
-		3D77A12A1BAC987700789333 /* FRDocumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDocumentList.m; sourceTree = "<group>"; };
-		3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRExceptionReportingApplication.h; path = ../Sources/Main/FRExceptionReportingApplication.h; sourceTree = "<group>"; };
-		3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRExceptionReportingApplication.m; path = ../Sources/Main/FRExceptionReportingApplication.m; sourceTree = "<group>"; };
 		3D77A12D1BAC987700789333 /* FRFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFeedbackController.h; sourceTree = "<group>"; };
 		3D77A12E1BAC987700789333 /* FRFeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFeedbackController.m; sourceTree = "<group>"; };
 		3D77A1311BAC987700789333 /* FRFeedbackReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFeedbackReporter.h; sourceTree = "<group>"; };
 		3D77A1321BAC987700789333 /* FRFeedbackReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFeedbackReporter.m; sourceTree = "<group>"; };
-		3D77A1331BAC987700789333 /* FRProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRProgressWindow.h; sourceTree = "<group>"; };
-		3D77A1341BAC987700789333 /* FRProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRProgressWindow.m; sourceTree = "<group>"; };
 		3D77A1351BAC987700789333 /* FRSystemProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRSystemProfile.h; sourceTree = "<group>"; };
 		3D77A1361BAC987700789333 /* FRSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRSystemProfile.m; sourceTree = "<group>"; };
 		3D77A1371BAC987700789333 /* FRUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRUploader.h; sourceTree = "<group>"; };
@@ -247,8 +291,6 @@
 		3D77A1EF1BAC9F3500789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3D77A1F41BAC9FA500789333 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D77A2371BACA50F00789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRMacFeedbackWindowController.xib; sourceTree = "<group>"; };
-		3DBACD0A1BACAF0B00FEAFCE /* F53FeedbackKit.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53FeedbackKit.pch; path = F53FeedbackKit/F53FeedbackKit.pch; sourceTree = SOURCE_ROOT; };
-		3DBACD0C1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOS.pch; sourceTree = "<group>"; };
 		3DC3AA1B1BB06BD4001E1765 /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC3AA1E1BB06BD4001E1765 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC3AA201BB06BD4001E1765 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -259,15 +301,46 @@
 		3DC3AA291BB06BD4001E1765 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC3AA2C1BB06BD4001E1765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC3AA2E1BB06BD4001E1765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DE27C721BB33C7B007B7D50 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		3DE27C741BB33C82007B7D50 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		3DE27C761BB33C8C007B7D50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3DE27C781BB33C95007B7D50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		3DE27C7A1BB33C9D007B7D50 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		3DE27C7C1BB33CA4007B7D50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		3DE27C7E1BB33CAD007B7D50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMacFeedbackWindowController.h; sourceTree = "<group>"; };
-		3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRMacFeedbackWindowController.m; sourceTree = "<group>"; };
+		3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOSApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = F53FeedbackKit_iOSApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC68D8D1BB602E80002242A /* F53FeedbackKit_iOSApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOSApp.h; sourceTree = "<group>"; };
+		3DC68D8F1BB602E80002242A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DC68DD01BB606520002242A /* F53FeedbackKit_iOSApp.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOSApp.pch; sourceTree = "<group>"; };
+		3DE052B11BB592340056E64F /* FRCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRCommand.h; path = Mac/FRCommand.h; sourceTree = "<group>"; };
+		3DE052B21BB592340056E64F /* FRCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRCommand.m; path = Mac/FRCommand.m; sourceTree = "<group>"; };
+		3DE052B31BB592340056E64F /* FRDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRDocumentList.h; path = Mac/FRDocumentList.h; sourceTree = "<group>"; };
+		3DE052B41BB592340056E64F /* FRDocumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRDocumentList.m; path = Mac/FRDocumentList.m; sourceTree = "<group>"; };
+		3DE052B51BB592340056E64F /* FRProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRProgressWindow.h; path = Mac/FRProgressWindow.h; sourceTree = "<group>"; };
+		3DE052B61BB592340056E64F /* FRProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRProgressWindow.m; path = Mac/FRProgressWindow.m; sourceTree = "<group>"; };
+		3DE052BD1BB5925A0056E64F /* FRMacFeedbackWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRMacFeedbackWindowController.h; path = Mac/FRMacFeedbackWindowController.h; sourceTree = "<group>"; };
+		3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRMacFeedbackWindowController.m; path = Mac/FRMacFeedbackWindowController.m; sourceTree = "<group>"; };
+		3DE052C11BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewCheckmarkCell.h; path = iOS/FRiOSFeedbackTableViewCheckmarkCell.h; sourceTree = "<group>"; };
+		3DE052C21BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewCheckmarkCell.m; path = iOS/FRiOSFeedbackTableViewCheckmarkCell.m; sourceTree = "<group>"; };
+		3DE052C31BB5927A0056E64F /* FRiOSFeedbackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewController.h; path = iOS/FRiOSFeedbackTableViewController.h; sourceTree = "<group>"; };
+		3DE052C41BB5927A0056E64F /* FRiOSFeedbackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewController.m; path = iOS/FRiOSFeedbackTableViewController.m; sourceTree = "<group>"; };
+		3DE052C51BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewEmailCell.h; path = iOS/FRiOSFeedbackTableViewEmailCell.h; sourceTree = "<group>"; };
+		3DE052C61BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewEmailCell.m; path = iOS/FRiOSFeedbackTableViewEmailCell.m; sourceTree = "<group>"; };
+		3DE052C71BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewTabPickerCell.h; path = iOS/FRiOSFeedbackTableViewTabPickerCell.h; sourceTree = "<group>"; };
+		3DE052C81BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewTabPickerCell.m; path = iOS/FRiOSFeedbackTableViewTabPickerCell.m; sourceTree = "<group>"; };
+		3DE052C91BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewTextViewCell.h; path = iOS/FRiOSFeedbackTableViewTextViewCell.h; sourceTree = "<group>"; };
+		3DE052CA1BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewTextViewCell.m; path = iOS/FRiOSFeedbackTableViewTextViewCell.m; sourceTree = "<group>"; };
+		3DE052DF1BB595E70056E64F /* FRExceptionReportingApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRExceptionReportingApplication.h; sourceTree = "<group>"; };
+		3DE052E01BB595E70056E64F /* FRExceptionReportingApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRExceptionReportingApplication.m; sourceTree = "<group>"; };
+		3DE052E31BB597AB0056E64F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE052E51BB597B00056E64F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE053031BB5A1FE0056E64F /* libF53FeedbackKit_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libF53FeedbackKit_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE0531C1BB5A33F0056E64F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3DE0531E1BB5A3450056E64F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3DE053201BB5A3490056E64F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		3DE053221BB5A4180056E64F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE053241BB5A46A0056E64F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE053251BB5A46C0056E64F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE053261BB5A46E0056E64F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE053271BB5A4700056E64F /* hy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hy; path = hy.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE053281BB5A4720056E64F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE053291BB5A4740056E64F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FeedbackReporter.strings; sourceTree = "<group>"; };
+		3DE0532A1BB5A4760056E64F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/FeedbackReporter.strings"; sourceTree = "<group>"; };
+		3DE0532C1BB5ACE20056E64F /* F53FeedbackKit_iOS.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOS.pch; sourceTree = "<group>"; };
+		3DE0532D1BB5ACEE0056E64F /* F53FeedbackKit.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit.pch; sourceTree = "<group>"; };
 		3DF048431BB17D560085F6BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,10 +349,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE27C791BB33C95007B7D50 /* SystemConfiguration.framework in Frameworks */,
-				3DE27C771BB33C8C007B7D50 /* Foundation.framework in Frameworks */,
-				3DE27C751BB33C82007B7D50 /* AppKit.framework in Frameworks */,
-				3DE27C731BB33C7B007B7D50 /* AddressBook.framework in Frameworks */,
+				3D2E0CAE1BB4B14000370315 /* Foundation.framework in Frameworks */,
+				3D2E0CAC1BB4B13800370315 /* AddressBook.framework in Frameworks */,
+				3D2E0CAA1BB4B12D00370315 /* SystemConfiguration.framework in Frameworks */,
+				3D2E0CA81BB4B11B00370315 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,21 +364,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3D77A0FE1BAC97BC00789333 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3DE27C7F1BB33CAD007B7D50 /* Foundation.framework in Frameworks */,
-				3DE27C7D1BB33CA4007B7D50 /* SystemConfiguration.framework in Frameworks */,
-				3DE27C7B1BB33C9D007B7D50 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D77A1081BAC97BC00789333 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77A10C1BAC97BC00789333 /* F53FeedbackKit_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +375,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9AEC471BAE0E61008074AC /* F53FeedbackKit.framework in Frameworks */,
+				3D37BB591BB998B800030264 /* AddressBook.framework in Frameworks */,
+				3D37BB531BB9985D00030264 /* SystemConfiguration.framework in Frameworks */,
+				3D37BB521BB9985700030264 /* AppKit.framework in Frameworks */,
+				3D37BB511BB9985200030264 /* Cocoa.framework in Frameworks */,
+				3D37BB4F1BB9984B00030264 /* Foundation.framework in Frameworks */,
+				3D958C0F1BB995AB005B7C65 /* F53FeedbackKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +388,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D37BB581BB998B100030264 /* Cocoa.framework in Frameworks */,
+				3D37BB571BB998AB00030264 /* AddressBook.framework in Frameworks */,
+				3D37BB561BB998A700030264 /* SystemConfiguration.framework in Frameworks */,
+				3D37BB551BB998A300030264 /* Foundation.framework in Frameworks */,
+				3D37BB541BB9989E00030264 /* AppKit.framework in Frameworks */,
 				3D9AEC481BAE0E66008074AC /* F53FeedbackKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,8 +401,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DC3AA321BB06DAA001E1765 /* F53FeedbackKit_iOS.framework in Frameworks */,
-				3DE27C831BB433D9007B7D50 /* F53FeedbackKit_iOS.framework in Frameworks */,
+				3D37BB4E1BB9982B00030264 /* SystemConfiguration.framework in Frameworks */,
+				3D37BB4D1BB9982500030264 /* Foundation.framework in Frameworks */,
+				3D37BB4C1BB9981D00030264 /* UIKit.framework in Frameworks */,
+				3DC68D921BB602E80002242A /* F53FeedbackKit_iOSApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DC68D871BB602E80002242A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DC68DBF1BB604710002242A /* UIKit.framework in Frameworks */,
+				3DC68DBE1BB6046C0002242A /* SystemConfiguration.framework in Frameworks */,
+				3DC68DBD1BB604660002242A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE053001BB5A1FE0056E64F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE053211BB5A3490056E64F /* SystemConfiguration.framework in Frameworks */,
+				3DE0531F1BB5A3450056E64F /* UIKit.framework in Frameworks */,
+				3DE0531D1BB5A33F0056E64F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,16 +438,24 @@
 			name = Exported;
 			sourceTree = "<group>";
 		};
+		3D2E0CBB1BB4B18400370315 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D37BB501BB9985200030264 /* Cocoa.framework */,
+				3DE053201BB5A3490056E64F /* SystemConfiguration.framework */,
+				3DE0531E1BB5A3450056E64F /* UIKit.framework */,
+				3DE0531C1BB5A33F0056E64F /* Foundation.framework */,
+				3D2E0CAD1BB4B14000370315 /* Foundation.framework */,
+				3D2E0CAB1BB4B13800370315 /* AddressBook.framework */,
+				3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */,
+				3D2E0CA71BB4B11B00370315 /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D77A0D91BAC979000789333 = {
 			isa = PBXGroup;
 			children = (
-				3DE27C7E1BB33CAD007B7D50 /* Foundation.framework */,
-				3DE27C7C1BB33CA4007B7D50 /* SystemConfiguration.framework */,
-				3DE27C7A1BB33C9D007B7D50 /* UIKit.framework */,
-				3DE27C781BB33C95007B7D50 /* SystemConfiguration.framework */,
-				3DE27C761BB33C8C007B7D50 /* Foundation.framework */,
-				3DE27C741BB33C82007B7D50 /* AppKit.framework */,
-				3DE27C721BB33C7B007B7D50 /* AddressBook.framework */,
 				3D77A11E1BAC987700789333 /* Main */,
 				3D77A2201BACA4EF00789333 /* Resources */,
 				3D77A1B71BAC9ADD00789333 /* App */,
@@ -363,7 +465,10 @@
 				3D77A0F11BAC979000789333 /* F53FeedbackKitTests */,
 				3D77A1031BAC97BC00789333 /* F53FeedbackKit_iOS */,
 				3D77A10F1BAC97BC00789333 /* F53FeedbackKit_iOSTests */,
+				3DC68D8C1BB602E80002242A /* F53FeedbackKit_iOSApp */,
+				3D2E0CBB1BB4B18400370315 /* Frameworks */,
 				3D77A0E41BAC979000789333 /* Products */,
+				3D0361551BB4558300AE4C80 /* F53FeedbackKit_iOS copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -372,11 +477,12 @@
 			children = (
 				3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */,
 				3D77A0ED1BAC979000789333 /* F53FeedbackKitTests.xctest */,
-				3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */,
 				3D77A10B1BAC97BC00789333 /* F53FeedbackKit_iOSTests.xctest */,
 				3D77A1B61BAC9ADD00789333 /* App.app */,
 				3D77A1D01BAC9D5A00789333 /* Document App.app */,
 				3DC3AA1B1BB06BD4001E1765 /* iOSApp.app */,
+				3DE053031BB5A1FE0056E64F /* libF53FeedbackKit_iOS.a */,
+				3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOSApp.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -385,7 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				3D77A0E61BAC979000789333 /* F53FeedbackKit.h */,
-				3DBACD0A1BACAF0B00FEAFCE /* F53FeedbackKit.pch */,
+				3DE0532D1BB5ACEE0056E64F /* F53FeedbackKit.pch */,
 				3D77A0E81BAC979000789333 /* Info.plist */,
 			);
 			path = F53FeedbackKit;
@@ -406,7 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */,
-				3DBACD0C1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch */,
+				3DE0532C1BB5ACE20056E64F /* F53FeedbackKit_iOS.pch */,
 				3D77A1061BAC97BC00789333 /* Info.plist */,
 			);
 			path = F53FeedbackKit_iOS;
@@ -452,8 +558,8 @@
 			children = (
 				3D77A1B81BAC9ADD00789333 /* AppDelegate.h */,
 				3D77A1B91BAC9ADD00789333 /* AppDelegate.m */,
-				3D77A12B1BAC987700789333 /* FRExceptionReportingApplication.h */,
-				3D77A12C1BAC987700789333 /* FRExceptionReportingApplication.m */,
+				3DE052DF1BB595E70056E64F /* FRExceptionReportingApplication.h */,
+				3DE052E01BB595E70056E64F /* FRExceptionReportingApplication.m */,
 				3D77A1CB1BAC9CE400789333 /* App.xib */,
 				3D77A1C31BAC9ADD00789333 /* Info.plist */,
 				3D1711311BACC1310094EF89 /* Exported */,
@@ -498,7 +604,7 @@
 		3D77A2201BACA4EF00789333 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3D6975301BB30C50005AC2B8 /* FeedbackReporter.strings */,
+				3DE052E21BB597AB0056E64F /* FeedbackReporter.strings */,
 				3D69753A1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings */,
 				3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */,
 				3DF048421BB17D560085F6BC /* FRiOSFeedbackTableViewController.xib */,
@@ -514,14 +620,14 @@
 		3D9AEC3C1BAD8533008074AC /* Mac */ = {
 			isa = PBXGroup;
 			children = (
-				3DE8CF891BAEC985007BD1BB /* FRMacFeedbackWindowController.h */,
-				3DE8CF8A1BAEC985007BD1BB /* FRMacFeedbackWindowController.m */,
-				3D77A1221BAC987700789333 /* FRCommand.h */,
-				3D77A1231BAC987700789333 /* FRCommand.m */,
-				3D77A1291BAC987700789333 /* FRDocumentList.h */,
-				3D77A12A1BAC987700789333 /* FRDocumentList.m */,
-				3D77A1331BAC987700789333 /* FRProgressWindow.h */,
-				3D77A1341BAC987700789333 /* FRProgressWindow.m */,
+				3DE052BD1BB5925A0056E64F /* FRMacFeedbackWindowController.h */,
+				3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */,
+				3DE052B11BB592340056E64F /* FRCommand.h */,
+				3DE052B21BB592340056E64F /* FRCommand.m */,
+				3DE052B31BB592340056E64F /* FRDocumentList.h */,
+				3DE052B41BB592340056E64F /* FRDocumentList.m */,
+				3DE052B51BB592340056E64F /* FRProgressWindow.h */,
+				3DE052B61BB592340056E64F /* FRProgressWindow.m */,
 			);
 			name = Mac;
 			sourceTree = "<group>";
@@ -572,19 +678,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3DC68D8C1BB602E80002242A /* F53FeedbackKit_iOSApp */ = {
+			isa = PBXGroup;
+			children = (
+				3DC68D8D1BB602E80002242A /* F53FeedbackKit_iOSApp.h */,
+				3DC68DD01BB606520002242A /* F53FeedbackKit_iOSApp.pch */,
+				3DC68D8F1BB602E80002242A /* Info.plist */,
+			);
+			path = F53FeedbackKit_iOSApp;
+			sourceTree = "<group>";
+		};
 		3DF0482E1BB08A760085F6BC /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				3D07BF381BB17E52006BEC2B /* FRiOSFeedbackTableViewController.h */,
-				3D07BF391BB17E52006BEC2B /* FRiOSFeedbackTableViewController.m */,
-				3D07BF6A1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.h */,
-				3D07BF6B1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.m */,
-				3D07BF4E1BB19681006BEC2B /* FRiOSFeedbackTableViewEmailCell.h */,
-				3D07BF4F1BB19681006BEC2B /* FRiOSFeedbackTableViewEmailCell.m */,
-				3D07BF581BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.h */,
-				3D07BF591BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.m */,
-				3D07BF441BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.h */,
-				3D07BF451BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.m */,
+				3DE052C31BB5927A0056E64F /* FRiOSFeedbackTableViewController.h */,
+				3DE052C41BB5927A0056E64F /* FRiOSFeedbackTableViewController.m */,
+				3DE052C11BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.h */,
+				3DE052C21BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m */,
+				3DE052C51BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.h */,
+				3DE052C61BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.m */,
+				3DE052C71BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.h */,
+				3DE052C81BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.m */,
+				3DE052C91BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.h */,
+				3DE052CA1BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.m */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -596,48 +712,73 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77A1641BAC987700789333 /* FRDocumentList.h in Headers */,
 				3D77A1521BAC987700789333 /* FRApplication.h in Headers */,
-				3D77A1561BAC987700789333 /* FRCommand.h in Headers */,
+				3DE052B71BB592340056E64F /* FRCommand.h in Headers */,
 				3D77A1601BAC987700789333 /* FRCrashLogFinder.h in Headers */,
 				3D77A18A1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */,
 				3D77A1801BAC987700789333 /* FRUploader.h in Headers */,
 				3D77A17C1BAC987700789333 /* FRSystemProfile.h in Headers */,
 				3D77A18E1BAC987700789333 /* NSString+Base64.h in Headers */,
+				3DE052BF1BB5925A0056E64F /* FRMacFeedbackWindowController.h in Headers */,
+				3DE052BB1BB592340056E64F /* FRProgressWindow.h in Headers */,
+				3DE0532E1BB5ACEE0056E64F /* F53FeedbackKit.pch in Headers */,
 				3D77A15E1BAC987700789333 /* FRConstants.h in Headers */,
+				3D2E0C2A1BB49A6900370315 /* FRFeedbackReporter.h in Headers */,
 				3DE8CF8D1BAEDC68007BD1BB /* FRConsoleLog.h in Headers */,
 				3D77A16C1BAC987700789333 /* FRFeedbackController.h in Headers */,
 				3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */,
 				3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */,
-				3D77A1741BAC987700789333 /* FRFeedbackReporter.h in Headers */,
-				3DBACD0B1BACAF0B00FEAFCE /* F53FeedbackKit.pch in Headers */,
-				3D77A1781BAC987700789333 /* FRProgressWindow.h in Headers */,
-				3DE8CF8B1BAEC985007BD1BB /* FRMacFeedbackWindowController.h in Headers */,
+				3DE052B91BB592340056E64F /* FRDocumentList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3D77A0FF1BAC97BC00789333 /* Headers */ = {
+		3DC68D881BB602E80002242A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77A1531BAC987700789333 /* FRApplication.h in Headers */,
-				3D07BF461BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.h in Headers */,
-				3D9AEC431BAE00EC008074AC /* FRCrashLogFinder.h in Headers */,
-				3D07BF6D1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */,
-				3D9AEC381BAD7EF5008074AC /* NSException+Callstack.h in Headers */,
-				3D77A18B1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */,
-				3D07BF501BB19682006BEC2B /* FRiOSFeedbackTableViewEmailCell.h in Headers */,
-				3D77A1811BAC987700789333 /* FRUploader.h in Headers */,
-				3D77A17D1BAC987700789333 /* FRSystemProfile.h in Headers */,
-				3D07BF3A1BB17E52006BEC2B /* FRiOSFeedbackTableViewController.h in Headers */,
-				3D77A18F1BAC987700789333 /* NSString+Base64.h in Headers */,
-				3DBACD0D1BACAF2D00FEAFCE /* F53FeedbackKit_iOS.pch in Headers */,
-				3D77A15F1BAC987700789333 /* FRConstants.h in Headers */,
-				3DC3AA131BB0515E001E1765 /* FRConsoleLog.h in Headers */,
-				3D07BF5B1BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */,
-				3D9AEC451BAE016D008074AC /* FRFeedbackController.h in Headers */,
-				3D77A1051BAC97BC00789333 /* F53FeedbackKit_iOS.h in Headers */,
-				3D77A1751BAC987700789333 /* FRFeedbackReporter.h in Headers */,
+				3DC68DC21BB6054E0002242A /* NSMutableDictionary+Additions.h in Headers */,
+				3DC68DA81BB603050002242A /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */,
+				3DC68D991BB602F80002242A /* FRApplication.h in Headers */,
+				3DC68D9F1BB602FC0002242A /* FRSystemProfile.h in Headers */,
+				3DC68D9B1BB602FC0002242A /* FRConsoleLog.h in Headers */,
+				3DC68DAC1BB603050002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */,
+				3DC68D971BB602EF0002242A /* FRFeedbackReporter.h in Headers */,
+				3DC68DCF1BB605E80002242A /* F53FeedbackKit_iOS.h in Headers */,
+				3DC68DC41BB6054E0002242A /* NSString+Base64.h in Headers */,
+				3DC68D8E1BB602E80002242A /* F53FeedbackKit_iOSApp.h in Headers */,
+				3DC68DA11BB602FC0002242A /* FRFeedbackController.h in Headers */,
+				3DC68DA51BB602FC0002242A /* FRConstants.h in Headers */,
+				3DC68DA61BB603050002242A /* FRiOSFeedbackTableViewController.h in Headers */,
+				3DC68DA31BB602FC0002242A /* FRUploader.h in Headers */,
+				3DC68DAA1BB603050002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */,
+				3DC68D9D1BB602FC0002242A /* FRCrashLogFinder.h in Headers */,
+				3DC68DC01BB6054E0002242A /* NSException+Callstack.h in Headers */,
+				3DC68DAE1BB603050002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE0532F1BB5B6BB0056E64F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DC68D831BB5F1AB0002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */,
+				3DE053371BB5B6CE0056E64F /* FRConstants.h in Headers */,
+				3DE0533A1BB5B6F20056E64F /* F53FeedbackKit_iOS.h in Headers */,
+				3DC68DC71BB605650002242A /* NSMutableDictionary+Additions.h in Headers */,
+				3DC68D851BB5F1AB0002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */,
+				3DE053301BB5B6C10056E64F /* FRFeedbackReporter.h in Headers */,
+				3DC68D821BB5F1AB0002242A /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */,
+				3DC68D811BB5F1AB0002242A /* FRiOSFeedbackTableViewController.h in Headers */,
+				3DE053311BB5B6CE0056E64F /* FRApplication.h in Headers */,
+				3DC68D841BB5F1AB0002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */,
+				3DC68D7F1BB5E3C00002242A /* F53FeedbackKit_iOS.pch in Headers */,
+				3DC68DC61BB605650002242A /* NSException+Callstack.h in Headers */,
+				3DE053341BB5B6CE0056E64F /* FRSystemProfile.h in Headers */,
+				3DE053351BB5B6CE0056E64F /* FRFeedbackController.h in Headers */,
+				3DE053361BB5B6CE0056E64F /* FRUploader.h in Headers */,
+				3DC68DC81BB605650002242A /* NSString+Base64.h in Headers */,
+				3DE053321BB5B6CE0056E64F /* FRConsoleLog.h in Headers */,
+				3DE053331BB5B6CE0056E64F /* FRCrashLogFinder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,10 +789,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D77A0F71BAC979000789333 /* Build configuration list for PBXNativeTarget "F53FeedbackKit" */;
 			buildPhases = (
-				3D77A0DE1BAC979000789333 /* Sources */,
-				3D77A0DF1BAC979000789333 /* Frameworks */,
 				3D77A0E01BAC979000789333 /* Headers */,
 				3D77A0E11BAC979000789333 /* Resources */,
+				3D77A0DE1BAC979000789333 /* Sources */,
+				3D77A0DF1BAC979000789333 /* Frameworks */,
 				3DE27C821BB3501D007B7D50 /* ShellScript */,
 			);
 			buildRules = (
@@ -681,25 +822,6 @@
 			productReference = 3D77A0ED1BAC979000789333 /* F53FeedbackKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3D77A1011BAC97BC00789333 /* F53FeedbackKit_iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3D77A1131BAC97BC00789333 /* Build configuration list for PBXNativeTarget "F53FeedbackKit_iOS" */;
-			buildPhases = (
-				3D77A0FD1BAC97BC00789333 /* Sources */,
-				3D77A0FE1BAC97BC00789333 /* Frameworks */,
-				3D77A0FF1BAC97BC00789333 /* Headers */,
-				3D77A1001BAC97BC00789333 /* Resources */,
-				3DE27C811BB35017007B7D50 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = F53FeedbackKit_iOS;
-			productName = F53FeedbackKit_iOS;
-			productReference = 3D77A1021BAC97BC00789333 /* F53FeedbackKit_iOS.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		3D77A10A1BAC97BC00789333 /* F53FeedbackKit_iOSTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D77A1161BAC97BC00789333 /* Build configuration list for PBXNativeTarget "F53FeedbackKit_iOSTests" */;
@@ -711,7 +833,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				3D77A10E1BAC97BC00789333 /* PBXTargetDependency */,
 			);
 			name = F53FeedbackKit_iOSTests;
 			productName = F53FeedbackKit_iOSTests;
@@ -725,10 +846,12 @@
 				3D77A1B21BAC9ADD00789333 /* Sources */,
 				3D77A1B31BAC9ADD00789333 /* Frameworks */,
 				3D77A1B41BAC9ADD00789333 /* Resources */,
+				3D958C131BB995AB005B7C65 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3D958C121BB995AB005B7C65 /* PBXTargetDependency */,
 			);
 			name = App;
 			productName = App;
@@ -764,12 +887,48 @@
 			buildRules = (
 			);
 			dependencies = (
-				3DE27C861BB433D9007B7D50 /* PBXTargetDependency */,
+				3DC68D911BB602E80002242A /* PBXTargetDependency */,
 			);
 			name = iOSApp;
 			productName = iOSApp;
 			productReference = 3DC3AA1B1BB06BD4001E1765 /* iOSApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3DC68D8A1BB602E80002242A /* F53FeedbackKit_iOSApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DC68D941BB602E80002242A /* Build configuration list for PBXNativeTarget "F53FeedbackKit_iOSApp" */;
+			buildPhases = (
+				3DC68D861BB602E80002242A /* Sources */,
+				3DC68D871BB602E80002242A /* Frameworks */,
+				3DC68D881BB602E80002242A /* Headers */,
+				3DC68D891BB602E80002242A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = F53FeedbackKit_iOSApp;
+			productName = F53FeedbackKit_iOSApp;
+			productReference = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOSApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3DE053021BB5A1FE0056E64F /* F53FeedbackKit_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DE053091BB5A1FE0056E64F /* Build configuration list for PBXNativeTarget "F53FeedbackKit_iOS" */;
+			buildPhases = (
+				3DE052FF1BB5A1FE0056E64F /* Sources */,
+				3DE053001BB5A1FE0056E64F /* Frameworks */,
+				3DE053011BB5A1FE0056E64F /* CopyFiles */,
+				3DE0532F1BB5B6BB0056E64F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = F53FeedbackKit_iOS;
+			productName = F53FeedbackKit_iOS;
+			productReference = 3DE053031BB5A1FE0056E64F /* libF53FeedbackKit_iOS.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -786,9 +945,6 @@
 					3D77A0EC1BAC979000789333 = {
 						CreatedOnToolsVersion = 7.0;
 					};
-					3D77A1011BAC97BC00789333 = {
-						CreatedOnToolsVersion = 7.0;
-					};
 					3D77A10A1BAC97BC00789333 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -799,6 +955,12 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					3DC3AA1A1BB06BD4001E1765 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					3DC68D8A1BB602E80002242A = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					3DE053021BB5A1FE0056E64F = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -826,10 +988,11 @@
 			targets = (
 				3D77A0E21BAC979000789333 /* F53FeedbackKit */,
 				3D77A0EC1BAC979000789333 /* F53FeedbackKitTests */,
-				3D77A1011BAC97BC00789333 /* F53FeedbackKit_iOS */,
+				3DE053021BB5A1FE0056E64F /* F53FeedbackKit_iOS */,
 				3D77A10A1BAC97BC00789333 /* F53FeedbackKit_iOSTests */,
 				3D77A1B51BAC9ADD00789333 /* App */,
 				3D77A1CF1BAC9D5A00789333 /* Document App */,
+				3DC68D8A1BB602E80002242A /* F53FeedbackKit_iOSApp */,
 				3DC3AA1A1BB06BD4001E1765 /* iOSApp */,
 			);
 		};
@@ -840,8 +1003,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D6F54701BB31C7F00401F16 /* FeedbackReporter.strings in Resources */,
-				3D77A2351BACA4EF00789333 /* FRMacFeedbackWindowController.xib in Resources */,
+				3DE052E41BB597AB0056E64F /* FeedbackReporter.strings in Resources */,
+				3D2E0C7C1BB4A99400370315 /* FRMacFeedbackWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,19 +1012,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D77A1001BAC97BC00789333 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3DF048441BB17D560085F6BC /* FRiOSFeedbackTableViewController.xib in Resources */,
-				3D07BF551BB19697006BEC2B /* FRiOSFeedbackTableViewTextViewCell.xib in Resources */,
-				3D07BF721BB1C29D006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.xib in Resources */,
-				3D07BF521BB19693006BEC2B /* FRiOSFeedbackTableViewEmailCell.xib in Resources */,
-				3D69753C1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings in Resources */,
-				3D07BF631BB1A008006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,22 +1052,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DC68D891BB602E80002242A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DC68DBA1BB6030E0002242A /* FRiOSFeedbackTableViewTextViewCell.xib in Resources */,
+				3DC68DB61BB6030E0002242A /* FRiOSFeedbackTableViewController.xib in Resources */,
+				3DC68DB51BB6030E0002242A /* FeedbackReporter_iOS.strings in Resources */,
+				3DC68DB91BB6030E0002242A /* FRiOSFeedbackTableViewTabPickerCell.xib in Resources */,
+				3DC68DB71BB6030E0002242A /* FRiOSFeedbackTableViewCheckmarkCell.xib in Resources */,
+				3DC68DB81BB6030E0002242A /* FRiOSFeedbackTableViewEmailCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DE27C811BB35017007B7D50 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$F53_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport F53_BUILD_IN_PROGRESS=1\n\nF53_FRAMEWORK_NAME=${TARGET_NAME}\nF53_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${F53_FRAMEWORK_NAME}.framework\"\n\n# Copy the framework to the user's desktop\nditto \"${F53_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${F53_FRAMEWORK_NAME}.framework\"";
-		};
 		3DE27C821BB3501D007B7D50 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -939,19 +1089,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D77A1541BAC987700789333 /* FRApplication.m in Sources */,
-				3D77A17A1BAC987700789333 /* FRProgressWindow.m in Sources */,
+				3DE052B81BB592340056E64F /* FRCommand.m in Sources */,
 				3D77A17E1BAC987700789333 /* FRSystemProfile.m in Sources */,
 				3D77A1901BAC987700789333 /* NSString+Base64.m in Sources */,
 				3D77A18C1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */,
 				3D77A15C1BAC987700789333 /* FRConsoleLog.m in Sources */,
 				3DDBAB391BB1CB210071E076 /* FRFeedbackController.m in Sources */,
-				3D77A1661BAC987700789333 /* FRDocumentList.m in Sources */,
 				3D77A1821BAC987700789333 /* FRUploader.m in Sources */,
 				3D77A1621BAC987700789333 /* FRCrashLogFinder.m in Sources */,
-				3DE8CF8C1BAEC985007BD1BB /* FRMacFeedbackWindowController.m in Sources */,
 				3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */,
 				3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */,
-				3D77A1581BAC987700789333 /* FRCommand.m in Sources */,
+				3DE052BA1BB592340056E64F /* FRDocumentList.m in Sources */,
+				3DE052C01BB5925A0056E64F /* FRMacFeedbackWindowController.m in Sources */,
+				3DE052BC1BB592350056E64F /* FRProgressWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,28 +1113,6 @@
 				3D77A1A91BAC9A5A00789333 /* CommandTestCase.m in Sources */,
 				3DBACD081BACAA5300FEAFCE /* FRConsoleLog.m in Sources */,
 				3D77A1AB1BAC9A5A00789333 /* UploaderTestCase.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D77A0FD1BAC97BC00789333 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D07BF6E1BB1C272006BEC2B /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */,
-				3D9AEC441BAE00EF008074AC /* FRCrashLogFinder.m in Sources */,
-				3D07BF511BB19682006BEC2B /* FRiOSFeedbackTableViewEmailCell.m in Sources */,
-				3D9AEC461BAE0171008074AC /* FRFeedbackController.m in Sources */,
-				3D77A1551BAC987700789333 /* FRApplication.m in Sources */,
-				3D77A17F1BAC987700789333 /* FRSystemProfile.m in Sources */,
-				3D77A1911BAC987700789333 /* NSString+Base64.m in Sources */,
-				3D07BF471BB18CD5006BEC2B /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
-				3D77A18D1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */,
-				3DC3AA161BB05163001E1765 /* FRConsoleLog.m in Sources */,
-				3D07BF5C1BB19F2D006BEC2B /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */,
-				3D77A1831BAC987700789333 /* FRUploader.m in Sources */,
-				3D07BF3B1BB17E52006BEC2B /* FRiOSFeedbackTableViewController.m in Sources */,
-				3D1711331BACC18B0094EF89 /* FRFeedbackReporter.m in Sources */,
-				3D9AEC3A1BAD7EF9008074AC /* NSException+Callstack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1003,8 +1131,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D77A1BD1BAC9ADD00789333 /* main.m in Sources */,
-				3D1711301BACC11D0094EF89 /* FRExceptionReportingApplication.m in Sources */,
 				3D77A1BA1BAC9ADD00789333 /* AppDelegate.m in Sources */,
+				3DE052E11BB595E70056E64F /* FRExceptionReportingApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1015,7 +1143,6 @@
 				3DE8CF8E1BAEEE18007BD1BB /* AppDelegate.m in Sources */,
 				3D77A1DA1BAC9D5A00789333 /* FRDocument.m in Sources */,
 				3D77A1D71BAC9D5A00789333 /* main.m in Sources */,
-				3DE8CF8F1BAEEE44007BD1BB /* FRExceptionReportingApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1156,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DC68D861BB602E80002242A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DC68DA41BB602FC0002242A /* FRUploader.m in Sources */,
+				3DC68D9E1BB602FC0002242A /* FRCrashLogFinder.m in Sources */,
+				3DC68D9C1BB602FC0002242A /* FRConsoleLog.m in Sources */,
+				3DC68DAB1BB603050002242A /* FRiOSFeedbackTableViewEmailCell.m in Sources */,
+				3DC68DA01BB602FC0002242A /* FRSystemProfile.m in Sources */,
+				3DC68DA71BB603050002242A /* FRiOSFeedbackTableViewController.m in Sources */,
+				3DC68DAD1BB603050002242A /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */,
+				3DC68D9A1BB602FC0002242A /* FRApplication.m in Sources */,
+				3DC68DA91BB603050002242A /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */,
+				3DC68DC51BB6054E0002242A /* NSString+Base64.m in Sources */,
+				3DC68DA21BB602FC0002242A /* FRFeedbackController.m in Sources */,
+				3DC68DC11BB6054E0002242A /* NSException+Callstack.m in Sources */,
+				3DC68DC31BB6054E0002242A /* NSMutableDictionary+Additions.m in Sources */,
+				3DC68DAF1BB603050002242A /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
+				3DC68D981BB602F40002242A /* FRFeedbackReporter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE052FF1BB5A1FE0056E64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE053161BB5A2400056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */,
+				3DE053181BB5A2400056E64F /* FRiOSFeedbackTableViewEmailCell.m in Sources */,
+				3DE053141BB5A22D0056E64F /* FRFeedbackController.m in Sources */,
+				3DE053121BB5A22D0056E64F /* FRCrashLogFinder.m in Sources */,
+				3DE053131BB5A22D0056E64F /* FRSystemProfile.m in Sources */,
+				3DE053191BB5A2400056E64F /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */,
+				3DE053111BB5A22D0056E64F /* FRConsoleLog.m in Sources */,
+				3DE053151BB5A22D0056E64F /* FRUploader.m in Sources */,
+				3DE053101BB5A22D0056E64F /* FRApplication.m in Sources */,
+				3DE0531A1BB5A2400056E64F /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
+				3DE0530E1BB5A2200056E64F /* NSMutableDictionary+Additions.m in Sources */,
+				3DE053171BB5A2400056E64F /* FRiOSFeedbackTableViewController.m in Sources */,
+				3DE0530D1BB5A2200056E64F /* NSException+Callstack.m in Sources */,
+				3DE0530C1BB5A2140056E64F /* FRFeedbackReporter.m in Sources */,
+				3DE0530F1BB5A2200056E64F /* NSString+Base64.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1037,15 +1208,15 @@
 			target = 3D77A0E21BAC979000789333 /* F53FeedbackKit */;
 			targetProxy = 3D77A0EF1BAC979000789333 /* PBXContainerItemProxy */;
 		};
-		3D77A10E1BAC97BC00789333 /* PBXTargetDependency */ = {
+		3D958C121BB995AB005B7C65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D77A1011BAC97BC00789333 /* F53FeedbackKit_iOS */;
-			targetProxy = 3D77A10D1BAC97BC00789333 /* PBXContainerItemProxy */;
+			target = 3D77A0E21BAC979000789333 /* F53FeedbackKit */;
+			targetProxy = 3D958C111BB995AB005B7C65 /* PBXContainerItemProxy */;
 		};
-		3DE27C861BB433D9007B7D50 /* PBXTargetDependency */ = {
+		3DC68D911BB602E80002242A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D77A1011BAC97BC00789333 /* F53FeedbackKit_iOS */;
-			targetProxy = 3DE27C851BB433D9007B7D50 /* PBXContainerItemProxy */;
+			target = 3DC68D8A1BB602E80002242A /* F53FeedbackKit_iOSApp */;
+			targetProxy = 3DC68D901BB602E80002242A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1080,23 +1251,6 @@
 				3D07BF731BB1C29D006BEC2B /* Base */,
 			);
 			name = FRiOSFeedbackTableViewCheckmarkCell.xib;
-			sourceTree = "<group>";
-		};
-		3D6975301BB30C50005AC2B8 /* FeedbackReporter.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D69752F1BB30C50005AC2B8 /* Base */,
-				3D6975311BB30C8D005AC2B8 /* ar */,
-				3D6975321BB30C8E005AC2B8 /* en */,
-				3D6975331BB30C91005AC2B8 /* de */,
-				3D6975341BB30C93005AC2B8 /* es */,
-				3D6975351BB30C95005AC2B8 /* fr */,
-				3D6975361BB30C97005AC2B8 /* hy */,
-				3D6975371BB30C9F005AC2B8 /* it */,
-				3D6975381BB30CA1005AC2B8 /* ru */,
-				3D6975391BB30CA4005AC2B8 /* pt-br */,
-			);
-			name = FeedbackReporter.strings;
 			sourceTree = "<group>";
 		};
 		3D69753A1BB30D53005AC2B8 /* FeedbackReporter_iOS.strings */ = {
@@ -1163,6 +1317,23 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		3DE052E21BB597AB0056E64F /* FeedbackReporter.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DE052E31BB597AB0056E64F /* Base */,
+				3DE052E51BB597B00056E64F /* en */,
+				3DE053221BB5A4180056E64F /* ar */,
+				3DE053241BB5A46A0056E64F /* de */,
+				3DE053251BB5A46C0056E64F /* es */,
+				3DE053261BB5A46E0056E64F /* fr */,
+				3DE053271BB5A4700056E64F /* hy */,
+				3DE053281BB5A4720056E64F /* it */,
+				3DE053291BB5A4740056E64F /* ru */,
+				3DE0532A1BB5A4760056E64F /* pt-BR */,
+			);
+			name = FeedbackReporter.strings;
+			sourceTree = "<group>";
+		};
 		3DF048421BB17D560085F6BC /* FRiOSFeedbackTableViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1178,10 +1349,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1192,14 +1361,15 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1215,15 +1385,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				VALID_ARCHS = "i386 x86_64";
+				ONLY_ACTIVE_ARCH = NO;
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -1231,10 +1400,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1245,14 +1412,14 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1262,59 +1429,54 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				VALID_ARCHS = "i386 x86_64";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
 		3D77A0F81BAC979000789333 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
+				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
 				INFOPLIST_FILE = F53FeedbackKit/Info.plist;
-				INSTALL_PATH = "@loader_path/../Frameworks";
+				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
-				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
 		3D77A0F91BAC979000789333 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
+				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
 				INFOPLIST_FILE = F53FeedbackKit/Info.plist;
-				INSTALL_PATH = "@loader_path/../Frameworks";
+				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
-				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -1337,57 +1499,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		3D77A1141BAC97BC00789333 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
-				INFOPLIST_FILE = F53FeedbackKit_iOS/Info.plist;
-				INSTALL_PATH = "@loader_path/../Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REEXPORTED_FRAMEWORK_NAMES = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
-			};
-			name = Debug;
-		};
-		3D77A1151BAC97BC00789333 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
-				INFOPLIST_FILE = F53FeedbackKit_iOS/Info.plist;
-				INSTALL_PATH = "@loader_path/../Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REEXPORTED_FRAMEWORK_NAMES = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1429,7 +1540,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = App/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1442,7 +1553,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = App/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1455,7 +1566,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Document App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.Document-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1468,7 +1579,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Document App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.Document-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1477,35 +1588,121 @@
 		3DC3AA301BB06BD4001E1765 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iOSApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.iOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
 		3DC3AA311BB06BD4001E1765 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iOSApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.iOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Release;
+		};
+		3DC68D951BB602E80002242A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
+				INFOPLIST_FILE = F53FeedbackKit_iOSApp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOSApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3DC68D961BB602E80002242A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
+				INFOPLIST_FILE = F53FeedbackKit_iOSApp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOSApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				VALIDATE_PRODUCT = YES;
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3DE0530A1BB5A1FE0056E64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3DE0530B1BB5A1FE0056E64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1535,15 +1732,6 @@
 			buildConfigurations = (
 				3D77A0FB1BAC979000789333 /* Debug */,
 				3D77A0FC1BAC979000789333 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3D77A1131BAC97BC00789333 /* Build configuration list for PBXNativeTarget "F53FeedbackKit_iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D77A1141BAC97BC00789333 /* Debug */,
-				3D77A1151BAC97BC00789333 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1580,6 +1768,24 @@
 			buildConfigurations = (
 				3DC3AA301BB06BD4001E1765 /* Debug */,
 				3DC3AA311BB06BD4001E1765 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DC68D941BB602E80002242A /* Build configuration list for PBXNativeTarget "F53FeedbackKit_iOSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DC68D951BB602E80002242A /* Debug */,
+				3DC68D961BB602E80002242A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DE053091BB5A1FE0056E64F /* Build configuration list for PBXNativeTarget "F53FeedbackKit_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE0530A1BB5A1FE0056E64F /* Debug */,
+				3DE0530B1BB5A1FE0056E64F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

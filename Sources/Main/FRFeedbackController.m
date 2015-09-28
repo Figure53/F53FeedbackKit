@@ -571,8 +571,10 @@
 - (FRiOSFeedbackTableViewController *) controller
 {
     if ( !_controller ) {
-        _controller = [[FRiOSFeedbackTableViewController alloc] initWithNibName:@"FRiOSFeedbackTableViewController" bundle:[NSBundle bundleForClass:[self class]]];
-        
+        NSBundle *frameworkBundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [frameworkBundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"];
+        NSBundle *nibBundle = [NSBundle bundleWithURL:url];
+        _controller = [[FRiOSFeedbackTableViewController alloc] initWithNibName:@"FRiOSFeedbackTableViewController" bundle:nibBundle];
         _controller.feedbackController = self;
     }
     return _controller;

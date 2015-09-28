@@ -111,11 +111,18 @@
     self.sendDetails = YES;
 //    self.documentList = nil;
     
+    NSBundle *nibBundle = self.nibBundle;
+    if ( !nibBundle ) {
+        NSBundle *frameworkBundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [frameworkBundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"];
+        nibBundle = [NSBundle bundleWithURL:url];
+    }
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewCheckmarkCell" bundle:[NSBundle bundleForClass:[self class]]] forCellReuseIdentifier:FRiOSFeedbackTableViewCheckmarkCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewEmailCell" bundle:[NSBundle bundleForClass:[self class]]] forCellReuseIdentifier:FRiOSFeedbackTableViewEmailCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTabPickerCell" bundle:[NSBundle bundleForClass:[self class]]] forCellReuseIdentifier:FRiOSFeedbackTableViewTabPickerCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTextViewCell" bundle:[NSBundle bundleForClass:[self class]]] forCellReuseIdentifier:FRiOSFeedbackTableViewTextViewCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewCheckmarkCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewCheckmarkCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewEmailCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewEmailCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTabPickerCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTabPickerCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTextViewCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTextViewCellIdentifier];
     
     self.title = FRLocalizedString(@"Feedback", nil);
     self.detailsLabelText = FRLocalizedString(@"Details", nil);
