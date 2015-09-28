@@ -1,3 +1,14 @@
+## Version 1.3.2 b1, unreleased
+* [ADD] Added iOS-compatible UI.
+* [ADD] Added Cocoapods podspec for creating iOS Framework.
+* [ADD] Added new method "reportCrash:" to report externally-collected crash reports.
+* [ADD] Added new optional delegate method "feedbackControllerTintColor" to allow  overriding the interface tint color for the iOS view controller navigation button text and various UI elements.
+* [CHG] Rebuilt project for Xcode 6.
+* [CHG] Adopts ARC for Mac and iOS.
+* [CHG] Mac target requires 10.8+.
+* [ADD] iOS target requires 8.4+.
+
+
 ## Version 1.3.1, unreleased
 * [ADD] Added Spanish translation. Thanks to Emilio Perez.
 * [ADD] Added targetUrlForFeedbackReport to delegate protocol. Thanks to Rick Fillion.
