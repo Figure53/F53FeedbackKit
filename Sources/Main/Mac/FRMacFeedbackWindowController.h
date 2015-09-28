@@ -17,32 +17,32 @@
 @interface FRMacFeedbackWindowController : NSWindowController <NSWindowDelegate>
 
 @property (nonatomic, weak)     FRFeedbackController *feedbackController;
-@property (nonatomic, strong)   NSString *type;
+@property (unsafe_unretained)   NSString *type;
 
-@property (nonatomic, strong)   IBOutlet NSTextField *headingField;
-@property (nonatomic, strong)   IBOutlet NSTextField *subheadingField;
+@property (unsafe_unretained)   IBOutlet NSTextField *headingField;
+@property (unsafe_unretained)   IBOutlet NSTextField *subheadingField;
     
-@property (nonatomic, strong)   IBOutlet NSTextField *messageLabel;
-@property (nonatomic, strong)   IBOutlet NSTextView *messageView;
+@property (unsafe_unretained)   IBOutlet NSTextField *messageLabel;
+@property (unsafe_unretained)   IBOutlet NSTextView *messageView;
     
-@property (nonatomic, strong)   IBOutlet NSTextField *emailLabel;
-@property (nonatomic, strong)   IBOutlet NSComboBox *emailBox;
+@property (unsafe_unretained)   IBOutlet NSTextField *emailLabel;
+@property (unsafe_unretained)   IBOutlet NSComboBox *emailBox;
     
-@property (nonatomic, strong)   IBOutlet NSButton *detailsButton;
-@property (nonatomic, strong)   IBOutlet NSTextField *detailsLabel;
+@property (unsafe_unretained)   IBOutlet NSButton *detailsButton;
+@property (unsafe_unretained)   IBOutlet NSTextField *detailsLabel;
 @property (nonatomic)           BOOL detailsShown;
     
-@property (nonatomic, strong)   IBOutlet NSButton *sendDetailsCheckbox;
-@property (nonatomic, strong)   IBOutlet NSButton *includeConsoleCheckbox;
+@property (unsafe_unretained)   IBOutlet NSButton *sendDetailsCheckbox;
+@property (unsafe_unretained)   IBOutlet NSButton *includeConsoleCheckbox;
     
-@property (nonatomic, strong)   IBOutlet NSTabView *tabView;
-@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabSystem;
-@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabConsole;
-@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabCrash;
-@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabScript;
-@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabPreferences;
-@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabException;
-@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabDocuments;
+@property (unsafe_unretained)   IBOutlet NSTabView *tabView;
+@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabSystem;
+@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabConsole;
+@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabCrash;
+@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabScript;
+@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabPreferences;
+@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabException;
+@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabDocuments;
     
 @property (nonatomic, strong)   IBOutlet NSTableView *systemView;
 @property (nonatomic, strong)   IBOutlet NSTextView *consoleView;
@@ -52,12 +52,12 @@
 @property (nonatomic, strong)   IBOutlet NSTextView *exceptionView;
 @property (nonatomic, strong)   IBOutlet NSTableView *documentsView;
     
-@property (nonatomic, strong)   IBOutlet NSButton *otherDocumentButton;
+@property (unsafe_unretained)   IBOutlet NSButton *otherDocumentButton;
     
-@property (nonatomic, strong)   IBOutlet NSProgressIndicator *indicator;
+@property (unsafe_unretained)   IBOutlet NSProgressIndicator *indicator;
     
-@property (nonatomic, strong)   IBOutlet NSButton *cancelButton;
-@property (nonatomic, strong)   IBOutlet NSButton *sendButton;
+@property (unsafe_unretained)   IBOutlet NSButton *cancelButton;
+@property (unsafe_unretained)   IBOutlet NSButton *sendButton;
     
 @property (nonatomic, strong)   FRDocumentList *documentList;
 
