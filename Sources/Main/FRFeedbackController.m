@@ -571,10 +571,13 @@
 - (FRiOSFeedbackTableViewController *) controller
 {
     if ( !_controller ) {
-        NSBundle *frameworkBundle = [NSBundle bundleForClass:[self class]];
-        NSURL *url = [frameworkBundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"];
-        NSBundle *nibBundle = [NSBundle bundleWithURL:url];
-        _controller = [[FRiOSFeedbackTableViewController alloc] initWithNibName:@"FRiOSFeedbackTableViewController" bundle:nibBundle];
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [bundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"]; // cocoapods builds a bundle, url will be nil when building iOSApp because F53FeedbackKit_iOSAPP.framework does not build a bundle
+        if ( url ) {
+            bundle = [NSBundle bundleWithURL:url];
+        }
+        
+        _controller = [[FRiOSFeedbackTableViewController alloc] initWithNibName:@"FRiOSFeedbackTableViewController" bundle:bundle];
         _controller.feedbackController = self;
     }
     return _controller;

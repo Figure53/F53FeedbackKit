@@ -113,9 +113,14 @@
     
     NSBundle *nibBundle = self.nibBundle;
     if ( !nibBundle ) {
-        NSBundle *frameworkBundle = [NSBundle bundleForClass:[self class]];
-        NSURL *url = [frameworkBundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"];
-        nibBundle = [NSBundle bundleWithURL:url];
+        
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [bundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"]; // cocoapods builds a bundle, url will be nil when building iOSApp because F53FeedbackKit_iOSAPP.framework does not build a bundle
+        if ( url ) {
+            bundle = [NSBundle bundleWithURL:url];
+        }
+        nibBundle = bundle;
+        
     }
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
