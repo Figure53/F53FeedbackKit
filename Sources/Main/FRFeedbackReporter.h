@@ -14,35 +14,36 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
 @protocol FRFeedbackReporterDelegate <NSObject>
+
 @optional
-- (NSDictionary*) customParametersForFeedbackReport;
-- (NSMutableDictionary*) anonymizePreferencesForFeedbackReport:(NSMutableDictionary *)preferences;
+- (NSDictionary *) customParametersForFeedbackReport;
+- (NSMutableDictionary *) anonymizePreferencesForFeedbackReport:(NSMutableDictionary *)preferences;
 - (NSString *) targetUrlForFeedbackReport;
 - (NSString *) feedbackDisplayName;
+
+#if TARGET_OS_IPHONE
+- (UIColor *) feedbackControllerTintColor;
+#endif
+
 @end
 
-@interface FRFeedbackReporter : NSObject {
 
-    @private
-        id feedbackController;
-        id<FRFeedbackReporterDelegate> delegate;
-}
+@interface FRFeedbackReporter : NSObject
+
+@property (nonatomic, weak)     id<FRFeedbackReporterDelegate> delegate;
 
 // Creates and returns the singleton FRFeedbackReporter. Does not perform any checks or other real work.
 + (FRFeedbackReporter *)sharedReporter;
-
-// Gets/sets the delegate.
-- (id<FRFeedbackReporterDelegate>) delegate;
-- (void) setDelegate:(id<FRFeedbackReporterDelegate>) delegate;
 
 // Displays the feedback user interface allowing the user to provide general feedback. Returns YES if it was able to display the UI, NO otherwise.
 - (BOOL) reportFeedback;
 
 // Searches the disk for crash logs, and displays the feedback user interface if there are crash logs newer than since the last check. Updates the 'last crash check date' in user defaults. Returns YES if it was able to display the UI, NO otherwise.
 - (BOOL) reportIfCrash;
+
+// Displays the feedback user interface with the provided crash data, ignoring 'last crash check date'. Returns YES if it was able to display the UI, NO otherwise.
+- (BOOL) reportCrash:(NSString *)crashLogText;
 
 // Displays the feedback user interface for the given exception. Do not pass nil. Returns YES if it was able to display the UI, NO otherwise.
 - (BOOL) reportException:(NSException *)exception;

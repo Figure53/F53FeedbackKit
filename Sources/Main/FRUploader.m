@@ -24,46 +24,40 @@
 
 @implementation FRUploader
 
-- (id) initWithTarget:(NSString*)pTarget delegate:(id<FRUploaderDelegate>)pDelegate
+- (id) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate
 {
     self = [super init];
     if (self != nil) {
-        target = pTarget;
-        delegate = pDelegate;
-        responseData = [[NSMutableData alloc] init];
+        _target = target;
+        _delegate = delegate;
+        _responseData = [[NSMutableData alloc] init];
     }
     
     return self;
 }
 
-- (void) dealloc
-{
-    [responseData release];
-    
-    [super dealloc];
-}
 
-- (NSData *) generateFormData: (NSDictionary *)dict forBoundary:(NSString*)formBoundary
+- (NSData *) generateFormData:(NSDictionary *)dict forBoundary:(NSString *)formBoundary
 {
     NSString *boundary = formBoundary;
     NSArray *keys = [dict allKeys];
     NSMutableData *result = [[NSMutableData alloc] initWithCapacity:100];
     
     for (NSUInteger i = 0; i < [keys count]; i++) {
-        id value = [dict valueForKey: [keys objectAtIndex: i]];
+        id value = [dict valueForKey:[keys objectAtIndex:i]];
         
         [result appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
 
         if ([value class] != [NSURL class]) {
-            [result appendData:[[NSString stringWithFormat: @"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", [keys objectAtIndex:i]] dataUsingEncoding:NSUTF8StringEncoding]];
+            [result appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", [keys objectAtIndex:i]] dataUsingEncoding:NSUTF8StringEncoding]];
             [result appendData:[[NSString stringWithFormat:@"%@",value] dataUsingEncoding:NSUTF8StringEncoding]];
         }
-        else if ([value class] == [NSURL class] && [value isFileURL]) {
-            NSString *disposition = [NSString stringWithFormat: @"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", [keys objectAtIndex:i], [[value path] lastPathComponent]];
-            [result appendData: [disposition dataUsingEncoding:NSUTF8StringEncoding]];
+        else if ([value class] == [NSURL class] && [(NSURL *)value isFileURL]) {
+            NSString *disposition = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", [keys objectAtIndex:i], [[(NSURL *)value path] lastPathComponent]];
+            [result appendData:[disposition dataUsingEncoding:NSUTF8StringEncoding]];
             
             [result appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            [result appendData:[NSData dataWithContentsOfFile:[value path]]];
+            [result appendData:[NSData dataWithContentsOfFile:[(NSURL *)value path]]];
         }
 
         [result appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
@@ -71,15 +65,15 @@
 
     [result appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
-    return [result autorelease];
+    return result;
 }
 
-- (NSData *)generateJSONData:(NSDictionary *)dict forBoundary:(NSString*)formBoundary
+- (NSData *) generateJSONData:(NSDictionary *)dict forBoundary:(NSString *)formBoundary
 {
     NSError *err;
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionaryWithCapacity:[dict count]];
     NSArray *keys = [dict allKeys];
-    NSMutableData *result = [[[NSMutableData alloc] initWithCapacity:100] autorelease];
+    NSMutableData *result = [[NSMutableData alloc] initWithCapacity:100];
     
     for (NSUInteger i = 0; i < [keys count]; i++) {
         id value = [dict valueForKey:[keys objectAtIndex:i]];
@@ -117,7 +111,7 @@
     return result;
 }
 
-- (void) postAndNotify:(NSDictionary*)dict
+- (void) postAndNotify:(NSDictionary *)dict
 {
     NSData *formData;
 
@@ -128,78 +122,77 @@
     formData = [self generateJSONData:dict forBoundary:formBoundary];
 #endif
 
-    NSLog(@"Posting %lu bytes to %@", (unsigned long)[formData length], target);
+    NSLog(@"Posting %lu bytes to %@", (unsigned long)[formData length], _target);
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:target]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_target]];
     
 #if defined(FR_UPLOAD_FORM_DATA) || defined(FR_JSON_SENT_AS_PARAM)
-    NSString *boundaryString = [NSString stringWithFormat: @"multipart/form-data; boundary=%@", formBoundary];
-    [request addValue: boundaryString forHTTPHeaderField: @"Content-Type"];
+    NSString *boundaryString = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", formBoundary];
+    [request addValue:boundaryString forHTTPHeaderField:@"Content-Type"];
 #endif
     
-    [request setHTTPMethod: @"POST"];
+    [request setHTTPMethod:@"POST"];
     [request setHTTPBody:formData];
+    
+    _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
-    connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-
-    if (connection != nil) {
-        if ([delegate respondsToSelector:@selector(uploaderStarted:)]) {
-            [delegate performSelector:@selector(uploaderStarted:) withObject:self];
+    if (_connection != nil) {
+        if ([_delegate respondsToSelector:@selector(uploaderStarted:)]) {
+            [_delegate performSelector:@selector(uploaderStarted:) withObject:self];
         }
         
     } else {
-        if ([delegate respondsToSelector:@selector(uploaderFailed:withError:)]) {
+        if ([_delegate respondsToSelector:@selector(uploaderFailed:withError:)]) {
 
-            [delegate performSelector:@selector(uploaderFailed:withError:) withObject:self
+            [_delegate performSelector:@selector(uploaderFailed:withError:) withObject:self
                 withObject:[NSError errorWithDomain:@"Failed to establish connection" code:0 userInfo:nil]];
 
         }
     }
 }
 
+- (void) cancel
+{
+    [_connection cancel];
+    _connection = nil;
+}
+
+- (NSString *) response
+{
+    return [[NSString alloc] initWithData:_responseData
+                                 encoding:NSUTF8StringEncoding];
+}
 
 
-- (void) connection: (NSURLConnection *)pConnection didReceiveData: (NSData *)data
+
+#pragma mark NSURLConnectionDataDelegate methods
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSLog(@"Connection received data");
 
-    [responseData appendData:data];
+    [_responseData appendData:data];
 }
 
-- (void) connection:(NSURLConnection *)pConnection didFailWithError:(NSError *)error
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"Connection failed");
     
-    if ([delegate respondsToSelector:@selector(uploaderFailed:withError:)]) {
-
-        [delegate performSelector:@selector(uploaderFailed:withError:) withObject:self withObject:error];
-    }
+    if ([_delegate respondsToSelector:@selector(uploaderFailed:withError:)]) {
         
-    [connection autorelease];
+        [_delegate performSelector:@selector(uploaderFailed:withError:) withObject:self withObject:error];
+    }
+
 }
 
-- (void) connectionDidFinishLoading: (NSURLConnection *)pConnection
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
     // NSLog(@"Connection finished");
-
-    if ([delegate respondsToSelector: @selector(uploaderFinished:)]) {
-        [delegate performSelector:@selector(uploaderFinished:) withObject:self];
+    
+    if ([_delegate respondsToSelector:@selector(uploaderFinished:)]) {
+        [_delegate performSelector:@selector(uploaderFinished:) withObject:self];
     }
     
-    [connection autorelease];
-}
-
-
-- (void) cancel
-{
-    [connection cancel];
-    [connection autorelease], connection = nil;
-}
-
-- (NSString*) response
-{
-    return [[[NSString alloc] initWithData:responseData
-                                  encoding:NSUTF8StringEncoding] autorelease];
 }
 
 @end

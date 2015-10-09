@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
 @interface FRApplication : NSObject
 
-+ (NSString*) applicationBundleVersion;
-+ (NSString*) applicationShortVersion;
-+ (NSString*) applicationLongVersion;
-+ (NSString*) applicationVersion;
++ (NSString *) applicationBundleVersion;
++ (NSString *) applicationShortVersion;
++ (NSString *) applicationLongVersion;
++ (NSString *) applicationVersion;
 
-+ (NSString*) applicationName;
-+ (NSString*) applicationIdentifier;
-+ (NSString*) feedbackURL;
++ (NSString *) applicationName;
++ (NSString *) applicationIdentifier;
++ (NSString *) feedbackURL;
 
 
 @end

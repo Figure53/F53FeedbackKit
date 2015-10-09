@@ -14,95 +14,41 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "FRFeedbackReporter.h"
 #import "FRUploader.h"
-#import "FRDocumentList.h"
 
 #define FR_FEEDBACK  @"feedback"
 #define FR_EXCEPTION @"exception"
 #define FR_CRASH     @"crash"
 #define FR_SUPPORT   @"support"
 
-@interface FRFeedbackController : NSWindowController 
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1060 // on lines like this to not confuse IB
-<FRUploaderDelegate, NSWindowDelegate>
-#else
-<FRUploaderDelegate>
-#endif
-{
-@private
-    IBOutlet NSTextField *headingField;
-    IBOutlet NSTextField *subheadingField;
 
-    IBOutlet NSTextField *messageLabel;
-    IBOutlet NSTextView *messageView;
+@interface FRFeedbackController : NSObject <FRUploaderDelegate>
 
-    IBOutlet NSTextField *emailLabel;
-    IBOutlet NSComboBox *emailBox;
-
-    IBOutlet NSButton *detailsButton;
-    IBOutlet NSTextField *detailsLabel;
-    BOOL detailsShown;
-
-	IBOutlet NSButton *sendDetailsCheckbox;
-    IBOutlet NSButton *includeConsoleCheckbox;
-
-    IBOutlet NSTabView *tabView;
-    IBOutlet NSTabViewItem *tabSystem;
-    IBOutlet NSTabViewItem *tabConsole;
-    IBOutlet NSTabViewItem *tabCrash;
-    IBOutlet NSTabViewItem *tabScript;
-    IBOutlet NSTabViewItem *tabPreferences;
-    IBOutlet NSTabViewItem *tabException;
-    IBOutlet NSTabViewItem *tabDocuments;
-
-    IBOutlet NSTableView *systemView;
-    IBOutlet NSTextView *consoleView;
-    IBOutlet NSTextView *crashesView;
-    IBOutlet NSTextView *scriptView;
-    IBOutlet NSTextView *preferencesView;
-    IBOutlet NSTextView *exceptionView;
-    IBOutlet NSTableView *documentsView;
-    
-    IBOutlet NSButton *otherDocumentButton;
-
-    IBOutlet NSProgressIndicator *indicator;
-
-    IBOutlet NSButton *cancelButton;
-    IBOutlet NSButton *sendButton;
-		
-    
-    FRUploader *uploader;
-    
-    FRDocumentList *documentList;
-    
-    id delegate;
-    
-    NSString *type;
-    NSArray *emailRequiredTypes;
-    NSArray *emailStronglySuggestedTypes;
-}
+@property (nonatomic, weak)     id<FRFeedbackReporterDelegate> delegate;
+@property (nonatomic, strong)   NSString *type;
 
 #pragma mark Accessors
 
-- (id) delegate;
-- (void) setDelegate:(id) delegate;
+- (NSString *) consoleLog;
+- (NSArray *) systemProfile;
+- (NSString *) systemProfileAsString;
+- (NSString *) preferences;
 
-- (void) setHeading:(NSString*)message;
+- (void) setTitle:(NSString *)title;
+- (void) setHeading:(NSString *)message;
 - (void) setSubheading:(NSString *)informativeText;
-- (void) setMessage:(NSString*)message;
-- (void) setException:(NSString*)exception;
-- (void) setType:(NSString*)type;
-
-#pragma mark UI
-
-- (IBAction) showDetails:(id)sender;
-- (IBAction) sendDetailsChecked:(id)sender;
-- (IBAction) includeConsoleChecked:(id)sender;
-- (IBAction) cancel:(id)sender;
-- (IBAction) send:(id)sender;
+- (void) setMessage:(NSString *)message;
+- (void) setCrash:(NSString *)crash;
+- (void) setException:(NSString *)exception;
 
 #pragma mark Other
+
+- (void) cancelUpload;
+- (void) send:(id)sender;
+
+- (void) show;
+- (void) close;
 
 - (void) reset;
 - (BOOL) isShown;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, Torsten Curdt
+ * Copyright 2008-2014, Torsten Curdt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,18 @@
  * limitations under the License.
  */
 
-#import <Cocoa/Cocoa.h>
-
-
 @interface FRSystemProfile : NSObject
 
-+ (NSArray*) discover;
++ (NSArray *) discover;
 
-+ (NSString*) cputype;
++ (NSString *) cputype;
 + (BOOL) is64bit;
-+ (NSString*) osversion;
-+ (NSString*) architecture;
++ (NSString *) osversion;
++ (NSString *) architecture;
 + (int) cpucount;
-+ (NSString*) machinemodel;
-+ (NSString*) language;
-+ (long) cpuspeed;
-+ (long) ramsize;
++ (NSString *) machinemodel;
++ (NSString *) language;
++ (long long) cpuspeed;
++ (long long) ramsize;
 
 @end

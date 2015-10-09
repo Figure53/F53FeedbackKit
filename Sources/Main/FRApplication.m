@@ -19,35 +19,35 @@
 
 @implementation FRApplication
 
-+ (NSString*) applicationBundleVersion
++ (NSString *) applicationBundleVersion
 {
 	// CFBundleShortVersionString is documented as not localizable.
-	NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleVersion"];
+	NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
 	
     return bundleVersion;
 }
 
-+ (NSString*) applicationShortVersion
++ (NSString *) applicationShortVersion
 {
 	// CFBundleShortVersionString is documented as localizable, so prefer a localized value if available.
-    NSString *shortVersion = [[[NSBundle mainBundle] localizedInfoDictionary] valueForKey: @"CFBundleShortVersionString"];
+    NSString *shortVersion = [[[NSBundle mainBundle] localizedInfoDictionary] valueForKey:@"CFBundleShortVersionString"];
 	
     if (!shortVersion) {
-        shortVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleShortVersionString"];
+        shortVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"];
     }
 	
     return shortVersion;
 }
 
-+ (NSString*) applicationLongVersion
++ (NSString *) applicationLongVersion
 {
 	// CFBundleLongVersionString is hardly documented, it's use is discouraged.
-    NSString *longVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleLongVersionString"];
+    NSString *longVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleLongVersionString"];
 	
 	return longVersion;
 }
 
-+ (NSString*) applicationVersion
++ (NSString *) applicationVersion
 {
     NSString *applicationVersion = [[self class] applicationLongVersion];
     
@@ -65,25 +65,25 @@
 }
 
 
-+ (NSString*) applicationName
++ (NSString *) applicationName
 {
  	// CFBundleExecutable is not localizable.
-   NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleExecutable"];
+   NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleExecutable"];
 	
 	return applicationName;
 }
 
-+ (NSString*) applicationIdentifier
++ (NSString *) applicationIdentifier
 {
 	// CFBundleIdentifier is not localizable.
-    NSString *applicationIdentifier = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleIdentifier"];
+    NSString *applicationIdentifier = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"];
 
     return applicationIdentifier;
 }
 
-+ (NSString*) feedbackURL
++ (NSString *) feedbackURL
 {
-    NSString *target = [[[NSBundle mainBundle] infoDictionary] valueForKey: PLIST_KEY_TARGETURL];
+    NSString *target = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_TARGETURL];
 
     if (target == nil) {
         return nil;

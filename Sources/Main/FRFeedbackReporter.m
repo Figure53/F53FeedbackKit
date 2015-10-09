@@ -25,88 +25,65 @@
 
 #import <uuid/uuid.h>
 
+@interface FRFeedbackReporter () {
+    FRFeedbackController *_feedbackController;
+}
+
+@property (nonatomic, strong, readonly) FRFeedbackController *feedbackController;
+
+- (BOOL) showFeedbackControllerWithType:(NSString *)type
+                                  title:(NSString *)title
+                                heading:(NSString *)heading
+                             subheading:(NSString *)subheading
+                                  crash:(NSString *)crash
+                              exception:(NSString *)exception;
+
+@end
+
+
 @implementation FRFeedbackReporter
 
 #pragma mark Construction
 
+__strong static FRFeedbackReporter *_sharedReporter = nil;
+static dispatch_once_t once_token = 0;
+
 + (FRFeedbackReporter *) sharedReporter
 {
-    static FRFeedbackReporter *sharedReporter = nil;
-
-    if (sharedReporter == nil) {
-        sharedReporter = [[[self class] alloc] init];
-    }
-
-    return sharedReporter;
+    // executes a block object once and only once for the lifetime of an application
+    dispatch_once( &once_token, ^{
+        _sharedReporter = [[[self class] alloc] init];
+    });
+    
+    // returns the same object each time
+    return _sharedReporter;
 }
+
 
 #pragma mark Destruction
 
-- (void) dealloc
-{
-    [feedbackController release];
-    
-    [super dealloc];
-}
 
 #pragma mark Variable Accessors
 
-- (FRFeedbackController*) feedbackController
+- (FRFeedbackController *) feedbackController
 {
-    if (feedbackController == nil) {
-        feedbackController = [[FRFeedbackController alloc] init];
+    if (_feedbackController == nil) {
+        _feedbackController = [[FRFeedbackController alloc] init];
     }
     
-    return feedbackController;
-}
-
-- (id<FRFeedbackReporterDelegate>) delegate
-{
-    return delegate;
-}
-
-- (void) setDelegate:(id<FRFeedbackReporterDelegate>) pDelegate
-{
-    delegate = pDelegate;
+    return _feedbackController;
 }
 
 #pragma mark Reports
 
 - (BOOL) reportFeedback
 {
-    FRFeedbackController *controller = [self feedbackController];
-
-    @synchronized (controller) {
-    
-        if ([controller isShown])
-            return NO;
-        
-        [controller setType:FR_FEEDBACK];
-        
-        [controller reset];
-
-        NSString * applicationName = nil;
-        if ([delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-            applicationName = [delegate feedbackDisplayName];
-        }
-        else {
-            applicationName =[FRApplication applicationName];
-        }
-
-       [controller setHeading:[NSString stringWithFormat:
-            FRLocalizedString(@"Got a problem with %@?", nil),
-            applicationName]];
-        
-        [controller setSubheading:FRLocalizedString(@"Send feedback", nil)];
-
-        [controller setDelegate:delegate];
-
-        [controller showWindow:self];
-        [[controller window] center];
-
-    }
-	
-    return YES;
+    return [self showFeedbackControllerWithType:FR_FEEDBACK
+                                          title:nil
+                                        heading:FRLocalizedString(@"Got a problem with %@?", nil)
+                                     subheading:FRLocalizedString(@"Send feedback", nil)
+                                          crash:nil
+                                      exception:nil];
 }
 
 - (BOOL) reportIfCrash
@@ -115,46 +92,35 @@
     
     NSArray *crashFiles = [FRCrashLogFinder findCrashLogsSince:lastCrashCheckDate];
 
-    [[NSUserDefaults standardUserDefaults] setValue: [NSDate date]
-                                             forKey: DEFAULTS_KEY_LASTCRASHCHECKDATE];
+    [[NSUserDefaults standardUserDefaults] setValue:[NSDate date]
+                                             forKey:DEFAULTS_KEY_LASTCRASHCHECKDATE];
     
     if (lastCrashCheckDate && [crashFiles count] > 0) {
         // NSLog(@"Found new crash files");
-
-        FRFeedbackController *controller = [self feedbackController];
-
-        @synchronized (controller) {
         
-            if ([controller isShown])
-                return NO;
-
-            [controller setType:FR_CRASH];
-            
-            [controller reset];
-
-            NSString * applicationName = nil;
-            if ([delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-               applicationName = [delegate feedbackDisplayName];
-            }
-            else {
-               applicationName =[FRApplication applicationName];
-            }
-           
-            [controller setHeading:[NSString stringWithFormat:
-                FRLocalizedString(@"%@ has recently crashed!", nil),
-                applicationName]];
-            
-            [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
-            
-            [controller setDelegate:delegate];
-
-            [controller showWindow:self];
-            [[controller window] center];
-
-        }
+        return [self showFeedbackControllerWithType:FR_CRASH
+                                              title:nil
+                                            heading:FRLocalizedString(@"%@ has recently crashed!", nil)
+                                         subheading:FRLocalizedString(@"Send crash report", nil)
+                                              crash:nil
+                                          exception:nil];
         
-        return YES;
+    }
+    
+    return NO;
+}
 
+- (BOOL) reportCrash:(NSString *)crashLogText
+{
+    if ( crashLogText && [crashLogText isEqualToString:@""] == NO ) {
+        
+        return [self showFeedbackControllerWithType:FR_CRASH
+                                              title:nil
+                                            heading:FRLocalizedString(@"%@ has recently crashed!", nil)
+                                         subheading:FRLocalizedString(@"Send crash report", nil)
+                                              crash:crashLogText
+                                          exception:nil];
+        
     }
     
     return NO;
@@ -162,49 +128,36 @@
 
 - (BOOL) reportException:(NSException *)exception
 {
-    FRFeedbackController *controller = [self feedbackController];
-
-    @synchronized (controller) {
-
-        if ([controller isShown])
-            return NO;
-
-        [controller setType:FR_EXCEPTION];
-        
-        [controller reset];
-       
-        NSString * applicationName = nil;
-        if ([delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-            applicationName = [delegate feedbackDisplayName];
-        }
-        else {
-            applicationName =[FRApplication applicationName];
-        }
-
-      
-        [controller setHeading:[NSString stringWithFormat:
-            FRLocalizedString(@"%@ has encountered an exception!", nil),
-            applicationName]];
-        
-        [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
-
-        NSString* callStack = [exception my_callStack];
-        [controller setException:[NSString stringWithFormat: @"%@\n\n%@\n\n%@",
-                                    [exception name],
-                                    [exception reason],
-                                    callStack ? callStack : @""]];
-
-        [controller setDelegate:delegate];
-
-        [controller showWindow:self];
-        [[controller window] center];
-
-    }
+    NSString *callStack = [exception my_callStack];
+    NSString *exceptionText = [NSString stringWithFormat: @"%@\n\n%@\n\n%@",
+                              [exception name],
+                              [exception reason],
+                              callStack ? callStack : @""];
     
-    return YES;
+    return [self showFeedbackControllerWithType:FR_EXCEPTION
+                                          title:nil
+                                        heading:FRLocalizedString(@"%@ has encountered an exception!", nil)
+                                     subheading:FRLocalizedString(@"Send crash report", nil)
+                                          crash:nil
+                                      exception:exceptionText];
 }
 
 - (BOOL) reportSupportNeed
+{
+    return [self showFeedbackControllerWithType:FR_SUPPORT
+                                          title:FRLocalizedString(@"Contact Support", nil)
+                                        heading:FRLocalizedString(@"Need help with %@?", nil)
+                                     subheading:FRLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)
+                                          crash:nil
+                                      exception:nil];
+}
+
+- (BOOL) showFeedbackControllerWithType:(NSString *)type
+                                  title:(NSString *)title
+                                heading:(NSString *)heading
+                             subheading:(NSString *)subheading
+                                  crash:(NSString *)crash
+                              exception:(NSString *)exception
 {
     FRFeedbackController *controller = [self feedbackController];
     
@@ -213,32 +166,45 @@
         if ([controller isShown])
             return NO;
         
-        [controller setType:FR_SUPPORT];
+        NSAssert( [type isEqualToString:FR_CRASH]       ||
+                 [type isEqualToString:FR_EXCEPTION]    ||
+                 [type isEqualToString:FR_FEEDBACK]     ||
+                 [type isEqualToString:FR_SUPPORT], @"type is missing or unsupported" );
+        
+        [controller setType:type];
         
         [controller reset];
         
-        NSString * applicationName = nil;
-        if ([delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-            applicationName = [delegate feedbackDisplayName];
+        if ( title )
+            [controller setTitle:title];
+        
+        if ( heading ) {
+            NSString *applicationName = nil;
+            if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
+                applicationName = [self.delegate feedbackDisplayName];
+            }
+            else {
+                applicationName =[FRApplication applicationName];
+            }
+            
+            [controller setHeading:[NSString stringWithFormat:heading, applicationName]];
         }
-        else {
-            applicationName =[FRApplication applicationName];
-        }
         
-        [[controller window] setTitle:FRLocalizedString(@"Contact Support", nil)];
-        [controller setHeading:[NSString stringWithFormat:
-                                FRLocalizedString(@"Need help with %@?", nil),
-                                applicationName]];
+        if ( subheading )
+            [controller setSubheading:subheading];
         
-        [controller setSubheading:FRLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)];
+        if ( crash )
+            [controller setCrash:crash];
         
-        [controller setDelegate:delegate];
+        if ( exception )
+            [controller setException:exception];
         
-        [controller showWindow:self];
-        [[controller window] center];
+        [controller setDelegate:self.delegate];
+        
+        [controller show];
         
     }
-	
+    
     return YES;
 }
 

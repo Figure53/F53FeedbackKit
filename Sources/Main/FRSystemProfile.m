@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, Torsten Curdt
+ * Copyright 2008-2014, Torsten Curdt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,22 @@
 
 #import "FRSystemProfile.h"
 #import <sys/sysctl.h>
+#import <mach/machine.h>
 
 @implementation FRSystemProfile
 
-+ (NSArray*) discover
++ (NSArray *) discover
 {
-    NSMutableArray *discoveryArray = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *discoveryArray = [[NSMutableArray alloc] init];
     NSArray *discoveryKeys = [NSArray arrayWithObjects:@"key", @"visibleKey", @"value", @"visibleValue", nil];
 
+#if TARGET_OS_IPHONE
+    NSString *vendorIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    [discoveryArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
+        @"UUID", @"Vendor Identifier", vendorIdentifier, vendorIdentifier, nil]
+        forKeys:discoveryKeys]];
+#endif
+    
     NSString *osversion = [NSString stringWithFormat:@"%@", [self osversion]];
     [discoveryArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
         @"OS_VERSION", @"OS Version", osversion, osversion, nil]
@@ -34,7 +42,7 @@
         @"MACHINE_MODEL", @"Machine Model", machinemodel, machinemodel, nil]
         forKeys:discoveryKeys]];
 
-    NSString *ramsize = [NSString stringWithFormat:@"%ld", [self ramsize]];
+    NSString *ramsize = [NSString stringWithFormat:@"%lld", [self ramsize]];
     [discoveryArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
         @"RAM_SIZE", @"Memory in (MB)", ramsize, ramsize, nil]
         forKeys:discoveryKeys]];
@@ -44,7 +52,7 @@
         @"CPU_TYPE", @"CPU Type", cputype, cputype, nil]
         forKeys:discoveryKeys]];
 
-    NSString *cpuspeed = [NSString stringWithFormat:@"%ld", [self cpuspeed]];
+    NSString *cpuspeed = [NSString stringWithFormat:@"%lld", [self cpuspeed]];
     [discoveryArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
         @"CPU_SPEED", @"CPU Speed (MHz)", cpuspeed, cpuspeed, nil]
         forKeys:discoveryKeys]];
@@ -92,7 +100,7 @@
     return is64bit;
 }
 
-+ (NSString*) cputype
++ (NSString *) cputype
 {
     int error = 0;
     
@@ -116,13 +124,46 @@
                 return brandString;
         }
     }
+    else if (cputype == CPU_TYPE_ARM) {
+        
+        cpu_subtype_t cpusubtype;
+        length = sizeof(cpusubtype);
+        sysctlbyname("hw.cpusubtype", &cpusubtype, &length, NULL, 0);
+        
+        switch( cpusubtype )
+        {
+            case CPU_SUBTYPE_ARM_V7:
+                return @"ARMV7";
+                
+            case CPU_SUBTYPE_ARM_V7S:
+                return @"ARMV7S";
+                
+            default:
+                return @"ARM";
+        }
+    }
+    else if (cputype == CPU_TYPE_ARM64) {
+        
+        cpu_subtype_t cpusubtype;
+        length = sizeof(cpusubtype);
+        sysctlbyname("hw.cpusubtype", &cpusubtype, &length, NULL, 0);
+        
+        switch( cpusubtype )
+        {
+            case CPU_SUBTYPE_ARM64_V8:
+                return @"ARM64_V8";
+                
+            default:
+                return @"ARM64";
+        }
+    }
+    
     
     int cpufamily = -1;
     length = sizeof(cpufamily);
     error = sysctlbyname("hw.cpufamily", &cpufamily, &length, NULL, 0);
-        
+
     if (error == 0) {
-        // 10.5+
         switch (cpufamily) {
             case CPUFAMILY_POWERPC_G3:
                 return @"PowerPC G3";
@@ -130,9 +171,9 @@
                 return @"PowerPC G4";
             case CPUFAMILY_POWERPC_G5:
                 return @"PowerPC G5";
-            case CPUFAMILY_INTEL_CORE:
+            case CPUFAMILY_INTEL_YONAH:
                 return @"Intel Core Duo";
-            case CPUFAMILY_INTEL_CORE2:
+            case CPUFAMILY_INTEL_MEROM:
                 return @"Intel Core 2 Duo";
             case CPUFAMILY_INTEL_PENRYN:
                 return @"Intel Core 2 Duo (Penryn)";
@@ -174,7 +215,7 @@
 }
 
 
-+ (NSString*) osversion
++ (NSString *) osversion
 {
     NSProcessInfo *info = [NSProcessInfo processInfo];
     NSString *version = [info operatingSystemVersionString];
@@ -186,7 +227,7 @@
     return version;
 }
 
-+ (NSString*) architecture
++ (NSString *) architecture
 {
     int error = 0;
     int value = 0;
@@ -199,9 +240,9 @@
     }
     
     switch (value) {
-        case 7:
+        case CPU_TYPE_X86:
             return @"Intel";
-        case 18:
+        case CPU_TYPE_POWERPC:
             return @"PPC";
     }
 
@@ -225,11 +266,17 @@
     return value;
 }
 
-+ (NSString*) machinemodel
++ (NSString *) machinemodel
 {
+    const char *name = "hw.model";
+#if TARGET_OS_IPHONE
+    // .model on iOS returns internal model name (e.g. "N51AP") when we'd prefer to see the model identifier here ("iPhone6,1")
+    name = "hw.machine";
+#endif
+    
     int error = 0;
     size_t length = 0;
-    error = sysctlbyname("hw.model", NULL, &length, NULL, 0);
+    error = sysctlbyname(name, NULL, &length, NULL, 0);
     
     if (error != 0) {
         NSLog(@"Failed to obtain CPU model");
@@ -238,7 +285,7 @@
 
     char *p = malloc(sizeof(char) * length);
     if (p) {
-		error = sysctlbyname("hw.model", p, &length, NULL, 0);
+		error = sysctlbyname(name, p, &length, NULL, 0);
     }
 	
     if (error != 0) {
@@ -254,7 +301,7 @@
     return machinemodel;
 }
 
-+ (NSString*) language
++ (NSString *) language
 {
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
     NSArray *languages = [defs objectForKey:@"AppleLanguages"];
@@ -267,28 +314,43 @@
     return [languages objectAtIndex:0];
 }
 
-+ (long) cpuspeed
++ (long long) cpuspeed
 {
-    SInt32 result = 0;
+    long long result = 0;
 
-    OSErr error = Gestalt(gestaltProcClkSpeedMHz, &result);
+	int error = 0;
+
+    int64_t hertz = 0;
+	size_t size = sizeof(hertz);
+	int mib[2] = {CTL_HW, HW_CPU_FREQ};
+	
+	error = sysctl(mib, 2, &hertz, &size, NULL, 0);
+	
     if (error) {
         NSLog(@"Failed to obtain CPU speed");
         return -1;
     }
+	
+	result = (long long)(hertz/1000000); // Convert to MHz
     
     return result;
 }
 
-+ (long) ramsize
++ (long long) ramsize
 {
-    SInt32 result = 0;
+    long long result = 0;
 
-    OSErr error = Gestalt(gestaltPhysicalRAMSizeInMegabytes, &result);
-    if (error) {
+	int error = 0;
+    int64_t value = 0;
+    size_t length = sizeof(value);
+	
+    error = sysctlbyname("hw.memsize", &value, &length, NULL, 0);
+	if (error) {
         NSLog(@"Failed to obtain RAM size");
         return -1;
-    }
+	}
+	const int64_t kBytesPerMebibyte = 1024*1024;
+	result = (long long)(value/kBytesPerMebibyte);
     
     return result;
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FRiOSFeedbackTableViewTextViewCellIdentifier" rowHeight="143" id="KGk-i7-Jjw" customClass="FRiOSFeedbackTableViewTextViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet" translatesAutoresizingMaskIntoConstraints="NO" id="Lyo-aU-tf6">
+                        <rect key="frame" x="20" y="8" width="280" height="95.5"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                    </textView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qaj-iT-rxz">
+                        <rect key="frame" x="20" y="8" width="280" height="95.5"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="1cV-3L-sYj"/>
+                    <constraint firstItem="Lyo-aU-tf6" firstAttribute="top" secondItem="Qaj-iT-rxz" secondAttribute="top" id="GUS-4K-wh6"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Hw4-8B-gGK"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="width" secondItem="Lyo-aU-tf6" secondAttribute="width" id="IEc-Pz-HxM"/>
+                    <constraint firstItem="Lyo-aU-tf6" firstAttribute="leading" secondItem="Qaj-iT-rxz" secondAttribute="leading" id="NfK-Ww-tT1"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-12" id="Vn6-YV-Vsn"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="WoZ-mh-sGe"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="height" secondItem="Lyo-aU-tf6" secondAttribute="height" id="d5M-OD-44T"/>
+                </constraints>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="9999" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="textView" destination="Qaj-iT-rxz" id="d95-vk-Xe4"/>
+                <outlet property="textViewPlaceholder" destination="Lyo-aU-tf6" id="GnP-iM-8XF"/>
+            </connections>
+            <point key="canvasLocation" x="169" y="273"/>
+        </tableViewCell>
+    </objects>
+</document>

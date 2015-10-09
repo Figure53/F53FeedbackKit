@@ -18,9 +18,10 @@
 
 @implementation NSMutableDictionary (Additions)
 
-- (void) setValidString: (NSString*) string forKey: (NSString*) key 
+- (void) setValidString:(NSString *)string forKey:(NSString *)key
 {
-	if ([string length] == 0 || !key) return;
+	if ( [string length] == 0 || !key )
+        return;
 	[self setObject:string forKey:key];
 }
 

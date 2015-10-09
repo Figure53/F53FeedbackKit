@@ -17,120 +17,121 @@
 #import "FRFeedbackController.h"
 #import "FRFeedbackReporter.h"
 #import "FRUploader.h"
-#import "FRCommand.h"
 #import "FRApplication.h"
-#import "FRCrashLogFinder.h"
 #import "FRSystemProfile.h"
 #import "FRConstants.h"
 #import "FRConsoleLog.h"
 
+#if TARGET_OS_IPHONE
+#import "FRiOSFeedbackTableViewController.h"
+#else
+#import "FRMacFeedbackWindowController.h"
+#import "FRCommand.h"
+#endif
+
 #import "NSMutableDictionary+Additions.h"
 
-#import <AddressBook/ABAddressBook.h>
-#import <AddressBook/ABMultiValue.h>
-#import <SystemConfiguration/SCNetwork.h>
-#import <SystemConfiguration/SCNetworkReachability.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+
+
+@interface FRFeedbackController ()
+
+@property (nonatomic, strong)       FRUploader *uploader;
+@property (nonatomic, strong)       NSArray *emailRequiredTypes;
+@property (nonatomic, strong)       NSArray *emailStronglySuggestedTypes;
+
+- (NSMutableDictionary *) parametersForFeedbackReport;
+- (BOOL) shouldSend:(id)sender;
+- (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host;
+
+@end
+
+
+#if TARGET_OS_IPHONE
+@interface FRiOSFeedbackController : FRFeedbackController <FRUploaderDelegate>
+
+@property (nonatomic, strong)       FRiOSFeedbackTableViewController *controller;
+
+@property (nonatomic)               BOOL allowSendWithoutEmailAddress;
+@property (nonatomic)               BOOL allowAttemptSendForUnreachableHost;
+
+@end
+#else
+@interface FRMacFeedbackController : FRFeedbackController <FRUploaderDelegate>
+
+@property (nonatomic, strong)       FRMacFeedbackWindowController *windowController;
+
+@end
+#endif
 
 
 @implementation FRFeedbackController
 
-#pragma mark Construction
-
-- (id) init
++ (instancetype) alloc
 {
-    self = [super initWithWindowNibName:@"FeedbackReporter"];
-    if (self != nil) {
-        detailsShown = YES;
-        documentList = nil;
-        emailRequiredTypes = [[NSArray arrayWithObject:FR_SUPPORT] retain];
-        emailStronglySuggestedTypes = [[NSArray arrayWithObjects:FR_FEEDBACK, FR_CRASH, nil] retain];
+    if ( [self class] == [FRFeedbackController class] ) {
+#if TARGET_OS_IPHONE
+        return [FRiOSFeedbackController alloc];
+#else
+        return [FRMacFeedbackController alloc];
+#endif
+    }
+    else {
+        return [super alloc];
+    }
+}
+
+- (instancetype) init
+{
+    self = [super init];
+    if ( self ) {
+        self.emailRequiredTypes = [NSArray arrayWithObject:FR_SUPPORT];
+        self.emailStronglySuggestedTypes = [NSArray arrayWithObjects:FR_FEEDBACK, FR_CRASH, nil];
     }
     return self;
-}
-
-- (void) awakeFromNib
-{
-    [tabConsole retain];
-    [tabCrash retain];
-    [tabScript retain];
-    [tabPreferences retain];
-    [tabException retain];
-    [tabDocuments retain];
-}
-
-#pragma mark Destruction
-
-- (void) dealloc
-{
-    [documentList release];
-    [type release];
-    [emailRequiredTypes release];
-    [emailStronglySuggestedTypes release];
-
-    [tabConsole release];
-    [tabCrash release];
-    [tabScript release];
-    [tabPreferences release];
-    [tabException release];
-    [tabDocuments release];
-
-    [super dealloc];
 }
 
 
 #pragma mark Accessors
 
-- (id) delegate
+- (void) setTitle:(NSString *)title
 {
-    return delegate;
 }
 
-- (void) setDelegate:(id) pDelegate
+- (void) setHeading:(NSString *)message
 {
-    delegate = pDelegate;
-}
-
-- (void) setHeading:(NSString*)message
-{
-    [headingField setStringValue:message];
 }
 
 - (void) setSubheading:(NSString *)informativeText
 {
-    [subheadingField setStringValue:informativeText];
 }
 
-- (void) setMessage:(NSString*)message
+- (void) setMessage:(NSString *)message
 {
-    [messageView setString:message];
 }
 
-- (void) setException:(NSString*)exception
+- (void) setCrash:(NSString *)crash
 {
-    [exceptionView setString:exception];
 }
 
-- (void) setType:(NSString*)theType
+- (void) setException:(NSString *)exception
 {
-    if (theType != type) {
-        [type release];
-        type = [theType retain];
-    }
 }
+
 
 #pragma mark information gathering
 
-- (NSString*) consoleLog
+- (NSString *) consoleLog
 {
     NSNumber *hours = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_LOGHOURS];
 
-    int h = 24;
+    NSInteger h = 24;
 
     if (hours != nil) {
-        h = [hours intValue];
+        h = [hours integerValue];
     }
-
-    NSDate *since = [[NSCalendarDate calendarDate] dateByAddingYears:0 months:0 days:0 hours:-h minutes:0 seconds:0];
+    
+    NSDate *since = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitHour value:-h toDate:[NSDate date] options:0];
 
     NSNumber *maximumSize = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_MAXCONSOLELOGSIZE];
 
@@ -138,18 +139,18 @@
 }
 
 
-- (NSArray*) systemProfile
+- (NSArray *) systemProfile
 {
     static NSArray *systemProfile = nil;
-
+    
     if (systemProfile == nil) {
-        systemProfile = [[FRSystemProfile discover] retain];
+        systemProfile = [FRSystemProfile discover];
     }
-
+    
     return systemProfile;
 }
 
-- (NSString*) systemProfileAsString
+- (NSString *) systemProfileAsString
 {
     NSMutableString *string = [NSMutableString string];
     NSArray *dicts = [self systemProfile];
@@ -161,624 +162,677 @@
     return string;
 }
 
-- (NSString*) crashLog
+- (NSString *) preferences
 {
-    NSDate *lastSubmissionDate = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_KEY_LASTSUBMISSIONDATE];
-
-    NSArray *crashFiles = [FRCrashLogFinder findCrashLogsSince:lastSubmissionDate];
-
-    NSUInteger i = [crashFiles count];
-
-    if (i == 1) {
-        if (lastSubmissionDate == nil) {
-            NSLog(@"Found a crash file");
-        } else {
-            NSLog(@"Found a crash file earlier than latest submission on %@", lastSubmissionDate);
-        }
-        NSError *error = nil;
-        NSString *result = [NSString stringWithContentsOfFile:[crashFiles lastObject] encoding: NSUTF8StringEncoding error:&error];
-        if (result == nil) {
-            NSLog(@"Failed to read crash file: %@", error);
-            return @"";
-        }
-        return result;
-    }
-
-    if (lastSubmissionDate == nil) {
-        NSLog(@"Found %lu crash files", (unsigned long)i);
-    } else {
-        NSLog(@"Found %lu crash files earlier than latest submission on %@", (unsigned long)i, lastSubmissionDate);
-    }
-
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-
-    NSDate *newest = nil;
-    NSInteger newestIndex = -1;
-
-    while(i--) {
-
-        NSString *crashFile = [crashFiles objectAtIndex:i];
-        NSError* error = nil;
-        NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:crashFile error:&error];
-        if (!fileAttributes) {
-            NSLog(@"Error while fetching file attributes: %@", [error localizedDescription]);
-        }
-        NSDate *fileModDate = [fileAttributes objectForKey:NSFileModificationDate];
-
-        NSLog(@"CrashLog: %@", crashFile);
-
-        if ([fileModDate laterDate:newest] == fileModDate) {
-            newest = fileModDate;
-            newestIndex = i;
-        }
-
-    }
-
-    if (newestIndex != -1) {
-        NSString *newestCrashFile = [crashFiles objectAtIndex:newestIndex];
-
-        NSLog(@"Picking CrashLog: %@", newestCrashFile);
-
-        NSError *error = nil;
-        NSString *result = [NSString stringWithContentsOfFile:newestCrashFile encoding: NSUTF8StringEncoding error:&error];
-        if (result == nil) {
-            NSLog(@"Failed to read crash file: %@", error);
-            return @"";
-        }
-        return result;
-    }
-
-    return @"";
-}
-
-- (NSString*) scriptLog
-{
-    NSMutableString *scriptLog = [NSMutableString string];
-
-    NSString *scriptPath = [[NSBundle mainBundle] pathForResource:FILE_SHELLSCRIPT ofType:@"sh"];
-
-    if ([[NSFileManager defaultManager] fileExistsAtPath:scriptPath]) {
-
-        FRCommand *cmd = [[FRCommand alloc] initWithPath:scriptPath];
-        [cmd setOutput:scriptLog];
-        [cmd setError:scriptLog];
-        int ret = [cmd execute];
-        [cmd release];
-
-        NSLog(@"Script exit code = %d", ret);
-
-    } /* else {
-        NSLog(@"No custom script to execute");
-    }
-    */
-
-    return scriptLog;
-}
-
-- (NSString*) preferences
-{
-    NSMutableDictionary *preferences = [[[[NSUserDefaults standardUserDefaults] persistentDomainForName:[FRApplication applicationIdentifier]] mutableCopy] autorelease];
-
+    NSMutableDictionary *preferences = [[[NSUserDefaults standardUserDefaults] persistentDomainForName:[FRApplication applicationIdentifier]] mutableCopy];
+    
     if (preferences == nil) {
         return @"";
     }
-
+    
     [preferences removeObjectForKey:DEFAULTS_KEY_SENDEREMAIL];
-
-    if ([delegate respondsToSelector:@selector(anonymizePreferencesForFeedbackReport:)]) {
-        preferences = [delegate anonymizePreferencesForFeedbackReport:preferences];
+    
+    if ([self.delegate respondsToSelector:@selector(anonymizePreferencesForFeedbackReport:)]) {
+        preferences = [self.delegate anonymizePreferencesForFeedbackReport:preferences];
     }
-
+    
     return [NSString stringWithFormat:@"%@", preferences];
 }
 
 
 #pragma mark UI Actions
 
-- (void) showDetails:(BOOL)show animate:(BOOL)animate
+- (BOOL) shouldSend:(id)sender
 {
-    if (detailsShown == show) {
-        return;
-    }
-
-    NSSize fullSize = NSMakeSize(455, 302);
-
-    NSRect windowFrame = [[self window] frame];
-
-    if (show) {
-
-        windowFrame.origin.y -= fullSize.height;
-        windowFrame.size.height += fullSize.height;
-        [[self window] setFrame: windowFrame
-                        display: YES
-                        animate: animate];
-
-    } else {
-        windowFrame.origin.y += fullSize.height;
-        windowFrame.size.height -= fullSize.height;
-        [[self window] setFrame: windowFrame
-                        display: YES
-                        animate: animate];
-
-    }
-
-    detailsShown = show;
+    return YES;
 }
 
-- (IBAction) showDetails:(id)sender
+- (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host
 {
-    BOOL show = [[sender objectValue] boolValue];
-    [self showDetails:show animate:YES];
+    return NO;
 }
 
-- (IBAction) sendDetailsChecked:(id)sender
+- (NSMutableDictionary *) parametersForFeedbackReport
 {
-    if ([sendDetailsCheckbox state] == NSOnState)
-        [includeConsoleCheckbox setEnabled:YES];
-    else
-        [includeConsoleCheckbox setEnabled:NO];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    [dict setValidString:self.type
+                  forKey:POST_KEY_TYPE];
+    
+    [dict setValidString:[FRApplication applicationLongVersion]
+                  forKey:POST_KEY_VERSION_LONG];
+    
+    [dict setValidString:[FRApplication applicationShortVersion]
+                  forKey:POST_KEY_VERSION_SHORT];
+    
+    [dict setValidString:[FRApplication applicationBundleVersion]
+                  forKey:POST_KEY_VERSION_BUNDLE];
+    
+    [dict setValidString:[FRApplication applicationVersion]
+                  forKey:POST_KEY_VERSION];
+    
+    return dict;
 }
 
-- (IBAction) includeConsoleChecked:(id)sender
+
+#pragma mark FRUploaderDelegate
+
+- (void) uploaderStarted:(FRUploader *)uploader
 {
-    if ([includeConsoleCheckbox state] == NSOnState) {
-        [indicator setHidden:NO];
-        [indicator startAnimation:self];
-        [sendButton setEnabled:NO];
-        [NSThread detachNewThreadSelector:@selector(loadConsole) toTarget:self withObject:nil];
-    }
-    else {
-        [tabView removeTabViewItem:tabConsole];
-    }
+    // NSLog(@"Upload started");
 }
 
-- (void)loadConsole
+- (void) uploaderFailed:(FRUploader *)uploader withError:(NSError *)error
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    [self populateConsole];
-    [self performSelectorOnMainThread:@selector(stopSpinner) withObject:self waitUntilDone:YES];
-    [pool drain];
+    NSLog(@"Upload failed: %@", error);
 }
 
-- (IBAction) cancel:(id)sender
+- (void) uploaderFinished:(FRUploader *)uploader
 {
-    [uploader cancel], uploader = nil;
-
-    [self close];
+    // NSLog(@"Upload finished");
 }
 
-- (IBAction) send:(id)sender
+
+#pragma mark other
+
+- (void) cancelUpload
 {
-    if (uploader != nil) {
+    [self.uploader cancel];
+    self.uploader = nil;
+}
+
+- (void) send:(id)sender
+{
+    if (self.uploader != nil) {
         NSLog(@"Still uploading");
         return;
     }
     
-    // Check that email is present
-    if ([emailBox stringValue] == nil || [[emailBox stringValue] isEqualToString:@""] || [[emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
-        for (NSString *aType in emailRequiredTypes) {
-            if ([aType isEqualToString:type]) {
-                [[NSAlert alertWithMessageText:@"Email required" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"You must enter an email address so that we can respond to you."] runModal];
-                return;
-            }
-        }
-        for (NSString *aType in emailStronglySuggestedTypes) {
-            if ([aType isEqualToString:type]) {
-                NSInteger buttonPressed = [[NSAlert alertWithMessageText:@"Email missing" defaultButton:@"OK" alternateButton:@"Continue anyway" otherButton:nil informativeTextWithFormat:@"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?"] runModal];
-                if (buttonPressed == NSAlertDefaultReturn)
-                    return;
-                break;
-            }
-        }
-    }
-
+    if ( [self shouldSend:sender] == NO )
+        return;
+    
     NSString *target = [[FRApplication feedbackURL] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
-
+    
     if ([[[FRFeedbackReporter sharedReporter] delegate] respondsToSelector:@selector(targetUrlForFeedbackReport)]) {
         target = [[[FRFeedbackReporter sharedReporter] delegate] targetUrlForFeedbackReport];
     }
-
+    
     if (target == nil) {
         NSLog(@"You are missing the %@ key in your Info.plist!", PLIST_KEY_TARGETURL);
         return;
     }
-
+    
     NSURL *url = [NSURL URLWithString:target];
-
-    SCNetworkConnectionFlags reachabilityFlags = 0;
-
+    
     NSString *host = [url host];
     const char *hostname = [host UTF8String];
-
+    
+    SCNetworkConnectionFlags reachabilityFlags = 0;
+    Boolean reachabilityResult = FALSE;
+    
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, hostname);
-    Boolean reachabilityResult = SCNetworkReachabilityGetFlags(reachability, &reachabilityFlags);
-    CFRelease(reachability);
-
-    // Prevent premature garbage collection (UTF8String returns an inner pointer).
+    if (reachability) {
+        reachabilityResult = SCNetworkReachabilityGetFlags(reachability, &reachabilityFlags);
+        CFRelease(reachability);
+    }
+    
+    // Prevent premature release (UTF8String returns an inner pointer).
     [host self];
-
+    
     BOOL reachable = reachabilityResult
         &&  (reachabilityFlags & kSCNetworkFlagsReachable)
         && !(reachabilityFlags & kSCNetworkFlagsConnectionRequired)
         && !(reachabilityFlags & kSCNetworkFlagsConnectionAutomatic)
         && !(reachabilityFlags & kSCNetworkFlagsInterventionRequired);
-
+    
     if (!reachable) {
-        NSInteger alertResult = [[NSAlert alertWithMessageText:FRLocalizedString(@"Feedback Host Not Reachable", nil)
-                                                 defaultButton:FRLocalizedString(@"Proceed Anyway", nil)
-                                               alternateButton:FRLocalizedString(@"Cancel", nil)
-                                                   otherButton:nil
-                                     informativeTextWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host
-                                  ] runModal];
-
-        if (alertResult != NSAlertDefaultReturn) {
+        if ( [self shouldAttemptSendForUnreachableHost:host] == NO ) {
             return;
         }
     }
+    
+    self.uploader = [[FRUploader alloc] initWithTarget:target delegate:self];
+    
+    NSMutableDictionary *dict = [self parametersForFeedbackReport];
+    
+    NSLog(@"Sending feedback to %@", target);
+    
+    [self.uploader postAndNotify:dict];
+}
 
-    uploader = [[FRUploader alloc] initWithTarget:target delegate:self];
+- (void) show
+{
+}
 
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+- (void) close
+{
+}
 
-    [dict setValidString:[emailBox stringValue]
-                  forKey:POST_KEY_EMAIL];
+- (void) reset
+{
+}
 
-    [dict setValidString:[messageView string]
-                  forKey:POST_KEY_MESSAGE];
+- (BOOL) isShown
+{
+    return NO;
+}
 
-    [dict setValidString:type
-                  forKey:POST_KEY_TYPE];
+@end
 
-    [dict setValidString:[FRApplication applicationLongVersion]
-                  forKey:POST_KEY_VERSION_LONG];
 
-    [dict setValidString:[FRApplication applicationShortVersion]
-                  forKey:POST_KEY_VERSION_SHORT];
+#if !TARGET_OS_IPHONE
+@implementation FRMacFeedbackController
 
-    [dict setValidString:[FRApplication applicationBundleVersion]
-                  forKey:POST_KEY_VERSION_BUNDLE];
+#pragma mark Accessors
 
-    [dict setValidString:[FRApplication applicationVersion]
-                  forKey:POST_KEY_VERSION];
+- (FRMacFeedbackWindowController *) windowController
+{
+    if ( !_windowController ) {
+        _windowController = [[FRMacFeedbackWindowController alloc] initWithWindowNibName:@"FRMacFeedbackWindowController"];
+        _windowController.feedbackController = self;
+    }
+    return _windowController;
+}
 
-    if ([sendDetailsCheckbox state] == NSOnState) {
-        if ([delegate respondsToSelector:@selector(customParametersForFeedbackReport)]) {
-            [dict addEntriesFromDictionary:[delegate customParametersForFeedbackReport]];
+- (void) setTitle:(NSString *)title
+{
+    [super setTitle:title];
+    [[self.windowController window] setTitle:title];
+}
+
+- (void) setHeading:(NSString *)message
+{
+    [super setHeading:message];
+    [self.windowController.headingField setStringValue:message];
+}
+
+- (void) setSubheading:(NSString *)informativeText
+{
+    [super setSubheading:informativeText];
+    [self.windowController.subheadingField setStringValue:informativeText];
+}
+
+- (void) setMessage:(NSString *)message
+{
+    [super setMessage:message];
+    [self.windowController.messageView setString:message];
+}
+
+- (void) setCrash:(NSString *)crash
+{
+    [super setCrash:crash];
+    [self.windowController.crashesView setString:crash];
+}
+
+- (void) setException:(NSString *)exception
+{
+    [super setException:exception];
+    [self.windowController.exceptionView setString:exception];
+}
+
+- (void) setType:(NSString *)type
+{
+    [super setType:type];
+    self.windowController.type = type;
+}
+
+
+#pragma mark UI Actions
+
+- (BOOL) shouldSend:(id)sender
+{
+    // Check that email is present
+    if ([self.windowController.emailBox stringValue] == nil || [[self.windowController.emailBox stringValue] isEqualToString:@""] || [[self.windowController.emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
+        for (NSString *aType in self.emailRequiredTypes) {
+            if ([aType isEqualToString:self.type]) {
+                [[NSAlert alertWithMessageText:@"Email required" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"You must enter an email address so that we can respond to you."] runModal];
+                return NO;
+            }
         }
+        for (NSString *aType in self.emailStronglySuggestedTypes) {
+            if ([aType isEqualToString:self.type]) {
+                NSInteger buttonPressed = [[NSAlert alertWithMessageText:@"Email missing" defaultButton:@"OK" alternateButton:@"Continue anyway" otherButton:nil informativeTextWithFormat:@"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?"] runModal];
+                if (buttonPressed == NSAlertDefaultReturn)
+                    return NO;
+                break;
+            }
+        }
+    }
+    return YES;
+}
 
+- (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host
+{
+    NSInteger alertResult = [[NSAlert alertWithMessageText:FRLocalizedString(@"Feedback Host Not Reachable", nil)
+                                             defaultButton:FRLocalizedString(@"Proceed Anyway", nil)
+                                           alternateButton:FRLocalizedString(@"Cancel", nil)
+                                               otherButton:nil
+                                 informativeTextWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host
+                              ] runModal];
+    
+    if (alertResult != NSAlertDefaultReturn) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (NSMutableDictionary *) parametersForFeedbackReport
+{
+    NSMutableDictionary *dict = [super parametersForFeedbackReport];
+    
+    [dict setValidString:[self.windowController.emailBox stringValue]
+                  forKey:POST_KEY_EMAIL];
+    
+    [dict setValidString:[self.windowController.messageView string]
+                  forKey:POST_KEY_MESSAGE];
+    
+    if ([self.windowController.sendDetailsCheckbox state] == NSOnState) {
+        if ([self.delegate respondsToSelector:@selector(customParametersForFeedbackReport)]) {
+            [dict addEntriesFromDictionary:[self.delegate customParametersForFeedbackReport]];
+        }
+        
         [dict setValidString:[self systemProfileAsString]
                       forKey:POST_KEY_SYSTEM];
-
-        if ([includeConsoleCheckbox state] == NSOnState)
-            [dict setValidString:[consoleView string]
+        
+        if ([self.windowController.includeConsoleCheckbox state] == NSOnState)
+            [dict setValidString:[self.windowController.consoleView string]
                           forKey:POST_KEY_CONSOLE];
-
-        [dict setValidString:[crashesView string]
+        
+        [dict setValidString:[self.windowController.crashesView string]
                       forKey:POST_KEY_CRASHES];
-
-        [dict setValidString:[scriptView string]
+        
+        [dict setValidString:[self.windowController.scriptView string]
                       forKey:POST_KEY_SHELL];
-
-        [dict setValidString:[preferencesView string]
+        
+        [dict setValidString:[self.windowController.preferencesView string]
                       forKey:POST_KEY_PREFERENCES];
-
-        [dict setValidString:[exceptionView string]
+        
+        [dict setValidString:[self.windowController.exceptionView string]
                       forKey:POST_KEY_EXCEPTION];
         
-        if (documentList) {
-            NSDictionary *documents = [documentList documentsToUpload];
+        if (self.windowController.documentList) {
+            NSDictionary *documents = [self.windowController.documentList documentsToUpload];
             if (documents && [documents count] > 0)
                 [dict setObject:documents forKey:POST_KEY_DOCUMENTS];
         }
     }
-
-    NSLog(@"Sending feedback to %@", target);
-
-    [uploader postAndNotify:dict];
+    
+    return dict;
 }
 
-- (void) uploaderStarted:(FRUploader*)pUploader
+#pragma mark FRUploaderDelegate
+
+- (void) uploaderStarted:(FRUploader *)uploader
 {
-    // NSLog(@"Upload started");
-
-    [indicator setHidden:NO];
-    [indicator startAnimation:self];
-
-    [messageView setEditable:NO];
-    [sendButton setEnabled:NO];
+    [super uploaderStarted:uploader];
+    
+    self.windowController.uploading = YES;
 }
 
-- (void) uploaderFailed:(FRUploader*)pUploader withError:(NSError*)error
+- (void) uploaderFailed:(FRUploader *)uploader withError:(NSError *)error
 {
-    NSLog(@"Upload failed: %@", error);
-
-    [indicator stopAnimation:self];
-    [indicator setHidden:YES];
-
-    [uploader release], uploader = nil;
-
-    [messageView setEditable:YES];
-    [sendButton setEnabled:YES];
-
+    [super uploaderFailed:uploader withError:error];
+    
+    self.uploader = nil;
+    
+    self.windowController.uploading = NO;
+    
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
     [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
     [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]]];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert runModal];
-    [alert release];
-
+    
     [self close];
 }
 
-- (void) uploaderFinished:(FRUploader*)pUploader
+- (void) uploaderFinished:(FRUploader *)uploader
 {
-    // NSLog(@"Upload finished");
-
-    [indicator stopAnimation:self];
-    [indicator setHidden:YES];
-
-    NSString *response = [uploader response];
-
-    [uploader release], uploader = nil;
-
-    [messageView setEditable:YES];
-    [sendButton setEnabled:YES];
-
+    [super uploaderFinished:uploader];
+    
+    NSString *response = [self.uploader response];
+    
+    self.uploader = nil;
+    
+    self.windowController.uploading = NO;
+    
     NSArray *lines = [response componentsSeparatedByString:@"\n"];
     NSUInteger i = [lines count];
     while(i--) {
         NSString *line = [lines objectAtIndex:i];
-
+        
         if ([line length] == 0) {
             continue;
         }
-
+        
         if (![line hasPrefix:@"OK "]) {
-
+            
             NSLog (@"Failed to submit to server: %@", response);
-
+            
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
             [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
             [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line]];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert runModal];
-            [alert release];
-
+            
             return;
         }
     }
-
+    
     [[NSUserDefaults standardUserDefaults] setValue:[NSDate date]
                                              forKey:DEFAULTS_KEY_LASTSUBMISSIONDATE];
-
-    [[NSUserDefaults standardUserDefaults] setObject:[emailBox stringValue]
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[self.windowController.emailBox stringValue]
                                               forKey:DEFAULTS_KEY_SENDEREMAIL];
-
+    
     [self close];
 }
 
-- (void) windowWillClose: (NSNotification *) n
+- (void) show
 {
-    [uploader cancel];
-
-    if ([type isEqualToString:FR_EXCEPTION]) {
-        NSString *exitAfterException = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_EXITAFTEREXCEPTION];
-        if (exitAfterException && [exitAfterException isEqualToString:@"YES"]) {
-            // We want a pure exit() here I think.
-            // As an exception has already been raised there is no
-            // guarantee that the code path to [NSAapp terminate] is functional.
-            // Calling abort() will crash the app here but is that more desirable?
-            exit(EXIT_FAILURE);
-        }
-    }
+    [super show];
+    [self.windowController show];
 }
 
-- (void) windowDidLoad
+- (void) close
 {
-    [[self window] setDelegate:self];
-
-    [[self window] setTitle:FRLocalizedString(@"Feedback", nil)];
-    [emailLabel setStringValue:FRLocalizedString(@"Email address:", nil)];
-    [detailsLabel setStringValue:FRLocalizedString(@"Details", nil)];
-    [tabSystem setLabel:FRLocalizedString(@"System", nil)];
-    [tabConsole setLabel:FRLocalizedString(@"Console", nil)];
-    [tabCrash setLabel:FRLocalizedString(@"CrashLog", nil)];
-    [tabScript setLabel:FRLocalizedString(@"Script", nil)];
-    [tabPreferences setLabel:FRLocalizedString(@"Preferences", nil)];
-    [tabException setLabel:FRLocalizedString(@"Exception", nil)];
-
-    [sendButton setTitle:FRLocalizedString(@"Send", nil)];
-    [cancelButton setTitle:FRLocalizedString(@"Cancel", nil)];
-
-    [[consoleView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
-    [[consoleView textContainer] setWidthTracksTextView:NO];
-    [consoleView setString:@""];
-    [[crashesView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
-    [[crashesView textContainer] setWidthTracksTextView:NO];
-    [crashesView setString:@""];
-    [[scriptView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
-    [[scriptView textContainer] setWidthTracksTextView:NO];
-    [scriptView setString:@""];
-    [[preferencesView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
-    [[preferencesView textContainer] setWidthTracksTextView:NO];
-    [preferencesView setString:@""];
-    [[exceptionView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
-    [[exceptionView textContainer] setWidthTracksTextView:NO];
-    [exceptionView setString:@""];
-}
-
-- (void) stopSpinner
-{
-    [indicator stopAnimation:self];
-    [indicator setHidden:YES];
-    [sendButton setEnabled:YES];
-}
-
-- (void) addTabViewItem:(NSTabViewItem*)theTabViewItem
-{
-    [tabView insertTabViewItem:theTabViewItem atIndex:1];
-}
-
-- (void)populateConsole
-{
-    NSString *consoleLog = [self consoleLog];
-    if ([consoleLog length] > 0) {
-        [self performSelectorOnMainThread:@selector(addTabViewItem:) withObject:tabConsole waitUntilDone:YES];
-        [consoleView performSelectorOnMainThread:@selector(setString:) withObject:consoleLog waitUntilDone:YES];
-    }
-}
-
-- (void) populate
-{
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-    if ([includeConsoleCheckbox state] == NSOnState)
-        [self populateConsole];
-
-    NSString *crashLog = [self crashLog];
-    if ([crashLog length] > 0) {
-        [self performSelectorOnMainThread:@selector(addTabViewItem:) withObject:tabCrash waitUntilDone:YES];
-        [crashesView performSelectorOnMainThread:@selector(setString:) withObject:crashLog waitUntilDone:YES];
-    }
-
-    NSString *scriptLog = [self scriptLog];
-    if ([scriptLog length] > 0) {
-        [self performSelectorOnMainThread:@selector(addTabViewItem:) withObject:tabScript waitUntilDone:YES];
-        [scriptView performSelectorOnMainThread:@selector(setString:) withObject:scriptLog waitUntilDone:YES];
-    }
-
-    NSString *preferences = [self preferences];
-    if ([preferences length] > 0) {
-        [self performSelectorOnMainThread:@selector(addTabViewItem:) withObject:tabPreferences waitUntilDone:YES];
-        [preferencesView performSelectorOnMainThread:@selector(setString:) withObject:preferences waitUntilDone:YES];
-    }
-
-    [self performSelectorOnMainThread:@selector(stopSpinner) withObject:self waitUntilDone:YES];
-
-    [pool drain];
+    [super close];
+    [self.windowController close];
+    _windowController = nil;
 }
 
 - (void) reset
 {
-    [tabView removeTabViewItem:tabConsole];
-    [tabView removeTabViewItem:tabCrash];
-    [tabView removeTabViewItem:tabScript];
-    [tabView removeTabViewItem:tabPreferences];
-    [tabView removeTabViewItem:tabException];
-
-    ABPerson *me = [[ABAddressBook sharedAddressBook] me];
-    ABMutableMultiValue *emailAddresses = [me valueForProperty:kABEmailProperty];
-
-    NSUInteger count = [emailAddresses count];
-
-    [emailBox removeAllItems];
-
-    [emailBox addItemWithObjectValue:FRLocalizedString(@"anonymous", nil)];
-
-    for(NSUInteger i=0; i<count; i++) {
-
-        NSString *emailAddress = [emailAddresses valueAtIndex:i];
-
-        [emailBox addItemWithObjectValue:emailAddress];
-    }
-
-    NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:DEFAULTS_KEY_SENDEREMAIL];
-
-    NSInteger found = [emailBox indexOfItemWithObjectValue:email];
-    if (found != NSNotFound) {
-        [emailBox selectItemAtIndex:found];
-    } else if ([emailBox numberOfItems] >= 2) {
-        NSString *defaultSender = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_DEFAULTSENDER];
-        NSUInteger idx = (defaultSender && [defaultSender isEqualToString:@"firstEmail"]) ? 1 : 0;
-        [emailBox selectItemAtIndex:idx];
-    }
-    
-    if (([emailRequiredTypes containsObject:type] || [emailStronglySuggestedTypes containsObject:type]) &&
-        ([emailBox stringValue] == nil || [[emailBox stringValue] isEqualToString:@""] || [[emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)])) {
-        [emailLabel setTextColor:[NSColor redColor]];
-    }
-    else {
-        [emailLabel setTextColor:[NSColor blackColor]];
-    }
-
-
-    [headingField setStringValue:@""];
-    [messageView setString:@""];
-    [exceptionView setString:@""];
-
-    [self showDetails:NO animate:NO];
-    [detailsButton setIntValue:NO];
-
-    [indicator setHidden:NO];
-    [indicator startAnimation:self];
-    [sendButton setEnabled:NO];
-
-    //  setup 'send details' checkbox...
-    [sendDetailsCheckbox setTitle:FRLocalizedString(@"Send details", nil)];
-    [sendDetailsCheckbox setState:NSOnState];
-    NSString *sendDetailsIsOptional = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
-    if (sendDetailsIsOptional && [sendDetailsIsOptional isEqualToString:@"YES"]) {
-        [detailsLabel setHidden:YES];
-        [sendDetailsCheckbox setHidden:NO];
-        
-        [sendDetailsCheckbox sizeToFit];
-        [includeConsoleCheckbox sizeToFit];
-        NSRect sendFrame = [sendDetailsCheckbox frame];
-        NSRect consoleFrame = [includeConsoleCheckbox frame];
-        CGFloat buffer = 20.0;
-        consoleFrame.origin.x = sendFrame.origin.x + sendFrame.size.width + buffer;
-        [includeConsoleCheckbox setFrame:consoleFrame];
-        [includeConsoleCheckbox setState:NSOffState];
-    } else {
-        [detailsLabel setHidden:NO];
-        [sendDetailsCheckbox setHidden:YES];
-        [includeConsoleCheckbox setHidden:YES];
-    }
-}
-
-- (void) showWindow:(id)sender
-{
-    [documentList release];
-    documentList = [[FRDocumentList alloc] init];
-    [documentList setupOtherButton:otherDocumentButton];
-    [documentList setTableView:documentsView];
-    [documentsView setDelegate:documentList];
-    [documentsView setDataSource:documentList];
-    [documentsView reloadData];
-    
-    if ([type isEqualToString:FR_FEEDBACK]) {
-        [messageLabel setStringValue:FRLocalizedString(@"Feedback comment label", nil)];
-    } else if ([type isEqualToString:FR_SUPPORT]) {
-        [messageLabel setStringValue:FRLocalizedString(@"Describe the problem:", nil)];
-    } else {
-        [messageLabel setStringValue:FRLocalizedString(@"Comments:", nil)];
-    }
-
-    if ([[exceptionView string] length] != 0) {
-        [tabView insertTabViewItem:tabException atIndex:1];
-        [tabView selectTabViewItemWithIdentifier:@"Exception"];
-    } else {
-        [tabView selectTabViewItemWithIdentifier:@"System"];
-    }
-    
-    if ([type isEqual:FR_SUPPORT]) {
-        [self showDetails:YES animate:NO];
-        [detailsButton setState:NSOnState];
-        if ([[documentList docs] count] > 0)
-            [tabView selectTabViewItemWithIdentifier:@"Documents"];
-    }
-
-    [NSThread detachNewThreadSelector:@selector(populate) toTarget:self withObject:nil];
-
-    [super showWindow:sender];
+    BOOL emailRequired = ( [self.emailRequiredTypes containsObject:self.type] || [self.emailStronglySuggestedTypes containsObject:self.type] );
+    [self.windowController resetWithEmailRequired:emailRequired];
 }
 
 - (BOOL) isShown
 {
-    return [[self window] isVisible];
+    return [[self.windowController window] isVisible];
+}
+
+@end
+#endif
+
+
+#if TARGET_OS_IPHONE
+@implementation FRiOSFeedbackController
+
+#pragma mark Accessors
+
+- (FRiOSFeedbackTableViewController *) controller
+{
+    if ( !_controller ) {
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [bundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"]; // cocoapods builds a bundle, url will be nil when building iOSApp because F53FeedbackKit_iOSAPP.framework does not build a bundle
+        if ( url ) {
+            bundle = [NSBundle bundleWithURL:url];
+        }
+        
+        _controller = [[FRiOSFeedbackTableViewController alloc] initWithNibName:@"FRiOSFeedbackTableViewController" bundle:bundle];
+        _controller.feedbackController = self;
+    }
+    return _controller;
+}
+
+- (void) setTitle:(NSString *)title
+{
+    [super setTitle:title];
+    self.controller.titleText = title;
+}
+
+- (void) setHeading:(NSString *)message
+{
+    [super setHeading:message];
+    self.controller.headingText = message;
+}
+
+- (void) setSubheading:(NSString *)informativeText
+{
+    [super setSubheading:informativeText];
+    self.controller.subheadingText = informativeText;
+}
+
+- (void) setMessage:(NSString *)message
+{
+    [super setMessage:message];
+    self.controller.messageViewText = message;
+}
+
+- (void) setCrash:(NSString *)crash
+{
+    [super setCrash:crash];
+    self.controller.crashesViewText = crash;
+}
+
+- (void) setException:(NSString *)exception
+{
+    [super setException:exception];
+    self.controller.exceptionViewText = exception;
+}
+
+- (void) setType:(NSString *)type
+{
+    [super setType:type];
+    self.controller.type = type;
 }
 
 
+#pragma mark UI Actions
+
+- (BOOL) shouldSend:(id)sender
+{
+    // Check that email is present
+    if (self.controller.emailBoxText == nil || [self.controller.emailBoxText isEqualToString:@""] || [self.controller.emailBoxText isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
+        for (NSString *aType in self.emailRequiredTypes) {
+            if ([aType isEqualToString:self.type]) {
+                
+                NSString *title = @"Email required";
+                NSString *message = @"You must enter an email address so that we can respond to you.";
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+                
+                [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+                
+                return NO;
+            }
+        }
+        for (NSString *aType in self.emailStronglySuggestedTypes) {
+            if ([aType isEqualToString:self.type]) {
+                
+                // UIAlertController actions below can set this flag and then resubmit send:
+                // - only reset sets the flag back to NO to preserve this response, in case we are passing by here because of a shouldAttemptSendForUnreachableHost: alert action calling send: a second time
+                if ( self.allowSendWithoutEmailAddress ) {
+                    return YES;
+                }
+                
+                NSString *title = @"Email missing";
+                NSString *message = @"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?";
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"Go back" style:UIAlertActionStyleCancel handler:nil]];
+                [alert addAction:[UIAlertAction actionWithTitle:@"Send anyway" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    self.allowSendWithoutEmailAddress = YES;
+                    [self send:self];
+                    
+                }]];
+                
+                [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+                
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
+- (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host
+{
+    // UIAlertController action below sets this flag and then resubmits send:
+    if ( self.allowAttemptSendForUnreachableHost ) {
+        return YES;
+    }
+    
+    NSString *title = FRLocalizedString(@"Feedback Host Not Reachable", nil);
+    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Proceed Anyway", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        self.allowAttemptSendForUnreachableHost = YES;
+        [self send:self];
+        
+    }]];
+    
+    [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+
+    return NO;
+}
+
+- (NSMutableDictionary *) parametersForFeedbackReport
+{
+    NSMutableDictionary *dict = [super parametersForFeedbackReport];
+    
+    [dict setValidString:self.controller.emailBoxText
+                  forKey:POST_KEY_EMAIL];
+    
+    [dict setValidString:self.controller.messageViewText
+                  forKey:POST_KEY_MESSAGE];
+    
+    if ( self.controller.sendDetails ) {
+        if ([self.delegate respondsToSelector:@selector(customParametersForFeedbackReport)]) {
+            [dict addEntriesFromDictionary:[self.delegate customParametersForFeedbackReport]];
+        }
+        
+        [dict setValidString:[self systemProfileAsString]
+                      forKey:POST_KEY_SYSTEM];
+        
+        if ( self.controller.includeConsole )
+            [dict setValidString:self.controller.consoleViewText
+                          forKey:POST_KEY_CONSOLE];
+        
+        [dict setValidString:self.controller.crashesViewText
+                      forKey:POST_KEY_CRASHES];
+        
+        [dict setValidString:self.controller.scriptViewText
+                      forKey:POST_KEY_SHELL];
+        
+        [dict setValidString:self.controller.preferencesViewText
+                      forKey:POST_KEY_PREFERENCES];
+        
+        [dict setValidString:self.controller.exceptionViewText
+                      forKey:POST_KEY_EXCEPTION];
+        
+//        if ( self.controller.documentList ) {
+//            NSDictionary *documents = [self.controller.documentList documentsToUpload];
+//            if (documents && [documents count] > 0)
+//                [dict setObject:documents forKey:POST_KEY_DOCUMENTS];
+//        }
+    }
+    
+    return dict;
+}
+
+#pragma mark FRUploaderDelegate
+
+- (void) uploaderStarted:(FRUploader *)uploader
+{
+    [super uploaderStarted:uploader];
+    
+    self.controller.uploading = YES;
+}
+
+- (void) uploaderFailed:(FRUploader *)uploader withError:(NSError *)error
+{
+    [super uploaderFailed:uploader withError:error];
+    
+    self.uploader = nil;
+    
+    self.controller.uploading = NO;
+    
+    NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]]; // rather than call [self close] and disscard the view controller -- and all of the user's typing, just dismiss and give the user a chance to attempt a recovery. They can press cancel if they want to bail.
+    
+    [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void) uploaderFinished:(FRUploader *)uploader
+{
+    [super uploaderFinished:uploader];
+    
+    NSString *response = [self.uploader response];
+    
+    self.uploader = nil;
+    
+    self.controller.uploading = NO;
+    
+    NSArray *lines = [response componentsSeparatedByString:@"\n"];
+    NSUInteger i = [lines count];
+    while(i--) {
+        NSString *line = [lines objectAtIndex:i];
+        
+        if ([line length] == 0) {
+            continue;
+        }
+        
+        if (![line hasPrefix:@"OK "]) {
+            
+            NSLog (@"Failed to submit to server: %@", response);
+            
+            NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+            NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line];
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+            
+            [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
+            
+            return;
+        }
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setValue:[NSDate date]
+                                             forKey:DEFAULTS_KEY_LASTSUBMISSIONDATE];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.controller.emailBoxText
+                                              forKey:DEFAULTS_KEY_SENDEREMAIL];
+    
+    [self close];
+}
+
+- (void) show
+{
+    [super show];
+    [self.controller show];
+}
+
+- (void) close
+{
+    [super close];
+    [self.controller dismissViewControllerAnimated:YES completion:^{
+        _controller = nil;
+    }];
+}
+
+- (void) reset
+{
+    self.allowSendWithoutEmailAddress = NO;
+    self.allowAttemptSendForUnreachableHost = NO;
+    
+    BOOL emailRequired = ( [self.emailRequiredTypes containsObject:self.type] || [self.emailStronglySuggestedTypes containsObject:self.type] );
+    [self.controller resetWithEmailRequired:emailRequired];
+}
+
 @end
+#endif
