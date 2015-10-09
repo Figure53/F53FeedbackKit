@@ -31,6 +31,13 @@
 
 @property (nonatomic, strong, readonly) FRFeedbackController *feedbackController;
 
+- (BOOL) showFeedbackControllerWithType:(NSString *)type
+                                  title:(NSString *)title
+                                heading:(NSString *)heading
+                             subheading:(NSString *)subheading
+                                  crash:(NSString *)crash
+                              exception:(NSString *)exception;
+
 @end
 
 
@@ -71,38 +78,12 @@ static dispatch_once_t once_token = 0;
 
 - (BOOL) reportFeedback
 {
-    FRFeedbackController *controller = [self feedbackController];
-
-    @synchronized (controller) {
-    
-        if ([controller isShown])
-            return NO;
-        
-        [controller setType:FR_FEEDBACK];
-        
-        [controller reset];
-
-        NSString *applicationName = nil;
-        if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-            applicationName = [self.delegate feedbackDisplayName];
-        }
-        else {
-            applicationName =[FRApplication applicationName];
-        }
-
-        [controller setHeading:[NSString stringWithFormat:
-            FRLocalizedString(@"Got a problem with %@?", nil),
-            applicationName]];
-        
-        [controller setSubheading:FRLocalizedString(@"Send feedback", nil)];
-
-        [controller setDelegate:self.delegate];
-
-        [controller show];
-        
-    }
-	
-    return YES;
+    return [self showFeedbackControllerWithType:FR_FEEDBACK
+                                          title:nil
+                                        heading:FRLocalizedString(@"Got a problem with %@?", nil)
+                                     subheading:FRLocalizedString(@"Send feedback", nil)
+                                          crash:nil
+                                      exception:nil];
 }
 
 - (BOOL) reportIfCrash
@@ -116,40 +97,14 @@ static dispatch_once_t once_token = 0;
     
     if (lastCrashCheckDate && [crashFiles count] > 0) {
         // NSLog(@"Found new crash files");
-
-        FRFeedbackController *controller = [self feedbackController];
-
-        @synchronized (controller) {
         
-            if ([controller isShown])
-                return NO;
-
-            [controller setType:FR_CRASH];
-            
-            [controller reset];
-
-            NSString *applicationName = nil;
-            if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-               applicationName = [self.delegate feedbackDisplayName];
-            }
-            else {
-               applicationName =[FRApplication applicationName];
-            }
-           
-            [controller setHeading:[NSString stringWithFormat:
-                FRLocalizedString(@"%@ has recently crashed!", nil),
-                applicationName]];
-            
-            [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
-            
-            [controller setDelegate:self.delegate];
-
-            [controller show];
-
-        }
+        return [self showFeedbackControllerWithType:FR_CRASH
+                                              title:nil
+                                            heading:FRLocalizedString(@"%@ has recently crashed!", nil)
+                                         subheading:FRLocalizedString(@"Send crash report", nil)
+                                              crash:nil
+                                          exception:nil];
         
-        return YES;
-
     }
     
     return NO;
@@ -159,40 +114,12 @@ static dispatch_once_t once_token = 0;
 {
     if ( crashLogText && [crashLogText isEqualToString:@""] == NO ) {
         
-        FRFeedbackController *controller = [self feedbackController];
-        
-        @synchronized (controller) {
-            
-            if ([controller isShown])
-                return NO;
-            
-            [controller setType:FR_CRASH];
-            
-            [controller reset];
-            
-            NSString *applicationName = nil;
-            if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-                applicationName = [self.delegate feedbackDisplayName];
-            }
-            else {
-                applicationName =[FRApplication applicationName];
-            }
-            
-            [controller setHeading:[NSString stringWithFormat:
-                                    FRLocalizedString(@"%@ has recently crashed!", nil),
-                                    applicationName]];
-            
-            [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
-            
-            [controller setCrash:crashLogText];
-            
-            [controller setDelegate:self.delegate];
-            
-            [controller show];
-            
-        }
-        
-        return YES;
+        return [self showFeedbackControllerWithType:FR_CRASH
+                                              title:nil
+                                            heading:FRLocalizedString(@"%@ has recently crashed!", nil)
+                                         subheading:FRLocalizedString(@"Send crash report", nil)
+                                              crash:crashLogText
+                                          exception:nil];
         
     }
     
@@ -201,48 +128,36 @@ static dispatch_once_t once_token = 0;
 
 - (BOOL) reportException:(NSException *)exception
 {
-    FRFeedbackController *controller = [self feedbackController];
-
-    @synchronized (controller) {
-
-        if ([controller isShown])
-            return NO;
-
-        [controller setType:FR_EXCEPTION];
-        
-        [controller reset];
-       
-        NSString *applicationName = nil;
-        if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-            applicationName = [self.delegate feedbackDisplayName];
-        }
-        else {
-            applicationName =[FRApplication applicationName];
-        }
-
-      
-        [controller setHeading:[NSString stringWithFormat:
-            FRLocalizedString(@"%@ has encountered an exception!", nil),
-            applicationName]];
-        
-        [controller setSubheading:FRLocalizedString(@"Send crash report", nil)];
-
-        NSString *callStack = [exception my_callStack];
-        [controller setException:[NSString stringWithFormat: @"%@\n\n%@\n\n%@",
-                                    [exception name],
-                                    [exception reason],
-                                    callStack ? callStack : @""]];
-
-        [controller setDelegate:self.delegate];
-
-        [controller show];
-
-    }
+    NSString *callStack = [exception my_callStack];
+    NSString *exceptionText = [NSString stringWithFormat: @"%@\n\n%@\n\n%@",
+                              [exception name],
+                              [exception reason],
+                              callStack ? callStack : @""];
     
-    return YES;
+    return [self showFeedbackControllerWithType:FR_EXCEPTION
+                                          title:nil
+                                        heading:FRLocalizedString(@"%@ has encountered an exception!", nil)
+                                     subheading:FRLocalizedString(@"Send crash report", nil)
+                                          crash:nil
+                                      exception:exceptionText];
 }
 
 - (BOOL) reportSupportNeed
+{
+    return [self showFeedbackControllerWithType:FR_SUPPORT
+                                          title:FRLocalizedString(@"Contact Support", nil)
+                                        heading:FRLocalizedString(@"Need help with %@?", nil)
+                                     subheading:FRLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)
+                                          crash:nil
+                                      exception:nil];
+}
+
+- (BOOL) showFeedbackControllerWithType:(NSString *)type
+                                  title:(NSString *)title
+                                heading:(NSString *)heading
+                             subheading:(NSString *)subheading
+                                  crash:(NSString *)crash
+                              exception:(NSString *)exception
 {
     FRFeedbackController *controller = [self feedbackController];
     
@@ -251,31 +166,45 @@ static dispatch_once_t once_token = 0;
         if ([controller isShown])
             return NO;
         
-        [controller setType:FR_SUPPORT];
+        NSAssert( [type isEqualToString:FR_CRASH]       ||
+                 [type isEqualToString:FR_EXCEPTION]    ||
+                 [type isEqualToString:FR_FEEDBACK]     ||
+                 [type isEqualToString:FR_SUPPORT], @"type is missing or unsupported" );
+        
+        [controller setType:type];
         
         [controller reset];
         
-        NSString *applicationName = nil;
-        if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
-            applicationName = [self.delegate feedbackDisplayName];
-        }
-        else {
-            applicationName =[FRApplication applicationName];
+        if ( title )
+            [controller setTitle:title];
+        
+        if ( heading ) {
+            NSString *applicationName = nil;
+            if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
+                applicationName = [self.delegate feedbackDisplayName];
+            }
+            else {
+                applicationName =[FRApplication applicationName];
+            }
+            
+            [controller setHeading:[NSString stringWithFormat:heading, applicationName]];
         }
         
-        [controller setTitle:FRLocalizedString(@"Contact Support", nil)];
-        [controller setHeading:[NSString stringWithFormat:
-                                FRLocalizedString(@"Need help with %@?", nil),
-                                applicationName]];
+        if ( subheading )
+            [controller setSubheading:subheading];
         
-        [controller setSubheading:FRLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)];
+        if ( crash )
+            [controller setCrash:crash];
+        
+        if ( exception )
+            [controller setException:exception];
         
         [controller setDelegate:self.delegate];
         
         [controller show];
         
     }
-	
+    
     return YES;
 }
 
