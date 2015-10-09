@@ -38,16 +38,20 @@
 
 #pragma mark Construction
 
+__strong static FRFeedbackReporter *_sharedReporter = nil;
+static dispatch_once_t once_token = 0;
+
 + (FRFeedbackReporter *) sharedReporter
 {
-    static FRFeedbackReporter *sharedReporter = nil;
-
-    if (sharedReporter == nil) {
-        sharedReporter = [[[self class] alloc] init];
-    }
-
-    return sharedReporter;
+    // executes a block object once and only once for the lifetime of an application
+    dispatch_once( &once_token, ^{
+        _sharedReporter = [[[self class] alloc] init];
+    });
+    
+    // returns the same object each time
+    return _sharedReporter;
 }
+
 
 #pragma mark Destruction
 
