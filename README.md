@@ -71,7 +71,7 @@ Currently, the F53FeedbackKit Xcode project is not configured to build a 'fat' f
 
 ```ruby
 platform :ios, '8.4'
-pod 'F53FeedbackKit_iOS', :git => 'https://github.com/Figure53/F53FeedbackKit.git', :branch => 'mac+ios'
+pod 'F53FeedbackKit_iOS', :git => 'https://github.com/Figure53/F53FeedbackKit.git'
 ```
 
 - Import the header file:
