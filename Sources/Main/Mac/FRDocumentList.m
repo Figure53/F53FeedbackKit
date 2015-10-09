@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         _docs = [NSMutableArray array];
-        _selectionState = nil;
+        _selectionState = [NSMutableDictionary dictionary];
         NSArray *docs = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
         if (docs && [docs count] > 0) {
             [_docs addObjectsFromArray:docs];
@@ -26,7 +26,7 @@
             for ( NSURL *aDoc in docs ) {
                 [docDict setObject:@NO forKey:aDoc];
             }
-            [self setSelectionState:docDict];
+            [self.selectionState addEntriesFromDictionary:docDict];
         }
     }
     return self;
