@@ -35,6 +35,6 @@
 	<key>FRFeedbackReporter.sendDetailsIsOptional</key>
 	<string>YES</string>
 	<key>FRFeedbackReporter.targetURL</key>
-	<string>http://vafer.org/feedback/submit.php?project=%@</string>
+	<string>http://localhost/F53FeedbackKit/submit.php?project=%@</string>
 </dict>
 </plist>

@@ -29,7 +29,7 @@ BOOL terminated;
 {
     NSLog(@"Uploading");
 
-    FRUploader *uploader = [[FRUploader alloc] initWithTarget:@"http://vafer.org/feedback.php?project=TestCase" delegate:self];
+    FRUploader *uploader = [[FRUploader alloc] initWithTarget:@"http://localhost/F53FeedbackKit/submit.php?project=TestCase" delegate:self];
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:@"test" forKey:@"test"];
