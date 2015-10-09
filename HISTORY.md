@@ -1,4 +1,4 @@
-## Version 1.3.2 b1, unreleased
+## Version 1.3.2
 * [ADD] Added iOS-compatible UI.
 * [ADD] Added Cocoapods podspec for creating iOS Framework.
 * [ADD] Added new method "reportCrash:" to report externally-collected crash reports.
