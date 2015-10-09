@@ -22,12 +22,11 @@
 #import "FRConstants.h"
 #import "FRConsoleLog.h"
 
-#ifdef __MAC_OS_X_VERSION_MAX_ALLOWED
+#if TARGET_OS_IPHONE
+#import "FRiOSFeedbackTableViewController.h"
+#else
 #import "FRMacFeedbackWindowController.h"
 #import "FRCommand.h"
-#endif
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
-#import "FRiOSFeedbackTableViewController.h"
 #endif
 
 #import "NSMutableDictionary+Additions.h"
@@ -48,22 +47,19 @@
 @end
 
 
-#ifdef __MAC_OS_X_VERSION_MAX_ALLOWED
-@interface FRMacFeedbackController : FRFeedbackController <FRUploaderDelegate>
-
-@property (nonatomic, strong)       FRMacFeedbackWindowController *windowController;
-
-@end
-#endif
-
-
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if TARGET_OS_IPHONE
 @interface FRiOSFeedbackController : FRFeedbackController <FRUploaderDelegate>
 
 @property (nonatomic, strong)       FRiOSFeedbackTableViewController *controller;
 
 @property (nonatomic)               BOOL allowSendWithoutEmailAddress;
 @property (nonatomic)               BOOL allowAttemptSendForUnreachableHost;
+
+@end
+#else
+@interface FRMacFeedbackController : FRFeedbackController <FRUploaderDelegate>
+
+@property (nonatomic, strong)       FRMacFeedbackWindowController *windowController;
 
 @end
 #endif
@@ -74,10 +70,10 @@
 + (instancetype) alloc
 {
     if ( [self class] == [FRFeedbackController class] ) {
-#ifdef __MAC_OS_X_VERSION_MAX_ALLOWED
-        return [FRMacFeedbackController alloc];
-#else
+#if TARGET_OS_IPHONE
         return [FRiOSFeedbackController alloc];
+#else
+        return [FRMacFeedbackController alloc];
 #endif
     }
     else {
@@ -324,7 +320,7 @@
 @end
 
 
-#ifdef __MAC_OS_X_VERSION_MAX_ALLOWED
+#if !TARGET_OS_IPHONE
 @implementation FRMacFeedbackController
 
 #pragma mark Accessors
@@ -563,7 +559,7 @@
 #endif
 
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if TARGET_OS_IPHONE
 @implementation FRiOSFeedbackController
 
 #pragma mark Accessors

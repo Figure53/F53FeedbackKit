@@ -25,7 +25,7 @@
     NSMutableArray *discoveryArray = [[NSMutableArray alloc] init];
     NSArray *discoveryKeys = [NSArray arrayWithObjects:@"key", @"visibleKey", @"value", @"visibleValue", nil];
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if TARGET_OS_IPHONE
     NSString *vendorIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     [discoveryArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
         @"UUID", @"Vendor Identifier", vendorIdentifier, vendorIdentifier, nil]
@@ -269,7 +269,7 @@
 + (NSString *) machinemodel
 {
     const char *name = "hw.model";
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if TARGET_OS_IPHONE
     // .model on iOS returns internal model name (e.g. "N51AP") when we'd prefer to see the model identifier here ("iPhone6,1")
     name = "hw.machine";
 #endif
