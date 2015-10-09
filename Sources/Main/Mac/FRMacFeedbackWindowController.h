@@ -36,21 +36,21 @@
 @property (unsafe_unretained)   IBOutlet NSButton *includeConsoleCheckbox;
     
 @property (unsafe_unretained)   IBOutlet NSTabView *tabView;
-@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabSystem;
-@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabConsole;
-@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabCrash;
-@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabScript;
-@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabPreferences;
-@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabException;
-@property (unsafe_unretained)   IBOutlet NSTabViewItem *tabDocuments;
+@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabSystem;
+@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabConsole;
+@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabCrash;
+@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabScript;
+@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabPreferences;
+@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabException;
+@property (nonatomic, strong)   IBOutlet NSTabViewItem *tabDocuments;
     
-@property (nonatomic, strong)   IBOutlet NSTableView *systemView;
-@property (nonatomic, strong)   IBOutlet NSTextView *consoleView;
-@property (nonatomic, strong)   IBOutlet NSTextView *crashesView;
-@property (nonatomic, strong)   IBOutlet NSTextView *scriptView;
-@property (nonatomic, strong)   IBOutlet NSTextView *preferencesView;
-@property (nonatomic, strong)   IBOutlet NSTextView *exceptionView;
-@property (nonatomic, strong)   IBOutlet NSTableView *documentsView;
+@property (unsafe_unretained)   IBOutlet NSTableView *systemView;
+@property (unsafe_unretained)   IBOutlet NSTextView *consoleView;
+@property (unsafe_unretained)   IBOutlet NSTextView *crashesView;
+@property (unsafe_unretained)   IBOutlet NSTextView *scriptView;
+@property (unsafe_unretained)   IBOutlet NSTextView *preferencesView;
+@property (unsafe_unretained)   IBOutlet NSTextView *exceptionView;
+@property (unsafe_unretained)   IBOutlet NSTableView *documentsView;
     
 @property (unsafe_unretained)   IBOutlet NSButton *otherDocumentButton;
     
