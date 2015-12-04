@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString * FRiOSFeedbackTableViewTextViewCellIdentifier = @"FRiOSFeedbackTableViewTextViewCellIdentifier";
-static NSString * FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification = @"FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification";
+static NSString *FRiOSFeedbackTableViewTextViewCellIdentifier = @"FRiOSFeedbackTableViewTextViewCellIdentifier";
+static NSString *FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification = @"FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification";
 
 @interface FRiOSFeedbackTableViewTextViewCell : UITableViewCell <UITextViewDelegate>
 

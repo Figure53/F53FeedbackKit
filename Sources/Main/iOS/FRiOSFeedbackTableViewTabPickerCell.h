@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString * FRiOSFeedbackTableViewTabPickerCellIdentifier = @"FRiOSFeedbackTableViewTabPickerCellIdentifier";
-static NSString * FRiOSFeedbackTableViewTabPickerCellTabItemDidChangeNotification = @"FRiOSFeedbackTableViewTabPickerCellTabItemDidChangeNotification";
+static NSString *FRiOSFeedbackTableViewTabPickerCellIdentifier = @"FRiOSFeedbackTableViewTabPickerCellIdentifier";
+static NSString *FRiOSFeedbackTableViewTabPickerCellTabItemDidChangeNotification = @"FRiOSFeedbackTableViewTabPickerCellTabItemDidChangeNotification";
 
 
 @interface FRiOSFeedbackTableViewTabPickerCell : UITableViewCell
