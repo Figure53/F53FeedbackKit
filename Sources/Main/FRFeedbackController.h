@@ -22,6 +22,9 @@
 #define FR_CRASH     @"crash"
 #define FR_SUPPORT   @"support"
 
+static NSString *FRFeedbackReporterWillAppearNotification = @"FRFeedbackReporterWillAppearNotification";
+static NSString *FRFeedbackReporterWillDisappearNotification = @"FRFeedbackReporterWillDisappearNotification";
+
 
 @interface FRFeedbackController : NSObject <FRUploaderDelegate>
 

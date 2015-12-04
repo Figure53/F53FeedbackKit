@@ -302,10 +302,14 @@
 
 - (void) show
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:FRFeedbackReporterWillAppearNotification
+                                                        object:nil];
 }
 
 - (void) close
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:FRFeedbackReporterWillDisappearNotification
+                                                        object:nil];
 }
 
 - (void) reset
