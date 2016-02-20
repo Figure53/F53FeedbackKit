@@ -313,7 +313,6 @@
                     cell.tintColor = self.delegateTintColor;
                     
                     cell.textLabel.text = FRLocalizedString(@"Send details", nil);
-                    cell.checkmarkOn = self.sendDetails;
                     
                     return cell;
                     
@@ -327,13 +326,6 @@
                     //cell.indentationLevel = 2;
                     
                     cell.textLabel.text = FRLocalizedString(@"Include console logs", nil);
-                    cell.checkmarkOn = self.includeConsole;
-                    if ( self.includeConsoleSpinnerOn ) {
-                        [cell startSpinner];
-                    }
-                    else {
-                        [cell stopSpinner];
-                    }
                     
                     return cell;
                     
@@ -380,6 +372,49 @@
 
 
 #pragma mark - Table view delegate
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch ( indexPath.section ) {
+        case SECTION_DETAILS: {
+            
+            switch ( indexPath.row ) {
+                    
+                case SECTION_DETAILS_ROW_SEND_DETAILS: {
+                    
+                    if ( [cell isKindOfClass:[FRiOSFeedbackTableViewCheckmarkCell class]] ) {
+                        ((FRiOSFeedbackTableViewCheckmarkCell *)cell).checkmarkOn = self.sendDetails;
+                    }
+                    
+                } break;
+                    
+                case SECTION_DETAILS_ROW_INCL_CONSOLE: {
+                    
+                    if ( [cell isKindOfClass:[FRiOSFeedbackTableViewCheckmarkCell class]] ) {
+                        
+                        ((FRiOSFeedbackTableViewCheckmarkCell *)cell).checkmarkOn = self.includeConsole;
+                        
+                        if ( self.includeConsoleSpinnerOn ) {
+                            [(FRiOSFeedbackTableViewCheckmarkCell *)cell startSpinner];
+                        }
+                        else {
+                            [(FRiOSFeedbackTableViewCheckmarkCell *)cell stopSpinner];
+                        }
+                    }
+                    
+                } break;
+                    
+                default:
+                    break;
+            }
+            
+        } break;
+            
+        default:
+            break;
+    }
+    
+}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
