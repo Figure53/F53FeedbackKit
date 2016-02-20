@@ -837,7 +837,6 @@
     }
     else {
         [self.detailsTabItems removeObject:self.detailTabConsole];
-        
         [self updateDetailsTabItems];
     }
 }

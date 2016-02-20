@@ -38,7 +38,11 @@
     if ( [self.tabItems containsObject:selectedItem] ) {
         selectedIndex = [self.tabItems indexOfObject:selectedItem];
     }
+    else if ( self.tabItems.count ) {
+        selectedIndex = 0;
+    }
     self.tabControl.selectedSegmentIndex = selectedIndex;
+    [self handleSegmentedControlDidChange:self.tabControl];
 }
 
 - (IBAction) handleSegmentedControlDidChange:(UISegmentedControl *)sender
