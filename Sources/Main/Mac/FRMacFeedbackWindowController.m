@@ -448,7 +448,13 @@
         CGFloat buffer = 20.0;
         consoleFrame.origin.x = sendFrame.origin.x + sendFrame.size.width + buffer;
         [self.includeConsoleCheckbox setFrame:consoleFrame];
-        [self.includeConsoleCheckbox setState:NSOffState];
+        
+        NSString *includeConsoleLogs = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_DEFAULTINCLUDECONSOLE];
+        NSCellStateValue includeConsoleState = NSOffState;
+        if (includeConsoleLogs && [includeConsoleLogs isEqualToString:@"YES"]) {
+            includeConsoleState = NSOnState;
+        }
+        [self.includeConsoleCheckbox setState:includeConsoleState];
     } else {
         [self.detailsLabel setHidden:NO];
         [self.sendDetailsCheckbox setHidden:YES];

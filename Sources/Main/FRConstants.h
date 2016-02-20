@@ -40,6 +40,15 @@
 //  to the server. (optional)
 #define PLIST_KEY_SENDDETAILSISOPTIONAL @"FRFeedbackReporter.sendDetailsIsOptional"
 
+//  Set the value of this key to 'YES' to auto-select the checkbox where the
+//  user can switch on and off the sending of console logs when 'sendDetailsIsOptional'
+//  is also set to 'YES'. If not specified, defaults to 'NO'.
+//  If the user unchecks the 'console logs' option, console logs are not transmitted
+//  to the server.
+//  If the 'sendDetailsIsOptional' key is 'NO' or not specified, then this key has no
+//  effect because console logs are always included when send details is not optional.
+#define PLIST_KEY_DEFAULTINCLUDECONSOLE @"FRFeedbackReporter.defaultIncludeConsole"
+
 // If set to 'YES' the application will exit after an exception has been caught
 #define PLIST_KEY_EXITAFTEREXCEPTION    @"FRFeedbackReporter.exitAfterException"
 

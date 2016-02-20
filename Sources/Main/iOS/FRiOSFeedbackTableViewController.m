@@ -1004,9 +1004,10 @@
     NSString *sendDetailsIsOptional = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
     self.sendDetailsIsOptional = ( sendDetailsIsOptional && [sendDetailsIsOptional isEqualToString:@"YES"] );
     if ( self.sendDetailsIsOptional ) {
-        self.includeConsole = NO; // let user choose
         [self showDetails:YES animate:NO];
         
+        NSString *includeConsoleLogs = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_DEFAULTINCLUDECONSOLE];
+        self.includeConsole = ( includeConsoleLogs && [includeConsoleLogs isEqualToString:@"YES"] );
     } else {
         self.includeConsole = YES; // force inclusion
     }
