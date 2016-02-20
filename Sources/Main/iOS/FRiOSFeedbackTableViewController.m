@@ -144,7 +144,7 @@
     UIActivityIndicatorView *sendingSpinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     sendingSpinnerView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
     self.sendingSpinner = [[UIBarButtonItem alloc] initWithCustomView:sendingSpinnerView];
-
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -304,7 +304,7 @@
         } break;
             
         case SECTION_DETAILS: {
-
+            
             switch ( indexPath.row ) {
                 case SECTION_DETAILS_ROW_SEND_DETAILS: {
                     
@@ -501,7 +501,7 @@
 - (void) populate
 {
     @autoreleasepool {
-
+        
         if ( self.includeConsole )
             [self populateConsole];
         
@@ -557,11 +557,11 @@
 - (NSString *) crashLog
 {
     NSDate *lastSubmissionDate = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_KEY_LASTSUBMISSIONDATE];
-
+    
     NSArray *crashFiles = [FRCrashLogFinder findCrashLogsSince:lastSubmissionDate];
-
+    
     NSUInteger i = [crashFiles count];
-
+    
     if (i == 1) {
         if (lastSubmissionDate == nil) {
             NSLog(@"Found a crash file");
@@ -576,20 +576,20 @@
         }
         return result;
     }
-
+    
     if (lastSubmissionDate == nil) {
         NSLog(@"Found %lu crash files", (unsigned long)i);
     } else {
         NSLog(@"Found %lu crash files earlier than latest submission on %@", (unsigned long)i, lastSubmissionDate);
     }
-
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
-
+    
     NSDate *newest = nil;
     NSInteger newestIndex = -1;
-
+    
     while(i--) {
-
+        
         NSString *crashFile = [crashFiles objectAtIndex:i];
         NSError *error = nil;
         NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:crashFile error:&error];
@@ -597,21 +597,21 @@
             NSLog(@"Error while fetching file attributes: %@", [error localizedDescription]);
         }
         NSDate *fileModDate = [fileAttributes objectForKey:NSFileModificationDate];
-
+        
         NSLog(@"CrashLog: %@", crashFile);
-
+        
         if ([fileModDate laterDate:newest] == fileModDate) {
             newest = fileModDate;
             newestIndex = i;
         }
-
+        
     }
-
+    
     if (newestIndex != -1) {
         NSString *newestCrashFile = [crashFiles objectAtIndex:newestIndex];
-
+        
         NSLog(@"Picking CrashLog: %@", newestCrashFile);
-
+        
         NSError *error = nil;
         NSString *result = [NSString stringWithContentsOfFile:newestCrashFile encoding:NSUTF8StringEncoding error:&error];
         if (result == nil) {
@@ -620,7 +620,7 @@
         }
         return result;
     }
-
+    
     return @"";
 }
 
@@ -679,7 +679,7 @@
         cell.textView.editable = !_uploading;
         
         [self.sendButton setEnabled:!_uploading];
-
+        
     }
 }
 
@@ -944,7 +944,7 @@
     
     [self startSpinner];
     [self.sendButton setEnabled:NO];
-
+    
     //  setup 'send details' section...
     NSString *sendDetailsIsOptional = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
     self.sendDetailsIsOptional = ( sendDetailsIsOptional && [sendDetailsIsOptional isEqualToString:@"YES"] );
