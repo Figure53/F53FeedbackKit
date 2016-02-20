@@ -25,6 +25,7 @@
 @property (nonatomic, strong)   NSArray *systemProfile;
 
 @property (nonatomic)           BOOL sendDetailsIsOptional;
+@property (nonatomic)           BOOL detailsShown;
 @property (nonatomic)           BOOL includeConsoleSpinnerOn;
 
 @property (nonatomic, strong)   NSMutableArray *detailsTabItems;
@@ -58,7 +59,8 @@
 #pragma mark UI
 
 - (void) showDetails:(BOOL)show animate:(BOOL)animate;
-- (void) includeConsoleChecked:(BOOL)checked;
+- (void) sendDetailsChecked:(FRiOSFeedbackTableViewCheckmarkCell *)sender;
+- (void) includeConsoleChecked:(FRiOSFeedbackTableViewCheckmarkCell *)sender;
 - (void) cancel:(id)sender;
 - (void) send:(id)sender;
 
@@ -218,7 +220,7 @@
             
         case SECTION_DETAILS:
             
-            if ( self.sendDetails )
+            if ( self.detailsShown )
                 return SECTION_DETAILS_NUM_ROWS;
             else
                 return 1;
@@ -321,7 +323,7 @@
                 case SECTION_DETAILS_ROW_INCL_CONSOLE: {
                     
                     FRiOSFeedbackTableViewCheckmarkCell *cell = [tableView dequeueReusableCellWithIdentifier:FRiOSFeedbackTableViewCheckmarkCellIdentifier forIndexPath:indexPath];
-                    cell.hidden = !self.sendDetailsIsOptional;
+                    cell.hidden = ( !self.sendDetailsIsOptional || !self.detailsShown );
                     cell.tintColor = self.delegateTintColor;
                     //cell.indentationLevel = 2;
                     
@@ -452,11 +454,18 @@
         case SECTION_DETAILS: {
             
             switch ( indexPath.row ) {
-                case SECTION_DETAILS_ROW_SEND_DETAILS:
+                case SECTION_DETAILS_ROW_SEND_DETAILS: {
+                    
+                    // collapse details cell to hide if sending details is required
+                    if ( !self.sendDetailsIsOptional )
+                        height = 0.0f;
+                    
+                } break;
+                    
                 case SECTION_DETAILS_ROW_INCL_CONSOLE: {
                     
-                    // collapse checkmark cells to hide them if sending details is required
-                    if ( !self.sendDetailsIsOptional )
+                    // collapse console cell to hide if sending details is required or if details are not showing
+                    if ( !self.sendDetailsIsOptional || !self.detailsShown )
                         height = 0.0f;
                     
                 } break;
@@ -491,7 +500,9 @@
                     FRiOSFeedbackTableViewCheckmarkCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                     
                     BOOL wasChecked = cell.checkmarkOn;
-                    [self showDetails:!wasChecked animate:YES];
+                    cell.checkmarkOn = !wasChecked;
+                    
+                    [self sendDetailsChecked:cell];
                     
                 } break;
                     
@@ -500,7 +511,9 @@
                     FRiOSFeedbackTableViewCheckmarkCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                     
                     BOOL wasChecked = cell.checkmarkOn;
-                    [self includeConsoleChecked:!wasChecked];
+                    cell.checkmarkOn = !wasChecked;
+                    
+                    [self includeConsoleChecked:cell];
                     
                 } break;
                     
@@ -794,18 +807,27 @@
 
 - (void) showDetails:(BOOL)show animate:(BOOL)animate
 {
-    if (self.sendDetails == show) {
+    if (self.detailsShown == show) {
         return;
     }
     
-    self.sendDetails = show;
+    self.detailsShown = show;
     
     UITableViewRowAnimation animation = ( animate ? UITableViewRowAnimationAutomatic : UITableViewRowAnimationNone );
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:SECTION_DETAILS] withRowAnimation:animation];
 }
 
-- (void) includeConsoleChecked:(BOOL)checked
+- (void) sendDetailsChecked:(FRiOSFeedbackTableViewCheckmarkCell *)sender
 {
+    BOOL checked = sender.checkmarkOn;
+    self.sendDetails = checked;
+    
+    [self showDetails:checked animate:YES];
+}
+
+- (void) includeConsoleChecked:(FRiOSFeedbackTableViewCheckmarkCell *)sender
+{
+    BOOL checked = sender.checkmarkOn;
     self.includeConsole = checked;
     
     if ( self.includeConsole ) {
@@ -815,10 +837,6 @@
     }
     else {
         [self.detailsTabItems removeObject:self.detailTabConsole];
-        
-        NSIndexPath *includeConsoleIndexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_INCL_CONSOLE inSection:SECTION_DETAILS];
-        FRiOSFeedbackTableViewCheckmarkCell *cell = (FRiOSFeedbackTableViewCheckmarkCell *)[self.tableView cellForRowAtIndexPath:includeConsoleIndexPath];
-        cell.checkmarkOn = NO;
         
         [self updateDetailsTabItems];
     }
@@ -982,12 +1000,14 @@
     [self.sendButton setEnabled:NO];
     
     //  setup 'send details' section...
+    self.sendDetails = YES;
     NSString *sendDetailsIsOptional = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
     self.sendDetailsIsOptional = ( sendDetailsIsOptional && [sendDetailsIsOptional isEqualToString:@"YES"] );
     if ( self.sendDetailsIsOptional ) {
         self.includeConsole = NO; // let user choose
+        [self showDetails:YES animate:NO];
+        
     } else {
-        self.sendDetails = YES;
         self.includeConsole = YES; // force inclusion
     }
 }
