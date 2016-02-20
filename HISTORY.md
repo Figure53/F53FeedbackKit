@@ -1,3 +1,10 @@
+## Version 1.3.3
+* [FIX] iOS framework now works when (FRFeedbackReporter.sendDetailsIsOptional) is NO;
+* [FIX] iOS "Include console logs" spinner is now visible.
+* [FIX] iOS details text view is no longer editable.
+* [ADD] Added option to default to including console logs when sending details is optional (FRFeedbackReporter.defaultIncludeConsole).
+
+
 ## Version 1.3.2
 * [ADD] Added iOS-compatible UI.
 * [ADD] Added Cocoapods podspec for creating iOS Framework.

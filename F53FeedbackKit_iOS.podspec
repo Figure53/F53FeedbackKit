@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = "F53FeedbackKit_iOS"
-  s.version             = "1.3.2"
+  s.version             = "1.3.3"
   s.summary             = "Framework for sending feedback and system information reports from your iOS application."
   s.license             = "apache"
   s.source              = { :git => "https://github.com/Figure53/F53FeedbackKit.git" }
