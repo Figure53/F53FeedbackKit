@@ -351,6 +351,7 @@
                     cell.textView.text = [self.selectedDetailTabItem objectForKey:@"text"];
                     cell.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
                     cell.textView.tag = [self getTagFromIndexPath:indexPath];
+                    cell.textView.editable = NO;
                     
                     return cell;
                     
