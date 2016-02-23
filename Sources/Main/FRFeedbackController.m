@@ -123,17 +123,17 @@
 
 - (NSString *) consoleLog
 {
+    NSInteger hours = 24;
     NSInteger maxSize = 0;  // default to no maximum
     
-    NSNumber *hours = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_LOGHOURS];
-    
-    NSInteger h = 24;
-    
-    if (hours != nil) {
-        h = [hours integerValue];
+    // valueForKey: could return NSNumber or NSString here
+    // - both classes respond to integerValue
+    id logHoursValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_LOGHOURS];
+    if ( logHoursValue != nil && [logHoursValue respondsToSelector:@selector( integerValue )] ) {
+        hours = [logHoursValue integerValue];
     }
     
-    NSDate *since = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitHour value:-h toDate:[NSDate date] options:0];
+    NSDate *since = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitHour value:-hours toDate:[NSDate date] options:0];
     
     // valueForKey: could return NSNumber or NSString here
     // - both classes respond to integerValue
