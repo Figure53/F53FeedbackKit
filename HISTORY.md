@@ -1,3 +1,9 @@
+## Version 1.3.4
+* [ADD] Added new optional delegate method "consoleLogForFeedbackReportSince:maxSize:" to allow providing alternate text for the console log.
+* [ADD] Added new optional delegate method "customizeFeedbackHeading:forType:" to allow customizing the default heading text per feedback type.
+* [ADD] Added new optional delegate method "customizeFeedbackSubheading:forType:" to allow customizing the default subheading text per feedback type.
+
+
 ## Version 1.3.3
 * [FIX] iOS framework now works when (FRFeedbackReporter.sendDetailsIsOptional) is NO;
 * [FIX] iOS "Include console logs" spinner is now visible.
