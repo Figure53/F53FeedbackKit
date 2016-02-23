@@ -53,6 +53,40 @@
     return @"Test App";
 }
 
+- (NSString *) customizeFeedbackHeading:(NSString *)heading forType:(NSString *)type
+{
+//    if ( [type isEqualToString:@"feedback"] )             // FR_FEEDBACK
+//        heading = @"Custom heading text for type Feedback";
+//    
+//    else if ( [type isEqualToString:@"exception"] )       // FR_EXCEPTION
+//        heading = @"Custom heading text for type Exception";
+//    
+//    else if ( [type isEqualToString:@"crash"] )           // FR_CRASH
+//        heading = @"Custom heading text for type Crash";
+//    
+//    else if ( [type isEqualToString:@"support"] )         // FR_SUPPORT
+//        heading = @"Custom heading text for type Support";
+    
+    return heading;
+}
+
+- (NSString *) customizeFeedbackSubheading:(NSString *)subheading forType:(NSString *)type
+{
+//    if ( [type isEqualToString:@"feedback"] )             // FR_FEEDBACK
+//        subheading = @"Custom subheading text for type Feedback";
+//
+//    else if ( [type isEqualToString:@"exception"] )       // FR_EXCEPTION
+//        subheading = @"Custom subheading text for type Exception";
+//
+//    else if ( [type isEqualToString:@"crash"] )           // FR_CRASH
+//        subheading = @"Custom subheading text for type Crash";
+//
+//    else if ( [type isEqualToString:@"support"] )         // FR_SUPPORT
+//        subheading = @"Custom subheading text for type Support";
+    
+    return subheading;
+}
+
 /*
 - (NSString *)targetUrlForFeedbackReport
 {

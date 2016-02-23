@@ -178,6 +178,9 @@ static dispatch_once_t once_token = 0;
         if ( title )
             [controller setTitle:title];
         
+        if ([self.delegate respondsToSelector:@selector(customizeFeedbackHeading:forType:)]) {
+            heading = [self.delegate customizeFeedbackHeading:heading forType:type];
+        }
         if ( heading ) {
             NSString *applicationName = nil;
             if ([self.delegate respondsToSelector:@selector(feedbackDisplayName)]) {
@@ -190,6 +193,9 @@ static dispatch_once_t once_token = 0;
             [controller setHeading:[NSString stringWithFormat:heading, applicationName]];
         }
         
+        if ([self.delegate respondsToSelector:@selector(customizeFeedbackSubheading:forType:)]) {
+            subheading = [self.delegate customizeFeedbackSubheading:subheading forType:type];
+        }
         if ( subheading )
             [controller setSubheading:subheading];
         

@@ -22,6 +22,10 @@
 - (NSString *) targetUrlForFeedbackReport;
 - (NSString *) feedbackDisplayName;
 
+// possible values for type are @"feedback", @"exception", @"crash", or @"support"
+- (NSString *) customizeFeedbackHeading:(NSString *)heading forType:(NSString *)type; // if heading contains the %@ placeholder, it will be populated with the app's CFBundleExecutable application name
+- (NSString *) customizeFeedbackSubheading:(NSString *)subheading forType:(NSString *)type;
+
 #if TARGET_OS_IPHONE
 - (UIColor *) feedbackControllerTintColor;
 #endif
