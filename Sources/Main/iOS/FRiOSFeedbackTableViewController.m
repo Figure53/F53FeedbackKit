@@ -595,7 +595,7 @@
 - (void) populateConsole
 {
     NSString *consoleLog = [self.feedbackController consoleLog];
-    if ([consoleLog length] > 0) {
+    if ( consoleLog != nil ) {
         dispatch_sync( dispatch_get_main_queue(), ^{
             [self addDetailsTabItem:self.detailTabConsole];
             [self.detailTabConsole setObject:consoleLog forKey:@"text"];
