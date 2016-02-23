@@ -89,6 +89,15 @@
     return @"Test App";
 }
 
+//- (NSString *) consoleLogForFeedbackReportSince:(NSDate *)since maxSize:(NSNumber *)maximumSize
+//{
+//    NSString *maximumSizeString = @"none";
+//    if ( maximumSize )
+//        maximumSizeString = [NSString stringWithFormat:@"%0.3ld", (long)maximumSize.integerValue];
+//    
+//    return [NSString stringWithFormat:@"my custom console log here since %@, max size: %@", since.description, maximumSizeString];
+//}
+
 - (NSString *) customizeFeedbackHeading:(NSString *)heading forType:(NSString *)type
 {
 //    if ( [type isEqualToString:@"feedback"] )             // FR_FEEDBACK

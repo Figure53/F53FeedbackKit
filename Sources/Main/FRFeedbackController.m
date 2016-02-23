@@ -124,18 +124,21 @@
 - (NSString *) consoleLog
 {
     NSNumber *hours = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_LOGHOURS];
-
+    
     NSInteger h = 24;
-
+    
     if (hours != nil) {
         h = [hours integerValue];
     }
     
     NSDate *since = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitHour value:-h toDate:[NSDate date] options:0];
-
+    
     NSNumber *maximumSize = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_MAXCONSOLELOGSIZE];
-
-    return [FRConsoleLog logSince:since maxSize:maximumSize];
+    
+    if ( [self.delegate respondsToSelector:@selector(consoleLogForFeedbackReportSince:maxSize:)] )
+        return [self.delegate consoleLogForFeedbackReportSince:since maxSize:maximumSize];
+    else
+        return [FRConsoleLog logSince:since maxSize:maximumSize];
 }
 
 
