@@ -470,8 +470,8 @@
     [self.feedbackController cancelUpload];
     
     if ([self.type isEqualToString:FR_EXCEPTION]) {
-        NSString *exitAfterException = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_EXITAFTEREXCEPTION];
-        if (exitAfterException && [exitAfterException isEqualToString:@"YES"]) {
+        NSString *exitAfterExceptionValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_EXITAFTEREXCEPTION];
+        if ([exitAfterExceptionValue respondsToSelector:@selector( boolValue )] && [exitAfterExceptionValue boolValue]) {
             // We want a pure exit() here I think.
             // As an exception has already been raised there is no
             // guarantee that the code path to [NSAapp terminate] is functional.
