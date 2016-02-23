@@ -142,10 +142,17 @@
         maxSize = [maxConsoleLogSizeValue integerValue];
     }
     
-    if ( [self.delegate respondsToSelector:@selector(consoleLogForFeedbackReportSince:maxSize:)] )
-        return [self.delegate consoleLogForFeedbackReportSince:since maxSize:maxSize];
-    else
+    if ( [self.delegate respondsToSelector:@selector(consoleLogForFeedbackReportSince:maxSize:)] ) {
+        NSString *consoleLogString = [self.delegate consoleLogForFeedbackReportSince:since maxSize:maxSize];
+        if ( maxSize > 0 && consoleLogString.length > maxSize ) {
+            NSUInteger index = consoleLogString.length - maxSize;
+            consoleLogString = [consoleLogString substringFromIndex:index];
+        }
+        return consoleLogString;
+    }
+    else {
         return [FRConsoleLog logSince:since maxSize:maxSize];
+    }
 }
 
 
