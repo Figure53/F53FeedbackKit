@@ -1,21 +1,23 @@
 ## Version 1.3.4
-* [ADD] Added new optional delegate method "consoleLogForFeedbackReportSince:maxSize:" to allow providing alternate text for the console log.
-* [ADD] Added new optional delegate method "customizeFeedbackHeading:forType:" to allow customizing the default heading text per feedback type.
-* [ADD] Added new optional delegate method "customizeFeedbackSubheading:forType:" to allow customizing the default subheading text per feedback type.
+* [ADD] Adds new optional delegate method "consoleLogForFeedbackReportSince:maxSize:" to allow providing alternate text for the console log.
+* [ADD] Adds new optional delegate method "customizeFeedbackHeading:forType:" to allow customizing the default heading text per feedback type.
+* [ADD] Adds new optional delegate method "customizeFeedbackSubheading:forType:" to allow customizing the default subheading text per feedback type.
+* [FIX] Prevents a crash if (FRFeedbackReporter.maxConsoleLogSize) is set as String type.
+* [FIX] Adds support for using plist types Boolean and Number.
 
 
 ## Version 1.3.3
 * [FIX] iOS framework now works when (FRFeedbackReporter.sendDetailsIsOptional) is NO;
 * [FIX] iOS "Include console logs" spinner is now visible.
 * [FIX] iOS details text view is no longer editable.
-* [ADD] Added option to default to including console logs when sending details is optional (FRFeedbackReporter.defaultIncludeConsole).
+* [ADD] Adds option to default to including console logs when sending details is optional (FRFeedbackReporter.defaultIncludeConsole).
 
 
 ## Version 1.3.2
-* [ADD] Added iOS-compatible UI.
-* [ADD] Added Cocoapods podspec for creating iOS Framework.
-* [ADD] Added new method "reportCrash:" to report externally-collected crash reports.
-* [ADD] Added new optional delegate method "feedbackControllerTintColor" to allow  overriding the interface tint color for the iOS view controller navigation button text and various UI elements.
+* [ADD] Adds iOS-compatible UI.
+* [ADD] Adds Cocoapods podspec for creating iOS Framework.
+* [ADD] Adds new method "reportCrash:" to report externally-collected crash reports.
+* [ADD] Adds new optional delegate method "feedbackControllerTintColor" to allow  overriding the interface tint color for the iOS view controller navigation button text and various UI elements.
 * [CHG] Rebuilt project for Xcode 6.
 * [CHG] Adopts ARC for Mac and iOS.
 * [CHG] Mac target requires 10.8+.

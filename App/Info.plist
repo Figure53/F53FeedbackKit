@@ -33,10 +33,10 @@
 	<key>FRFeedbackReporter.defaultSender</key>
 	<string>firstEmail</string>
 	<key>FRFeedbackReporter.sendDetailsIsOptional</key>
-	<string>YES</string>
+	<true/>
 	<key>FRFeedbackReporter.targetURL</key>
 	<string>http://localhost/F53FeedbackKit/submit.php?project=%@</string>
 	<key>FRFeedbackReporter.defaultIncludeConsole</key>
-	<string>YES</string>
+	<true/>
 </dict>
 </plist>

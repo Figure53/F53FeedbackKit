@@ -1000,13 +1000,15 @@
     
     //  setup 'send details' section...
     self.sendDetails = YES;
-    NSString *sendDetailsIsOptional = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
-    self.sendDetailsIsOptional = ( sendDetailsIsOptional && [sendDetailsIsOptional isEqualToString:@"YES"] );
+    
+    id sendDetailsIsOptionalValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
+    self.sendDetailsIsOptional = ( [sendDetailsIsOptionalValue respondsToSelector:@selector( boolValue )] && [sendDetailsIsOptionalValue boolValue] );
+    
     if ( self.sendDetailsIsOptional ) {
         [self showDetails:YES animate:NO];
         
-        NSString *includeConsoleLogs = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_DEFAULTINCLUDECONSOLE];
-        self.includeConsole = ( includeConsoleLogs && [includeConsoleLogs isEqualToString:@"YES"] );
+        id defaultIncludeConsoleValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_DEFAULTINCLUDECONSOLE];
+        self.includeConsole = ( [defaultIncludeConsoleValue respondsToSelector:@selector( boolValue )] && [defaultIncludeConsoleValue boolValue] );
     } else {
         self.includeConsole = YES; // force inclusion
     }

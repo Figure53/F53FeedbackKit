@@ -48,7 +48,7 @@
 	<key>FRFeedbackReporter.defaultSender</key>
 	<string>firstEmail</string>
 	<key>FRFeedbackReporter.sendDetailsIsOptional</key>
-	<string>YES</string>
+	<true/>
 	<key>FRFeedbackReporter.targetURL</key>
 	<string>http://localhost/F53FeedbackKit/submit.php?project=DocumentApp</string>
 	<key>FRFeedbackReporter.emptyDocumentFiles</key>
@@ -62,6 +62,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2015 Figure 53, LLC. All rights reserved.</string>
 	<key>FRFeedbackReporter.defaultIncludeConsole</key>
-	<string>YES</string>
+	<true/>
 </dict>
 </plist>

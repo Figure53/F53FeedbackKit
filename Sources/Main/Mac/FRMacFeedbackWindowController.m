@@ -436,8 +436,8 @@
     //  setup 'send details' checkbox...
     [self.sendDetailsCheckbox setTitle:FRLocalizedString(@"Send details", nil)];
     [self.sendDetailsCheckbox setState:NSOnState];
-    NSString *sendDetailsIsOptional = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
-    if (sendDetailsIsOptional && [sendDetailsIsOptional isEqualToString:@"YES"]) {
+    id sendDetailsIsOptionalValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
+    if ([sendDetailsIsOptionalValue respondsToSelector:@selector( boolValue )] && [sendDetailsIsOptionalValue boolValue]) {
         [self.detailsLabel setHidden:YES];
         [self.sendDetailsCheckbox setHidden:NO];
         
@@ -449,9 +449,9 @@
         consoleFrame.origin.x = sendFrame.origin.x + sendFrame.size.width + buffer;
         [self.includeConsoleCheckbox setFrame:consoleFrame];
         
-        NSString *includeConsoleLogs = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_DEFAULTINCLUDECONSOLE];
+        id defaultIncludeConsoleValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_DEFAULTINCLUDECONSOLE];
         NSCellStateValue includeConsoleState = NSOffState;
-        if (includeConsoleLogs && [includeConsoleLogs isEqualToString:@"YES"]) {
+        if ([defaultIncludeConsoleValue respondsToSelector:@selector( boolValue )] && [defaultIncludeConsoleValue boolValue]) {
             includeConsoleState = NSOnState;
         }
         [self.includeConsoleCheckbox setState:includeConsoleState];
