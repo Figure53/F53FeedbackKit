@@ -53,13 +53,13 @@
     return @"Test App";
 }
 
-//- (NSString *) consoleLogForFeedbackReportSince:(NSDate *)since maxSize:(NSNumber *)maximumSize
+//- (NSString *) consoleLogForFeedbackReportSince:(NSDate *)since maxSize:(NSInteger)maxSize
 //{
-//    NSString *maximumSizeString = @"none";
-//    if ( maximumSize )
-//        maximumSizeString = [NSString stringWithFormat:@"%0.3ld", (long)maximumSize.integerValue];
+//    NSString *maxSizeString = @"none";
+//    if ( maxSize > 0 )
+//        maxSizeString = [NSString stringWithFormat:@"%ld", (long)maxSize];
 //    
-//    return [NSString stringWithFormat:@"my custom console log here since %@, max size: %@", since.description, maximumSizeString];
+//    return [NSString stringWithFormat:@"my custom console log here since %@, max size: %@", since.description, maxSizeString];
 //}
 
 - (NSString *) customizeFeedbackHeading:(NSString *)heading forType:(NSString *)type

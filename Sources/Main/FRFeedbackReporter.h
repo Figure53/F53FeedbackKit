@@ -23,8 +23,8 @@
 - (NSString *) feedbackDisplayName;
 
 // `since` is calculated by subtracting optional number of hours in plist key FRFeedbackReporter.logHours from now. Defaults to 24 hours prior to now.
-// `maximumSize` is number of characters, optionally provided by by plist key FRFeedbackReporter.maxConsoleLogSize. May be nil.
-- (NSString *) consoleLogForFeedbackReportSince:(NSDate *)since maxSize:(NSNumber *)maximumSize;
+// `maxSize` is number of characters, optionally provided by plist key FRFeedbackReporter.maxConsoleLogSize. Value is provided to delegate only as a hint. If delegate returns a string longer than maxSize, the beginning of the string is truncated regardless. Value of 0 indicates no size limit.
+- (NSString *) consoleLogForFeedbackReportSince:(NSDate *)since maxSize:(NSInteger)maxSize;
 
 // possible values for type are @"feedback", @"exception", @"crash", or @"support"
 - (NSString *) customizeFeedbackHeading:(NSString *)heading forType:(NSString *)type; // if heading contains the %@ placeholder, it will be populated with the app's CFBundleExecutable application name

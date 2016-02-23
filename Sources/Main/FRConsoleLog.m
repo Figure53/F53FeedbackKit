@@ -30,7 +30,7 @@
 
 @implementation FRConsoleLog
 
-+ (NSString *) logSince:(NSDate *)since maxSize:(NSNumber *)maximumSize
++ (NSString *) logSince:(NSDate *)since maxSize:(NSInteger)maxSize
 {
     NSUInteger consoleOutputLength = 0;
     NSUInteger rawConsoleLinesCapacity = 100;
@@ -129,10 +129,10 @@
                     NSDate *date = [NSDate dateWithTimeIntervalSince1970:atof(line[FR_CONSOLELOG_TIME])];
                     [consoleLines addObject:[NSString stringWithFormat:@"%@ %s: %s\n", [dateFormatter stringFromDate:date], line[FR_CONSOLELOG_SENDER], line[FR_CONSOLELOG_TEXT]]];
 
-                    // If a maximum size has been provided, respect it and abort if necessary
-                    if (maximumSize != nil) {
+                    // If a maximum size > 0 has been provided, respect it and abort if necessary
+                    if (maxSize > 0) {
                         consoleOutputLength += [[consoleLines lastObject] length];
-                        if (consoleOutputLength > [maximumSize unsignedIntegerValue]) break;
+                        if (consoleOutputLength > maxSize) break;
                     }
                 }
             }
