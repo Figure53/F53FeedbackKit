@@ -1,5 +1,5 @@
 ## Version 1.3.4
-* [ADD] Adds new optional delegate method "consoleLogForFeedbackReportSince:maxSize:" to allow providing alternate text for the console log.
+* [ADD] Adds new optional delegate method "customizeConsoleLogForFeedbackReportSince:maxSize:" to allow overriding or adding additional text to the console log.
 * [ADD] Adds new optional delegate method "customizeFeedbackHeading:forType:" to allow customizing the default heading text per feedback type.
 * [ADD] Adds new optional delegate method "customizeFeedbackSubheading:forType:" to allow customizing the default subheading text per feedback type.
 * [FIX] Prevents a crash if (FRFeedbackReporter.maxConsoleLogSize) is set as String type.

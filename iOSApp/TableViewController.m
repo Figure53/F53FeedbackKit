@@ -89,14 +89,14 @@
     return @"Test App";
 }
 
-//- (NSString *) consoleLogForFeedbackReportSince:(NSDate *)since maxSize:(NSInteger)maxSize
-//{
-//    NSString *maxSizeString = @"none";
-//    if ( maxSize > 0 )
-//        maxSizeString = [NSString stringWithFormat:@"%ld", (long)maxSize];
-//    
-//    return [NSString stringWithFormat:@"my custom console log here since %@, max size: %@", since.description, maxSizeString];
-//}
+- (NSString *) customizeConsoleLogForFeedbackReport:(NSString *)consoleLog since:(NSDate *)since maxSize:(NSInteger)maxSize
+{
+    NSString *maxSizeString = @"none";
+    if ( maxSize > 0 )
+        maxSizeString = [NSString stringWithFormat:@"%ld", (long)maxSize];
+    
+    return [NSString stringWithFormat:@"%@\n\n%@", consoleLog, @"adding my custom console log here since %@, max size: %@", since.description, maxSizeString];
+}
 
 - (NSString *) customizeFeedbackHeading:(NSString *)heading forType:(NSString *)type
 {
