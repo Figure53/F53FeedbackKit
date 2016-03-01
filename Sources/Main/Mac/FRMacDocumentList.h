@@ -1,12 +1,12 @@
 //
-//  FRDocumentList.h
+//  FRMacDocumentList.h
 //  F53FeedbackKit
 //
 //  Created by Chad Sellers on 11/1/12.
 //
 //
 
-@interface FRDocumentList : NSObject <NSTableViewDelegate, NSTableViewDataSource>
+@interface FRMacDocumentList : NSObject <NSTableViewDelegate, NSTableViewDataSource>
 
 - (void)selectMostRecentDocument;
 - (void)setupOtherButton:(NSButton *)otherButton;

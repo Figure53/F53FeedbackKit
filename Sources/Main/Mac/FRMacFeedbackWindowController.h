@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "FRDocumentList.h"
+#import "FRMacDocumentList.h"
 #import "FRConstants.h"
 
 
@@ -59,7 +59,7 @@
 @property (unsafe_unretained)   IBOutlet NSButton *cancelButton;
 @property (unsafe_unretained)   IBOutlet NSButton *sendButton;
     
-@property (nonatomic, strong)   FRDocumentList *documentList;
+@property (nonatomic, strong)   FRMacDocumentList *documentList;
 
 @property (nonatomic, getter=isUploading)   BOOL uploading;
 

@@ -347,7 +347,7 @@
 
 - (void) show
 {
-    self.documentList = [[FRDocumentList alloc] init];
+    self.documentList = [[FRMacDocumentList alloc] init];
     [self.documentList setupOtherButton:self.otherDocumentButton];
     [self.documentList setTableView:self.documentsView];
     [self.documentsView setDelegate:self.documentList];

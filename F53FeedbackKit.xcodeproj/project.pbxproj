@@ -319,8 +319,8 @@
 		3DC68DD01BB606520002242A /* F53FeedbackKit_iOSApp.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOSApp.pch; sourceTree = "<group>"; };
 		3DE052B11BB592340056E64F /* FRCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRCommand.h; path = Mac/FRCommand.h; sourceTree = "<group>"; };
 		3DE052B21BB592340056E64F /* FRCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRCommand.m; path = Mac/FRCommand.m; sourceTree = "<group>"; };
-		3DE052B31BB592340056E64F /* FRDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRDocumentList.h; path = Mac/FRDocumentList.h; sourceTree = "<group>"; };
-		3DE052B41BB592340056E64F /* FRDocumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRDocumentList.m; path = Mac/FRDocumentList.m; sourceTree = "<group>"; };
+		3DE052B31BB592340056E64F /* FRMacDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRMacDocumentList.h; path = Mac/FRMacDocumentList.h; sourceTree = "<group>"; };
+		3DE052B41BB592340056E64F /* FRMacDocumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRMacDocumentList.m; path = Mac/FRMacDocumentList.m; sourceTree = "<group>"; };
 		3DE052B51BB592340056E64F /* FRProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRProgressWindow.h; path = Mac/FRProgressWindow.h; sourceTree = "<group>"; };
 		3DE052B61BB592340056E64F /* FRProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRProgressWindow.m; path = Mac/FRProgressWindow.m; sourceTree = "<group>"; };
 		3DE052BD1BB5925A0056E64F /* FRMacFeedbackWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRMacFeedbackWindowController.h; path = Mac/FRMacFeedbackWindowController.h; sourceTree = "<group>"; };
@@ -640,8 +640,8 @@
 				3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */,
 				3DE052B11BB592340056E64F /* FRCommand.h */,
 				3DE052B21BB592340056E64F /* FRCommand.m */,
-				3DE052B31BB592340056E64F /* FRDocumentList.h */,
-				3DE052B41BB592340056E64F /* FRDocumentList.m */,
+				3DE052B31BB592340056E64F /* FRMacDocumentList.h */,
+				3DE052B41BB592340056E64F /* FRMacDocumentList.m */,
 				3DE052B51BB592340056E64F /* FRProgressWindow.h */,
 				3DE052B61BB592340056E64F /* FRProgressWindow.m */,
 			);
@@ -744,7 +744,7 @@
 				3D77A16C1BAC987700789333 /* FRFeedbackController.h in Headers */,
 				3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */,
 				3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */,
-				3DE052B91BB592340056E64F /* FRDocumentList.h in Headers */,
+				3DE052B91BB592340056E64F /* FRMacDocumentList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,7 +1115,7 @@
 				3D77A1621BAC987700789333 /* FRCrashLogFinder.m in Sources */,
 				3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */,
 				3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */,
-				3DE052BA1BB592340056E64F /* FRDocumentList.m in Sources */,
+				3DE052BA1BB592340056E64F /* FRMacDocumentList.m in Sources */,
 				3DE052C01BB5925A0056E64F /* FRMacFeedbackWindowController.m in Sources */,
 				3DE052BC1BB592350056E64F /* FRProgressWindow.m in Sources */,
 			);

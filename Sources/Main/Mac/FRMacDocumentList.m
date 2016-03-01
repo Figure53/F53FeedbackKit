@@ -1,17 +1,17 @@
 //
-//  FRDocumentList.m
+//  FRMacDocumentList.m
 //  F53FeedbackKit
 //
 //  Created by Chad Sellers on 11/1/12.
 //
 //
 
-#import "FRDocumentList.h"
+#import "FRMacDocumentList.h"
 #import "NSString+Base64.h"
 #import "FRProgressWindow.h"
 #import "FRConstants.h"
 
-@implementation FRDocumentList
+@implementation FRMacDocumentList
 
 - (id)init
 {
