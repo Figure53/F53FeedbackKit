@@ -98,7 +98,7 @@
         self.detailTabScript        = [@{ @"label" : FRLocalizedString(@"Script", nil) } mutableCopy];
         self.detailTabPreferences   = [@{ @"label" : FRLocalizedString(@"Preferences", nil) } mutableCopy];
         self.detailTabException     = [@{ @"label" : FRLocalizedString(@"Exception", nil) } mutableCopy];
-//        self.detailTabDocuments     = [@{ @"label" : FRLocalizedString(@"Documents", nil) } mutableCopy];
+        self.detailTabDocuments     = [@{ @"label" : FRLocalizedString(@"Documents", nil) } mutableCopy];
         
         self.detailsTabItems = [NSMutableArray arrayWithObjects:self.detailTabSystem, self.detailTabConsole, self.detailTabCrash, self.detailTabScript, self.detailTabPreferences, self.detailTabException, self.detailTabDocuments, nil];
     }
@@ -112,7 +112,7 @@
     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight;
     
     self.sendDetails = YES;
-//    self.documentList = nil;
+    self.documentList = nil;
     
     NSBundle *nibBundle = self.nibBundle;
     if ( !nibBundle ) {
@@ -905,12 +905,14 @@
 
 - (void) show
 {
-//    self.documentList = [[FRDocumentList alloc] init];
+    self.documentList = [[FRiOSDocumentList alloc] init];
 //    [self.documentList setupOtherButton:self.otherDocumentButton];
-//    [self.documentList setTableView:self.documentsView];
-//    [self.documentsView setDelegate:self.documentList];
-//    [self.documentsView setDataSource:self.documentList];
-//    [self.documentsView reloadData];
+    // TODO: FRiOSFeedbackTableViewTextViewCell needs to be modified to also contain a tableview which can be toggled with the text view and populated from the Documentlist
+    
+    [self.documentList setTableView:self.documentsView];
+    [self.documentsView setDelegate:self.documentList];
+    [self.documentsView setDataSource:self.documentList];
+    [self.documentsView reloadData];
     
     if ([self.type isEqualToString:FR_FEEDBACK]) {
         self.messageLabelText = FRLocalizedString(@"Feedback comment label", nil);

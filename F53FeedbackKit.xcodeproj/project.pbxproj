@@ -36,6 +36,10 @@
 		3D37BB601BB99D7100030264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531E1BB5A3450056E64F /* UIKit.framework */; };
 		3D37BB611BB99D7600030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE053201BB5A3490056E64F /* SystemConfiguration.framework */; };
 		3D37BB621BB99D7D00030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531C1BB5A33F0056E64F /* Foundation.framework */; };
+		3D72D7921C862111002AF90E /* FRiOSDocumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8E01DB1C861D4800726EE9 /* FRiOSDocumentList.h */; };
+		3D72D7931C862112002AF90E /* FRiOSDocumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8E01DB1C861D4800726EE9 /* FRiOSDocumentList.h */; };
+		3D72D7941C862116002AF90E /* FRiOSDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E01DC1C861D4800726EE9 /* FRiOSDocumentList.m */; };
+		3D72D7951C862118002AF90E /* FRiOSDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E01DC1C861D4800726EE9 /* FRiOSDocumentList.m */; };
 		3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A0E61BAC979000789333 /* F53FeedbackKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D77A0EE1BAC979000789333 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3D77A1521BAC987700789333 /* FRApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1201BAC987700789333 /* FRApplication.h */; };
@@ -303,6 +307,8 @@
 		3D77A1EF1BAC9F3500789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3D77A1F41BAC9FA500789333 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D77A2371BACA50F00789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRMacFeedbackWindowController.xib; sourceTree = "<group>"; };
+		3D8E01DB1C861D4800726EE9 /* FRiOSDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSDocumentList.h; path = iOS/FRiOSDocumentList.h; sourceTree = "<group>"; };
+		3D8E01DC1C861D4800726EE9 /* FRiOSDocumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSDocumentList.m; path = iOS/FRiOSDocumentList.m; sourceTree = "<group>"; };
 		3DC3AA1B1BB06BD4001E1765 /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC3AA1E1BB06BD4001E1765 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC3AA201BB06BD4001E1765 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -707,6 +713,8 @@
 		3DF0482E1BB08A760085F6BC /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3D8E01DB1C861D4800726EE9 /* FRiOSDocumentList.h */,
+				3D8E01DC1C861D4800726EE9 /* FRiOSDocumentList.m */,
 				3DE052C31BB5927A0056E64F /* FRiOSFeedbackTableViewController.h */,
 				3DE052C41BB5927A0056E64F /* FRiOSFeedbackTableViewController.m */,
 				3DE052C11BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.h */,
@@ -760,6 +768,7 @@
 				3DC68DAC1BB603050002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */,
 				3DC68D971BB602EF0002242A /* FRFeedbackReporter.h in Headers */,
 				3DC68DCF1BB605E80002242A /* F53FeedbackKit_iOS.h in Headers */,
+				3D72D7921C862111002AF90E /* FRiOSDocumentList.h in Headers */,
 				3DC68DC41BB6054E0002242A /* NSString+Base64.h in Headers */,
 				3DC68D8E1BB602E80002242A /* F53FeedbackKit_iOSApp.h in Headers */,
 				3DC68DA11BB602FC0002242A /* FRFeedbackController.h in Headers */,
@@ -785,6 +794,7 @@
 				3DE053301BB5B6C10056E64F /* FRFeedbackReporter.h in Headers */,
 				3DC68D821BB5F1AB0002242A /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */,
 				3DC68D811BB5F1AB0002242A /* FRiOSFeedbackTableViewController.h in Headers */,
+				3D72D7931C862112002AF90E /* FRiOSDocumentList.h in Headers */,
 				3DE053311BB5B6CE0056E64F /* FRApplication.h in Headers */,
 				3DC68D841BB5F1AB0002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */,
 				3DC68D7F1BB5E3C00002242A /* F53FeedbackKit_iOS.pch in Headers */,
@@ -1188,6 +1198,7 @@
 				3DC68DC51BB6054E0002242A /* NSString+Base64.m in Sources */,
 				3DC68DA21BB602FC0002242A /* FRFeedbackController.m in Sources */,
 				3DC68DC11BB6054E0002242A /* NSException+Callstack.m in Sources */,
+				3D72D7951C862118002AF90E /* FRiOSDocumentList.m in Sources */,
 				3DC68DC31BB6054E0002242A /* NSMutableDictionary+Additions.m in Sources */,
 				3DC68DAF1BB603050002242A /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
 				3DC68D981BB602F40002242A /* FRFeedbackReporter.m in Sources */,
@@ -1210,6 +1221,7 @@
 				3DE0531A1BB5A2400056E64F /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
 				3DE0530E1BB5A2200056E64F /* NSMutableDictionary+Additions.m in Sources */,
 				3DE053171BB5A2400056E64F /* FRiOSFeedbackTableViewController.m in Sources */,
+				3D72D7941C862116002AF90E /* FRiOSDocumentList.m in Sources */,
 				3DE0530D1BB5A2200056E64F /* NSException+Callstack.m in Sources */,
 				3DE0530C1BB5A2140056E64F /* FRFeedbackReporter.m in Sources */,
 				3DE0530F1BB5A2200056E64F /* NSString+Base64.m in Sources */,

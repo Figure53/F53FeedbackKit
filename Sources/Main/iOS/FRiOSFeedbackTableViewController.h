@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-//#import "FRDocumentList.h"
+#import "FRiOSDocumentList.h"
 #import "FRConstants.h"
 
 
@@ -38,7 +38,7 @@
 
 //@property (nonatomic, strong)   IBOutlet NSButton *otherDocumentButton;
 
-//@property (nonatomic, strong)   FRDocumentList *documentList;
+@property (nonatomic, strong)   FRiOSDocumentList *documentList;
 
 @property (nonatomic, getter=isUploading)   BOOL uploading;
 

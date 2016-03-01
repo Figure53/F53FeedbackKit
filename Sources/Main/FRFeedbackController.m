@@ -753,11 +753,11 @@
         [dict setValidString:self.controller.exceptionViewText
                       forKey:POST_KEY_EXCEPTION];
         
-//        if ( self.controller.documentList ) {
-//            NSDictionary *documents = [self.controller.documentList documentsToUpload];
-//            if (documents && [documents count] > 0)
-//                [dict setObject:documents forKey:POST_KEY_DOCUMENTS];
-//        }
+        if ( self.controller.documentList ) {
+            NSDictionary *documents = [self.controller.documentList documentsToUpload];
+            if (documents && [documents count] > 0)
+                [dict setObject:documents forKey:POST_KEY_DOCUMENTS];
+        }
     }
     
     return dict;
