@@ -118,7 +118,7 @@
         char stringValue[256] = {0};
         size_t stringLength = sizeof(stringValue);
         error = sysctlbyname("machdep.cpu.brand_string", &stringValue, &stringLength, NULL, 0);
-        if ((error == 0) && (stringValue != NULL)) {
+        if ((error == 0) && (stringLength > 0)) {
             NSString *brandString = [NSString stringWithUTF8String:stringValue];
             if (brandString)
                 return brandString;
