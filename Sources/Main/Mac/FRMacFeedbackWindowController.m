@@ -394,11 +394,13 @@
     ABPerson *me = [[ABAddressBook sharedAddressBook] me];
     ABMutableMultiValue *emailAddresses = [me valueForProperty:kABEmailProperty];
     
+    NSUInteger count = [emailAddresses count];
     [self.emailBox removeAllItems];
     
     [self.emailBox addItemWithObjectValue:FRLocalizedString(@"anonymous", nil)];
     
-    for ( NSString *emailAddress in emailAddresses ) {
+    for(NSUInteger i=0; i<count; i++) {
+        NSString *emailAddress = [emailAddresses valueAtIndex:i];
         [self.emailBox addItemWithObjectValue:emailAddress];
     }
     
