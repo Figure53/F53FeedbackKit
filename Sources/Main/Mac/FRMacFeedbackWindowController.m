@@ -106,7 +106,7 @@
             [self populateConsole];
         
         NSString *crashLog = self.crashesView.string;
-        if ( !crashLog )
+        if ( !crashLog || [crashLog length] < 1 )
             crashLog = [self crashLog];
         if ([crashLog length] > 0) {
             [self performSelectorOnMainThread:@selector(addTabViewItem:) withObject:self.tabCrash waitUntilDone:YES];
