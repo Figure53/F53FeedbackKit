@@ -182,7 +182,32 @@
             case CPUFAMILY_INTEL_PENRYN:
                 return @"Intel Core 2 Duo (Penryn)";
             case CPUFAMILY_INTEL_NEHALEM:
-                return @"Intel Xeon (Nehalem)";
+                return @"Intel (Nehalem)";
+#ifdef CPUFAMILY_INTEL_WESTMERE
+            case CPUFAMILY_INTEL_WESTMERE:
+                return @"Intel (Westmere)";
+#endif
+#ifdef CPUFAMILY_INTEL_SANDYBRIDGE
+            case CPUFAMILY_INTEL_SANDYBRIDGE:
+                return @"Intel Core i5/i7 (Sandy Bridge)";
+#endif
+#ifdef CPUFAMILY_INTEL_IVYBRIDGE
+            case CPUFAMILY_INTEL_IVYBRIDGE:
+                return @"Intel (Ivy Bridge)";
+#endif
+#ifdef CPUFAMILY_INTEL_HASWELL
+            case CPUFAMILY_INTEL_HASWELL:
+                return @"Intel Core i5/i7 (Haswell)";
+#endif
+#ifdef CPUFAMILY_INTEL_BROADWELL
+            case CPUFAMILY_INTEL_BROADWELL:
+                return @"Intel Core M/i5/i7 (Haswell)";
+#endif
+#ifdef CPUFAMILY_INTEL_SKYLAKE
+            case CPUFAMILY_INTEL_SKYLAKE:
+                return @"Intel Core M/i5/i7 (Skylake)";
+#endif
+                
         }
         return nil;
     }
