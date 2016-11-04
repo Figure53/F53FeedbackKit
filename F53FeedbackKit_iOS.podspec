@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name                = 'F53FeedbackKit_iOS'
-  s.version             = '1.3.4'
+  s.version             = '1.3.5'
   s.summary             = 'Framework for sending feedback and system information reports from your iOS application.'
   s.license             = 'apache'
-  s.source              = { :git => 'https://github.com/Figure53/F53FeedbackKit.git', :tag => '1.3.4' }
+  s.source              = { :git => 'https://github.com/Figure53/F53FeedbackKit.git', :tag => '1.3.5' }
   s.platform            = :ios, '8.4'
   s.authors             = 'Figure 53, LLC', 'Torsten Curdt', 'Fraser Speirs', 'Jens Alfke'
   s.homepage            = 'https://github.com/Figure53/F53FeedbackKit'

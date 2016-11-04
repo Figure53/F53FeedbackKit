@@ -1,3 +1,10 @@
+## Version 1.3.5
+* [FIX] Mac crash reports were not getting submitted.
+* [FIX] Mac Address Book enumeration is now done correctly.
+* [FIX] Certain CPU types unavailable in Xcode 8.
+* [ADD] Additional CPU types available in Xcode 8.
+
+
 ## Version 1.3.4
 * [ADD] Adds new optional delegate method "customizeConsoleLogForFeedbackReportSince:maxSize:" to allow overriding or adding additional text to the console log.
 * [ADD] Adds new optional delegate method "customizeFeedbackHeading:forType:" to allow customizing the default heading text per feedback type.
