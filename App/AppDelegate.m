@@ -59,7 +59,7 @@
     if ( maxSize > 0 )
         maxSizeString = [NSString stringWithFormat:@"%ld", (long)maxSize];
     
-    return [NSString stringWithFormat:@"%@\n\n%@", consoleLog, @"adding my custom console log here since %@, max size: %@", since.description, maxSizeString];
+    return [NSString stringWithFormat:@"%@\n\nadding my custom console log here since %@, max size: %@", consoleLog, since.description, maxSizeString];
 }
 
 - (NSString *) customizeFeedbackHeading:(NSString *)heading forType:(NSString *)type
