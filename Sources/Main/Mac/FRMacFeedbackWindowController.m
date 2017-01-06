@@ -391,20 +391,13 @@
     [self.tabView removeTabViewItem:self.tabPreferences];
     [self.tabView removeTabViewItem:self.tabException];
     
-    ABPerson *me = [[ABAddressBook sharedAddressBook] me];
-    ABMutableMultiValue *emailAddresses = [me valueForProperty:kABEmailProperty];
-    
-    NSUInteger count = [emailAddresses count];
     [self.emailBox removeAllItems];
     
     [self.emailBox addItemWithObjectValue:FRLocalizedString(@"anonymous", nil)];
     
-    for(NSUInteger i=0; i<count; i++) {
-        NSString *emailAddress = [emailAddresses valueAtIndex:i];
-        [self.emailBox addItemWithObjectValue:emailAddress];
-    }
-    
     NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:DEFAULTS_KEY_SENDEREMAIL];
+    if (email && email.length > 0)
+        [self.emailBox addItemWithObjectValue:email];
     
     NSInteger found = [self.emailBox indexOfItemWithObjectValue:email];
     if (found != NSNotFound) {
