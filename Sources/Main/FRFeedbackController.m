@@ -679,10 +679,16 @@
                 
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
                 [alert addAction:[UIAlertAction actionWithTitle:@"Go back" style:UIAlertActionStyleCancel handler:nil]];
+                
+                __weak typeof(self) weakSelf = self;
                 [alert addAction:[UIAlertAction actionWithTitle:@"Send anyway" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     
-                    self.allowSendWithoutEmailAddress = YES;
-                    [self send:self];
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    if ( !strongSelf )
+                        return;
+                    
+                    strongSelf.allowSendWithoutEmailAddress = YES;
+                    [strongSelf send:strongSelf];
                     
                 }]];
                 
@@ -707,15 +713,21 @@
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    
+    __weak typeof(self) weakSelf = self;
     [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Proceed Anyway", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        self.allowAttemptSendForUnreachableHost = YES;
-        [self send:self];
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if ( !strongSelf )
+            return;
+        
+        strongSelf.allowAttemptSendForUnreachableHost = YES;
+        [strongSelf send:strongSelf];
         
     }]];
     
     [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
-
+    
     return NO;
 }
 
