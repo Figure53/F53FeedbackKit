@@ -138,6 +138,7 @@
     self.detailsLabelText = FRLocalizedString(@"Details", nil);
     
     self.sendButton = [[UIBarButtonItem alloc] initWithTitle:FRLocalizedString(@"Send", nil) style:UIBarButtonItemStyleDone target:self action:@selector( send: )];
+    self.sendButton.accessibilityLabel = self.sendButton.title;
     self.navigationItem.rightBarButtonItem = self.sendButton;
     
     self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector( cancel: )];
