@@ -1,3 +1,10 @@
+## Version 1.3.6
+* [CHG] Replaces `FRLocalizedString()` macro with `NSLocalizedString()`.
+* [CHG] Moves iOS-specific resource files to their own subfolder inside Base.lproj.
+* [CHG] Renames the CocoaPods podspec to "F53FeedbackKit" and adds an iOS-specific default subspec. To include F53FeedbackKit in your iOS project, specify either  `pod 'F53FeedbackKit'` or `pod 'F53FeedbackKit/iOS'`.
+* [CHG] Removes unneeded iOS checkmark cell .xib.
+* [FIX] Several fixes to the sample Xcode project and iOS test app.
+
 ## Version 1.3.5
 * [FIX] Mac crash reports were not getting submitted.
 * [FIX] Mac Address Book enumeration is now done correctly.
