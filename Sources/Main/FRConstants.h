@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
+
+
 //  Filename of the script in the resource bundle to execute (optional)
 #define FILE_SHELLSCRIPT                @"FRFeedbackReporter"
 

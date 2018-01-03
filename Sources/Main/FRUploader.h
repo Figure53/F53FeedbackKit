@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
+
+
 @protocol FRUploaderDelegate;
 
 @interface FRUploader : NSObject <NSURLConnectionDataDelegate> {

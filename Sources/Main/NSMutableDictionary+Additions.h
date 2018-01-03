@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
+
+
 @interface NSMutableDictionary (Additions)
 
 - (void) setValidString:(NSString *)string forKey:(NSString *)key;

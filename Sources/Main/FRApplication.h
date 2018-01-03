@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
+
+
 @interface FRApplication : NSObject
 
 + (NSString *) applicationBundleVersion;

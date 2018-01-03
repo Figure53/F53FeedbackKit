@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
+
+
 @interface NSException (Callstack)
 
 // Returns a textual, human-readable backtrace of the point where the exception was thrown

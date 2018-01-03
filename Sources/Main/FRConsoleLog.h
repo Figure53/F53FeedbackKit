@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
+
+
 @interface FRConsoleLog : NSObject
 
 + (NSString *) logSince:(NSDate *)since maxSize:(NSInteger)maxSize;

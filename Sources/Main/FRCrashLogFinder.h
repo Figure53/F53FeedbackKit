@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
+
+
 @interface FRCrashLogFinder : NSObject
 
 + (NSArray *) findCrashLogsSince:(NSDate *)date;

@@ -591,7 +591,11 @@
 {
     if ( !_controller ) {
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        NSURL *url = [bundle URLForResource:@"F53FeedbackKit_iOS" withExtension:@"bundle"]; // cocoapods builds a bundle, url will be nil when building iOSApp because F53FeedbackKit_iOSAPP.framework does not build a bundle
+        
+        // when built with CocoaPods, the url will be non-nil and we use that to fetch the correct bundle before loading the nib
+        // - (NOTE: the bundle name is specified by the key of the podspec `resource_bundles` hash)
+        // when building the F53FeedbackKit_iOS.framework (which does not bundle), the url will be nil and we use the bundle fetched above.
+        NSURL *url = [bundle URLForResource:@"F53FeedbackKit" withExtension:@"bundle"];
         if ( url ) {
             bundle = [NSBundle bundleWithURL:url];
         }

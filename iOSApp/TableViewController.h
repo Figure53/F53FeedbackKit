@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <F53FeedbackKit_iOSApp/FRFeedbackReporter.h>
+#import "FRFeedbackReporter.h"
 
 @interface TableViewController : UITableViewController <FRFeedbackReporterDelegate>
 
