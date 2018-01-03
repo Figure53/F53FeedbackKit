@@ -405,7 +405,7 @@
 - (BOOL) shouldSend:(id)sender
 {
     // Check that email is present
-    if ([self.windowController.emailBox stringValue] == nil || [[self.windowController.emailBox stringValue] isEqualToString:@""] || [[self.windowController.emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
+    if ([self.windowController.emailBox stringValue] == nil || [[self.windowController.emailBox stringValue] isEqualToString:@""] || [[self.windowController.emailBox stringValue] isEqualToString:NSLocalizedString(@"anonymous", nil)]) {
         for (NSString *aType in self.emailRequiredTypes) {
             if ([aType isEqualToString:self.type]) {
                 [[NSAlert alertWithMessageText:@"Email required" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"You must enter an email address so that we can respond to you."] runModal];
@@ -426,11 +426,11 @@
 
 - (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host
 {
-    NSInteger alertResult = [[NSAlert alertWithMessageText:FRLocalizedString(@"Feedback Host Not Reachable", nil)
-                                             defaultButton:FRLocalizedString(@"Proceed Anyway", nil)
-                                           alternateButton:FRLocalizedString(@"Cancel", nil)
+    NSInteger alertResult = [[NSAlert alertWithMessageText:NSLocalizedString(@"Feedback Host Not Reachable", nil)
+                                             defaultButton:NSLocalizedString(@"Proceed Anyway", nil)
+                                           alternateButton:NSLocalizedString(@"Cancel", nil)
                                                otherButton:nil
-                                 informativeTextWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host
+                                 informativeTextWithFormat:NSLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host
                               ] runModal];
     
     if (alertResult != NSAlertDefaultReturn) {
@@ -502,9 +502,9 @@
     self.windowController.uploading = NO;
     
     NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
-    [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
-    [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]]];
+    [alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
+    [alert setMessageText:NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
+    [alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), [error localizedDescription]]];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert runModal];
     
@@ -535,9 +535,9 @@
             NSLog (@"Failed to submit to server: %@", response);
             
             NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
-            [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
-            [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line]];
+            [alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
+            [alert setMessageText:NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
+            [alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), line]];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert runModal];
             
@@ -650,7 +650,7 @@
 - (BOOL) shouldSend:(id)sender
 {
     // Check that email is present
-    if (self.controller.emailBoxText == nil || [self.controller.emailBoxText isEqualToString:@""] || [self.controller.emailBoxText isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
+    if (self.controller.emailBoxText == nil || [self.controller.emailBoxText isEqualToString:@""] || [self.controller.emailBoxText isEqualToString:NSLocalizedString(@"anonymous", nil)]) {
         for (NSString *aType in self.emailRequiredTypes) {
             if ([aType isEqualToString:self.type]) {
                 
@@ -708,14 +708,14 @@
         return YES;
     }
     
-    NSString *title = FRLocalizedString(@"Feedback Host Not Reachable", nil);
-    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host];
+    NSString *title = NSLocalizedString(@"Feedback Host Not Reachable", nil);
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
     
     __weak typeof(self) weakSelf = self;
-    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Proceed Anyway", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Proceed Anyway", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if ( !strongSelf )
@@ -792,11 +792,11 @@
     
     self.controller.uploading = NO;
     
-    NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
-    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]];
+    NSString *title = NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), [error localizedDescription]];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]]; // rather than call [self close] and disscard the view controller -- and all of the user's typing, just dismiss and give the user a chance to attempt a recovery. They can press cancel if they want to bail.
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]]; // rather than call [self close] and disscard the view controller -- and all of the user's typing, just dismiss and give the user a chance to attempt a recovery. They can press cancel if they want to bail.
     
     [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
     
@@ -825,11 +825,11 @@
             
             NSLog (@"Failed to submit to server: %@", response);
             
-            NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
-            NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line];
+            NSString *title = NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+            NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), line];
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
             
             [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
             

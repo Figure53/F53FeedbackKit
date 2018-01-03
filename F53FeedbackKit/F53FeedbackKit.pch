@@ -18,6 +18,4 @@
 
     #import <Cocoa/Cocoa.h>
     
-    #define FRLocalizedString(key,comment) NSLocalizedStringFromTableInBundle(key, @"FeedbackReporter", [NSBundle bundleWithIdentifier:@"com.figure53.F53FeedbackKit"], comment)
-
 #endif

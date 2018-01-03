@@ -55,18 +55,18 @@
     
     [self.window setDelegate:self];
     
-    [self.window setTitle:FRLocalizedString(@"Feedback", nil)];
-    [self.emailLabel setStringValue:FRLocalizedString(@"Email address:", nil)];
-    [self.detailsLabel setStringValue:FRLocalizedString(@"Details", nil)];
-    [self.tabSystem setLabel:FRLocalizedString(@"System", nil)];
-    [self.tabConsole setLabel:FRLocalizedString(@"Console", nil)];
-    [self.tabCrash setLabel:FRLocalizedString(@"CrashLog", nil)];
-    [self.tabScript setLabel:FRLocalizedString(@"Script", nil)];
-    [self.tabPreferences setLabel:FRLocalizedString(@"Preferences", nil)];
-    [self.tabException setLabel:FRLocalizedString(@"Exception", nil)];
+    [self.window setTitle:NSLocalizedString(@"Feedback", nil)];
+    [self.emailLabel setStringValue:NSLocalizedString(@"Email address:", nil)];
+    [self.detailsLabel setStringValue:NSLocalizedString(@"Details", nil)];
+    [self.tabSystem setLabel:NSLocalizedString(@"System", nil)];
+    [self.tabConsole setLabel:NSLocalizedString(@"Console", nil)];
+    [self.tabCrash setLabel:NSLocalizedString(@"CrashLog", nil)];
+    [self.tabScript setLabel:NSLocalizedString(@"Script", nil)];
+    [self.tabPreferences setLabel:NSLocalizedString(@"Preferences", nil)];
+    [self.tabException setLabel:NSLocalizedString(@"Exception", nil)];
     
-    [self.sendButton setTitle:FRLocalizedString(@"Send", nil)];
-    [self.cancelButton setTitle:FRLocalizedString(@"Cancel", nil)];
+    [self.sendButton setTitle:NSLocalizedString(@"Send", nil)];
+    [self.cancelButton setTitle:NSLocalizedString(@"Cancel", nil)];
     
     [[self.consoleView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
     [[self.consoleView textContainer] setWidthTracksTextView:NO];
@@ -355,11 +355,11 @@
     [self.documentsView reloadData];
     
     if ([self.type isEqualToString:FR_FEEDBACK]) {
-        [self.messageLabel setStringValue:FRLocalizedString(@"Feedback comment label", nil)];
+        [self.messageLabel setStringValue:NSLocalizedString(@"Feedback comment label", nil)];
     } else if ([self.type isEqualToString:FR_SUPPORT]) {
-        [self.messageLabel setStringValue:FRLocalizedString(@"Describe the problem:", nil)];
+        [self.messageLabel setStringValue:NSLocalizedString(@"Describe the problem:", nil)];
     } else {
-        [self.messageLabel setStringValue:FRLocalizedString(@"Comments:", nil)];
+        [self.messageLabel setStringValue:NSLocalizedString(@"Comments:", nil)];
     }
     
     if ([[self.exceptionView string] length] != 0) {
@@ -393,7 +393,7 @@
     
     [self.emailBox removeAllItems];
     
-    [self.emailBox addItemWithObjectValue:FRLocalizedString(@"anonymous", nil)];
+    [self.emailBox addItemWithObjectValue:NSLocalizedString(@"anonymous", nil)];
     
     NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:DEFAULTS_KEY_SENDEREMAIL];
     if (email && email.length > 0)
@@ -409,7 +409,7 @@
     }
     
     if (emailRequired &&
-        ([self.emailBox stringValue] == nil || [[self.emailBox stringValue] isEqualToString:@""] || [[self.emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)])) {
+        ([self.emailBox stringValue] == nil || [[self.emailBox stringValue] isEqualToString:@""] || [[self.emailBox stringValue] isEqualToString:NSLocalizedString(@"anonymous", nil)])) {
         [self.emailLabel setTextColor:[NSColor redColor]];
     }
     else {
@@ -429,7 +429,7 @@
     [self.sendButton setEnabled:NO];
     
     //  setup 'send details' checkbox...
-    [self.sendDetailsCheckbox setTitle:FRLocalizedString(@"Send details", nil)];
+    [self.sendDetailsCheckbox setTitle:NSLocalizedString(@"Send details", nil)];
     [self.sendDetailsCheckbox setState:NSOnState];
     id sendDetailsIsOptionalValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_SENDDETAILSISOPTIONAL];
     if ([sendDetailsIsOptionalValue respondsToSelector:@selector( boolValue )] && [sendDetailsIsOptionalValue boolValue]) {

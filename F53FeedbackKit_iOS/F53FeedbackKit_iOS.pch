@@ -18,6 +18,4 @@
 
     #import <UIKit/UIKit.h>
 
-    #define FRLocalizedString(key,comment) NSLocalizedStringFromTableInBundle(key, @"FeedbackReporter_iOS", [NSBundle bundleForClass:[self class]], comment)
-
 #endif

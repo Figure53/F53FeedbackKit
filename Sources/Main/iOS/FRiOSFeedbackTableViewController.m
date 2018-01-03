@@ -92,13 +92,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if ( self ) {
         
-        self.detailTabSystem        = [@{ @"label" : FRLocalizedString(@"System", nil) } mutableCopy];
-        self.detailTabConsole       = [@{ @"label" : FRLocalizedString(@"Console", nil) } mutableCopy];
-        self.detailTabCrash         = [@{ @"label" : FRLocalizedString(@"CrashLog", nil) } mutableCopy];
-        self.detailTabScript        = [@{ @"label" : FRLocalizedString(@"Script", nil) } mutableCopy];
-        self.detailTabPreferences   = [@{ @"label" : FRLocalizedString(@"Preferences", nil) } mutableCopy];
-        self.detailTabException     = [@{ @"label" : FRLocalizedString(@"Exception", nil) } mutableCopy];
-//        self.detailTabDocuments     = [@{ @"label" : FRLocalizedString(@"Documents", nil) } mutableCopy];
+        self.detailTabSystem        = [@{ @"label" : NSLocalizedString(@"System", nil) } mutableCopy];
+        self.detailTabConsole       = [@{ @"label" : NSLocalizedString(@"Console", nil) } mutableCopy];
+        self.detailTabCrash         = [@{ @"label" : NSLocalizedString(@"CrashLog", nil) } mutableCopy];
+        self.detailTabScript        = [@{ @"label" : NSLocalizedString(@"Script", nil) } mutableCopy];
+        self.detailTabPreferences   = [@{ @"label" : NSLocalizedString(@"Preferences", nil) } mutableCopy];
+        self.detailTabException     = [@{ @"label" : NSLocalizedString(@"Exception", nil) } mutableCopy];
+//        self.detailTabDocuments     = [@{ @"label" : NSLocalizedString(@"Documents", nil) } mutableCopy];
         
         self.detailsTabItems = [NSMutableArray arrayWithObjects:self.detailTabSystem, self.detailTabConsole, self.detailTabCrash, self.detailTabScript, self.detailTabPreferences, self.detailTabException, self.detailTabDocuments, nil];
     }
@@ -134,10 +134,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTabPickerCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTabPickerCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTextViewCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTextViewCellIdentifier];
     
-    self.title = FRLocalizedString(@"Feedback", nil);
-    self.detailsLabelText = FRLocalizedString(@"Details", nil);
+    self.title = NSLocalizedString(@"Feedback", nil);
+    self.detailsLabelText = NSLocalizedString(@"Details", nil);
     
-    self.sendButton = [[UIBarButtonItem alloc] initWithTitle:FRLocalizedString(@"Send", nil) style:UIBarButtonItemStyleDone target:self action:@selector( send: )];
+    self.sendButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Send", nil) style:UIBarButtonItemStyleDone target:self action:@selector( send: )];
     self.sendButton.accessibilityLabel = self.sendButton.title;
     self.navigationItem.rightBarButtonItem = self.sendButton;
     
@@ -294,7 +294,7 @@
                     
                     cell.emailBox.text = self.emailBoxText;
                     cell.emailBox.textColor = self.emailBoxTextColor;
-                    cell.emailBox.placeholder = FRLocalizedString(@"Email address:", nil);
+                    cell.emailBox.placeholder = NSLocalizedString(@"Email address:", nil);
                     
                     return cell;
                     
@@ -315,7 +315,7 @@
                     cell.hidden = !self.sendDetailsIsOptional;
                     cell.tintColor = self.delegateTintColor;
                     
-                    cell.textLabel.text = FRLocalizedString(@"Send details", nil);
+                    cell.textLabel.text = NSLocalizedString(@"Send details", nil);
                     
                     return cell;
                     
@@ -328,7 +328,7 @@
                     cell.tintColor = self.delegateTintColor;
                     //cell.indentationLevel = 2;
                     
-                    cell.textLabel.text = FRLocalizedString(@"Include console logs", nil);
+                    cell.textLabel.text = NSLocalizedString(@"Include console logs", nil);
                     
                     return cell;
                     
@@ -914,11 +914,11 @@
 //    [self.documentsView reloadData];
     
     if ([self.type isEqualToString:FR_FEEDBACK]) {
-        self.messageLabelText = FRLocalizedString(@"Feedback comment label", nil);
+        self.messageLabelText = NSLocalizedString(@"Feedback comment label", nil);
     } else if ([self.type isEqualToString:FR_SUPPORT]) {
-        self.messageLabelText = FRLocalizedString(@"Describe the problem:", nil);
+        self.messageLabelText = NSLocalizedString(@"Describe the problem:", nil);
     } else {
-        self.messageLabelText = FRLocalizedString(@"Comments:", nil);
+        self.messageLabelText = NSLocalizedString(@"Comments:", nil);
     }
     
     if ([self.exceptionViewText length] != 0) {
@@ -966,7 +966,7 @@
 //
 //    [self.emailBox removeAllItems];
 //
-//    [self.emailBox addItemWithObjectValue:FRLocalizedString(@"anonymous", nil)];
+//    [self.emailBox addItemWithObjectValue:NSLocalizedString(@"anonymous", nil)];
 //
 //    for ( NSString *emailAddress in emailAddresses ) {
 //        [self.emailBox addItemWithObjectValue:emailAddress];
@@ -983,7 +983,7 @@
     }
     
     if (emailRequired &&
-        (self.emailBoxText == nil || [self.emailBoxText isEqualToString:@""] || [self.emailBoxText isEqualToString:FRLocalizedString(@"anonymous", nil)])) {
+        (self.emailBoxText == nil || [self.emailBoxText isEqualToString:@""] || [self.emailBoxText isEqualToString:NSLocalizedString(@"anonymous", nil)])) {
         self.emailBoxTextColor = [UIColor redColor];
     }
     else {
