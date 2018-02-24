@@ -951,6 +951,10 @@
     if ( !presentingController )
         return;
     
+    // if root is already presenting a navigation controller, reuse that controller to present
+    if ( [presentingController.presentedViewController isKindOfClass:[UINavigationController class]] )
+        presentingController = presentingController.presentedViewController;
+    
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self];
     navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     navController.modalPresentationStyle = UIModalPresentationFormSheet;
