@@ -859,8 +859,10 @@
 - (void) close
 {
     [super close];
+    
+    __weak typeof(self) weakSelf = self;
     [self.controller dismissViewControllerAnimated:YES completion:^{
-        _controller = nil;
+        weakSelf->_controller = nil;
     }];
 }
 
