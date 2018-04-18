@@ -63,5 +63,10 @@
 	<string>Copyright © 2015 Figure 53, LLC. All rights reserved.</string>
 	<key>FRFeedbackReporter.defaultIncludeConsole</key>
 	<true/>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+  </dict>
 </dict>
 </plist>
