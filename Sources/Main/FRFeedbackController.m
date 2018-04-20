@@ -862,7 +862,13 @@
     
     __weak typeof(self) weakSelf = self;
     [self.controller dismissViewControllerAnimated:YES completion:^{
-        weakSelf->_controller = nil;
+        
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if ( !strongSelf )
+            return;
+        
+        strongSelf->_controller = nil;
+        
     }];
 }
 
