@@ -187,7 +187,7 @@ static dispatch_once_t once_token = 0;
                 applicationName = [self.delegate feedbackDisplayName];
             }
             else {
-                applicationName =[FRApplication applicationName];
+                applicationName = [FRApplication applicationName];
             }
             
             [controller setHeading:[NSString stringWithFormat:heading, applicationName]];
