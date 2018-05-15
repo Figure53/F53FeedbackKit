@@ -316,9 +316,6 @@
 		3DC3AA2C1BB06BD4001E1765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC3AA2E1BB06BD4001E1765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = F53FeedbackKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DC68D8D1BB602E80002242A /* F53FeedbackKit_iOSApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOSApp.h; sourceTree = "<group>"; };
-		3DC68D8F1BB602E80002242A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DC68DD01BB606520002242A /* F53FeedbackKit_iOSApp.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53FeedbackKit_iOSApp.pch; sourceTree = "<group>"; };
 		3DE052B11BB592340056E64F /* FRCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRCommand.h; path = Mac/FRCommand.h; sourceTree = "<group>"; };
 		3DE052B21BB592340056E64F /* FRCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRCommand.m; path = Mac/FRCommand.m; sourceTree = "<group>"; };
 		3DE052B31BB592340056E64F /* FRDocumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRDocumentList.h; path = Mac/FRDocumentList.h; sourceTree = "<group>"; };
@@ -419,6 +416,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DB695C820AB6C1500857779 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DC3AA181BB06BD4001E1765 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,14 +474,13 @@
 			children = (
 				3D77A11E1BAC987700789333 /* Main */,
 				3D77A2201BACA4EF00789333 /* Resources */,
-				3D77A0E51BAC979000789333 /* F53FeedbackKit */,
-				3D77A0F11BAC979000789333 /* F53FeedbackKitTests */,
-				3D77A1031BAC97BC00789333 /* F53FeedbackKit_iOS */,
-				3D77A10F1BAC97BC00789333 /* F53FeedbackKit_iOSTests */,
 				3D77A1B71BAC9ADD00789333 /* App */,
 				3D77A1D11BAC9D5A00789333 /* Document App */,
 				3DC3AA1C1BB06BD4001E1765 /* iOSApp */,
-				3DC68D8C1BB602E80002242A /* F53FeedbackKit_iOSApp */,
+				3D77A0E51BAC979000789333 /* F53FeedbackKit */,
+				3D77A1031BAC97BC00789333 /* F53FeedbackKit_iOS */,
+				3D77A0F11BAC979000789333 /* F53FeedbackKitTests */,
+				3D77A10F1BAC97BC00789333 /* F53FeedbackKit_iOSTests */,
 				3D2E0CBB1BB4B18400370315 /* Frameworks */,
 				3D77A0E41BAC979000789333 /* Products */,
 			);
@@ -698,16 +701,6 @@
 				3DC3AA1E1BB06BD4001E1765 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3DC68D8C1BB602E80002242A /* F53FeedbackKit_iOSApp */ = {
-			isa = PBXGroup;
-			children = (
-				3DC68D8D1BB602E80002242A /* F53FeedbackKit_iOSApp.h */,
-				3DC68DD01BB606520002242A /* F53FeedbackKit_iOSApp.pch */,
-				3DC68D8F1BB602E80002242A /* Info.plist */,
-			);
-			path = F53FeedbackKit_iOSApp;
 			sourceTree = "<group>";
 		};
 		3DF0482E1BB08A760085F6BC /* iOS */ = {
@@ -944,7 +937,7 @@
 		3D77A0DA1BAC979000789333 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Figure 53, LLC.";
 				TargetAttributes = {
 					3D77A0E21BAC979000789333 = {
@@ -994,14 +987,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3D77A0E21BAC979000789333 /* F53FeedbackKit */,
-				3D77A0EC1BAC979000789333 /* F53FeedbackKitTests */,
-				3DE053021BB5A1FE0056E64F /* F53FeedbackKit_iOS_static */,
-				3DC68D8A1BB602E80002242A /* F53FeedbackKit_iOS */,
-				3D77A10A1BAC97BC00789333 /* F53FeedbackKit_iOSTests */,
 				3D77A1B51BAC9ADD00789333 /* App */,
 				3D77A1CF1BAC9D5A00789333 /* Document App */,
 				3DC3AA1A1BB06BD4001E1765 /* iOSApp */,
+				3D77A0E21BAC979000789333 /* F53FeedbackKit */,
+				3DC68D8A1BB602E80002242A /* F53FeedbackKit_iOS */,
+				3DE053021BB5A1FE0056E64F /* F53FeedbackKit_iOS_static */,
+				3D77A0EC1BAC979000789333 /* F53FeedbackKitTests */,
+				3D77A10A1BAC97BC00789333 /* F53FeedbackKit_iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1344,12 +1337,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1369,7 +1364,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1404,12 +1399,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1426,7 +1423,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1449,18 +1446,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
 				INFOPLIST_FILE = F53FeedbackKit/Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1469,18 +1465,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
 				INFOPLIST_FILE = F53FeedbackKit/Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1489,7 +1484,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
 				INFOPLIST_FILE = F53FeedbackKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKitTests;
@@ -1501,7 +1495,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PREFIX_HEADER = F53FeedbackKit/F53FeedbackKit.pch;
 				INFOPLIST_FILE = F53FeedbackKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKitTests;
@@ -1512,7 +1505,6 @@
 		3D77A1171BAC97BC00789333 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				INFOPLIST_FILE = F53FeedbackKit_iOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1521,14 +1513,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		3D77A1181BAC97BC00789333 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				INFOPLIST_FILE = F53FeedbackKit_iOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1538,7 +1528,6 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1546,12 +1535,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1559,12 +1548,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1572,12 +1561,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Document App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.Document-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1585,12 +1574,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Document App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.Document-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1598,9 +1587,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PREFIX_HEADER = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				INFOPLIST_FILE = iOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.iOSApp;
@@ -1608,7 +1598,6 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1616,18 +1605,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PREFIX_HEADER = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				INFOPLIST_FILE = iOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.iOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -1636,21 +1625,20 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
-				INFOPLIST_FILE = F53FeedbackKit_iOSApp/Info.plist;
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
+				INFOPLIST_FILE = F53FeedbackKit_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOSApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VERSION_INFO_PREFIX = "";
@@ -1662,8 +1650,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1671,12 +1657,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
-				INFOPLIST_FILE = F53FeedbackKit_iOSApp/Info.plist;
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
+				INFOPLIST_FILE = F53FeedbackKit_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.figure53.F53FeedbackKit-iOSApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.figure53.F53FeedbackKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VALIDATE_PRODUCT = YES;
@@ -1691,7 +1678,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEAD_CODE_STRIPPING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1708,7 +1695,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(TARGET_NAME)/$(TARGET_NAME).pch";
+				GCC_PREFIX_HEADER = F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
