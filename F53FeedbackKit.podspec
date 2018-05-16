@@ -16,12 +16,12 @@ Pod::Spec.new do |s|
     ss.source_files     = [
       'Sources/Main/*.{h,m}', 
       'Sources/Main/iOS/*.{h,m}',
-      'Sources/Resources/Base.lproj/FeedbackReporter_iOS.strings'
+      'Sources/Resources/iOS/Base.lproj/Localizable.strings'
     ]
   
     ss.platform           = :ios, '8.4'
     ss.frameworks         = 'Foundation', 'UIKit', 'SystemConfiguration'
-    ss.resource_bundles   = { 'F53FeedbackKit' => ['Sources/Resources/Base.lproj/iOS/*.xib'] }
+    ss.resource_bundles   = { 'F53FeedbackKit' => ['Sources/Resources/iOS/Base.lproj/*.xib'] }
   end
   
 end
