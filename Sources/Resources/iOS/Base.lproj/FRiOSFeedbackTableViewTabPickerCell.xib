@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FRiOSFeedbackTableViewTabPickerCellIdentifier" rowHeight="46" id="KGk-i7-Jjw" customClass="FRiOSFeedbackTableViewTabPickerCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FRiOSFeedbackTableViewTabPickerCellIdentifier" rowHeight="80" id="KGk-i7-Jjw" customClass="FRiOSFeedbackTableViewTabPickerCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="45.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NQ5-Sl-a8d">
-                        <rect key="frame" x="100" y="15" width="121" height="29"/>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NQ5-Sl-a8d">
+                        <rect key="frame" x="100" y="19" width="121" height="51"/>
                         <segments>
                             <segment title="First"/>
                             <segment title="Second"/>
@@ -30,15 +32,17 @@
                     </segmentedControl>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Hoe-Mr-fld"/>
-                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="esc-19-hXI"/>
+                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerXWithinMargins" id="Hoe-Mr-fld"/>
+                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" priority="999" constant="8" id="iY5-JK-V7K"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NQ5-Sl-a8d" secondAttribute="bottom" priority="999" id="nkx-bZ-fiC"/>
+                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerYWithinMargins" constant="4" id="r5H-la-NRa"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="9999" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="tabControl" destination="NQ5-Sl-a8d" id="06e-Wi-PVE"/>
             </connections>
-            <point key="canvasLocation" x="169" y="240"/>
+            <point key="canvasLocation" x="169" y="257"/>
         </tableViewCell>
     </objects>
 </document>

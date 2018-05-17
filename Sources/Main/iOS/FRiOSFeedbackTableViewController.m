@@ -437,18 +437,16 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = 44.0f;
+    CGFloat height = UITableViewAutomaticDimension;
     
     switch ( indexPath.section ) {
+            
         case SECTION_MESSAGE: {
             
             switch ( indexPath.row ) {
+                    
                 case SECTION_MESSAGE_ROW_MESSAGE:
                     height = 150.0f;
-                    break;
-                    
-                case SECTION_MESSAGE_ROW_EMAIL:
-                    height = 40.0f;
                     break;
                     
                 default:
@@ -460,6 +458,7 @@
         case SECTION_DETAILS: {
             
             switch ( indexPath.row ) {
+                    
                 case SECTION_DETAILS_ROW_SEND_DETAILS: {
                     
                     // collapse details cell to hide if sending details is required
