@@ -410,14 +410,25 @@ NS_ASSUME_NONNULL_BEGIN
     if ([self.windowController.emailBox stringValue] == nil || [[self.windowController.emailBox stringValue] isEqualToString:@""] || [[self.windowController.emailBox stringValue] isEqualToString:NSLocalizedString(@"anonymous", nil)]) {
         for (NSString *aType in self.emailRequiredTypes) {
             if ([aType isEqualToString:self.type]) {
-                [[NSAlert alertWithMessageText:@"Email required" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"You must enter an email address so that we can respond to you."] runModal];
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert setAlertStyle:NSWarningAlertStyle];
+                [alert setMessageText:@"Email required"];
+                [alert setInformativeText:@"You must enter an email address so that we can respond to you."];
+                [alert addButtonWithTitle:NSLocalizedString( @"OK", @"" )];
+                [alert runModal];
                 return NO;
             }
         }
         for (NSString *aType in self.emailStronglySuggestedTypes) {
             if ([aType isEqualToString:self.type]) {
-                NSInteger buttonPressed = [[NSAlert alertWithMessageText:@"Email missing" defaultButton:@"OK" alternateButton:@"Continue anyway" otherButton:nil informativeTextWithFormat:@"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?"] runModal];
-                if (buttonPressed == NSAlertDefaultReturn)
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert setAlertStyle:NSWarningAlertStyle];
+                [alert setMessageText:@"Email missing"];
+                [alert setInformativeText:@"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?"];
+                [alert addButtonWithTitle:NSLocalizedString( @"OK", @"" )];
+                [alert addButtonWithTitle:NSLocalizedString( @"Continue anyway", @"" )];
+                NSModalResponse buttonPressed = [alert runModal];
+                if (buttonPressed == NSAlertFirstButtonReturn)
                     return NO;
                 break;
             }
@@ -428,14 +439,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host
 {
-    NSInteger alertResult = [[NSAlert alertWithMessageText:NSLocalizedString(@"Feedback Host Not Reachable", nil)
-                                             defaultButton:NSLocalizedString(@"Proceed Anyway", nil)
-                                           alternateButton:NSLocalizedString(@"Cancel", nil)
-                                               otherButton:nil
-                                 informativeTextWithFormat:NSLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host
-                              ] runModal];
-    
-    if (alertResult != NSAlertDefaultReturn) {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert setMessageText:NSLocalizedString( @"Feedback Host Not Reachable", nil )];
+    [alert setInformativeText:[NSString stringWithFormat:NSLocalizedString( @"You may not be able to send feedback because %@ isn't reachable.", nil ), host]];
+    [alert addButtonWithTitle:NSLocalizedString( @"Proceed Anyway", nil )];
+    [alert addButtonWithTitle:NSLocalizedString( @"Cancel", nil )];
+    NSModalResponse alertResult = [alert runModal];
+    if (alertResult != NSAlertFirstButtonReturn) {
         return NO;
     }
     
