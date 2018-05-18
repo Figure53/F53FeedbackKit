@@ -11,18 +11,28 @@
 #import "FRProgressWindow.h"
 #import "FRConstants.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface FRDocumentList ()
+
+- (nullable NSString *)cacheDir;
+
+@end
+
+
 @implementation FRDocumentList
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
         _docs = [NSMutableArray array];
         _selectionState = [NSMutableDictionary dictionary];
-        NSArray *docs = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
+        NSArray<NSURL *> *docs = [[NSDocumentController sharedDocumentController] recentDocumentURLs];
         if (docs && [docs count] > 0) {
             [_docs addObjectsFromArray:docs];
-            NSMutableDictionary *docDict = [NSMutableDictionary dictionaryWithCapacity:[docs count]];
+            NSMutableDictionary<NSURL *, NSNumber *> *docDict = [NSMutableDictionary dictionaryWithCapacity:[docs count]];
             for ( NSURL *aDoc in docs ) {
                 [docDict setObject:@NO forKey:aDoc];
             }
@@ -53,7 +63,7 @@
     return [[self docs] count];
 }
 
-- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+- (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
 {
     if (row < (NSInteger)[[self docs] count]) {
         NSURL *url = [[self docs] objectAtIndex:row];
@@ -181,7 +191,7 @@
     return documentPath;
 }
 
-- (NSDictionary *)documentsToUpload
+- (nullable NSDictionary<NSString *, NSString *> *)documentsToUpload
 {
     NSMutableDictionary *ret = [NSMutableDictionary dictionary];
     __block BOOL success = YES;
@@ -265,7 +275,7 @@
     return ret;
 }
 
-- (NSString *)cacheDir
+- (nullable NSString *)cacheDir
 {
     NSArray *domains = [NSArray arrayWithObjects:[NSNumber numberWithUnsignedInt:NSUserDomainMask], [NSNumber numberWithUnsignedInt:NSLocalDomainMask], [NSNumber numberWithUnsignedInt:NSNetworkDomainMask], nil];
     for (NSNumber *dom in domains) {
@@ -282,3 +292,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -18,9 +18,12 @@
 #import "FRConstants.h"
 #import <unistd.h>
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation NSException (Callstack)
 
-- (NSArray *) my_callStackReturnAddresses
+- (nullable NSArray<NSNumber *> *) my_callStackReturnAddresses
 {
     // On 10.5 or later, can get the backtrace:
     if ( [self respondsToSelector:@selector(callStackReturnAddresses)] ) {
@@ -30,9 +33,9 @@
     }
 }
 
-- (NSArray *) my_callStackReturnAddressesSkipping:(NSUInteger)skip limit:(NSUInteger)limit
+- (nullable NSArray<NSNumber *> *) my_callStackReturnAddressesSkipping:(NSUInteger)skip limit:(NSUInteger)limit
 {
-    NSArray *addresses = [self my_callStackReturnAddresses];
+    NSArray<NSNumber *> *addresses = [self my_callStackReturnAddresses];
     if ( addresses ) {
         NSUInteger n = [addresses count];
         skip = MIN(skip,n);
@@ -44,8 +47,10 @@
 
 - (NSString *) my_callStack
 {
-	NSArray *symbols = [self callStackSymbols];
+	NSArray<NSString *> *symbols = [self callStackSymbols];
     return [NSString stringWithFormat:@"%@\n",symbols];
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,9 @@
 
 #import "FRProgressWindow.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation FRProgressWindow
 
 - (instancetype) initWithText:(NSString *)text
@@ -71,3 +74,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

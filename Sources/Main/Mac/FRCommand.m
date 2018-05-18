@@ -17,9 +17,11 @@
 #import "FRCommand.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation FRCommand
 
-- (id) initWithPath:(NSString *)path
+- (instancetype) initWithPath:(NSString *)path
 {
     self = [super init];
     if (self != nil) {
@@ -42,12 +44,12 @@
     _args = args;
 }
 
-- (void) setError:(NSMutableString *)error
+- (void) setError:(nullable NSMutableString *)error
 {
     _error = error;
 }
 
-- (void) setOutput:(NSMutableString *)output
+- (void) setOutput:(nullable NSMutableString *)output
 {
     _output = output;
 }
@@ -161,3 +163,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

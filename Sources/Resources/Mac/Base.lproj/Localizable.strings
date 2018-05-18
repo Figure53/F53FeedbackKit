@@ -44,6 +44,15 @@
 "Got a problem with %@?" = "Got an idea how to improve %@?";
 
 /* */
+"Contact Support" = "Contact Support";
+
+/* Support message title */
+"Need help with %@?" = "Need help with %@?";
+
+/* Support message text */
+"We're happy to help. Please describe your problem and send it to us along with the helpful details below." = "We're happy to help. Please describe your problem and send it to us along with the helpful details below.";
+
+/* */
 "OK" = "OK";
 
 /* */

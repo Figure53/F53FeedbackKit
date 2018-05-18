@@ -19,6 +19,9 @@
 
 @protocol FRUploaderDelegate;
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRUploader : NSObject <NSURLConnectionDataDelegate> {
 
 @private
@@ -29,7 +32,7 @@
     NSMutableData *_responseData;
 }
 
-- (id) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate;
+- (instancetype) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate;
 - (void) postAndNotify:(NSDictionary *)dict;
 - (void) cancel;
 - (NSString *) response;
@@ -45,3 +48,5 @@
 - (void) uploaderFinished:(FRUploader *)uploader;
 
 @end
+
+NS_ASSUME_NONNULL_END

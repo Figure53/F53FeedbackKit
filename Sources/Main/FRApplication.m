@@ -17,17 +17,20 @@
 #import "FRApplication.h"
 #import "FRConstants.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation FRApplication
 
-+ (NSString *) applicationBundleVersion
++ (nullable NSString *) applicationBundleVersion
 {
-	// CFBundleShortVersionString is documented as not localizable.
+	// CFBundleVersion is documented as not localizable.
 	NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
 	
     return bundleVersion;
 }
 
-+ (NSString *) applicationShortVersion
++ (nullable NSString *) applicationShortVersion
 {
 	// CFBundleShortVersionString is documented as localizable, so prefer a localized value if available.
     NSString *shortVersion = [[[NSBundle mainBundle] localizedInfoDictionary] valueForKey:@"CFBundleShortVersionString"];
@@ -39,7 +42,7 @@
     return shortVersion;
 }
 
-+ (NSString *) applicationLongVersion
++ (nullable NSString *) applicationLongVersion
 {
 	// CFBundleLongVersionString is hardly documented, it's use is discouraged.
     NSString *longVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleLongVersionString"];
@@ -47,7 +50,7 @@
 	return longVersion;
 }
 
-+ (NSString *) applicationVersion
++ (nullable NSString *) applicationVersion
 {
     NSString *applicationVersion = [[self class] applicationLongVersion];
     
@@ -65,7 +68,7 @@
 }
 
 
-+ (NSString *) applicationName
++ (nullable NSString *) applicationName
 {
  	// CFBundleExecutable is not localizable.
    NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleExecutable"];
@@ -73,7 +76,7 @@
 	return applicationName;
 }
 
-+ (NSString *) applicationIdentifier
++ (nullable NSString *) applicationIdentifier
 {
 	// CFBundleIdentifier is not localizable.
     NSString *applicationIdentifier = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"];
@@ -81,7 +84,7 @@
     return applicationIdentifier;
 }
 
-+ (NSString *) feedbackURL
++ (nullable NSString *) feedbackURL
 {
     NSString *target = [[[NSBundle mainBundle] infoDictionary] valueForKey:PLIST_KEY_TARGETURL];
 
@@ -92,5 +95,6 @@
     return [NSString stringWithFormat:target, [FRApplication applicationName]];
 }
 
-
 @end
+
+NS_ASSUME_NONNULL_END

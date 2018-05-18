@@ -17,6 +17,9 @@
 #import "FRCrashLogFinder.h"
 #import "FRApplication.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation FRCrashLogFinder
 
 + (BOOL) file:(NSString *)path isNewerThan:(NSDate *)date
@@ -44,9 +47,9 @@
     return YES;
 }
 
-+ (NSArray *) findCrashLogsSince:(NSDate *)date
++ (NSArray<NSString *> *) findCrashLogsSince:(NSDate *)date
 {
-    NSMutableArray *files = [NSMutableArray array];
+    NSMutableArray<NSString *> *files = [NSMutableArray array];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
@@ -120,3 +123,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

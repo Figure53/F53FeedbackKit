@@ -3,10 +3,13 @@
 //  F53FeedbackKit
 //
 //  Created by Brent Lord on 9/22/15.
-//  Copyright © 2015 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2018 Figure 53, LLC. All rights reserved.
 //
 
 #import "FRiOSFeedbackTableViewTextViewCell.h"
+
+
+NS_ASSUME_NONNULL_BEGIN
 
 @implementation FRiOSFeedbackTableViewTextViewCell
 
@@ -34,20 +37,24 @@
     self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 
-#pragma mark UITextViewDelegate
+#pragma mark - UITextViewDelegate
 
 - (void) textViewDidChange:(UITextView *)textView
 {
-    if ( textView == self.textView ) {
+    if ( textView == self.textView )
+    {
         self.textViewPlaceholder.hidden = ( [textView.text length] > 0 );
     }
 }
 
 - (void) textViewDidEndEditing:(UITextView *)textView
 {
-    if ( textView == self.textView ) {
+    if ( textView == self.textView )
+    {
         [[NSNotificationCenter defaultCenter] postNotificationName:FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification
                                                             object:textView];
     }
 }
 @end
+
+NS_ASSUME_NONNULL_END

@@ -25,6 +25,9 @@
 
 #import <uuid/uuid.h>
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRFeedbackReporter () {
     FRFeedbackController *_feedbackController;
 }
@@ -32,11 +35,11 @@
 @property (nonatomic, strong, readonly) FRFeedbackController *feedbackController;
 
 - (BOOL) showFeedbackControllerWithType:(NSString *)type
-                                  title:(NSString *)title
+                                  title:(nullable NSString *)title
                                 heading:(NSString *)heading
                              subheading:(NSString *)subheading
-                                  crash:(NSString *)crash
-                              exception:(NSString *)exception;
+                                  crash:(nullable NSString *)crash
+                              exception:(nullable NSString *)exception;
 
 @end
 
@@ -153,11 +156,11 @@ static dispatch_once_t once_token = 0;
 }
 
 - (BOOL) showFeedbackControllerWithType:(NSString *)type
-                                  title:(NSString *)title
+                                  title:(nullable NSString *)title
                                 heading:(NSString *)heading
                              subheading:(NSString *)subheading
-                                  crash:(NSString *)crash
-                              exception:(NSString *)exception
+                                  crash:(nullable NSString *)crash
+                              exception:(nullable NSString *)exception
 {
     FRFeedbackController *controller = [self feedbackController];
     
@@ -215,3 +218,5 @@ static dispatch_once_t once_token = 0;
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,9 @@
 
 #import "TableViewController.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TableViewController ()
 
 @property (nonatomic, strong)   NSString *dummyCrashText;
@@ -69,11 +72,11 @@
     }
 }
 
-- (NSDictionary *) customParametersForFeedbackReport
+- (NSDictionary<NSString *, NSObject<NSCopying> *> *) customParametersForFeedbackReport
 {
     NSLog(@"adding custom parameters");
     
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [NSMutableDictionary dictionary];
     
     [dict setObject:@"tcurdt"
              forKey:@"user"];
@@ -185,3 +188,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -28,6 +28,9 @@
 #define FR_CONSOLELOG_TEXT 1
 #define FR_CONSOLELOG_SENDER 2
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation FRConsoleLog
 
 + (NSString *) logSince:(NSDate *)since maxSize:(NSInteger)maxSize
@@ -159,3 +162,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

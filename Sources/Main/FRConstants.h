@@ -17,6 +17,8 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 //  Filename of the script in the resource bundle to execute (optional)
 #define FILE_SHELLSCRIPT                @"FRFeedbackReporter"
 
@@ -84,3 +86,5 @@
 // Exception parsing
 #define EXCEPTION_STACK_SKIP    2
 #define EXCEPTION_STACK_LIMIT   100
+
+NS_ASSUME_NONNULL_END

@@ -33,11 +33,11 @@
     [[FRFeedbackReporter sharedReporter] reportIfCrash];
 }
 
-- (NSDictionary *) customParametersForFeedbackReport
+- (NSDictionary<NSString *, NSObject<NSCopying> *> *) customParametersForFeedbackReport
 {
     NSLog(@"adding custom parameters");
     
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [NSMutableDictionary dictionary];
     
     [dict setObject:@"tcurdt"
              forKey:@"user"];

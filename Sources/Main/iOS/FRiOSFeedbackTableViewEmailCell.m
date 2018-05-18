@@ -3,10 +3,13 @@
 //  F53FeedbackKit
 //
 //  Created by Brent Lord on 9/22/15.
-//  Copyright © 2015 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2018 Figure 53, LLC. All rights reserved.
 //
 
 #import "FRiOSFeedbackTableViewEmailCell.h"
+
+
+NS_ASSUME_NONNULL_BEGIN
 
 @implementation FRiOSFeedbackTableViewEmailCell
 
@@ -20,7 +23,7 @@
 }
 
 
-#pragma mark UITextFieldDelegate
+#pragma mark - UITextFieldDelegate
 
 - (void) textFieldDidEndEditing:(UITextField *)textField
 {
@@ -30,5 +33,6 @@
     }
 }
 
-
 @end
+
+NS_ASSUME_NONNULL_END

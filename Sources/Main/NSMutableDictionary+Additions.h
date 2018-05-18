@@ -17,8 +17,12 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSMutableDictionary (Additions)
 
 - (void) setValidString:(NSString *)string forKey:(NSString *)key;
 
 @end
+
+NS_ASSUME_NONNULL_END

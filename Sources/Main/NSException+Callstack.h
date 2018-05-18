@@ -17,9 +17,13 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSException (Callstack)
 
 // Returns a textual, human-readable backtrace of the point where the exception was thrown
 - (NSString *) my_callStack;
 
 @end
+
+NS_ASSUME_NONNULL_END

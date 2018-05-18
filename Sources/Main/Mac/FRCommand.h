@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRCommand : NSObject {
 
 @private
@@ -29,14 +32,16 @@
 }
 
 
-- (id) initWithPath:(NSString *)path;
+- (instancetype) initWithPath:(NSString *)path;
 
 - (void) setArgs:(NSArray *)args;
 
-- (void) setError:(NSMutableString *)error;
-- (void) setOutput:(NSMutableString *)output;
+- (void) setError:(nullable NSMutableString *)error;
+- (void) setOutput:(nullable NSMutableString *)output;
 
 - (int) execute;
 
 
 @end
+
+NS_ASSUME_NONNULL_END

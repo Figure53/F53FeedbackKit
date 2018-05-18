@@ -21,18 +21,22 @@
 #endif
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRSystemProfile : NSObject
 
-+ (NSArray *) discover;
++ (NSArray<NSDictionary *> *) discover;
 
-+ (NSString *) cputype;
++ (nullable NSString *) cputype;
 + (BOOL) is64bit;
 + (NSString *) osversion;
-+ (NSString *) architecture;
++ (nullable NSString *) architecture;
 + (int) cpucount;
-+ (NSString *) machinemodel;
-+ (NSString *) language;
++ (nullable NSString *) machinemodel;
++ (nullable NSString *) language;
 + (long long) cpuspeed;
 + (long long) ramsize;
 
 @end
+
+NS_ASSUME_NONNULL_END

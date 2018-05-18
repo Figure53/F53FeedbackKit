@@ -17,16 +17,19 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRApplication : NSObject
 
-+ (NSString *) applicationBundleVersion;
-+ (NSString *) applicationShortVersion;
-+ (NSString *) applicationLongVersion;
-+ (NSString *) applicationVersion;
++ (nullable NSString *) applicationBundleVersion;
++ (nullable NSString *) applicationShortVersion;
++ (nullable NSString *) applicationLongVersion;
++ (nullable NSString *) applicationVersion;
 
-+ (NSString *) applicationName;
-+ (NSString *) applicationIdentifier;
-+ (NSString *) feedbackURL;
-
++ (nullable NSString *) applicationName;
++ (nullable NSString *) applicationIdentifier;
++ (nullable NSString *) feedbackURL;
 
 @end
+
+NS_ASSUME_NONNULL_END

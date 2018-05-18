@@ -6,6 +6,9 @@
 //
 //
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRProgressWindow : NSObject
 
 @property (nonatomic, strong)   NSWindow *window;
@@ -18,3 +21,5 @@
 - (void) hide;
 
 @end
+
+NS_ASSUME_NONNULL_END

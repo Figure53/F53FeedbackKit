@@ -21,11 +21,13 @@
 #endif
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol FRFeedbackReporterDelegate <NSObject>
 
 @optional
-- (NSDictionary *) customParametersForFeedbackReport;
-- (NSMutableDictionary *) anonymizePreferencesForFeedbackReport:(NSMutableDictionary *)preferences;
+- (NSDictionary<NSString *, NSObject<NSCopying> *> *) customParametersForFeedbackReport;
+- (NSMutableDictionary<NSString *, id> *) anonymizePreferencesForFeedbackReport:(NSMutableDictionary<NSString *, id> *)preferences;
 - (NSString *) targetUrlForFeedbackReport;
 - (NSString *) feedbackDisplayName;
 
@@ -67,3 +69,5 @@
 - (BOOL) reportSupportNeed;
 
 @end
+
+NS_ASSUME_NONNULL_END

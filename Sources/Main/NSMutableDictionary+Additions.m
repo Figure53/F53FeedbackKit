@@ -16,6 +16,9 @@
 
 #import "NSMutableDictionary+Additions.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation NSMutableDictionary (Additions)
 
 - (void) setValidString:(NSString *)string forKey:(NSString *)key
@@ -26,3 +29,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

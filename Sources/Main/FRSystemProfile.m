@@ -18,11 +18,14 @@
 #import <sys/sysctl.h>
 #import <mach/machine.h>
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation FRSystemProfile
 
-+ (NSArray *) discover
++ (NSArray<NSDictionary *> *) discover
 {
-    NSMutableArray *discoveryArray = [[NSMutableArray alloc] init];
+    NSMutableArray<NSDictionary *> *discoveryArray = [[NSMutableArray alloc] init];
     NSArray *discoveryKeys = [NSArray arrayWithObjects:@"key", @"visibleKey", @"value", @"visibleValue", nil];
 
 #if TARGET_OS_IPHONE
@@ -100,7 +103,7 @@
     return is64bit;
 }
 
-+ (NSString *) cputype
++ (nullable NSString *) cputype
 {
     int error = 0;
     
@@ -256,7 +259,7 @@
     return version;
 }
 
-+ (NSString *) architecture
++ (nullable NSString *) architecture
 {
     int error = 0;
     int value = 0;
@@ -295,7 +298,7 @@
     return value;
 }
 
-+ (NSString *) machinemodel
++ (nullable NSString *) machinemodel
 {
     const char *name = "hw.model";
 #if TARGET_OS_IPHONE
@@ -330,7 +333,7 @@
     return machinemodel;
 }
 
-+ (NSString *) language
++ (nullable NSString *) language
 {
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
     NSArray *languages = [defs objectForKey:@"AppleLanguages"];
@@ -386,3 +389,5 @@
 
 
 @end
+
+NS_ASSUME_NONNULL_END

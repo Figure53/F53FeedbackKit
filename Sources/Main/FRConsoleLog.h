@@ -17,8 +17,12 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRConsoleLog : NSObject
 
 + (NSString *) logSince:(NSDate *)since maxSize:(NSInteger)maxSize;
 
 @end
+
+NS_ASSUME_NONNULL_END

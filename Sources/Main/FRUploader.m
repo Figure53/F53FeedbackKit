@@ -22,9 +22,12 @@
 // Comment out the below line if you want JSON data to not be a parameter
 #define FR_JSON_SENT_AS_PARAM
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation FRUploader
 
-- (id) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate
+- (instancetype) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate
 {
     self = [super init];
     if (self != nil) {
@@ -196,3 +199,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

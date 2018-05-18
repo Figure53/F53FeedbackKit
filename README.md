@@ -31,23 +31,28 @@ Additional fields may be added by an application by creating a delegate class co
 
 This is a fork of the excellent [FeedbackReporter framework][1] which already did most of what we were looking for. There are some things we'd rather do differently though, which was the reason for this fork. These include:
 
- * Targeting 10.7 and beyond, as we are not interested in backwards
-   compatibility beyond that.
- * Grabbing the entire console log, rather than just the messages from the
-   current application.
+ * Targeting 10.7 and beyond, as we are not interested in backwards compatibility beyond that.
+ * Grabbing the entire console log, rather than just the messages from the current application.
  * Submitting to the server JSON data rather than a form.
  * Including document data in the submission.
 
 [1]: https://github.com/tcurdt/feedbackreporter
 
+## Components
 
-## Using F53FeedbackKit on iOS
-
-### Components
-
+- `App` and `DocumentApp` - Apps for testing feedback integration examples in the macOS SDK.
 - `iOSApp` - An app for testing feedback integration examples in the iOS SDK.
+- `F53FeedbackKit` - Dynamic framework of F53FeedbackKit for macOS.
 - `F53FeedbackKit_iOS` - Dynamic framework of F53FeedbackKit for iOS.
 - `F53FeedbackKit_iOS_static` - Static framework of F53FeedbackKit for iOS.
+
+## Version Support
+
+F53FeedbackKit requires a minimum deployment target of macOS 10.10 or iOS 8.4. The sample project requires Xcode 7.0 or newer for macOS testing and Xcode 9.3 or newer for iOS.
+
+
+
+## Using F53FeedbackKit on iOS
 
 ### Compatibility
 
@@ -57,10 +62,6 @@ This is a fork of the excellent [FeedbackReporter framework][1] which already di
 - iOS prevents fetching crash logs from outside of the sandboxed app environment, so crash log text must be provided to FRFeedbackReporter by an external source. One such approach is to use a library like [PLCrashReporter](https://www.plcrashreporter.org) to capture crash reports. Upon discovery of a new report, pass the contents of the crash report as NSString text to `[FRFeedbackReporter sharedReporter] reportCrash:`.
 - System profile `CPU_SPEED` will almost always report "-1", as reportedly Apple does not provide results for `HW_CPU_FREQ` on all iOS devices. CPU speeds are, however, well-documented per device model and could be cross-referenced server-side.
 - System profile will include an additional element `UUID` on iOS, which is the value of `[[UIDevice currentDevice] identifierForVendor]`.
-
-### Version Support
-
-F53FeedbackKit on iOS requires iOS 8.4 or newer.
 
 ### How To Get Started
 

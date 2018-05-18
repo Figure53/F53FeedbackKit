@@ -3,7 +3,7 @@
 //  F53FeedbackKit
 //
 //  Created by Brent Lord on 9/20/15.
-//  Copyright © 2015 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2018 Figure 53, LLC. All rights reserved.
 //
 
 #import "FRMacFeedbackWindowController.h"
@@ -17,11 +17,13 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRMacFeedbackWindowController ()
 
 @property (nonatomic, strong)   NSString *preferences;
 
-- (NSArray *) systemProfile;
+- (NSArray<NSDictionary *> *) systemProfile;
 
 - (void) populate;
 - (void) loadConsole;
@@ -93,7 +95,7 @@
 
 #pragma mark information gathering
 
-- (NSArray *) systemProfile
+- (NSArray<NSDictionary *> *) systemProfile
 {
     return [self.feedbackController systemProfile];
 }
@@ -477,3 +479,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -34,13 +34,15 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRFeedbackController ()
 
-@property (nonatomic, strong)       FRUploader *uploader;
-@property (nonatomic, strong)       NSArray *emailRequiredTypes;
-@property (nonatomic, strong)       NSArray *emailStronglySuggestedTypes;
+@property (nonatomic, strong, nullable) FRUploader *uploader;
+@property (nonatomic, strong)           NSArray<NSString *> *emailRequiredTypes;
+@property (nonatomic, strong)           NSArray<NSString *> *emailStronglySuggestedTypes;
 
-- (NSMutableDictionary *) parametersForFeedbackReport;
+- (NSMutableDictionary<NSString *, NSObject<NSCopying> *> *) parametersForFeedbackReport;
 - (BOOL) shouldSend:(id)sender;
 - (BOOL) shouldAttemptSendForUnreachableHost:(NSString *)host;
 
@@ -50,16 +52,16 @@
 #if TARGET_OS_IPHONE
 @interface FRiOSFeedbackController : FRFeedbackController <FRUploaderDelegate>
 
-@property (nonatomic, strong)       FRiOSFeedbackTableViewController *controller;
+@property (nonatomic, strong, null_resettable)  FRiOSFeedbackTableViewController *controller;
 
-@property (nonatomic)               BOOL allowSendWithoutEmailAddress;
-@property (nonatomic)               BOOL allowAttemptSendForUnreachableHost;
+@property (nonatomic)                           BOOL allowSendWithoutEmailAddress;
+@property (nonatomic)                           BOOL allowAttemptSendForUnreachableHost;
 
 @end
 #else
 @interface FRMacFeedbackController : FRFeedbackController <FRUploaderDelegate>
 
-@property (nonatomic, strong)       FRMacFeedbackWindowController *windowController;
+@property (nonatomic, strong, null_resettable) FRMacFeedbackWindowController *windowController;
 
 @end
 #endif
@@ -158,9 +160,9 @@
 }
 
 
-- (NSArray *) systemProfile
+- (NSArray<NSDictionary *> *) systemProfile
 {
-    static NSArray *systemProfile = nil;
+    static NSArray<NSDictionary *> *systemProfile = nil;
     
     if (systemProfile == nil) {
         systemProfile = [FRSystemProfile discover];
@@ -172,7 +174,7 @@
 - (NSString *) systemProfileAsString
 {
     NSMutableString *string = [NSMutableString string];
-    NSArray *dicts = [self systemProfile];
+    NSArray<NSDictionary *> *dicts = [self systemProfile];
     NSUInteger i = [dicts count];
     while(i--) {
         NSDictionary *dict = [dicts objectAtIndex:i];
@@ -183,7 +185,7 @@
 
 - (NSString *) preferences
 {
-    NSMutableDictionary *preferences = [[[NSUserDefaults standardUserDefaults] persistentDomainForName:[FRApplication applicationIdentifier]] mutableCopy];
+    NSMutableDictionary<NSString *, id> *preferences = [[[NSUserDefaults standardUserDefaults] persistentDomainForName:[FRApplication applicationIdentifier]] mutableCopy];
     
     if (preferences == nil) {
         return @"";
@@ -211,9 +213,9 @@
     return NO;
 }
 
-- (NSMutableDictionary *) parametersForFeedbackReport
+- (NSMutableDictionary<NSString *, NSObject<NSCopying> *> *) parametersForFeedbackReport
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [NSMutableDictionary dictionary];
     
     [dict setValidString:self.type
                   forKey:POST_KEY_TYPE];
@@ -440,9 +442,9 @@
     return YES;
 }
 
-- (NSMutableDictionary *) parametersForFeedbackReport
+- (NSMutableDictionary<NSString *, NSObject<NSCopying> *> *) parametersForFeedbackReport
 {
-    NSMutableDictionary *dict = [super parametersForFeedbackReport];
+    NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [super parametersForFeedbackReport];
     
     [dict setValidString:[self.windowController.emailBox stringValue]
                   forKey:POST_KEY_EMAIL];
@@ -662,7 +664,7 @@
                 NSString *message = @"You must enter an email address so that we can respond to you.";
                 
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-                [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+                [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString( @"OK", @"" ) style:UIAlertActionStyleCancel handler:nil]];
                 
                 [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
                 
@@ -735,9 +737,9 @@
     return NO;
 }
 
-- (NSMutableDictionary *) parametersForFeedbackReport
+- (NSMutableDictionary<NSString *, NSObject<NSCopying> *> *) parametersForFeedbackReport
 {
-    NSMutableDictionary *dict = [super parametersForFeedbackReport];
+    NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [super parametersForFeedbackReport];
     
     [dict setValidString:self.controller.emailBoxText
                   forKey:POST_KEY_EMAIL];
@@ -883,3 +885,5 @@
 
 @end
 #endif
+
+NS_ASSUME_NONNULL_END

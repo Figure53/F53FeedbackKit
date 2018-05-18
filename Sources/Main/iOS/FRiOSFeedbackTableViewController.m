@@ -3,7 +3,7 @@
 //  F53FeedbackKit
 //
 //  Created by Brent Lord on 9/22/15.
-//  Copyright © 2015 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2018 Figure 53, LLC. All rights reserved.
 //
 
 #import "FRiOSFeedbackTableViewController.h"
@@ -17,36 +17,38 @@
 #import "FRiOSFeedbackTableViewTabPickerCell.h"
 #import "FRiOSFeedbackTableViewTextViewCell.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRiOSFeedbackTableViewController ()
 
-@property (nonatomic, strong)   UIColor *delegateTintColor;
-@property (nonatomic, strong)   UIColor *emailBoxTextColor;
-@property (nonatomic, strong)   NSString *detailsLabelText;
-@property (nonatomic, strong)   NSArray *systemProfile;
+@property (nonatomic, strong, nullable) UIColor *delegateTintColor;
+@property (nonatomic, strong, nullable) UIColor *emailBoxTextColor;
+@property (nonatomic, strong)           NSString *detailsLabelText;
 
-@property (nonatomic)           BOOL sendDetailsIsOptional;
-@property (nonatomic)           BOOL detailsShown;
-@property (nonatomic)           BOOL includeConsoleSpinnerOn;
+@property (nonatomic)                   BOOL sendDetailsIsOptional;
+@property (nonatomic)                   BOOL detailsShown;
+@property (nonatomic)                   BOOL includeConsoleSpinnerOn;
 
-@property (nonatomic, strong)   NSMutableArray *detailsTabItems;
-@property (nonatomic, strong)   NSMutableDictionary *selectedDetailTabItem;
-@property (nonatomic, strong)   NSMutableDictionary *detailTabSystem;
-@property (nonatomic, strong)   NSMutableDictionary *detailTabConsole;
-@property (nonatomic, strong)   NSMutableDictionary *detailTabCrash;
-@property (nonatomic, strong)   NSMutableDictionary *detailTabScript;
-@property (nonatomic, strong)   NSMutableDictionary *detailTabPreferences;
-@property (nonatomic, strong)   NSMutableDictionary *detailTabException;
-@property (nonatomic, strong)   NSMutableDictionary *detailTabDocuments;
+@property (nonatomic, strong)           NSMutableArray<NSMutableDictionary *> *detailsTabItems;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *selectedDetailTabItem;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *detailTabSystem;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *detailTabConsole;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *detailTabCrash;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *detailTabScript;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *detailTabPreferences;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *detailTabException;
+@property (nonatomic, strong)           NSMutableDictionary<NSString *, NSString *> *detailTabDocuments;
 
-//@property (nonatomic, strong)   IBOutlet NSButton *otherDocumentButton;
+//@property (nonatomic, strong)           IBOutlet NSButton *otherDocumentButton;
 
-@property (nonatomic, strong)   UIBarButtonItem *cancelButton;
-@property (nonatomic, strong)   UIBarButtonItem *sendButton;
-@property (nonatomic, strong)   UIBarButtonItem *sendingSpinner;
+@property (nonatomic, strong)           UIBarButtonItem *cancelButton;
+@property (nonatomic, strong)           UIBarButtonItem *sendButton;
+@property (nonatomic, strong)           UIBarButtonItem *sendingSpinner;
 
-@property (nonatomic, strong)   NSString *preferences;
+@property (nonatomic, strong)           NSString *preferences;
 
-- (NSArray *) systemProfile;
+- (NSArray<NSDictionary *> *) systemProfile;
 
 - (void) populate;
 - (void) loadConsole;
@@ -87,7 +89,7 @@
 #define TEXTVIEW_DETAILS_TAG    (SECTION_DETAILS * 10000) + (SECTION_DETAILS_ROW_TAB_TEXT * 100)
 
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype) initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if ( self ) {
@@ -152,7 +154,6 @@
     UIActivityIndicatorView *sendingSpinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:indicatorStyle];
     sendingSpinnerView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
     self.sendingSpinner = [[UIBarButtonItem alloc] initWithCustomView:sendingSpinnerView];
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -238,7 +239,7 @@
     return 0;
 }
 
-- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (nullable NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *title = nil;
     
@@ -257,7 +258,7 @@
     return title;
 }
 
-- (NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+- (nullable NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
     NSString *title = nil;
     
@@ -303,7 +304,7 @@
                     
                     return cell;
                     
-                }
+                } break;
                     
                 default:
                     break;
@@ -349,7 +350,7 @@
                     
                     return cell;
                     
-                }
+                } break;
                     
                 case SECTION_DETAILS_ROW_TAB_TEXT: {
                     
@@ -363,7 +364,7 @@
                     
                     return cell;
                     
-                }
+                } break;
                     
                 default:
                     break;
@@ -422,7 +423,6 @@
         default:
             break;
     }
-    
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -446,7 +446,7 @@
             switch ( indexPath.row ) {
                     
                 case SECTION_MESSAGE_ROW_MESSAGE:
-                    height = 150.0f;
+                    height = 150.0;
                     break;
                     
                 default:
@@ -463,7 +463,7 @@
                     
                     // collapse details cell to hide if sending details is required
                     if ( !self.sendDetailsIsOptional )
-                        height = 0.0f;
+                        height = 0.0;
                     
                 } break;
                     
@@ -471,12 +471,12 @@
                     
                     // collapse console cell to hide if sending details is required or if details are not showing
                     if ( !self.sendDetailsIsOptional || !self.detailsShown )
-                        height = 0.0f;
+                        height = 0.0;
                     
                 } break;
                     
                 case SECTION_DETAILS_ROW_TAB_TEXT:
-                    height = 300.0f;
+                    height = 300.0;
                     break;
                     
                 default:
@@ -703,7 +703,7 @@
 
 #pragma mark custom setters/getters
 
-- (void) setFeedbackController:(FRFeedbackController *)feedbackController
+- (void) setFeedbackController:(nullable FRFeedbackController *)feedbackController
 {
     if ( _feedbackController != feedbackController ) {
         
@@ -755,7 +755,7 @@
     return text;
 }
 
-- (void) setCrashesViewText:(NSString *)crashesViewText
+- (void) setCrashesViewText:(nullable NSString *)crashesViewText
 {
     if ( crashesViewText )
         [self.detailTabCrash setObject:crashesViewText forKey:@"text"];
@@ -790,7 +790,7 @@
     return text;
 }
 
-- (void) setExceptionViewText:(NSString *)exceptionViewText
+- (void) setExceptionViewText:(nullable NSString *)exceptionViewText
 {
     if ( exceptionViewText )
         [self.detailTabException setObject:exceptionViewText forKey:@"text"];
@@ -1058,3 +1058,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

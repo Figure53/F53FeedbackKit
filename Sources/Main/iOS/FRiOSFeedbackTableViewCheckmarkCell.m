@@ -3,10 +3,13 @@
 //  F53FeedbackKit
 //
 //  Created by Brent Lord on 9/22/15.
-//  Copyright © 2015 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2018 Figure 53, LLC. All rights reserved.
 //
 
 #import "FRiOSFeedbackTableViewCheckmarkCell.h"
+
+
+NS_ASSUME_NONNULL_BEGIN
 
 @implementation FRiOSFeedbackTableViewCheckmarkCell
 
@@ -54,3 +57,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

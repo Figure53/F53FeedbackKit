@@ -6,14 +6,19 @@
 //
 //
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FRDocumentList : NSObject <NSTableViewDelegate, NSTableViewDataSource>
 
 - (void)selectMostRecentDocument;
 - (void)setupOtherButton:(NSButton *)otherButton;
-- (NSDictionary *)documentsToUpload; // key = filename, value = NSString of base64 encoded file data
+- (nullable NSDictionary<NSString *, NSString *> *)documentsToUpload; // key = filename, value = NSString of base64 encoded file data
 
-@property (strong, nonatomic) NSMutableArray *docs;
-@property (strong, nonatomic) NSMutableDictionary *selectionState;
+@property (strong, nonatomic) NSMutableArray<NSURL *> *docs;
+@property (strong, nonatomic) NSMutableDictionary<NSURL *, NSNumber *> *selectionState;
 @property (strong, nonatomic) NSTableView *tableView;
 
 @end
+
+NS_ASSUME_NONNULL_END

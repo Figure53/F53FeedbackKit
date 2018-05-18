@@ -19,6 +19,9 @@
 #import "FRFeedbackReporter.h"
 #import "FRUploader.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 #define FR_FEEDBACK  @"feedback"
 #define FR_EXCEPTION @"exception"
 #define FR_CRASH     @"crash"
@@ -36,7 +39,7 @@ static NSString *FRFeedbackReporterWillDisappearNotification = @"FRFeedbackRepor
 #pragma mark Accessors
 
 - (NSString *) consoleLog;
-- (NSArray *) systemProfile;
+- (NSArray<NSDictionary *> *) systemProfile;
 - (NSString *) systemProfileAsString;
 - (NSString *) preferences;
 
@@ -59,3 +62,5 @@ static NSString *FRFeedbackReporterWillDisappearNotification = @"FRFeedbackRepor
 - (BOOL) isShown;
 
 @end
+
+NS_ASSUME_NONNULL_END

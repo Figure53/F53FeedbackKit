@@ -3,13 +3,17 @@
 //  F53FeedbackKit
 //
 //  Created by Brent Lord on 9/22/15.
-//  Copyright © 2015 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2018 Figure 53, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 static NSString *FRiOSFeedbackTableViewTextViewCellIdentifier = @"FRiOSFeedbackTableViewTextViewCellIdentifier";
 static NSString *FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification = @"FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification";
+
 
 @interface FRiOSFeedbackTableViewTextViewCell : UITableViewCell <UITextViewDelegate>
 
@@ -17,3 +21,5 @@ static NSString *FRiOSFeedbackTableViewTextViewCellDidEndEditingNotification = @
 @property (nonatomic, weak)     IBOutlet UITextView *textViewPlaceholder;
 
 @end
+
+NS_ASSUME_NONNULL_END
