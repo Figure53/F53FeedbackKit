@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)   NSString *preferences;
 
+// copies of values derived from UI API, and thus must be accessed only on the main thread, so that we can read them on a background thread inside `populate`
+@property (nonatomic)           BOOL includeConsole;
+@property (nonatomic, strong)   NSString *crashesViewString;
+
 - (NSArray<NSDictionary *> *) systemProfile;
 
 - (void) populate;
@@ -104,10 +108,10 @@ NS_ASSUME_NONNULL_BEGIN
 {
     @autoreleasepool {
         
-        if ([self.includeConsoleCheckbox state] == NSOnState)
+        if ( self.includeConsole )
             [self populateConsole];
         
-        NSString *crashLog = self.crashesView.string;
+        NSString *crashLog = self.crashesViewString;
         if ( !crashLog || [crashLog length] < 1 )
             crashLog = [self crashLog];
         if ([crashLog length] > 0) {
@@ -378,7 +382,14 @@ NS_ASSUME_NONNULL_BEGIN
             [self.tabView selectTabViewItemWithIdentifier:@"Documents"];
     }
     
-    self.preferences = [self.feedbackController preferences];
+    // cache these values before we leave the main thread so that we can read them safely on a background thread
+    @synchronized( self )
+    {
+        self.preferences = [self.feedbackController preferences];
+        
+        self.includeConsole = ( [self.includeConsoleCheckbox state] == NSOnState );
+        self.crashesViewString = [self.crashesView.string copy];
+    }
     [NSThread detachNewThreadSelector:@selector(populate) toTarget:self withObject:nil];
     
     [self showWindow:self];
