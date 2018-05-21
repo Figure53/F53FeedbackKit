@@ -272,7 +272,13 @@ NS_ASSUME_NONNULL_BEGIN
     if ( [self shouldSend:sender] == NO )
         return;
     
-    NSString *target = [[FRApplication feedbackURL] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+    
+    // -[NSString stringByAddingPercentEscapesUsingEncoding] is deprecated as of macOS 10.11 and iOS 9.0
+    // - because each component of a URL has different encoding rules and no one function can properly encode an entire string.
+    // - As a replacement, we are using URLFragmentAllowedCharacterSet which is the most conservative set: "#%<>[\]^`{|}  (see https://stackoverflow.com/a/44643893 for more)
+    // - This is mostly for convenience and light backward-compatibility.
+    // - The client app really should just be providing an already properly encoded string in the Info.plist or targetUrlForFeedbackReport delgate callback
+    NSString *target = [[FRApplication feedbackURL] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     
     if ([[[FRFeedbackReporter sharedReporter] delegate] respondsToSelector:@selector(targetUrlForFeedbackReport)]) {
         target = [[[FRFeedbackReporter sharedReporter] delegate] targetUrlForFeedbackReport];
@@ -284,6 +290,10 @@ NS_ASSUME_NONNULL_BEGIN
     }
     
     NSURL *url = [NSURL URLWithString:target];
+    if ( !url ) {
+        NSLog(@"Your target URL string is not a valid URL: %@", target);
+        return;
+    }
     
     NSString *host = [url host];
     const char *hostname = [host UTF8String];
