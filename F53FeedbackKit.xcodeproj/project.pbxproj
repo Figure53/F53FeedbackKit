@@ -148,7 +148,6 @@
 		3DE052BC1BB592350056E64F /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B61BB592340056E64F /* FRProgressWindow.m */; };
 		3DE052BF1BB5925A0056E64F /* FRMacFeedbackWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052BD1BB5925A0056E64F /* FRMacFeedbackWindowController.h */; };
 		3DE052C01BB5925A0056E64F /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */; };
-		3DE052E11BB595E70056E64F /* FRExceptionReportingApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052E01BB595E70056E64F /* FRExceptionReportingApplication.m */; };
 		3DE052E41BB597AB0056E64F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE052E21BB597AB0056E64F /* Localizable.strings */; };
 		3DE0530C1BB5A2140056E64F /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
 		3DE0530D1BB5A2200056E64F /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
@@ -336,8 +335,6 @@
 		3DE052C81BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewTabPickerCell.m; path = iOS/FRiOSFeedbackTableViewTabPickerCell.m; sourceTree = "<group>"; };
 		3DE052C91BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewTextViewCell.h; path = iOS/FRiOSFeedbackTableViewTextViewCell.h; sourceTree = "<group>"; };
 		3DE052CA1BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewTextViewCell.m; path = iOS/FRiOSFeedbackTableViewTextViewCell.m; sourceTree = "<group>"; };
-		3DE052DF1BB595E70056E64F /* FRExceptionReportingApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRExceptionReportingApplication.h; sourceTree = "<group>"; };
-		3DE052E01BB595E70056E64F /* FRExceptionReportingApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRExceptionReportingApplication.m; sourceTree = "<group>"; };
 		3DE052E31BB597AB0056E64F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3DE052E51BB597B00056E64F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3DE053031BB5A1FE0056E64F /* libF53FeedbackKit_iOS_static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libF53FeedbackKit_iOS_static.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -567,8 +564,6 @@
 			children = (
 				3D77A1B81BAC9ADD00789333 /* AppDelegate.h */,
 				3D77A1B91BAC9ADD00789333 /* AppDelegate.m */,
-				3DE052DF1BB595E70056E64F /* FRExceptionReportingApplication.h */,
-				3DE052E01BB595E70056E64F /* FRExceptionReportingApplication.m */,
 				3D77A1CB1BAC9CE400789333 /* App.xib */,
 				3D77A1C31BAC9ADD00789333 /* Info.plist */,
 				3D77A1BB1BAC9ADD00789333 /* Supporting Files */,
@@ -1141,7 +1136,6 @@
 			files = (
 				3D77A1BD1BAC9ADD00789333 /* main.m in Sources */,
 				3D77A1BA1BAC9ADD00789333 /* AppDelegate.m in Sources */,
-				3DE052E11BB595E70056E64F /* FRExceptionReportingApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

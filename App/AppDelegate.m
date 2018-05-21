@@ -16,6 +16,9 @@
 
 #import "AppDelegate.h"
 
+#import "NSException+Callstack.h"
+#import <pthread.h>
+
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
@@ -25,6 +28,8 @@
 
 @implementation AppDelegate
 
+#pragma mark - NSApplicationDelegate
+
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [[FRFeedbackReporter sharedReporter] setDelegate:self];
@@ -32,6 +37,38 @@
     NSLog(@"checking for crash");
     [[FRFeedbackReporter sharedReporter] reportIfCrash];
 }
+
+
+#pragma mark - NSApplication subclass overrides
+
+- (void) reportException:(NSException *)x
+{
+    [super reportException:x];
+    
+    @try {
+        if (!pthread_main_np()) {
+            [[FRFeedbackReporter sharedReporter] performSelectorOnMainThread:@selector(reportException:) withObject:x waitUntilDone:NO];
+            [NSThread exit];
+        }
+        else {
+            [[FRFeedbackReporter sharedReporter] reportException:x];
+        }
+    }
+    @catch (NSException *exception) {
+        
+        if ([exception respondsToSelector:@selector(callStackSymbols)]) {
+            NSLog(@"Problem within FeedbackReporter %@: %@  call stack:%@", [exception name], [exception  reason],[(id)exception callStackSymbols]);
+        } else {
+            NSLog(@"Problem within FeedbackReporter %@: %@  call stack:%@", [exception name], [exception  reason],[exception callStackReturnAddresses]);
+        }
+        
+    }
+    @finally {
+    }
+}
+
+
+#pragma mark - FRFeedbackReporterDelegate
 
 - (NSDictionary<NSString *, NSObject<NSCopying> *> *) customParametersForFeedbackReport
 {
@@ -105,6 +142,9 @@
     return [NSString stringWithFormat:targetUrlFormat, project, version];
 }*/
 
+
+#pragma mark - UI
+
 - (IBAction) buttonFeedback:(id)sender
 {
     NSLog(@"button");
@@ -115,15 +155,6 @@
 {
     NSLog(@"exception");
     [NSException raise:@"TestException" format:@"Something went wrong"];
-}
-
-- (void) threadWithException
-{
-    @autoreleasepool {
-        NSLog(@"exception in thread");
-        [NSException raise:@"TestExceptionThread" format:@"Something went wrong"];
-        [NSThread exit];
-    }
 }
 
 - (IBAction) buttonExceptionInThread:(id)sender
@@ -146,6 +177,18 @@
 - (IBAction) buttonSendCrash:(id)sender
 {
     [[FRFeedbackReporter sharedReporter] reportCrash:@"dummy crash report text here"];
+}
+
+
+#pragma mark - helpers
+
+- (void) threadWithException
+{
+    @autoreleasepool {
+        NSLog(@"exception in thread");
+        [NSException raise:@"TestExceptionThread" format:@"Something went wrong"];
+        [NSThread exit];
+    }
 }
 
 @end

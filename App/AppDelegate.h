@@ -17,7 +17,7 @@
 #import <Cocoa/Cocoa.h>
 #import <F53FeedbackKit/FRFeedbackReporter.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, FRFeedbackReporterDelegate>
+@interface AppDelegate : NSApplication <NSApplicationDelegate, FRFeedbackReporterDelegate>
 
 - (IBAction) buttonFeedback:(id)sender;
 - (IBAction) buttonException:(id)sender;
