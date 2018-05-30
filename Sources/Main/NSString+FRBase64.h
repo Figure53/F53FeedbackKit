@@ -1,5 +1,5 @@
 //
-//  NSString+Base64.h
+//  NSString+FRBase64.h
 //  Helpifier
 //
 //  Created by Sean Dougall on 5/24/10.
@@ -30,16 +30,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSData (Base64)
+@interface NSData (FRBase64)
 
-- (NSString *) encodeBase64;
+- (NSString *) FR_encodeBase64;
 
 @end
 
 
-@interface NSString (Base64)
+@interface NSString (FRBase64)
 
-- (NSString *) encodeBase64;
+- (NSString *) FR_encodeBase64;
 
 @end
 

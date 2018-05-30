@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-#import "NSMutableDictionary+Additions.h"
+#import "NSMutableDictionary+FRAdditions.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation NSMutableDictionary (Additions)
+@implementation NSMutableDictionary (FRAdditions)
 
-- (void) setValidString:(NSString *)string forKey:(NSString *)key
+- (void) FR_setValidString:(NSString *)string forKey:(NSString *)key
 {
 	if ( [string length] == 0 || !key )
         return;

@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-#import "NSException+Callstack.h"
+#import "NSException+FRCallstack.h"
 #import "FRConstants.h"
 #import <unistd.h>
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation NSException (Callstack)
+@implementation NSException (FRCallstack)
 
-- (nullable NSArray<NSNumber *> *) my_callStackReturnAddresses
+- (nullable NSArray<NSNumber *> *) FR_callStackReturnAddresses
 {
     // On 10.5 or later, can get the backtrace:
     if ( [self respondsToSelector:@selector(callStackReturnAddresses)] ) {
@@ -33,9 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
     }
 }
 
-- (nullable NSArray<NSNumber *> *) my_callStackReturnAddressesSkipping:(NSUInteger)skip limit:(NSUInteger)limit
+- (nullable NSArray<NSNumber *> *) FR_callStackReturnAddressesSkipping:(NSUInteger)skip limit:(NSUInteger)limit
 {
-    NSArray<NSNumber *> *addresses = [self my_callStackReturnAddresses];
+    NSArray<NSNumber *> *addresses = [self FR_callStackReturnAddresses];
     if ( addresses ) {
         NSUInteger n = [addresses count];
         skip = MIN(skip,n);
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
     return addresses;
 }
 
-- (NSString *) my_callStack
+- (NSString *) FR_callStack
 {
 	NSArray<NSString *> *symbols = [self callStackSymbols];
     return [NSString stringWithFormat:@"%@\n",symbols];

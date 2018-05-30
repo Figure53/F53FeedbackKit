@@ -19,10 +19,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSException (Callstack)
+@interface NSMutableDictionary (FRAdditions)
 
-// Returns a textual, human-readable backtrace of the point where the exception was thrown
-- (NSString *) my_callStack;
+- (void) FR_setValidString:(NSString *)string forKey:(NSString *)key;
 
 @end
 

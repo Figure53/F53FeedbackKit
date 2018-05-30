@@ -49,10 +49,10 @@
 		3D77A17E1BAC987700789333 /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; };
 		3D77A1801BAC987700789333 /* FRUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1371BAC987700789333 /* FRUploader.h */; };
 		3D77A1821BAC987700789333 /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
-		3D77A18A1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; };
-		3D77A18C1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; };
-		3D77A18E1BAC987700789333 /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+Base64.h */; };
-		3D77A1901BAC987700789333 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; };
+		3D77A18A1BAC987700789333 /* NSMutableDictionary+FRAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+FRAdditions.h */; };
+		3D77A18C1BAC987700789333 /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
+		3D77A18E1BAC987700789333 /* NSString+FRBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+FRBase64.h */; };
+		3D77A1901BAC987700789333 /* NSString+FRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+FRBase64.m */; };
 		3D77A1A91BAC9A5A00789333 /* CommandTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A61BAC9A5A00789333 /* CommandTestCase.m */; };
 		3D77A1AA1BAC9A5A00789333 /* SystemProfileTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A71BAC9A5A00789333 /* SystemProfileTestCase.m */; };
 		3D77A1AB1BAC9A5A00789333 /* UploaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1A81BAC9A5A00789333 /* UploaderTestCase.m */; };
@@ -70,8 +70,8 @@
 		3D77A1EE1BAC9F3500789333 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1F01BAC9F3500789333 /* Credits.rtf */; };
 		3D958C0F1BB995AB005B7C65 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3D958C101BB995AB005B7C65 /* F53FeedbackKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; };
-		3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
+		3D9AEC391BAD7EF5008074AC /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; };
+		3D9AEC3B1BAD7EFA008074AC /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
 		3D9AEC481BAE0E66008074AC /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3DA977B21FFD86E300648971 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; };
 		3DA977B41FFD885D00648971 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
@@ -91,15 +91,15 @@
 		3DA977C31FFD895A00648971 /* F53FeedbackKit_iOS.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DE0532C1BB5ACE20056E64F /* F53FeedbackKit_iOS.pch */; };
 		3DA977C41FFD895D00648971 /* F53FeedbackKit_iOS.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3DE0532C1BB5ACE20056E64F /* F53FeedbackKit_iOS.pch */; };
 		3DA977C51FFD895F00648971 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; };
-		3DA977C61FFD898900648971 /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
-		3DA977C71FFD898C00648971 /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; };
-		3DA977C81FFD898C00648971 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; };
+		3DA977C61FFD898900648971 /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
+		3DA977C71FFD898C00648971 /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
+		3DA977C81FFD898C00648971 /* NSString+FRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+FRBase64.m */; };
 		3DA977D41FFD8A6500648971 /* F53FeedbackKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DA977D51FFD8A7800648971 /* F53FeedbackKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOS.framework */; };
 		3DA977D71FFD8BE800648971 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
-		3DA977D81FFD8BF500648971 /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
-		3DA977D91FFD8BF500648971 /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; };
-		3DA977DA1FFD8BF500648971 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; };
+		3DA977D81FFD8BF500648971 /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
+		3DA977D91FFD8BF500648971 /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
+		3DA977DA1FFD8BF500648971 /* NSString+FRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+FRBase64.m */; };
 		3DA977DB1FFD8BF500648971 /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
 		3DA977DC1FFD8BF500648971 /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
 		3DA977DD1FFD8BF500648971 /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; };
@@ -136,9 +136,9 @@
 		3DC68D831BB5F1AB0002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C51BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.h */; };
 		3DC68D841BB5F1AB0002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C71BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.h */; };
 		3DC68D851BB5F1AB0002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C91BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.h */; };
-		3DC68DC61BB605650002242A /* NSException+Callstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+Callstack.h */; };
-		3DC68DC71BB605650002242A /* NSMutableDictionary+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */; };
-		3DC68DC81BB605650002242A /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+Base64.h */; };
+		3DC68DC61BB605650002242A /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; };
+		3DC68DC71BB605650002242A /* NSMutableDictionary+FRAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+FRAdditions.h */; };
+		3DC68DC81BB605650002242A /* NSString+FRBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+FRBase64.h */; };
 		3DDBAB391BB1CB210071E076 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
 		3DE052B71BB592340056E64F /* FRCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052B11BB592340056E64F /* FRCommand.h */; };
 		3DE052B81BB592340056E64F /* FRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B21BB592340056E64F /* FRCommand.m */; };
@@ -150,9 +150,9 @@
 		3DE052C01BB5925A0056E64F /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */; };
 		3DE052E41BB597AB0056E64F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE052E21BB597AB0056E64F /* Localizable.strings */; };
 		3DE0530C1BB5A2140056E64F /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
-		3DE0530D1BB5A2200056E64F /* NSException+Callstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+Callstack.m */; };
-		3DE0530E1BB5A2200056E64F /* NSMutableDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */; };
-		3DE0530F1BB5A2200056E64F /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+Base64.m */; };
+		3DE0530D1BB5A2200056E64F /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
+		3DE0530E1BB5A2200056E64F /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
+		3DE0530F1BB5A2200056E64F /* NSString+FRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+FRBase64.m */; };
 		3DE053101BB5A22D0056E64F /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
 		3DE053111BB5A22D0056E64F /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
 		3DE053121BB5A22D0056E64F /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; };
@@ -271,12 +271,12 @@
 		3D77A1361BAC987700789333 /* FRSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRSystemProfile.m; sourceTree = "<group>"; };
 		3D77A1371BAC987700789333 /* FRUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRUploader.h; sourceTree = "<group>"; };
 		3D77A1381BAC987700789333 /* FRUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRUploader.m; sourceTree = "<group>"; };
-		3D77A13A1BAC987700789333 /* NSException+Callstack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+Callstack.h"; sourceTree = "<group>"; };
-		3D77A13B1BAC987700789333 /* NSException+Callstack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+Callstack.m"; sourceTree = "<group>"; };
-		3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Additions.h"; sourceTree = "<group>"; };
-		3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Additions.m"; sourceTree = "<group>"; };
-		3D77A13E1BAC987700789333 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
-		3D77A13F1BAC987700789333 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+FRCallstack.h"; sourceTree = "<group>"; };
+		3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+FRCallstack.m"; sourceTree = "<group>"; };
+		3D77A13C1BAC987700789333 /* NSMutableDictionary+FRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+FRAdditions.h"; sourceTree = "<group>"; };
+		3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+FRAdditions.m"; sourceTree = "<group>"; };
+		3D77A13E1BAC987700789333 /* NSString+FRBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FRBase64.h"; sourceTree = "<group>"; };
+		3D77A13F1BAC987700789333 /* NSString+FRBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FRBase64.m"; sourceTree = "<group>"; };
 		3D77A1A61BAC9A5A00789333 /* CommandTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandTestCase.m; sourceTree = "<group>"; };
 		3D77A1A71BAC9A5A00789333 /* SystemProfileTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemProfileTestCase.m; sourceTree = "<group>"; };
 		3D77A1A81BAC9A5A00789333 /* UploaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploaderTestCase.m; sourceTree = "<group>"; };
@@ -657,12 +657,12 @@
 		3DBACD061BACA81100FEAFCE /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				3D77A13A1BAC987700789333 /* NSException+Callstack.h */,
-				3D77A13B1BAC987700789333 /* NSException+Callstack.m */,
-				3D77A13C1BAC987700789333 /* NSMutableDictionary+Additions.h */,
-				3D77A13D1BAC987700789333 /* NSMutableDictionary+Additions.m */,
-				3D77A13E1BAC987700789333 /* NSString+Base64.h */,
-				3D77A13F1BAC987700789333 /* NSString+Base64.m */,
+				3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */,
+				3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */,
+				3D77A13C1BAC987700789333 /* NSMutableDictionary+FRAdditions.h */,
+				3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */,
+				3D77A13E1BAC987700789333 /* NSString+FRBase64.h */,
+				3D77A13F1BAC987700789333 /* NSString+FRBase64.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -727,10 +727,10 @@
 				3D77A1521BAC987700789333 /* FRApplication.h in Headers */,
 				3DE052B71BB592340056E64F /* FRCommand.h in Headers */,
 				3D77A1601BAC987700789333 /* FRCrashLogFinder.h in Headers */,
-				3D77A18A1BAC987700789333 /* NSMutableDictionary+Additions.h in Headers */,
+				3D77A18A1BAC987700789333 /* NSMutableDictionary+FRAdditions.h in Headers */,
 				3D77A1801BAC987700789333 /* FRUploader.h in Headers */,
 				3D77A17C1BAC987700789333 /* FRSystemProfile.h in Headers */,
-				3D77A18E1BAC987700789333 /* NSString+Base64.h in Headers */,
+				3D77A18E1BAC987700789333 /* NSString+FRBase64.h in Headers */,
 				3DE052BF1BB5925A0056E64F /* FRMacFeedbackWindowController.h in Headers */,
 				3DE052BB1BB592340056E64F /* FRProgressWindow.h in Headers */,
 				3DE0532E1BB5ACEE0056E64F /* F53FeedbackKit.pch in Headers */,
@@ -738,7 +738,7 @@
 				3D2E0C2A1BB49A6900370315 /* FRFeedbackReporter.h in Headers */,
 				3DE8CF8D1BAEDC68007BD1BB /* FRConsoleLog.h in Headers */,
 				3D77A16C1BAC987700789333 /* FRFeedbackController.h in Headers */,
-				3D9AEC391BAD7EF5008074AC /* NSException+Callstack.h in Headers */,
+				3D9AEC391BAD7EF5008074AC /* NSException+FRCallstack.h in Headers */,
 				3D77A0E71BAC979000789333 /* F53FeedbackKit.h in Headers */,
 				3DE052B91BB592340056E64F /* FRDocumentList.h in Headers */,
 			);
@@ -761,7 +761,7 @@
 			files = (
 				3DC68D831BB5F1AB0002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */,
 				3DE053371BB5B6CE0056E64F /* FRConstants.h in Headers */,
-				3DC68DC71BB605650002242A /* NSMutableDictionary+Additions.h in Headers */,
+				3DC68DC71BB605650002242A /* NSMutableDictionary+FRAdditions.h in Headers */,
 				3DC68D851BB5F1AB0002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */,
 				3DE053301BB5B6C10056E64F /* FRFeedbackReporter.h in Headers */,
 				3DC68D821BB5F1AB0002242A /* FRiOSFeedbackTableViewCheckmarkCell.h in Headers */,
@@ -769,12 +769,12 @@
 				3DA977B21FFD86E300648971 /* F53FeedbackKit_iOS.h in Headers */,
 				3DE053311BB5B6CE0056E64F /* FRApplication.h in Headers */,
 				3DC68D841BB5F1AB0002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */,
-				3DC68DC61BB605650002242A /* NSException+Callstack.h in Headers */,
+				3DC68DC61BB605650002242A /* NSException+FRCallstack.h in Headers */,
 				3DE053341BB5B6CE0056E64F /* FRSystemProfile.h in Headers */,
 				3DA977C41FFD895D00648971 /* F53FeedbackKit_iOS.pch in Headers */,
 				3DE053351BB5B6CE0056E64F /* FRFeedbackController.h in Headers */,
 				3DE053361BB5B6CE0056E64F /* FRUploader.h in Headers */,
-				3DC68DC81BB605650002242A /* NSString+Base64.h in Headers */,
+				3DC68DC81BB605650002242A /* NSString+FRBase64.h in Headers */,
 				3DE053321BB5B6CE0056E64F /* FRConsoleLog.h in Headers */,
 				3DE053331BB5B6CE0056E64F /* FRCrashLogFinder.h in Headers */,
 			);
@@ -1095,13 +1095,13 @@
 				3D77A1541BAC987700789333 /* FRApplication.m in Sources */,
 				3DE052B81BB592340056E64F /* FRCommand.m in Sources */,
 				3D77A17E1BAC987700789333 /* FRSystemProfile.m in Sources */,
-				3D77A1901BAC987700789333 /* NSString+Base64.m in Sources */,
-				3D77A18C1BAC987700789333 /* NSMutableDictionary+Additions.m in Sources */,
+				3D77A1901BAC987700789333 /* NSString+FRBase64.m in Sources */,
+				3D77A18C1BAC987700789333 /* NSMutableDictionary+FRAdditions.m in Sources */,
 				3D77A15C1BAC987700789333 /* FRConsoleLog.m in Sources */,
 				3DDBAB391BB1CB210071E076 /* FRFeedbackController.m in Sources */,
 				3D77A1821BAC987700789333 /* FRUploader.m in Sources */,
 				3D77A1621BAC987700789333 /* FRCrashLogFinder.m in Sources */,
-				3D9AEC3B1BAD7EFA008074AC /* NSException+Callstack.m in Sources */,
+				3D9AEC3B1BAD7EFA008074AC /* NSException+FRCallstack.m in Sources */,
 				3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */,
 				3DE052BA1BB592340056E64F /* FRDocumentList.m in Sources */,
 				3DE052C01BB5925A0056E64F /* FRMacFeedbackWindowController.m in Sources */,
@@ -1163,14 +1163,14 @@
 				3DC3AA221BB06BD4001E1765 /* AppDelegate.m in Sources */,
 				3DC3AA1F1BB06BD4001E1765 /* main.m in Sources */,
 				3DA977DD1FFD8BF500648971 /* FRCrashLogFinder.m in Sources */,
-				3DA977D91FFD8BF500648971 /* NSMutableDictionary+Additions.m in Sources */,
-				3DA977D81FFD8BF500648971 /* NSException+Callstack.m in Sources */,
+				3DA977D91FFD8BF500648971 /* NSMutableDictionary+FRAdditions.m in Sources */,
+				3DA977D81FFD8BF500648971 /* NSException+FRCallstack.m in Sources */,
 				3DA977E41FFD8C0400648971 /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */,
 				3DA977D71FFD8BE800648971 /* FRFeedbackReporter.m in Sources */,
 				3DA977DB1FFD8BF500648971 /* FRApplication.m in Sources */,
 				3DA977E31FFD8C0400648971 /* FRiOSFeedbackTableViewEmailCell.m in Sources */,
 				3DA977DF1FFD8BF500648971 /* FRFeedbackController.m in Sources */,
-				3DA977DA1FFD8BF500648971 /* NSString+Base64.m in Sources */,
+				3DA977DA1FFD8BF500648971 /* NSString+FRBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,10 +1187,10 @@
 				3DA977C01FFD889F00648971 /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */,
 				3DA977B51FFD887300648971 /* FRApplication.m in Sources */,
 				3DA977BE1FFD889A00648971 /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */,
-				3DA977C81FFD898C00648971 /* NSString+Base64.m in Sources */,
+				3DA977C81FFD898C00648971 /* NSString+FRBase64.m in Sources */,
 				3DA977BA1FFD888400648971 /* FRFeedbackController.m in Sources */,
-				3DA977C61FFD898900648971 /* NSException+Callstack.m in Sources */,
-				3DA977C71FFD898C00648971 /* NSMutableDictionary+Additions.m in Sources */,
+				3DA977C61FFD898900648971 /* NSException+FRCallstack.m in Sources */,
+				3DA977C71FFD898C00648971 /* NSMutableDictionary+FRAdditions.m in Sources */,
 				3DA977C11FFD88A100648971 /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
 				3DA977B41FFD885D00648971 /* FRFeedbackReporter.m in Sources */,
 			);
@@ -1210,11 +1210,11 @@
 				3DE053151BB5A22D0056E64F /* FRUploader.m in Sources */,
 				3DE053101BB5A22D0056E64F /* FRApplication.m in Sources */,
 				3DE0531A1BB5A2400056E64F /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
-				3DE0530E1BB5A2200056E64F /* NSMutableDictionary+Additions.m in Sources */,
+				3DE0530E1BB5A2200056E64F /* NSMutableDictionary+FRAdditions.m in Sources */,
 				3DE053171BB5A2400056E64F /* FRiOSFeedbackTableViewController.m in Sources */,
-				3DE0530D1BB5A2200056E64F /* NSException+Callstack.m in Sources */,
+				3DE0530D1BB5A2200056E64F /* NSException+FRCallstack.m in Sources */,
 				3DE0530C1BB5A2140056E64F /* FRFeedbackReporter.m in Sources */,
-				3DE0530F1BB5A2200056E64F /* NSString+Base64.m in Sources */,
+				3DE0530F1BB5A2200056E64F /* NSString+FRBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

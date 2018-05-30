@@ -7,7 +7,7 @@
 //
 
 #import "FRDocumentList.h"
-#import "NSString+Base64.h"
+#import "NSString+FRBase64.h"
 #import "FRProgressWindow.h"
 #import "FRConstants.h"
 
@@ -248,7 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
                     success = NO;
                     break;
                 }
-                NSString *encodedData = [fileData encodeBase64];
+                NSString *encodedData = [fileData FR_encodeBase64];
                 
                 NSString *fname = zipName;
                 unsigned int i = 1;

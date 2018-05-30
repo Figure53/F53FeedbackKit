@@ -1,5 +1,5 @@
 //
-//  NSString+Base64.m
+//  NSString+FRBase64.m
 //  Helpifier
 //
 //  Created by Sean Dougall on 5/24/10.
@@ -25,14 +25,14 @@
 //	THE SOFTWARE.
 //
 
-#import "NSString+Base64.h"
+#import "NSString+FRBase64.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation NSData (Base64)
+@implementation NSData (FRBase64)
 
-- (NSString *) encodeBase64
+- (NSString *) FR_encodeBase64
 {
 	char *base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	NSMutableString *result = [NSMutableString new];
@@ -65,9 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@implementation NSString (Base64)
+@implementation NSString (FRBase64)
 
-- (NSString *) encodeBase64
+- (NSString *) FR_encodeBase64
 {
 	char *base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	NSMutableString *result = [NSMutableString new];

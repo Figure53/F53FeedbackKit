@@ -16,7 +16,7 @@
 
 #import "AppDelegate.h"
 
-#import "NSException+Callstack.h"
+#import "NSException+FRCallstack.h"
 #import <pthread.h>
 
 @interface AppDelegate ()

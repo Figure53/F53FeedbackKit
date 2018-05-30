@@ -18,7 +18,7 @@
 #import "FRFeedbackController.h"
 #import "FRCrashLogFinder.h"
 #import "FRSystemProfile.h"
-#import "NSException+Callstack.h"
+#import "NSException+FRCallstack.h"
 #import "FRUploader.h"
 #import "FRApplication.h"
 #import "FRConstants.h"
@@ -131,7 +131,7 @@ static dispatch_once_t once_token = 0;
 
 - (BOOL) reportException:(NSException *)exception
 {
-    NSString *callStack = [exception my_callStack];
+    NSString *callStack = [exception FR_callStack];
     NSString *exceptionText = [NSString stringWithFormat: @"%@\n\n%@\n\n%@",
                               [exception name],
                               [exception reason],

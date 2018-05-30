@@ -29,7 +29,7 @@
 #import "FRCommand.h"
 #endif
 
-#import "NSMutableDictionary+Additions.h"
+#import "NSMutableDictionary+FRAdditions.h"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 
@@ -217,20 +217,20 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [NSMutableDictionary dictionary];
     
-    [dict setValidString:self.type
-                  forKey:POST_KEY_TYPE];
+    [dict FR_setValidString:self.type
+                     forKey:POST_KEY_TYPE];
     
-    [dict setValidString:[FRApplication applicationLongVersion]
-                  forKey:POST_KEY_VERSION_LONG];
+    [dict FR_setValidString:[FRApplication applicationLongVersion]
+                     forKey:POST_KEY_VERSION_LONG];
     
-    [dict setValidString:[FRApplication applicationShortVersion]
-                  forKey:POST_KEY_VERSION_SHORT];
+    [dict FR_setValidString:[FRApplication applicationShortVersion]
+                     forKey:POST_KEY_VERSION_SHORT];
     
-    [dict setValidString:[FRApplication applicationBundleVersion]
-                  forKey:POST_KEY_VERSION_BUNDLE];
+    [dict FR_setValidString:[FRApplication applicationBundleVersion]
+                     forKey:POST_KEY_VERSION_BUNDLE];
     
-    [dict setValidString:[FRApplication applicationVersion]
-                  forKey:POST_KEY_VERSION];
+    [dict FR_setValidString:[FRApplication applicationVersion]
+                     forKey:POST_KEY_VERSION];
     
     return dict;
 }
@@ -467,35 +467,35 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [super parametersForFeedbackReport];
     
-    [dict setValidString:[self.windowController.emailBox stringValue]
-                  forKey:POST_KEY_EMAIL];
+    [dict FR_setValidString:[self.windowController.emailBox stringValue]
+                     forKey:POST_KEY_EMAIL];
     
-    [dict setValidString:[self.windowController.messageView string]
-                  forKey:POST_KEY_MESSAGE];
+    [dict FR_setValidString:[self.windowController.messageView string]
+                     forKey:POST_KEY_MESSAGE];
     
     if ([self.windowController.sendDetailsCheckbox state] == NSOnState) {
         if ([self.delegate respondsToSelector:@selector(customParametersForFeedbackReport)]) {
             [dict addEntriesFromDictionary:[self.delegate customParametersForFeedbackReport]];
         }
         
-        [dict setValidString:[self systemProfileAsString]
-                      forKey:POST_KEY_SYSTEM];
+        [dict FR_setValidString:[self systemProfileAsString]
+                         forKey:POST_KEY_SYSTEM];
         
         if ([self.windowController.includeConsoleCheckbox state] == NSOnState)
-            [dict setValidString:[self.windowController.consoleView string]
-                          forKey:POST_KEY_CONSOLE];
+            [dict FR_setValidString:[self.windowController.consoleView string]
+                             forKey:POST_KEY_CONSOLE];
         
-        [dict setValidString:[self.windowController.crashesView string]
-                      forKey:POST_KEY_CRASHES];
+        [dict FR_setValidString:[self.windowController.crashesView string]
+                         forKey:POST_KEY_CRASHES];
         
-        [dict setValidString:[self.windowController.scriptView string]
-                      forKey:POST_KEY_SHELL];
+        [dict FR_setValidString:[self.windowController.scriptView string]
+                         forKey:POST_KEY_SHELL];
         
-        [dict setValidString:[self.windowController.preferencesView string]
-                      forKey:POST_KEY_PREFERENCES];
+        [dict FR_setValidString:[self.windowController.preferencesView string]
+                         forKey:POST_KEY_PREFERENCES];
         
-        [dict setValidString:[self.windowController.exceptionView string]
-                      forKey:POST_KEY_EXCEPTION];
+        [dict FR_setValidString:[self.windowController.exceptionView string]
+                         forKey:POST_KEY_EXCEPTION];
         
         if (self.windowController.documentList) {
             NSDictionary *documents = [self.windowController.documentList documentsToUpload];
@@ -762,35 +762,35 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSMutableDictionary<NSString *, NSObject<NSCopying> *> *dict = [super parametersForFeedbackReport];
     
-    [dict setValidString:self.controller.emailBoxText
-                  forKey:POST_KEY_EMAIL];
+    [dict FR_setValidString:self.controller.emailBoxText
+                     forKey:POST_KEY_EMAIL];
     
-    [dict setValidString:self.controller.messageViewText
-                  forKey:POST_KEY_MESSAGE];
+    [dict FR_setValidString:self.controller.messageViewText
+                     forKey:POST_KEY_MESSAGE];
     
     if ( self.controller.sendDetails ) {
         if ([self.delegate respondsToSelector:@selector(customParametersForFeedbackReport)]) {
             [dict addEntriesFromDictionary:[self.delegate customParametersForFeedbackReport]];
         }
         
-        [dict setValidString:[self systemProfileAsString]
-                      forKey:POST_KEY_SYSTEM];
+        [dict FR_setValidString:[self systemProfileAsString]
+                         forKey:POST_KEY_SYSTEM];
         
         if ( self.controller.includeConsole )
-            [dict setValidString:self.controller.consoleViewText
-                          forKey:POST_KEY_CONSOLE];
+            [dict FR_setValidString:self.controller.consoleViewText
+                             forKey:POST_KEY_CONSOLE];
         
-        [dict setValidString:self.controller.crashesViewText
-                      forKey:POST_KEY_CRASHES];
+        [dict FR_setValidString:self.controller.crashesViewText
+                         forKey:POST_KEY_CRASHES];
         
-        [dict setValidString:self.controller.scriptViewText
-                      forKey:POST_KEY_SHELL];
+        [dict FR_setValidString:self.controller.scriptViewText
+                         forKey:POST_KEY_SHELL];
         
-        [dict setValidString:self.controller.preferencesViewText
-                      forKey:POST_KEY_PREFERENCES];
+        [dict FR_setValidString:self.controller.preferencesViewText
+                         forKey:POST_KEY_PREFERENCES];
         
-        [dict setValidString:self.controller.exceptionViewText
-                      forKey:POST_KEY_EXCEPTION];
+        [dict FR_setValidString:self.controller.exceptionViewText
+                         forKey:POST_KEY_EXCEPTION];
         
 //        if ( self.controller.documentList ) {
 //            NSDictionary *documents = [self.controller.documentList documentsToUpload];

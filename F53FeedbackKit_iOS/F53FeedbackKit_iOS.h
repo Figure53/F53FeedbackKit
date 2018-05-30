@@ -23,6 +23,6 @@
 #import "FRiOSFeedbackTableViewTabPickerCell.h"
 #import "FRiOSFeedbackTableViewTextViewCell.h"
 
-#import "NSException+Callstack.h"
-#import "NSMutableDictionary+Additions.h"
-#import "NSString+Base64.h"
+#import "NSException+FRCallstack.h"
+#import "NSMutableDictionary+FRAdditions.h"
+#import "NSString+FRBase64.h"
