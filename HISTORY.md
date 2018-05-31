@@ -1,9 +1,23 @@
+## Version 1.4.0
+* [FIX] Fixes “implicitly retains ‘self’” compiler warnings.
+* [FIX] Namespaces method names for categories on Foundation classes to prevent collisions with other categories implementing the same method name.
+* [FIX] Fixes NSApplicationDelegate for example project "App" builds.
+* [CHG] Enables presenting Feedback Controller from an iOS view controller that itself is already being presented.
+* [CHG] Fixes localization in example apps by renaming all "FeedbackReporter.strings" files to "Localizable.strings".
+* [CHG] Modernizes code, adding nullable annotations and generics.
+* [CHG] Updates structure of example project.
+* [CHG] The example project no longer codesigns framework builds, in accordance with Apple-recommended Xcode project settings.
+* [CHG] App Transport Security is disabled in "Document App" to allow simple testing to local test servers.
+* [CHG] Mac target now requires 10.10+.
+
+
 ## Version 1.3.6
 * [CHG] Replaces `FRLocalizedString()` macro with `NSLocalizedString()`.
 * [CHG] Moves iOS-specific resource files to their own subfolder inside Base.lproj.
 * [CHG] Renames the CocoaPods podspec to "F53FeedbackKit" and adds an iOS-specific default subspec. To include F53FeedbackKit in your iOS project, specify either  `pod 'F53FeedbackKit'` or `pod 'F53FeedbackKit/iOS'`.
 * [CHG] Removes unneeded iOS checkmark cell .xib.
 * [FIX] Several fixes to the sample Xcode project and iOS test app.
+
 
 ## Version 1.3.5
 * [FIX] Mac crash reports were not getting submitted.
