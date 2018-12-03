@@ -1,3 +1,6 @@
+## Version 1.4.1
+* [CHG] Adds support for Dynamic Type font sizes on iOS.
+
 ## Version 1.4.0
 * [FIX] Fixes “implicitly retains ‘self’” compiler warnings.
 * [FIX] Namespaces method names for categories on Foundation classes to prevent collisions with other categories implementing the same method name.

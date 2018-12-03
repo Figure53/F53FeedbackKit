@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,26 +19,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet" translatesAutoresizingMaskIntoConstraints="NO" id="Lyo-aU-tf6">
-                        <rect key="frame" x="28" y="11" width="264" height="90"/>
+                        <rect key="frame" x="16" y="19" width="288" height="74"/>
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                     </textView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qaj-iT-rxz">
-                        <rect key="frame" x="28" y="11" width="264" height="90"/>
+                        <rect key="frame" x="16" y="19" width="288" height="74"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="1cV-3L-sYj"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1cV-3L-sYj"/>
                     <constraint firstItem="Lyo-aU-tf6" firstAttribute="top" secondItem="Qaj-iT-rxz" secondAttribute="top" id="GUS-4K-wh6"/>
-                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Hw4-8B-gGK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Qaj-iT-rxz" secondAttribute="bottom" constant="8" id="Hw4-8B-gGK"/>
                     <constraint firstItem="Qaj-iT-rxz" firstAttribute="width" secondItem="Lyo-aU-tf6" secondAttribute="width" id="IEc-Pz-HxM"/>
                     <constraint firstItem="Lyo-aU-tf6" firstAttribute="leading" secondItem="Qaj-iT-rxz" secondAttribute="leading" id="NfK-Ww-tT1"/>
-                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-12" id="Vn6-YV-Vsn"/>
-                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="WoZ-mh-sGe"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Vn6-YV-Vsn"/>
+                    <constraint firstItem="Qaj-iT-rxz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="WoZ-mh-sGe"/>
                     <constraint firstItem="Qaj-iT-rxz" firstAttribute="height" secondItem="Lyo-aU-tf6" secondAttribute="height" id="d5M-OD-44T"/>
                 </constraints>
             </tableViewCellContentView>

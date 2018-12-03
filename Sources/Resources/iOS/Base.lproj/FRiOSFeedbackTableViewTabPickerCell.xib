@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NQ5-Sl-a8d">
-                        <rect key="frame" x="100" y="19" width="121" height="51"/>
+                        <rect key="frame" x="99.5" y="19" width="121" height="61.5"/>
                         <segments>
                             <segment title="First"/>
                             <segment title="Second"/>
@@ -33,9 +31,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="NQ5-Sl-a8d" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerXWithinMargins" id="Hoe-Mr-fld"/>
-                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" priority="999" constant="8" id="iY5-JK-V7K"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="NQ5-Sl-a8d" secondAttribute="bottom" priority="999" id="nkx-bZ-fiC"/>
-                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerYWithinMargins" constant="4" id="r5H-la-NRa"/>
+                    <constraint firstItem="NQ5-Sl-a8d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="iY5-JK-V7K"/>
+                    <constraint firstAttribute="bottom" secondItem="NQ5-Sl-a8d" secondAttribute="bottom" priority="999" id="nkx-bZ-fiC"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="9999" minY="0.0" maxX="0.0" maxY="0.0"/>

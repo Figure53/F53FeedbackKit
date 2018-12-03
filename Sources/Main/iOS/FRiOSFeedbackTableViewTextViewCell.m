@@ -17,6 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 {
     [super awakeFromNib];
     
+    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.textViewPlaceholder.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    
+    if ( @available(iOS 10.0, *) )
+    {
+        self.textView.adjustsFontForContentSizeCategory = YES;
+        self.textViewPlaceholder.adjustsFontForContentSizeCategory = YES;
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUIContentSizeCategoryDidChange:) name:UIContentSizeCategoryDidChangeNotification object:nil];
+    }
+    
     self.textView.text = nil;
     self.textViewPlaceholder.text = nil;
     
@@ -37,6 +50,18 @@ NS_ASSUME_NONNULL_BEGIN
     self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 
+- (void) dealloc
+{
+    if ( @available(iOS 10.0, *) )
+    {
+        // nuthin
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIContentSizeCategoryDidChangeNotification object:nil];
+    }
+}
+
 #pragma mark - UITextViewDelegate
 
 - (void) textViewDidChange:(UITextView *)textView
@@ -55,6 +80,13 @@ NS_ASSUME_NONNULL_BEGIN
                                                             object:textView];
     }
 }
+
+- (void) handleUIContentSizeCategoryDidChange:(NSNotification *)notification
+{
+    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.textViewPlaceholder.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

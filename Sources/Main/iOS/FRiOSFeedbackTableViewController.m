@@ -140,6 +140,9 @@ NS_ASSUME_NONNULL_BEGIN
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTabPickerCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTabPickerCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTextViewCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTextViewCellIdentifier];
     
+    // enable automatic height
+    self.tableView.estimatedRowHeight = 44.0;
+
     self.title = NSLocalizedString(@"Feedback", nil);
     self.detailsLabelText = NSLocalizedString(@"Details", nil);
     
@@ -425,16 +428,6 @@ NS_ASSUME_NONNULL_BEGIN
     }
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return UITableViewAutomaticDimension;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return UITableViewAutomaticDimension;
-}
-
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat height = UITableViewAutomaticDimension;
@@ -446,7 +439,14 @@ NS_ASSUME_NONNULL_BEGIN
             switch ( indexPath.row ) {
                     
                 case SECTION_MESSAGE_ROW_MESSAGE:
-                    height = 150.0;
+                    if ( @available(iOS 11.0, *) )
+                    {
+                        height = [[UIFontMetrics defaultMetrics] scaledValueForValue:150.0];
+                    }
+                    else
+                    {
+                        height = 150.0;
+                    }
                     break;
                     
                 default:
