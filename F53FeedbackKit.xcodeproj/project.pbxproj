@@ -68,11 +68,9 @@
 		3D77A1DF1BAC9D5A00789333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1DE1BAC9D5A00789333 /* Assets.xcassets */; };
 		3D77A1E21BAC9D5A00789333 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1E01BAC9D5A00789333 /* MainMenu.xib */; };
 		3D77A1EE1BAC9F3500789333 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1F01BAC9F3500789333 /* Credits.rtf */; };
-		3D958C0F1BB995AB005B7C65 /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3D958C101BB995AB005B7C65 /* F53FeedbackKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D9AEC391BAD7EF5008074AC /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; };
 		3D9AEC3B1BAD7EFA008074AC /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
-		3D9AEC481BAE0E66008074AC /* F53FeedbackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; };
 		3DA977B21FFD86E300648971 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; };
 		3DA977B41FFD885D00648971 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
 		3DA977B51FFD887300648971 /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
@@ -94,8 +92,6 @@
 		3DA977C61FFD898900648971 /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
 		3DA977C71FFD898C00648971 /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
 		3DA977C81FFD898C00648971 /* NSString+FRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+FRBase64.m */; };
-		3DA977D41FFD8A6500648971 /* F53FeedbackKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3DA977D51FFD8A7800648971 /* F53FeedbackKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOS.framework */; };
 		3DA977D71FFD8BE800648971 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
 		3DA977D81FFD8BF500648971 /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
 		3DA977D91FFD8BF500648971 /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
@@ -195,13 +191,6 @@
 			remoteGlobalIDString = 3D77A0E21BAC979000789333;
 			remoteInfo = F53FeedbackKit;
 		};
-		3DC68D901BB602E80002242A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3D77A0DA1BAC979000789333 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3DC68D8A1BB602E80002242A;
-			remoteInfo = F53FeedbackKit_iOSApp;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -223,17 +212,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3DE27C871BB433D9007B7D50 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3DA977D41FFD8A6500648971 /* F53FeedbackKit_iOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -398,7 +376,6 @@
 				3D37BB521BB9985700030264 /* AppKit.framework in Frameworks */,
 				3D37BB511BB9985200030264 /* Cocoa.framework in Frameworks */,
 				3D37BB4F1BB9984B00030264 /* Foundation.framework in Frameworks */,
-				3D958C0F1BB995AB005B7C65 /* F53FeedbackKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +388,6 @@
 				3D37BB561BB998A700030264 /* SystemConfiguration.framework in Frameworks */,
 				3D37BB551BB998A300030264 /* Foundation.framework in Frameworks */,
 				3D37BB541BB9989E00030264 /* AppKit.framework in Frameworks */,
-				3D9AEC481BAE0E66008074AC /* F53FeedbackKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +398,6 @@
 				3D37BB4E1BB9982B00030264 /* SystemConfiguration.framework in Frameworks */,
 				3D37BB4D1BB9982500030264 /* Foundation.framework in Frameworks */,
 				3D37BB4C1BB9981D00030264 /* UIKit.framework in Frameworks */,
-				3DA977D51FFD8A7800648971 /* F53FeedbackKit_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,12 +855,10 @@
 				3DC3AA171BB06BD4001E1765 /* Sources */,
 				3DC3AA181BB06BD4001E1765 /* Frameworks */,
 				3DC3AA191BB06BD4001E1765 /* Resources */,
-				3DE27C871BB433D9007B7D50 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3DC68D911BB602E80002242A /* PBXTargetDependency */,
 			);
 			name = iOSApp;
 			productName = iOSApp;
@@ -1230,11 +1203,6 @@
 			isa = PBXTargetDependency;
 			target = 3D77A0E21BAC979000789333 /* F53FeedbackKit */;
 			targetProxy = 3D958C111BB995AB005B7C65 /* PBXContainerItemProxy */;
-		};
-		3DC68D911BB602E80002242A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3DC68D8A1BB602E80002242A /* F53FeedbackKit_iOS */;
-			targetProxy = 3DC68D901BB602E80002242A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
