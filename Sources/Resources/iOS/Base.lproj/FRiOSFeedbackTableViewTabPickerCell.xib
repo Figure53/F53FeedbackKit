@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NQ5-Sl-a8d">
-                        <rect key="frame" x="99.5" y="19" width="121" height="61.5"/>
+                        <rect key="frame" x="99.5" y="19" width="121" height="60.5"/>
                         <segments>
                             <segment title="First"/>
                             <segment title="Second"/>
@@ -32,7 +32,7 @@
                 <constraints>
                     <constraint firstItem="NQ5-Sl-a8d" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerXWithinMargins" id="Hoe-Mr-fld"/>
                     <constraint firstItem="NQ5-Sl-a8d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="iY5-JK-V7K"/>
-                    <constraint firstAttribute="bottom" secondItem="NQ5-Sl-a8d" secondAttribute="bottom" priority="999" id="nkx-bZ-fiC"/>
+                    <constraint firstAttribute="bottom" secondItem="NQ5-Sl-a8d" secondAttribute="bottom" priority="999" constant="1" id="nkx-bZ-fiC"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="9999" minY="0.0" maxX="0.0" maxY="0.0"/>
