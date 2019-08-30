@@ -50,7 +50,7 @@
 	<key>FRFeedbackReporter.sendDetailsIsOptional</key>
 	<true/>
 	<key>FRFeedbackReporter.targetURL</key>
-	<string>http://localhost/F53FeedbackKit/submit.php?project=DocumentApp</string>
+	<string>https://localhost/F53FeedbackKit/submit.php?project=DocumentApp</string>
 	<key>FRFeedbackReporter.emptyDocumentFiles</key>
 	<array>
 		<string>^Media/.*</string>
@@ -60,7 +60,7 @@
 	<key>NSPrincipalClass</key>
 	<string>AppDelegate</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2015-2018 Figure 53, LLC. All rights reserved.</string>
+	<string>Copyright © 2015-2019 Figure 53, LLC. All rights reserved.</string>
 	<key>FRFeedbackReporter.defaultIncludeConsole</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

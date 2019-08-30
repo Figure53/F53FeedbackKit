@@ -3,9 +3,10 @@
 //  F53FeedbackKit_iOS
 //
 //  Created by Brent Lord on 9/18/15.
-//  Copyright © 2015 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2019 Figure 53, LLC. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 #import "FRFeedbackReporter.h"

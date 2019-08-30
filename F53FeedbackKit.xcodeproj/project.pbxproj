@@ -13,7 +13,6 @@
 		3D1D3074231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D3070231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m */; };
 		3D1D3075231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D1D3071231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h */; };
 		3D1D3076231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D1D3071231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h */; };
-		3D1D307823189C14003A9748 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1D307723189C14003A9748 /* CoreGraphics.framework */; };
 		3D2E0C2A1BB49A6900370315 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D2E0C7C1BB4A99400370315 /* FRMacFeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */; };
 		3D2E0CA81BB4B11B00370315 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
@@ -74,7 +73,6 @@
 		3D77A1DF1BAC9D5A00789333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1DE1BAC9D5A00789333 /* Assets.xcassets */; };
 		3D77A1E21BAC9D5A00789333 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1E01BAC9D5A00789333 /* MainMenu.xib */; };
 		3D77A1EE1BAC9F3500789333 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1F01BAC9F3500789333 /* Credits.rtf */; };
-		3D958C101BB995AB005B7C65 /* F53FeedbackKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77A0E31BAC979000789333 /* F53FeedbackKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D9AEC391BAD7EF5008074AC /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; };
 		3D9AEC3B1BAD7EFA008074AC /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
 		3DA977B21FFD86E300648971 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; };
@@ -118,6 +116,37 @@
 		3DB4991E23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4991A23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m */; };
 		3DB4991F23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DB4991B23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h */; };
 		3DB4992023198B74001952EC /* FRiOSFeedbackTableViewFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DB4991B23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h */; };
+		3DB499212319B50C001952EC /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
+		3DB499222319B54E001952EC /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
+		3DB499232319B5AD001952EC /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
+		3DB499242319B5CF001952EC /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
+		3DB499252319B5D0001952EC /* FRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1211BAC987700789333 /* FRApplication.m */; };
+		3DB499262319B5DC001952EC /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
+		3DB499272319B5DC001952EC /* FRConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1251BAC987700789333 /* FRConsoleLog.m */; };
+		3DB499282319B5DF001952EC /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
+		3DB499292319B5DF001952EC /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
+		3DB4992A2319B5E9001952EC /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
+		3DB4992B2319B5E9001952EC /* FRUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1381BAC987700789333 /* FRUploader.m */; };
+		3DB4992C2319B5EB001952EC /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; };
+		3DB4992D2319B5EC001952EC /* FRCrashLogFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1281BAC987700789333 /* FRCrashLogFinder.m */; };
+		3DB4992E2319B5F4001952EC /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; };
+		3DB4992F2319B5F4001952EC /* FRSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1361BAC987700789333 /* FRSystemProfile.m */; };
+		3DB499302319B5F8001952EC /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */; };
+		3DB499312319B5F9001952EC /* FRMacFeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052BE1BB5925A0056E64F /* FRMacFeedbackWindowController.m */; };
+		3DB499322319B600001952EC /* FRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B21BB592340056E64F /* FRCommand.m */; };
+		3DB499332319B600001952EC /* FRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B21BB592340056E64F /* FRCommand.m */; };
+		3DB499342319B603001952EC /* FRDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B41BB592340056E64F /* FRDocumentList.m */; };
+		3DB499352319B603001952EC /* FRDocumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B41BB592340056E64F /* FRDocumentList.m */; };
+		3DB499362319B60A001952EC /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B61BB592340056E64F /* FRProgressWindow.m */; };
+		3DB499372319B60B001952EC /* FRProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052B61BB592340056E64F /* FRProgressWindow.m */; };
+		3DB499382319B652001952EC /* FRMacFeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */; };
+		3DB499392319B653001952EC /* FRMacFeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */; };
+		3DB4993A2319B67B001952EC /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
+		3DB4993B2319B67D001952EC /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
+		3DB4993C2319B67E001952EC /* NSMutableDictionary+FRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13D1BAC987700789333 /* NSMutableDictionary+FRAdditions.m */; };
+		3DB4993D2319B680001952EC /* NSString+FRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+FRBase64.m */; };
+		3DB4993E2319B681001952EC /* NSString+FRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13F1BAC987700789333 /* NSString+FRBase64.m */; };
+		3DB4993F2319B685001952EC /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
 		3DB6961320AC539B00857779 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE052E21BB597AB0056E64F /* Localizable.strings */; };
 		3DB6961420AC539B00857779 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE052E21BB597AB0056E64F /* Localizable.strings */; };
 		3DB6962520AC751900857779 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6962820AC751900857779 /* Localizable.strings */; };
@@ -205,17 +234,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3D958C131BB995AB005B7C65 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3D958C101BB995AB005B7C65 /* F53FeedbackKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3DE053011BB5A1FE0056E64F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -842,7 +860,6 @@
 				3D77A1B21BAC9ADD00789333 /* Sources */,
 				3D77A1B31BAC9ADD00789333 /* Frameworks */,
 				3D77A1B41BAC9ADD00789333 /* Resources */,
-				3D958C131BB995AB005B7C65 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1020,6 +1037,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB499392319B653001952EC /* FRMacFeedbackWindowController.xib in Resources */,
 				3DB6961420AC539B00857779 /* Localizable.strings in Resources */,
 				3D77A1C91BAC9CE400789333 /* App.xib in Resources */,
 				3D77A1BF1BAC9ADD00789333 /* Assets.xcassets in Resources */,
@@ -1030,6 +1048,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB499382319B652001952EC /* FRMacFeedbackWindowController.xib in Resources */,
 				3DB6961320AC539B00857779 /* Localizable.strings in Resources */,
 				3D77A1DF1BAC9D5A00789333 /* Assets.xcassets in Resources */,
 				3D77A1DD1BAC9D5A00789333 /* FRDocument.xib in Resources */,
@@ -1123,6 +1142,7 @@
 				3DC3AA151BB05163001E1765 /* FRConsoleLog.m in Sources */,
 				3D77A1B01BAC9A7C00789333 /* SystemProfileTestCase.m in Sources */,
 				3D77A1B11BAC9A7C00789333 /* UploaderTestCase.m in Sources */,
+				3DB499212319B50C001952EC /* FRUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,8 +1150,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB499292319B5DF001952EC /* FRFeedbackController.m in Sources */,
+				3DB499252319B5D0001952EC /* FRApplication.m in Sources */,
+				3DB499372319B60B001952EC /* FRProgressWindow.m in Sources */,
+				3DB4992F2319B5F4001952EC /* FRSystemProfile.m in Sources */,
 				3D77A1BD1BAC9ADD00789333 /* main.m in Sources */,
+				3DB499312319B5F9001952EC /* FRMacFeedbackWindowController.m in Sources */,
+				3DB499272319B5DC001952EC /* FRConsoleLog.m in Sources */,
+				3DB4993D2319B680001952EC /* NSString+FRBase64.m in Sources */,
+				3DB4993A2319B67B001952EC /* NSException+FRCallstack.m in Sources */,
+				3DB499352319B603001952EC /* FRDocumentList.m in Sources */,
 				3D77A1BA1BAC9ADD00789333 /* AppDelegate.m in Sources */,
+				3DB499332319B600001952EC /* FRCommand.m in Sources */,
+				3DB4992B2319B5E9001952EC /* FRUploader.m in Sources */,
+				3DB4992D2319B5EC001952EC /* FRCrashLogFinder.m in Sources */,
+				3DB4993B2319B67D001952EC /* NSMutableDictionary+FRAdditions.m in Sources */,
+				3DB4993F2319B685001952EC /* FRFeedbackReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1139,9 +1173,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB499262319B5DC001952EC /* FRConsoleLog.m in Sources */,
+				3DB4992E2319B5F4001952EC /* FRSystemProfile.m in Sources */,
+				3DB4993E2319B681001952EC /* NSString+FRBase64.m in Sources */,
+				3DB499342319B603001952EC /* FRDocumentList.m in Sources */,
+				3DB499242319B5CF001952EC /* FRApplication.m in Sources */,
+				3DB499282319B5DF001952EC /* FRFeedbackController.m in Sources */,
+				3DB499302319B5F8001952EC /* FRMacFeedbackWindowController.m in Sources */,
 				3DE8CF8E1BAEEE18007BD1BB /* AppDelegate.m in Sources */,
+				3DB4992C2319B5EB001952EC /* FRCrashLogFinder.m in Sources */,
+				3DB499232319B5AD001952EC /* FRFeedbackReporter.m in Sources */,
+				3DB499322319B600001952EC /* FRCommand.m in Sources */,
+				3DB499222319B54E001952EC /* NSException+FRCallstack.m in Sources */,
 				3D77A1DA1BAC9D5A00789333 /* FRDocument.m in Sources */,
 				3D77A1D71BAC9D5A00789333 /* main.m in Sources */,
+				3DB4993C2319B67E001952EC /* NSMutableDictionary+FRAdditions.m in Sources */,
+				3DB4992A2319B5E9001952EC /* FRUploader.m in Sources */,
+				3DB499362319B60A001952EC /* FRProgressWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

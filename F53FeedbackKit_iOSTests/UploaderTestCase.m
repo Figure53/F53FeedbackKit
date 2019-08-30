@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+#if !__has_feature(objc_arc)
+#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
+
 #import <XCTest/XCTest.h>
 #import "FRUploader.h"
 
@@ -29,7 +34,7 @@ BOOL terminated;
 {
     NSLog(@"Uploading");
 
-    FRUploader *uploader = [[FRUploader alloc] initWithTarget:@"http://localhost/F53FeedbackKit/submit.php?project=TestCase" delegate:self];
+    FRUploader *uploader = [[FRUploader alloc] initWithTarget:@"https://localhost/F53FeedbackKit/submit.php?project=TestCase" delegate:self];
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:@"test" forKey:@"test"];

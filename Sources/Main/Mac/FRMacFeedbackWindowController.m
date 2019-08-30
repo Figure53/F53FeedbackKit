@@ -3,8 +3,13 @@
 //  F53FeedbackKit
 //
 //  Created by Brent Lord on 9/20/15.
-//  Copyright © 2015-2018 Figure 53, LLC. All rights reserved.
+//  Copyright © 2015-2019 Figure 53, LLC. All rights reserved.
 //
+
+#if !__has_feature(objc_arc)
+#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
 
 #import "FRMacFeedbackWindowController.h"
 

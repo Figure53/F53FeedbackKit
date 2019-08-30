@@ -6,7 +6,6 @@
 //  Copyright © 2015 Figure 53, LLC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
