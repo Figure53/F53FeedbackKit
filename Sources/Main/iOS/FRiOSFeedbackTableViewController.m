@@ -432,6 +432,7 @@ NS_ASSUME_NONNULL_BEGIN
                         textViewCell.textView.tag = cell.tag + 1;
                         textViewCell.textView.text = self.messageViewText;
                         textViewCell.textViewPlaceholder.text = self.messageLabelText;
+                        textViewCell.textViewPlaceholder.hidden = ( self.messageViewText.length > 0 );
                         
                         if ( @available(iOS 10.0, *) )
                         {
