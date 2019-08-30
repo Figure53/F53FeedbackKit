@@ -22,15 +22,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FRUploader : NSObject <NSURLConnectionDataDelegate> {
-
-@private
-    NSString *_target;
-    id<FRUploaderDelegate> _delegate;
-
-    NSURLConnection *_connection;
-    NSMutableData *_responseData;
-}
+@interface FRUploader : NSObject <NSURLSessionDataDelegate>
 
 - (instancetype) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate;
 - (void) postAndNotify:(NSDictionary *)dict;

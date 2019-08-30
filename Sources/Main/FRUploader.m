@@ -30,17 +30,30 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface FRUploader ()
+
+@property (nonatomic, strong)           NSString *target;
+@property (nonatomic, weak)             id<FRUploaderDelegate> delegate;
+
+@property (nonatomic, strong, nullable) NSURLSession *session;
+@property (nonatomic, strong, nullable) NSURLSessionUploadTask *uploadTask;
+@property (nonatomic, strong)           NSMutableData *responseData;
+
+@end
+
+
+
 @implementation FRUploader
 
 - (instancetype) initWithTarget:(NSString *)target delegate:(id<FRUploaderDelegate>)delegate
 {
     self = [super init];
-    if (self != nil) {
-        _target = target;
-        _delegate = delegate;
-        _responseData = [[NSMutableData alloc] init];
+    if ( self )
+    {
+        self.target = target;
+        self.delegate = delegate;
+        self.responseData = [[NSMutableData alloc] init];
     }
-    
     return self;
 }
 
@@ -130,9 +143,9 @@ NS_ASSUME_NONNULL_BEGIN
     formData = [self generateJSONData:dict forBoundary:formBoundary];
 #endif
 
-    NSLog(@"Posting %lu bytes to %@", (unsigned long)[formData length], _target);
+    NSLog(@"Posting %lu bytes to %@", (unsigned long)[formData length], self.target);
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_target]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.target]];
     
 #if defined(FR_UPLOAD_FORM_DATA) || defined(FR_JSON_SENT_AS_PARAM)
     NSString *boundaryString = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", formBoundary];
@@ -140,67 +153,111 @@ NS_ASSUME_NONNULL_BEGIN
 #endif
     
     [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:formData];
     
-    _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-
-    if (_connection != nil) {
-        if ([_delegate respondsToSelector:@selector(uploaderStarted:)]) {
-            [_delegate performSelector:@selector(uploaderStarted:) withObject:self];
-        }
-        
-    } else {
-        if ([_delegate respondsToSelector:@selector(uploaderFailed:withError:)]) {
-
-            [_delegate performSelector:@selector(uploaderFailed:withError:) withObject:self
-                withObject:[NSError errorWithDomain:@"Failed to establish connection" code:0 userInfo:nil]];
-
-        }
-    }
+    self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration] delegate:self delegateQueue:nil];
+    self.uploadTask = [self.session uploadTaskWithRequest:request fromData:formData];
+    [self.uploadTask resume];
 }
 
 - (void) cancel
 {
-    [_connection cancel];
-    _connection = nil;
+    [self.uploadTask cancel];
+    self.uploadTask = nil;
+    
+    [self.session invalidateAndCancel];
+    self.session = nil;
 }
 
 - (NSString *) response
 {
-    return [[NSString alloc] initWithData:_responseData
+    return [[NSString alloc] initWithData:self.responseData
                                  encoding:NSUTF8StringEncoding];
 }
 
+//- (void) dealloc
+//{
+//    NSLog( @"dealloc" );
+//}
 
 
-#pragma mark NSURLConnectionDataDelegate methods
 
-- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+#pragma mark NSURLSessionDelegate methods
+
+- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
 {
-    NSLog(@"Connection received data");
-
-    [_responseData appendData:data];
+    if ( session != self.session )
+        return;
+    if ( dataTask != self.uploadTask )
+        return;
+    
+    if ( self.responseData.length == 0 &&
+        [response respondsToSelector:@selector(statusCode)] &&
+        ((NSHTTPURLResponse *)response).statusCode == 200 )
+    {
+        __weak typeof(self) weakSelf = self;
+        dispatch_async( dispatch_get_main_queue(), ^{
+            
+            if ( [weakSelf.delegate respondsToSelector:@selector(uploaderStarted:)] )
+                [weakSelf.delegate uploaderStarted:weakSelf];
+            
+        });
+    }
+    
+    completionHandler( NSURLSessionResponseAllow );
 }
 
-- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
 {
-    NSLog(@"Connection failed");
+    if ( session != self.session )
+        return;
+    if ( dataTask != self.uploadTask )
+        return;
     
-    if ([_delegate respondsToSelector:@selector(uploaderFailed:withError:)]) {
+    NSLog( @"Connection received data" );
+    
+    __weak typeof(self) weakSelf = self;
+    dispatch_async( dispatch_get_main_queue(), ^{
         
-        [_delegate performSelector:@selector(uploaderFailed:withError:) withObject:self withObject:error];
-    }
-
+        [weakSelf.responseData appendData:data];
+        
+    });
 }
 
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection
+- (void) URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error
 {
-    // NSLog(@"Connection finished");
+    if ( session != self.session )
+        return;
+    if ( task != self.uploadTask )
+        return;
     
-    if ([_delegate respondsToSelector:@selector(uploaderFinished:)]) {
-        [_delegate performSelector:@selector(uploaderFinished:) withObject:self];
+    if ( error )
+    {
+        NSLog(@"Connection failed");
+        
+        __weak typeof(self) weakSelf = self;
+        dispatch_async( dispatch_get_main_queue(), ^{
+            
+            if ( [weakSelf.delegate respondsToSelector:@selector(uploaderFailed:withError:)] )
+                [weakSelf.delegate uploaderFailed:weakSelf withError:error];
+            
+            [weakSelf cancel];
+            
+        });
     }
-    
+    else
+    {
+        NSLog(@"Connection finished");
+        
+        __weak typeof(self) weakSelf = self;
+        dispatch_async( dispatch_get_main_queue(), ^{
+            
+            if ( [self.delegate respondsToSelector:@selector(uploaderFinished:)] )
+                [weakSelf.delegate uploaderFinished:weakSelf];
+            
+            [weakSelf cancel];
+            
+        });
+    }
 }
 
 @end
