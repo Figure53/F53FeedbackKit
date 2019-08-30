@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3D1711321BACC18A0094EF89 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
+		3D1D3072231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D3070231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m */; };
+		3D1D3073231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D3070231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m */; };
+		3D1D3074231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D3070231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m */; };
+		3D1D3075231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D1D3071231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h */; };
+		3D1D3076231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D1D3071231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h */; };
+		3D1D307823189C14003A9748 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1D307723189C14003A9748 /* CoreGraphics.framework */; };
 		3D2E0C2A1BB49A6900370315 /* FRFeedbackReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1311BAC987700789333 /* FRFeedbackReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D2E0C7C1BB4A99400370315 /* FRMacFeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */; };
 		3D2E0CA81BB4B11B00370315 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
@@ -107,6 +113,11 @@
 		3DA977E31FFD8C0400648971 /* FRiOSFeedbackTableViewEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C61BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.m */; };
 		3DA977E41FFD8C0400648971 /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052C81BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.m */; };
 		3DA977E51FFD8C0400648971 /* FRiOSFeedbackTableViewTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE052CA1BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.m */; };
+		3DB4991C23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4991A23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m */; };
+		3DB4991D23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4991A23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m */; };
+		3DB4991E23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4991A23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m */; };
+		3DB4991F23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DB4991B23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h */; };
+		3DB4992023198B74001952EC /* FRiOSFeedbackTableViewFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DB4991B23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h */; };
 		3DB6961320AC539B00857779 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE052E21BB597AB0056E64F /* Localizable.strings */; };
 		3DB6961420AC539B00857779 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE052E21BB597AB0056E64F /* Localizable.strings */; };
 		3DB6962520AC751900857779 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6962820AC751900857779 /* Localizable.strings */; };
@@ -217,6 +228,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D1D3070231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewHeaderView.m; path = iOS/FRiOSFeedbackTableViewHeaderView.m; sourceTree = "<group>"; };
+		3D1D3071231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewHeaderView.h; path = iOS/FRiOSFeedbackTableViewHeaderView.h; sourceTree = "<group>"; };
 		3D2E0CA71BB4B11B00370315 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3D2E0CAB1BB4B13800370315 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -278,7 +291,9 @@
 		3D77A1EF1BAC9F3500789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3D77A1F41BAC9FA500789333 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D77A2371BACA50F00789333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRMacFeedbackWindowController.xib; sourceTree = "<group>"; };
-		3DA977B11FFD82FE00648971 /* F53FeedbackKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = F53FeedbackKit.podspec; sourceTree = SOURCE_ROOT; };
+		3DA977B11FFD82FE00648971 /* F53FeedbackKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = F53FeedbackKit.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3DB4991A23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRiOSFeedbackTableViewFooterView.m; path = iOS/FRiOSFeedbackTableViewFooterView.m; sourceTree = "<group>"; };
+		3DB4991B23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewFooterView.h; path = iOS/FRiOSFeedbackTableViewFooterView.h; sourceTree = "<group>"; };
 		3DB6962920AC755900857779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3DB6962C20AC757000857779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewEmailCell.xib; sourceTree = "<group>"; };
 		3DB6963020AC757400857779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FRiOSFeedbackTableViewTextViewCell.xib; sourceTree = "<group>"; };
@@ -680,6 +695,10 @@
 			children = (
 				3DE052C31BB5927A0056E64F /* FRiOSFeedbackTableViewController.h */,
 				3DE052C41BB5927A0056E64F /* FRiOSFeedbackTableViewController.m */,
+				3D1D3071231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h */,
+				3D1D3070231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m */,
+				3DB4991B23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h */,
+				3DB4991A23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m */,
 				3DE052C11BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.h */,
 				3DE052C21BB5927A0056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m */,
 				3DE052C51BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.h */,
@@ -724,9 +743,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DA977C31FFD895A00648971 /* F53FeedbackKit_iOS.pch in Headers */,
+				3D1D3075231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h in Headers */,
 				3DA977C21FFD88BC00648971 /* FRFeedbackReporter.h in Headers */,
 				3DA977BC1FFD888C00648971 /* FRConstants.h in Headers */,
 				3DA977C51FFD895F00648971 /* F53FeedbackKit_iOS.h in Headers */,
+				3DB4991F23198B74001952EC /* FRiOSFeedbackTableViewFooterView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DC68D831BB5F1AB0002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */,
+				3D1D3076231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h in Headers */,
 				3DE053371BB5B6CE0056E64F /* FRConstants.h in Headers */,
 				3DC68DC71BB605650002242A /* NSMutableDictionary+FRAdditions.h in Headers */,
 				3DC68D851BB5F1AB0002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */,
@@ -750,6 +772,7 @@
 				3DE053351BB5B6CE0056E64F /* FRFeedbackController.h in Headers */,
 				3DE053361BB5B6CE0056E64F /* FRUploader.h in Headers */,
 				3DC68DC81BB605650002242A /* NSString+FRBase64.h in Headers */,
+				3DB4992023198B74001952EC /* FRiOSFeedbackTableViewFooterView.h in Headers */,
 				3DE053321BB5B6CE0056E64F /* FRConsoleLog.h in Headers */,
 				3DE053331BB5B6CE0056E64F /* FRCrashLogFinder.h in Headers */,
 			);
@@ -1128,11 +1151,13 @@
 			files = (
 				3DA977E21FFD8C0400648971 /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */,
 				3DA977DC1FFD8BF500648971 /* FRConsoleLog.m in Sources */,
+				3DB4991C23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m in Sources */,
 				3DA977DE1FFD8BF500648971 /* FRSystemProfile.m in Sources */,
 				3DC3AA251BB06BD4001E1765 /* TableViewController.m in Sources */,
 				3DA977E51FFD8C0400648971 /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
 				3DA977E01FFD8BF500648971 /* FRUploader.m in Sources */,
 				3DA977E11FFD8C0400648971 /* FRiOSFeedbackTableViewController.m in Sources */,
+				3D1D3072231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m in Sources */,
 				3DC3AA221BB06BD4001E1765 /* AppDelegate.m in Sources */,
 				3DC3AA1F1BB06BD4001E1765 /* main.m in Sources */,
 				3DA977DD1FFD8BF500648971 /* FRCrashLogFinder.m in Sources */,
@@ -1154,6 +1179,7 @@
 				3DA977BB1FFD888700648971 /* FRUploader.m in Sources */,
 				3DA977B81FFD887F00648971 /* FRCrashLogFinder.m in Sources */,
 				3DA977B71FFD887A00648971 /* FRConsoleLog.m in Sources */,
+				3DB4991D23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m in Sources */,
 				3DA977BF1FFD889C00648971 /* FRiOSFeedbackTableViewEmailCell.m in Sources */,
 				3DA977B91FFD888100648971 /* FRSystemProfile.m in Sources */,
 				3DA977BD1FFD889700648971 /* FRiOSFeedbackTableViewController.m in Sources */,
@@ -1163,6 +1189,7 @@
 				3DA977C81FFD898C00648971 /* NSString+FRBase64.m in Sources */,
 				3DA977BA1FFD888400648971 /* FRFeedbackController.m in Sources */,
 				3DA977C61FFD898900648971 /* NSException+FRCallstack.m in Sources */,
+				3D1D3073231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m in Sources */,
 				3DA977C71FFD898C00648971 /* NSMutableDictionary+FRAdditions.m in Sources */,
 				3DA977C11FFD88A100648971 /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
 				3DA977B41FFD885D00648971 /* FRFeedbackReporter.m in Sources */,
@@ -1176,6 +1203,7 @@
 				3DE053161BB5A2400056E64F /* FRiOSFeedbackTableViewCheckmarkCell.m in Sources */,
 				3DE053181BB5A2400056E64F /* FRiOSFeedbackTableViewEmailCell.m in Sources */,
 				3DE053141BB5A22D0056E64F /* FRFeedbackController.m in Sources */,
+				3DB4991E23198B74001952EC /* FRiOSFeedbackTableViewFooterView.m in Sources */,
 				3DE053121BB5A22D0056E64F /* FRCrashLogFinder.m in Sources */,
 				3DE053131BB5A22D0056E64F /* FRSystemProfile.m in Sources */,
 				3DE053191BB5A2400056E64F /* FRiOSFeedbackTableViewTabPickerCell.m in Sources */,
@@ -1185,6 +1213,7 @@
 				3DE0531A1BB5A2400056E64F /* FRiOSFeedbackTableViewTextViewCell.m in Sources */,
 				3DE0530E1BB5A2200056E64F /* NSMutableDictionary+FRAdditions.m in Sources */,
 				3DE053171BB5A2400056E64F /* FRiOSFeedbackTableViewController.m in Sources */,
+				3D1D3074231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.m in Sources */,
 				3DE0530D1BB5A2200056E64F /* NSException+FRCallstack.m in Sources */,
 				3DE0530C1BB5A2140056E64F /* FRFeedbackReporter.m in Sources */,
 				3DE0530F1BB5A2200056E64F /* NSString+FRBase64.m in Sources */,

@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #if TARGET_OS_IPHONE
 - (UIColor *) feedbackControllerTintColor;
+
+// NOTE: Automatic sizing for table view headers/footers is unreliable on iOS 9
+// - so the return value of this delegate method is only called when running on iOS 10+.
+- (CGFloat) feedbackControllerTextScale;
 #endif
 
 @end

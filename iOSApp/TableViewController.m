@@ -72,6 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
     }
 }
 
+#pragma mark - FRFeedbackReporterDelegate
+
 - (NSDictionary<NSString *, NSObject<NSCopying> *> *) customParametersForFeedbackReport
 {
     NSLog(@"adding custom parameters");
@@ -86,6 +88,14 @@ NS_ASSUME_NONNULL_BEGIN
     
     return dict;
 }
+
+//- (NSString *)targetUrlForFeedbackReport
+//{
+//    NSString *targetUrlFormat = @"http://myserver.com/submit.php?project=%@&version=%@";
+//    NSString *project = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleExecutable"];
+//    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+//    return [NSString stringWithFormat:targetUrlFormat, project, version];
+//}
 
 - (NSString *) feedbackDisplayName
 {
@@ -135,14 +145,32 @@ NS_ASSUME_NONNULL_BEGIN
     return subheading;
 }
 
-/*
- - (NSString *)targetUrlForFeedbackReport
- {
- NSString *targetUrlFormat = @"http://myserver.com/submit.php?project=%@&version=%@";
- NSString *project = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleExecutable"];
- NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
- return [NSString stringWithFormat:targetUrlFormat, project, version];
- }*/
+//- (UIColor *) feedbackControllerTintColor
+//{
+//    return [UIColor redColor]; // debug
+//}
+
+//- (CGFloat) feedbackControllerTextScale
+//{
+//    return 1.5; // debug
+//}
+
+//- (UIFont *) feedbackControllerFont
+//{
+//    return [UIFont boldSystemFontOfSize:17.0]; // debug
+//}
+
+//- (UIFont *) feedbackControllerHeaderFont
+//{
+//    return [UIFont boldSystemFontOfSize:28.0]; // debug
+//}
+
+//- (UIFont *) feedbackControllerFooterFont
+//{
+//    return [UIFont italicSystemFontOfSize:10.0]; // debug
+//}
+
+#pragma - mark
 
 - (void) doFeedback
 {

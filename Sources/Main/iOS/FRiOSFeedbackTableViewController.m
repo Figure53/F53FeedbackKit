@@ -12,6 +12,8 @@
 
 #import "FRCrashLogFinder.h"
 
+#import "FRiOSFeedbackTableViewHeaderView.h"
+#import "FRiOSFeedbackTableViewFooterView.h"
 #import "FRiOSFeedbackTableViewCheckmarkCell.h"
 #import "FRiOSFeedbackTableViewEmailCell.h"
 #import "FRiOSFeedbackTableViewTabPickerCell.h"
@@ -80,6 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #define SECTION_MESSAGE_ROW_MESSAGE         0
 #define SECTION_MESSAGE_ROW_EMAIL           1
+
 #define SECTION_DETAILS_ROW_SEND_DETAILS    0
 #define SECTION_DETAILS_ROW_INCL_CONSOLE    1
 #define SECTION_DETAILS_ROW_TABS            2
@@ -87,6 +90,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #define TEXTVIEW_MESSAGE_TAG    (SECTION_MESSAGE * 10000) + (SECTION_MESSAGE_ROW_MESSAGE * 100) + 1
 #define TEXTVIEW_DETAILS_TAG    (SECTION_DETAILS * 10000) + (SECTION_DETAILS_ROW_TAB_TEXT * 100) + 1
+
+#define MESSAGE_DEFAULT_HEIGHT              150.0
+#define EMAIL_DEFAULT_HEIGHT                60.0
+#define TABS_DEFAULT_HEIGHT                 44.0
 
 
 - (instancetype) initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil
@@ -132,15 +139,23 @@ NS_ASSUME_NONNULL_BEGIN
     
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
+    if ( @available(iOS 10.0, *) )
+    {
+        // NOTE: Custom header/footer classes are only needed if the delegate implements `feedbackControllerTextScale`.
+        // - The classes need to be registered here (before the feedbackController.delegate is set).
+        // - If the feedback controller delegate does not implement `feedbackControllerTextScale`, `viewForHeaderInSection:` and `viewForFooterInSection:` below return nil so the table uses a default header/footer view.
+        [self.tableView registerClass:[FRiOSFeedbackTableViewHeaderView class] forHeaderFooterViewReuseIdentifier:FRiOSFeedbackTableViewHeaderViewIdentifier];
+        [self.tableView registerClass:[FRiOSFeedbackTableViewFooterView class] forHeaderFooterViewReuseIdentifier:FRiOSFeedbackTableViewFooterViewIdentifier];
+        self.tableView.estimatedSectionHeaderHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedSectionFooterHeight = UITableViewAutomaticDimension;
+    }
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.tableView registerClass:[FRiOSFeedbackTableViewCheckmarkCell class] forCellReuseIdentifier:FRiOSFeedbackTableViewCheckmarkCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewEmailCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewEmailCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTabPickerCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTabPickerCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"FRiOSFeedbackTableViewTextViewCell" bundle:nibBundle] forCellReuseIdentifier:FRiOSFeedbackTableViewTextViewCellIdentifier];
     
-    // enable automatic height
-    self.tableView.estimatedRowHeight = 44.0;
-
     self.title = NSLocalizedString(@"Feedback", nil);
     self.detailsLabelText = NSLocalizedString(@"Details", nil);
     
@@ -336,6 +351,64 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Table view delegate
 
+- (nullable UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = nil;
+    
+    if ( @available(iOS 10.0, *) )
+    {
+        if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+        {
+            UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:FRiOSFeedbackTableViewHeaderViewIdentifier];
+            sectionHeaderView.textLabel.numberOfLines = 0;
+            
+            CGFloat scale = [self.feedbackController.delegate feedbackControllerTextScale];
+            UIFont *defaultFont = [FRiOSFeedbackTableViewHeaderView defaultFont];
+            UIFont *font = [defaultFont fontWithSize:floor( defaultFont.pointSize * scale )];
+            sectionHeaderView.textLabel.adjustsFontForContentSizeCategory = NO;
+            sectionHeaderView.textLabel.font = font;
+            
+            view = sectionHeaderView;
+        }
+    }
+    
+    return view;
+}
+
+- (nullable UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view = nil;
+    
+    if ( @available(iOS 10.0, *) )
+    {
+        if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+        {
+            UITableViewHeaderFooterView *sectionFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:FRiOSFeedbackTableViewFooterViewIdentifier];
+            sectionFooterView.textLabel.numberOfLines = 0;
+            
+            CGFloat scale = [self.feedbackController.delegate feedbackControllerTextScale];
+            UIFont *defaultFont = [FRiOSFeedbackTableViewFooterView defaultFont];
+            UIFont *font = [defaultFont fontWithSize:floor( defaultFont.pointSize * scale )];
+            sectionFooterView.textLabel.adjustsFontForContentSizeCategory = NO;
+            sectionFooterView.textLabel.font = font;
+            
+            view = sectionFooterView;
+        }
+    }
+    
+    return view;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+{
+    return 1.0; // if this delegate method is implemented, it must return a positive value to work correctly
+}
+
+- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+{
+    return 1.0; // if this delegate method is implemented, it must return a positive value to work correctly
+}
+
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // global config
@@ -354,6 +427,20 @@ NS_ASSUME_NONNULL_BEGIN
                         textViewCell.textView.tag = cell.tag + 1;
                         textViewCell.textView.text = self.messageViewText;
                         textViewCell.textViewPlaceholder.text = self.messageLabelText;
+                        
+                        if ( @available(iOS 10.0, *) )
+                        {
+                            if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+                            {
+                                CGFloat scale = [self.feedbackController.delegate feedbackControllerTextScale];
+                                CGFloat fontSize = floor( [UIFont labelFontSize] * scale );
+                                UIFont *font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
+                                textViewCell.textView.adjustsFontForContentSizeCategory = NO;
+                                textViewCell.textViewPlaceholder.adjustsFontForContentSizeCategory = NO;
+                                textViewCell.textView.font = font;
+                                textViewCell.textViewPlaceholder.font = font;
+                            }
+                        }
                     }
                 } break;
                     
@@ -365,6 +452,19 @@ NS_ASSUME_NONNULL_BEGIN
                         emailCell.emailBox.text = self.emailBoxText;
                         emailCell.emailBox.textColor = self.emailBoxTextColor;
                         emailCell.emailBox.placeholder = NSLocalizedString(@"Email address:", nil);
+                        
+                        if ( @available(iOS 10.0, *) )
+                        {
+                            if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+                            {
+                                CGFloat scale = [self.feedbackController.delegate feedbackControllerTextScale];
+                                CGFloat fontSize = floor( [UIFont labelFontSize] * scale );
+                                UIFont *font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
+                                emailCell.emailBox.adjustsFontForContentSizeCategory = NO;
+                                emailCell.emailBox.font = font;
+                                emailCell.emailBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Email address:", nil) attributes:@{ NSFontAttributeName : font }];
+                            }
+                        }
                     }
                 } break;
                     
@@ -383,6 +483,18 @@ NS_ASSUME_NONNULL_BEGIN
                         checkmarkCell.textLabel.tag = cell.tag + 1;
                         checkmarkCell.textLabel.text = NSLocalizedString(@"Send details", nil);
                         checkmarkCell.checkmarkOn = self.sendDetails;
+                        
+                        if ( @available(iOS 10.0, *) )
+                        {
+                            if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+                            {
+                                CGFloat scale = [self.feedbackController.delegate feedbackControllerTextScale];
+                                CGFloat fontSize = floor( [UIFont labelFontSize] * scale );
+                                UIFont *font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
+                                checkmarkCell.textLabel.adjustsFontForContentSizeCategory = NO;
+                                checkmarkCell.textLabel.font = font;
+                            }
+                        }
                     }
                 } break;
                     
@@ -400,6 +512,18 @@ NS_ASSUME_NONNULL_BEGIN
                             [checkmarkCell startSpinner];
                         else
                             [checkmarkCell stopSpinner];
+                        
+                        if ( @available(iOS 10.0, *) )
+                        {
+                            if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+                            {
+                                CGFloat scale = [self.feedbackController.delegate feedbackControllerTextScale];
+                                CGFloat fontSize = floor( [UIFont labelFontSize] * scale );
+                                UIFont *font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
+                                checkmarkCell.textLabel.adjustsFontForContentSizeCategory = NO;
+                                checkmarkCell.textLabel.font = font;
+                            }
+                        }
                     }
                 } break;
                     
@@ -409,6 +533,13 @@ NS_ASSUME_NONNULL_BEGIN
                         FRiOSFeedbackTableViewTabPickerCell *tabPickerCell = (FRiOSFeedbackTableViewTabPickerCell *)cell;
                         tabPickerCell.tabControl.tag = cell.tag + 1;
                         tabPickerCell.tabControl.tintColor = self.delegateTintColor;
+                        
+                        if ( @available(iOS 10.0, *) )
+                        {
+                            CGFloat fontSize = [self maybeScaledValueForValue:[UIFont smallSystemFontSize]];
+                            UIFont *font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightMedium];
+                            [tabPickerCell.tabControl setTitleTextAttributes:@{ NSFontAttributeName : font } forState:UIControlStateNormal];
+                        }
                     }
                     
                     [self updateDetailsTabItems];
@@ -419,8 +550,20 @@ NS_ASSUME_NONNULL_BEGIN
                     {
                         FRiOSFeedbackTableViewTextViewCell *textViewCell = (FRiOSFeedbackTableViewTextViewCell *)cell;
                         textViewCell.textView.tag = cell.tag + 1;
-                        textViewCell.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
                         textViewCell.textView.editable = NO;
+                        
+                        UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+                        if ( @available(iOS 10.0, *) )
+                        {
+                            if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+                            {
+                                CGFloat scale = [self.feedbackController.delegate feedbackControllerTextScale];
+                                CGFloat fontSize = floor( [UIFont labelFontSize] * scale * 0.9 ); // a bit smaller
+                                font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
+                                textViewCell.textView.adjustsFontForContentSizeCategory = NO;
+                            }
+                        }
+                        textViewCell.textView.font = font;
                     }
                     
                     [self updateDetailsTextView];
@@ -448,14 +591,13 @@ NS_ASSUME_NONNULL_BEGIN
             switch ( indexPath.row ) {
                     
                 case SECTION_MESSAGE_ROW_MESSAGE:
-                    if ( @available(iOS 11.0, *) )
-                    {
-                        height = [[UIFontMetrics defaultMetrics] scaledValueForValue:150.0];
-                    }
-                    else
-                    {
-                        height = 150.0;
-                    }
+                    height = [self maybeScaledValueForValue:MESSAGE_DEFAULT_HEIGHT];
+                    height = fmin( height, 300.0 );
+                    break;
+                    
+                case SECTION_MESSAGE_ROW_EMAIL:
+                    height = [self maybeScaledValueForValue:EMAIL_DEFAULT_HEIGHT];
+                    height = fmin( height, 100.0 );
                     break;
                     
                 default:
@@ -477,6 +619,12 @@ NS_ASSUME_NONNULL_BEGIN
                     if ( !self.sendDetailsIsOptional || !self.detailsShown )
                         height = 0.0;
                 } break;
+                    
+                case SECTION_DETAILS_ROW_TABS:
+                    height = [self maybeScaledValueForValue:TABS_DEFAULT_HEIGHT];
+                    height = fmax( height, TABS_DEFAULT_HEIGHT );
+                    height = fmin( height, 100.0 );
+                    break;
                     
                 case SECTION_DETAILS_ROW_TAB_TEXT:
                     height = 300.0;
@@ -544,6 +692,27 @@ NS_ASSUME_NONNULL_BEGIN
     }
     
     return thisTag;
+}
+
+- (CGFloat) maybeScaledValueForValue:(CGFloat)value
+{
+    // If delegate implements `feedbackControllerTextScale` (and we are on iOS 10+), scale using the delegate value.
+    // If not, scale using the current font size category, if available (iOS 11+ only).
+    // All else, pass thru original value unscaled.
+    
+    if ( @available(iOS 10.0, *) )
+    {
+        if ( [self.feedbackController.delegate respondsToSelector:@selector(feedbackControllerTextScale)] )
+            return floor( [self.feedbackController.delegate feedbackControllerTextScale] * value );
+    }
+    
+    if ( @available(iOS 11.0, *) )
+    {
+        return floor( [[UIFontMetrics defaultMetrics] scaledValueForValue:value] );
+    }
+    
+    // all else - no scaling
+    return value;
 }
 
 
