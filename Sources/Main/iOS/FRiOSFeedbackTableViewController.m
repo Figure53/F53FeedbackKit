@@ -180,8 +180,9 @@ NS_ASSUME_NONNULL_BEGIN
     [super viewDidAppear:animated];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_MESSAGE_ROW_MESSAGE inSection:SECTION_MESSAGE];
-    FRiOSFeedbackTableViewTextViewCell *messageViewCell = (FRiOSFeedbackTableViewTextViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    [messageViewCell.textView becomeFirstResponder];
+    NSUInteger tag = [self getTagFromIndexPath:indexPath];
+    UIView *messageTextView = [self.tableView viewWithTag:tag + 1];
+    [messageTextView becomeFirstResponder];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -735,8 +736,10 @@ NS_ASSUME_NONNULL_BEGIN
         }
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_MESSAGE_ROW_MESSAGE inSection:SECTION_MESSAGE];
-        FRiOSFeedbackTableViewTextViewCell *cell = (FRiOSFeedbackTableViewTextViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        cell.textView.editable = !_uploading;
+        NSUInteger tag = [self getTagFromIndexPath:indexPath];
+        UIView *messageTextView = [self.tableView viewWithTag:tag + 1];
+        if ( [messageTextView isKindOfClass:[UITextView class]] )
+            ((UITextView *)messageTextView).editable = !_uploading;
         
         [self.sendButton setEnabled:!_uploading];
     }
@@ -865,16 +868,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) updateDetailsTabItems
 {
-    NSIndexPath *detailsIndexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_TABS inSection:SECTION_DETAILS];
-    FRiOSFeedbackTableViewTabPickerCell *cell = (FRiOSFeedbackTableViewTabPickerCell *)[self.tableView cellForRowAtIndexPath:detailsIndexPath];
-    [cell configureControlWithItems:self.detailsTabItems selectedItem:self.selectedDetailTabItem];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_TABS inSection:SECTION_DETAILS];
+    NSUInteger tag = [self getTagFromIndexPath:indexPath];
+    UIView *tabPickerCell = [self.tableView viewWithTag:tag];
+    if ( [tabPickerCell isKindOfClass:[FRiOSFeedbackTableViewTabPickerCell class]] )
+        [(FRiOSFeedbackTableViewTabPickerCell *)tabPickerCell configureControlWithItems:self.detailsTabItems selectedItem:self.selectedDetailTabItem];
 }
 
 - (void) updateDetailsTextView
 {
-    NSIndexPath *detailsIndexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_TAB_TEXT inSection:SECTION_DETAILS];
-    FRiOSFeedbackTableViewTextViewCell *cell = (FRiOSFeedbackTableViewTextViewCell *)[self.tableView cellForRowAtIndexPath:detailsIndexPath];
-    cell.textView.text = [self.selectedDetailTabItem objectForKey:@"text"];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_TAB_TEXT inSection:SECTION_DETAILS];
+    NSUInteger tag = [self getTagFromIndexPath:indexPath];
+    UIView *detailsTextView = [self.tableView viewWithTag:tag + 1];
+    if ( [detailsTextView isKindOfClass:[UITextView class]] )
+        ((UITextView *)detailsTextView).text = [self.selectedDetailTabItem objectForKey:@"text"];
 }
 
 - (void) startSpinner
@@ -884,9 +891,11 @@ NS_ASSUME_NONNULL_BEGIN
     
     self.includeConsoleSpinnerOn = YES;
     
-    NSIndexPath *includeConsoleIndexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_INCL_CONSOLE inSection:SECTION_DETAILS];
-    FRiOSFeedbackTableViewCheckmarkCell *cell = (FRiOSFeedbackTableViewCheckmarkCell *)[self.tableView cellForRowAtIndexPath:includeConsoleIndexPath];
-    [cell startSpinner];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_INCL_CONSOLE inSection:SECTION_DETAILS];
+    NSUInteger tag = [self getTagFromIndexPath:indexPath];
+    UIView *includeConsoleCell = [self.tableView viewWithTag:tag];
+    if ( [includeConsoleCell isKindOfClass:[FRiOSFeedbackTableViewCheckmarkCell class]] )
+        [(FRiOSFeedbackTableViewCheckmarkCell *)includeConsoleCell startSpinner];
 }
 
 - (void) stopSpinner
@@ -896,12 +905,14 @@ NS_ASSUME_NONNULL_BEGIN
     
     self.includeConsoleSpinnerOn = NO;
     
-    NSIndexPath *includeConsoleIndexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_INCL_CONSOLE inSection:SECTION_DETAILS];
-    FRiOSFeedbackTableViewCheckmarkCell *cell = (FRiOSFeedbackTableViewCheckmarkCell *)[self.tableView cellForRowAtIndexPath:includeConsoleIndexPath];
-    [cell stopSpinner];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_INCL_CONSOLE inSection:SECTION_DETAILS];
+    NSUInteger tag = [self getTagFromIndexPath:indexPath];
+    UIView *includeConsoleCell = [self.tableView viewWithTag:tag];
+    if ( [includeConsoleCell isKindOfClass:[FRiOSFeedbackTableViewCheckmarkCell class]] )
+        [(FRiOSFeedbackTableViewCheckmarkCell *)includeConsoleCell stopSpinner];
     
-    if ( [self.tableView.indexPathsForVisibleRows containsObject:includeConsoleIndexPath] )
-        [self.tableView reloadRowsAtIndexPaths:@[includeConsoleIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+    if ( [self.tableView.indexPathsForVisibleRows containsObject:indexPath] )
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
     [self.sendButton setEnabled:YES];
 }
@@ -1053,9 +1064,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) handleSelectedDetailTabItemDidChange:(NSNotification *)notification
 {
     // force end editing to preserve current text view value in currently-selected tab before we switch
-    NSIndexPath *detailsIndexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_TAB_TEXT inSection:SECTION_DETAILS];
-    FRiOSFeedbackTableViewTextViewCell *cell = (FRiOSFeedbackTableViewTextViewCell *)[self.tableView cellForRowAtIndexPath:detailsIndexPath];
-    [cell.textView endEditing:YES];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:SECTION_DETAILS_ROW_TAB_TEXT inSection:SECTION_DETAILS];
+    NSUInteger tag = [self getTagFromIndexPath:indexPath];
+    UIView *detailsTextView = [self.tableView viewWithTag:tag + 1];
+    [detailsTextView endEditing:YES];
     
     id tabItem = notification.object;
     self.selectedDetailTabItem = tabItem;
