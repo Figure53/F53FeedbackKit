@@ -1,3 +1,7 @@
+## Version 1.5.0
+* [CHG] Compatibility fixes for iOS 13.
+* [CHG] iOS target now requires 9.0+.
+
 ## Version 1.4.1
 * [CHG] Adds support for Dynamic Type font sizes on iOS.
 

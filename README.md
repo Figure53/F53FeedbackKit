@@ -48,7 +48,7 @@ This is a fork of the excellent [FeedbackReporter framework][1] which already di
 
 ## Version Support
 
-F53FeedbackKit requires a minimum deployment target of macOS 10.10 or iOS 8.4. The sample project requires Xcode 7.0 or newer for macOS testing and Xcode 9.3 or newer for iOS.
+F53FeedbackKit requires a minimum deployment target of macOS 10.10 or iOS 9.0. The sample project requires Xcode 7.0 or newer for macOS testing and Xcode 9.3 or newer for iOS.
 
 
 

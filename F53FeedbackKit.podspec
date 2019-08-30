@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name                = 'F53FeedbackKit'
-  s.version             = '1.4.1'
+  s.version             = '1.5.0'
   s.summary             = 'Framework for sending feedback and system information reports from your iOS application.'
   s.license             = 'apache'
   s.homepage            = 'https://github.com/Figure53/F53FeedbackKit'
   s.authors             = 'Figure 53, LLC', 'Torsten Curdt', 'Fraser Speirs', 'Jens Alfke'
   s.source              = { :git => 'https://github.com/Figure53/F53FeedbackKit.git', :tag => "#{s.version}" }
-  s.platforms           = { :ios => '8.4' }
+  s.platforms           = { :ios => '9.0' }
   
   s.requires_arc        = true
   
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
       'Sources/Resources/iOS/Base.lproj/Localizable.strings'
     ]
   
-    ss.platform           = :ios, '8.4'
     ss.frameworks         = 'Foundation', 'UIKit', 'SystemConfiguration'
+    ss.platform           = :ios, '9.0'
     ss.resource_bundles   = { 'F53FeedbackKit' => ['Sources/Resources/iOS/Base.lproj/*.xib'] }
   end
   
