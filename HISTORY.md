@@ -1,6 +1,8 @@
 ## Version 1.5.0
+* [FIX] Fixes a deprecation warning by migrating from NSURLConnection to NSURLSession.
 * [CHG] Compatibility fixes for iOS 13.
 * [CHG] iOS target now requires 9.0+.
+* [ADD] Adds new optional delegate method `feedbackControllerTextScale` on iOS to allow customizing the scale of the display text.
 
 ## Version 1.4.1
 * [CHG] Adds support for Dynamic Type font sizes on iOS.
@@ -34,9 +36,9 @@
 
 
 ## Version 1.3.4
-* [ADD] Adds new optional delegate method "customizeConsoleLogForFeedbackReportSince:maxSize:" to allow overriding or adding additional text to the console log.
-* [ADD] Adds new optional delegate method "customizeFeedbackHeading:forType:" to allow customizing the default heading text per feedback type.
-* [ADD] Adds new optional delegate method "customizeFeedbackSubheading:forType:" to allow customizing the default subheading text per feedback type.
+* [ADD] Adds new optional delegate method `customizeConsoleLogForFeedbackReportSince:maxSize:` to allow overriding or adding additional text to the console log.
+* [ADD] Adds new optional delegate method `customizeFeedbackHeading:forType:` to allow customizing the default heading text per feedback type.
+* [ADD] Adds new optional delegate method `customizeFeedbackSubheading:forType:` to allow customizing the default subheading text per feedback type.
 * [FIX] Prevents a crash if (FRFeedbackReporter.maxConsoleLogSize) is set as String type.
 * [FIX] Adds support for using plist types Boolean and Number.
 
@@ -51,8 +53,8 @@
 ## Version 1.3.2
 * [ADD] Adds iOS-compatible UI.
 * [ADD] Adds Cocoapods podspec for creating iOS Framework.
-* [ADD] Adds new method "reportCrash:" to report externally-collected crash reports.
-* [ADD] Adds new optional delegate method "feedbackControllerTintColor" to allow  overriding the interface tint color for the iOS view controller navigation button text and various UI elements.
+* [ADD] Adds new method `reportCrash:` to report externally-collected crash reports.
+* [ADD] Adds new optional delegate method `feedbackControllerTintColor` to allow  overriding the interface tint color for the iOS view controller navigation button text and various UI elements.
 * [CHG] Rebuilt project for Xcode 6.
 * [CHG] Adopts ARC for Mac and iOS.
 * [CHG] Mac target requires 10.8+.
@@ -61,7 +63,7 @@
 
 ## Version 1.3.1, unreleased
 * [ADD] Added Spanish translation. Thanks to Emilio Perez.
-* [ADD] Added targetUrlForFeedbackReport to delegate protocol. Thanks to Rick Fillion.
+* [ADD] Added `targetUrlForFeedbackReport` to delegate protocol. Thanks to Rick Fillion.
 * [FIX] Don't cache server response. Thanks to Rick Fillion.
 * [FIX] PLIST_KEY_LOGHOURS should come from the info plist. Thanks to Rico.
 * [CHG] Link against Foundation and 10.4 compatibility. Thanks to Linas Valiukas.
