@@ -88,8 +88,8 @@ static dispatch_once_t once_token = 0;
 {
     return [self showFeedbackControllerWithType:FR_FEEDBACK
                                           title:nil
-                                        heading:NSLocalizedString(@"Got a problem with %@?", nil)
-                                     subheading:NSLocalizedString(@"Send feedback", nil)
+                                        heading:FRLocalizedString(@"Got a problem with %@?", nil)
+                                     subheading:FRLocalizedString(@"Send feedback", nil)
                                           crash:nil
                                       exception:nil];
 }
@@ -108,8 +108,8 @@ static dispatch_once_t once_token = 0;
         
         return [self showFeedbackControllerWithType:FR_CRASH
                                               title:nil
-                                            heading:NSLocalizedString(@"%@ has recently crashed!", nil)
-                                         subheading:NSLocalizedString(@"Send crash report", nil)
+                                            heading:FRLocalizedString(@"%@ has recently crashed!", nil)
+                                         subheading:FRLocalizedString(@"Send crash report", nil)
                                               crash:nil
                                           exception:nil];
         
@@ -124,8 +124,8 @@ static dispatch_once_t once_token = 0;
         
         return [self showFeedbackControllerWithType:FR_CRASH
                                               title:nil
-                                            heading:NSLocalizedString(@"%@ has recently crashed!", nil)
-                                         subheading:NSLocalizedString(@"Send crash report", nil)
+                                            heading:FRLocalizedString(@"%@ has recently crashed!", nil)
+                                         subheading:FRLocalizedString(@"Send crash report", nil)
                                               crash:crashLogText
                                           exception:nil];
         
@@ -144,8 +144,8 @@ static dispatch_once_t once_token = 0;
     
     return [self showFeedbackControllerWithType:FR_EXCEPTION
                                           title:nil
-                                        heading:NSLocalizedString(@"%@ has encountered an exception!", nil)
-                                     subheading:NSLocalizedString(@"Send crash report", nil)
+                                        heading:FRLocalizedString(@"%@ has encountered an exception!", nil)
+                                     subheading:FRLocalizedString(@"Send crash report", nil)
                                           crash:nil
                                       exception:exceptionText];
 }
@@ -153,9 +153,9 @@ static dispatch_once_t once_token = 0;
 - (BOOL) reportSupportNeed
 {
     return [self showFeedbackControllerWithType:FR_SUPPORT
-                                          title:NSLocalizedString(@"Contact Support", nil)
-                                        heading:NSLocalizedString(@"Need help with %@?", nil)
-                                     subheading:NSLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)
+                                          title:FRLocalizedString(@"Contact Support", nil)
+                                        heading:FRLocalizedString(@"Need help with %@?", nil)
+                                     subheading:FRLocalizedString(@"We're happy to help. Please describe your problem and send it to us along with the helpful details below.", nil)
                                           crash:nil
                                       exception:nil];
 }

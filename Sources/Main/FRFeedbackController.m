@@ -422,14 +422,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) shouldSend:(id)sender
 {
     // Check that email is present
-    if ([self.windowController.emailBox stringValue] == nil || [[self.windowController.emailBox stringValue] isEqualToString:@""] || [[self.windowController.emailBox stringValue] isEqualToString:NSLocalizedString(@"anonymous", nil)]) {
+    if ([self.windowController.emailBox stringValue] == nil || [[self.windowController.emailBox stringValue] isEqualToString:@""] || [[self.windowController.emailBox stringValue] isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
         for (NSString *aType in self.emailRequiredTypes) {
             if ([aType isEqualToString:self.type]) {
                 NSAlert *alert = [[NSAlert alloc] init];
                 [alert setAlertStyle:NSWarningAlertStyle];
                 [alert setMessageText:@"Email required"];
                 [alert setInformativeText:@"You must enter an email address so that we can respond to you."];
-                [alert addButtonWithTitle:NSLocalizedString( @"OK", @"" )];
+                [alert addButtonWithTitle:FRLocalizedString( @"OK", @"" )];
                 [alert runModal];
                 return NO;
             }
@@ -440,8 +440,8 @@ NS_ASSUME_NONNULL_BEGIN
                 [alert setAlertStyle:NSWarningAlertStyle];
                 [alert setMessageText:@"Email missing"];
                 [alert setInformativeText:@"Email is missing. Without an email address, we cannot respond to you. Go back and enter one?"];
-                [alert addButtonWithTitle:NSLocalizedString( @"OK", @"" )];
-                [alert addButtonWithTitle:NSLocalizedString( @"Continue anyway", @"" )];
+                [alert addButtonWithTitle:FRLocalizedString( @"OK", @"" )];
+                [alert addButtonWithTitle:FRLocalizedString( @"Continue anyway", @"" )];
                 NSModalResponse buttonPressed = [alert runModal];
                 if (buttonPressed == NSAlertFirstButtonReturn)
                     return NO;
@@ -456,10 +456,10 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setAlertStyle:NSWarningAlertStyle];
-    [alert setMessageText:NSLocalizedString( @"Feedback Host Not Reachable", nil )];
-    [alert setInformativeText:[NSString stringWithFormat:NSLocalizedString( @"You may not be able to send feedback because %@ isn't reachable.", nil ), host]];
-    [alert addButtonWithTitle:NSLocalizedString( @"Proceed Anyway", nil )];
-    [alert addButtonWithTitle:NSLocalizedString( @"Cancel", nil )];
+    [alert setMessageText:FRLocalizedString( @"Feedback Host Not Reachable", nil )];
+    [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString( @"You may not be able to send feedback because %@ isn't reachable.", nil ), host]];
+    [alert addButtonWithTitle:FRLocalizedString( @"Proceed Anyway", nil )];
+    [alert addButtonWithTitle:FRLocalizedString( @"Cancel", nil )];
     NSModalResponse alertResult = [alert runModal];
     if (alertResult != NSAlertFirstButtonReturn) {
         return NO;
@@ -530,9 +530,9 @@ NS_ASSUME_NONNULL_BEGIN
     self.windowController.uploading = NO;
     
     NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
-    [alert setMessageText:NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
-    [alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), [error localizedDescription]]];
+    [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
+    [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
+    [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]]];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert runModal];
     
@@ -563,9 +563,9 @@ NS_ASSUME_NONNULL_BEGIN
             NSLog (@"Failed to submit to server: %@", response);
             
             NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
-            [alert setMessageText:NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
-            [alert setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), line]];
+            [alert addButtonWithTitle:FRLocalizedString(@"OK", nil)];
+            [alert setMessageText:FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil)];
+            [alert setInformativeText:[NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line]];
             [alert setAlertStyle:NSWarningAlertStyle];
             [alert runModal];
             
@@ -682,7 +682,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) shouldSend:(id)sender
 {
     // Check that email is present
-    if (self.controller.emailBoxText == nil || [self.controller.emailBoxText isEqualToString:@""] || [self.controller.emailBoxText isEqualToString:NSLocalizedString(@"anonymous", nil)]) {
+    if (self.controller.emailBoxText == nil || [self.controller.emailBoxText isEqualToString:@""] || [self.controller.emailBoxText isEqualToString:FRLocalizedString(@"anonymous", nil)]) {
         for (NSString *aType in self.emailRequiredTypes) {
             if ([aType isEqualToString:self.type]) {
                 
@@ -690,7 +690,7 @@ NS_ASSUME_NONNULL_BEGIN
                 NSString *message = @"You must enter an email address so that we can respond to you.";
                 
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-                [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString( @"OK", @"" ) style:UIAlertActionStyleCancel handler:nil]];
+                [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString( @"OK", @"" ) style:UIAlertActionStyleCancel handler:nil]];
                 
                 [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
                 
@@ -740,14 +740,14 @@ NS_ASSUME_NONNULL_BEGIN
         return YES;
     }
     
-    NSString *title = NSLocalizedString(@"Feedback Host Not Reachable", nil);
-    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host];
+    NSString *title = FRLocalizedString(@"Feedback Host Not Reachable", nil);
+    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"You may not be able to send feedback because %@ isn't reachable.", nil), host];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
     
     __weak typeof(self) weakSelf = self;
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Proceed Anyway", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"Proceed Anyway", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if ( !strongSelf )
@@ -824,11 +824,11 @@ NS_ASSUME_NONNULL_BEGIN
     
     self.controller.uploading = NO;
     
-    NSString *title = NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
-    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), [error localizedDescription]];
+    NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+    NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), [error localizedDescription]];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]]; // rather than call [self close] and disscard the view controller -- and all of the user's typing, just dismiss and give the user a chance to attempt a recovery. They can press cancel if they want to bail.
+    [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]]; // rather than call [self close] and disscard the view controller -- and all of the user's typing, just dismiss and give the user a chance to attempt a recovery. They can press cancel if they want to bail.
     
     [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
     
@@ -857,11 +857,11 @@ NS_ASSUME_NONNULL_BEGIN
             
             NSLog (@"Failed to submit to server: %@", response);
             
-            NSString *title = NSLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
-            NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Error: %@", nil), line];
+            NSString *title = FRLocalizedString(@"Sorry, failed to submit your feedback to the server.", nil);
+            NSString *message = [NSString stringWithFormat:FRLocalizedString(@"Error: %@", nil), line];
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:FRLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
             
             [self.controller.navigationController presentViewController:alert animated:YES completion:nil];
             

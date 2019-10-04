@@ -19,4 +19,6 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 
+    #define FRLocalizedString(key,comment) NSLocalizedStringFromTableInBundle(key, nil, [NSBundle bundleWithIdentifier:@"com.figure53.F53FeedbackKit"], comment)
+
 #endif
