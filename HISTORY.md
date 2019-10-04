@@ -1,3 +1,6 @@
+## Version 1.5.1
+* [CHG] Restores `FRLocalizedString()` macro to fix localizations when building as a framework.
+
 ## Version 1.5.0
 * [FIX] Fixes a deprecation warning by migrating from NSURLConnection to NSURLSession.
 * [CHG] Compatibility fixes for iOS 13.
