@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Request Support"; ObjectID = "LaC-ep-bpX"; */
+"LaC-ep-bpX.text" = "Request Support";
+
+/* Class = "UILabel"; text = "Throw Exception in Thread"; ObjectID = "Ltg-5j-uOn"; */
+"Ltg-5j-uOn.text" = "Throw Exception in Thread";
+
+/* Class = "UILabel"; text = "Send Crash Report"; ObjectID = "O7p-qi-Lv0"; */
+"O7p-qi-Lv0.text" = "Send Crash Report";
+
+/* Class = "UILabel"; text = "Throw Exception"; ObjectID = "Zci-61-UrD"; */
+"Zci-61-UrD.text" = "Throw Exception";
+
+/* Class = "UILabel"; text = "Crash Application"; ObjectID = "kuu-z1-LY2"; */
+"kuu-z1-LY2.text" = "Crash Application";
+
+/* Class = "UILabel"; text = "Send Feedback"; ObjectID = "x1z-wh-3mp"; */
+"x1z-wh-3mp.text" = "Send Feedback";

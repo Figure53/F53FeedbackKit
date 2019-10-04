@@ -1,0 +1,72 @@
+
+/* Class = "NSMenu"; title = "AMainMenu"; ObjectID = "29"; */
+"29.title" = "AMainMenu";
+
+/* Class = "NSMenuItem"; title = "NewApplication"; ObjectID = "56"; */
+"56.title" = "NewApplication";
+
+/* Class = "NSMenu"; title = "NewApplication"; ObjectID = "57"; */
+"57.title" = "NewApplication";
+
+/* Class = "NSMenuItem"; title = "About App"; ObjectID = "58"; */
+"58.title" = "About App";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
+"129.title" = "Preferences…";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
+"130.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
+"131.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Hide NewApplication"; ObjectID = "134"; */
+"134.title" = "Hide NewApplication";
+
+/* Class = "NSMenuItem"; title = "Quit NewApplication"; ObjectID = "136"; */
+"136.title" = "Quit NewApplication";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
+"145.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "150"; */
+"150.title" = "Show All";
+
+/* Class = "NSWindow"; title = "App"; ObjectID = "367"; */
+"367.title" = "App";
+
+/* Class = "NSButtonCell"; title = "Send Feedback"; ObjectID = "450"; */
+"450.title" = "Send Feedback";
+
+/* Class = "NSButtonCell"; title = "Throw Exception"; ObjectID = "452"; */
+"452.title" = "Throw Exception";
+
+/* Class = "NSButtonCell"; title = "Crash Application"; ObjectID = "454"; */
+"454.title" = "Crash Application";
+
+/* Class = "NSButtonCell"; title = "Throw Exception in Thread"; ObjectID = "461"; */
+"461.title" = "Throw Exception in Thread";
+
+/* Class = "NSMenuItem"; title = "Test"; ObjectID = "468"; */
+"468.title" = "Test";
+
+/* Class = "NSMenu"; title = "Test"; ObjectID = "469"; */
+"469.title" = "Test";
+
+/* Class = "NSMenuItem"; title = "Throw Exception"; ObjectID = "470"; */
+"470.title" = "Throw Exception";
+
+/* Class = "NSMenuItem"; title = "Throw Exception in Thread"; ObjectID = "471"; */
+"471.title" = "Throw Exception in Thread";
+
+/* Class = "NSMenuItem"; title = "Send Feedback"; ObjectID = "472"; */
+"472.title" = "Send Feedback";
+
+/* Class = "NSMenuItem"; title = "Crash Application"; ObjectID = "473"; */
+"473.title" = "Crash Application";
+
+/* Class = "NSButtonCell"; title = "Request Support"; ObjectID = "479"; */
+"479.title" = "Request Support";
+
+/* Class = "NSButtonCell"; title = "Send Crash Report"; ObjectID = "5NK-zE-ClA"; */
+"5NK-zE-ClA.title" = "Send Crash Report";
