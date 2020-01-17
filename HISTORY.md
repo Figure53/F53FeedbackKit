@@ -1,3 +1,7 @@
+## Version 1.5.2
+* [FIX] The CocoaPods podspec for iOS now includes the required .pch file, which fixes the missing `FRLocalizedString` definition when integrating using CocoaPods.
+* [CHG] CocoaPods integration requires gem version 1.8.0+.
+
 ## Version 1.5.1
 * [CHG] Restores `FRLocalizedString()` macro to fix localizations when building as a framework.
 
