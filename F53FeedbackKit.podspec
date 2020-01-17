@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name                = 'F53FeedbackKit'
   s.version             = '1.5.2'
+  s.cocoapods_version   = '>= 1.8.0'
   s.summary             = 'Framework for sending feedback and system information reports from your iOS application.'
   s.license             = 'apache'
   s.homepage            = 'https://github.com/Figure53/F53FeedbackKit'
@@ -9,6 +10,9 @@ Pod::Spec.new do |s|
   s.platforms           = { :ios => '9.0' }
   
   s.requires_arc        = true
+  s.info_plist = {
+      'CFBundleIdentifier' => 'com.figure53.F53FeedbackKit',
+  }
   
   s.default_subspec     = "iOS"
   

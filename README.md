@@ -48,7 +48,7 @@ This is a fork of the excellent [FeedbackReporter framework][1] which already di
 
 ## Version Support
 
-F53FeedbackKit requires a minimum deployment target of macOS 10.10 or iOS 9.0. The sample project requires Xcode 7.0 or newer for macOS testing and Xcode 9.3 or newer for iOS.
+F53FeedbackKit requires a minimum deployment target of macOS 10.10 or iOS 9.0. The sample project requires Xcode 7.0 or newer for macOS testing and Xcode 9.3 or newer for iOS. CocoaPods integration requires CocoaPods version 1.8.0 or newer.
 
 
 
@@ -71,7 +71,7 @@ We recommend using [CocoaPods](http://cocoapods.org) to install an iOS framework
 pod 'F53FeedbackKit/iOS', :git => 'https://github.com/Figure53/F53FeedbackKit.git'
 ```
 
-Then import module:
+Then import the module:
 ```objective-c
 @import F53FeedbackKit;
 ```

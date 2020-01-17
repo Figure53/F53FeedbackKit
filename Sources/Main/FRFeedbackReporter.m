@@ -174,6 +174,7 @@ static dispatch_once_t once_token = 0;
         if ([controller isShown])
             return NO;
         
+        NSAssert( [NSBundle bundleWithIdentifier:@"com.figure53.F53FeedbackKit"] != nil, @"unable to location bundle with identifier 'com.figure53.F53FeedbackKit'" );
         NSAssert( [type isEqualToString:FR_CRASH]       ||
                  [type isEqualToString:FR_EXCEPTION]    ||
                  [type isEqualToString:FR_FEEDBACK]     ||
