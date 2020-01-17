@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'F53FeedbackKit'
-  s.version             = '1.5.1'
+  s.version             = '1.5.2'
   s.summary             = 'Framework for sending feedback and system information reports from your iOS application.'
   s.license             = 'apache'
   s.homepage            = 'https://github.com/Figure53/F53FeedbackKit'
@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
       'Sources/Main/iOS/*.{h,m}',
       'Sources/Resources/iOS/Base.lproj/Localizable.strings'
     ]
+    ss.prefix_header_file = 'F53FeedbackKit_iOS/F53FeedbackKit_iOS.pch'
   
     ss.frameworks         = 'Foundation', 'UIKit', 'SystemConfiguration'
     ss.platform           = :ios, '9.0'
