@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D0D36AC2347BEB400326F5B /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; };
+		3D0D36AC2347BEB400326F5B /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D0D36AD2347BEB400326F5B /* NSMutableDictionary+FRAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+FRAdditions.h */; };
 		3D0D36AE2347BEB400326F5B /* NSString+FRBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+FRBase64.h */; };
 		3D0D36AF2347BEB400326F5B /* FRApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1201BAC987700789333 /* FRApplication.h */; };
@@ -92,7 +92,7 @@
 		3D77A1DF1BAC9D5A00789333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1DE1BAC9D5A00789333 /* Assets.xcassets */; };
 		3D77A1E21BAC9D5A00789333 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1E01BAC9D5A00789333 /* MainMenu.xib */; };
 		3D77A1EE1BAC9F3500789333 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A1F01BAC9F3500789333 /* Credits.rtf */; };
-		3D9AEC391BAD7EF5008074AC /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; };
+		3D9AEC391BAD7EF5008074AC /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D9AEC3B1BAD7EFA008074AC /* NSException+FRCallstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A13B1BAC987700789333 /* NSException+FRCallstack.m */; };
 		3DA977B21FFD86E300648971 /* F53FeedbackKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A1041BAC97BC00789333 /* F53FeedbackKit_iOS.h */; };
 		3DA977B41FFD885D00648971 /* FRFeedbackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A1321BAC987700789333 /* FRFeedbackReporter.m */; };
@@ -138,7 +138,7 @@
 		3DC68D831BB5F1AB0002242A /* FRiOSFeedbackTableViewEmailCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C51BB5927A0056E64F /* FRiOSFeedbackTableViewEmailCell.h */; };
 		3DC68D841BB5F1AB0002242A /* FRiOSFeedbackTableViewTabPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C71BB5927A0056E64F /* FRiOSFeedbackTableViewTabPickerCell.h */; };
 		3DC68D851BB5F1AB0002242A /* FRiOSFeedbackTableViewTextViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE052C91BB5927A0056E64F /* FRiOSFeedbackTableViewTextViewCell.h */; };
-		3DC68DC61BB605650002242A /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; };
+		3DC68DC61BB605650002242A /* NSException+FRCallstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13A1BAC987700789333 /* NSException+FRCallstack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DC68DC71BB605650002242A /* NSMutableDictionary+FRAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13C1BAC987700789333 /* NSMutableDictionary+FRAdditions.h */; };
 		3DC68DC81BB605650002242A /* NSString+FRBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D77A13E1BAC987700789333 /* NSString+FRBase64.h */; };
 		3DDBAB391BB1CB210071E076 /* FRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A12E1BAC987700789333 /* FRFeedbackController.m */; };
