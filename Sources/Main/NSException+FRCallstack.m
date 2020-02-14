@@ -129,7 +129,7 @@ unsigned char * _Nullable readProcessMemory( int pid, mach_vm_address_t addr, ma
 {
     task_t t;
     task_for_pid( mach_task_self(), pid, &t );
-    mach_msg_type_number_t dataCnt = (mach_msg_type_number_t)size;
+    mach_msg_type_number_t dataCnt;
     vm_offset_t readMem;
     
 #if TARGET_OS_IPHONE
