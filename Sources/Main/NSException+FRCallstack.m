@@ -92,11 +92,11 @@ NS_ASSUME_NONNULL_BEGIN
         mach_msg_type_number_t size;
         
         size = sizeof(struct dyld_all_image_infos);
-        data = readProcessMemory( pid, dyld_info.all_image_info_addr, &size );
+        data = readProcessMemory( pid, dyld_info.all_image_info_addr, size );
         struct dyld_all_image_infos *infos = (struct dyld_all_image_infos *)data;
         
         mach_msg_type_number_t size2 = ( sizeof(struct dyld_image_info) * infos->infoArrayCount );
-        uint8_t *info_addr = readProcessMemory( pid, (mach_vm_address_t)infos->infoArray, &size2 );
+        uint8_t *info_addr = readProcessMemory( pid, (mach_vm_address_t)infos->infoArray, size2 );
         struct dyld_image_info *info = (struct dyld_image_info *)info_addr;
         
         if ( infos->infoArrayCount )
@@ -105,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
             for ( uint32_t i = 0; i < infos->infoArrayCount; i++ )
             {
                 mach_msg_type_number_t size3 = PATH_MAX;
-                uint8_t *addr = readProcessMemory( pid, (mach_vm_address_t)info[i].imageFilePath, &size3 );
+                uint8_t *addr = readProcessMemory( pid, (mach_vm_address_t)info[i].imageFilePath, size3 );
                 if ( addr )
                 {
                     // space-padded address range, path to image, e.g.:
@@ -125,23 +125,23 @@ NS_ASSUME_NONNULL_BEGIN
     return @[];
 }
 
-unsigned char * _Nullable readProcessMemory( int pid, mach_vm_address_t addr, mach_msg_type_number_t *size )
+unsigned char * _Nullable readProcessMemory( int pid, mach_vm_address_t addr, mach_msg_type_number_t size )
 {
     task_t t;
     task_for_pid( mach_task_self(), pid, &t );
-    mach_msg_type_number_t dataCnt = (mach_msg_type_number_t)*size;
+    mach_msg_type_number_t dataCnt;
     vm_offset_t readMem;
     
 #if TARGET_OS_IPHONE
     kern_return_t kr = vm_read( t,                  // vm_map_t target_task,
                                (vm_address_t)addr,  // vm_address_t address,
-                               *size,               // mach_vm_size_t size
+                               size,               // mach_vm_size_t size
                                &readMem,            // vm_offset_t *data,
                                &dataCnt );          // mach_msg_type_number_t *dataCnt
 #else
     kern_return_t kr = mach_vm_read( t,             // vm_map_t target_task,
                                     addr,           // mach_vm_address_t address,
-                                    *size,          // mach_vm_size_t size
+                                    size,          // mach_vm_size_t size
                                     &readMem,       // vm_offset_t *data,
                                     &dataCnt );     // mach_msg_type_number_t *dataCnt
 #endif
