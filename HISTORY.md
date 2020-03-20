@@ -1,3 +1,6 @@
+## Version 1.5.3
+* [ADD] Appends details of main process binary image to exception reports to facilitate symbolication.
+
 ## Version 1.5.2
 * [FIX] The CocoaPods podspec for iOS now includes the required .pch file, which fixes the missing `FRLocalizedString` definition when integrating using CocoaPods.
 * [CHG] CocoaPods integration requires gem version 1.8.0+.
