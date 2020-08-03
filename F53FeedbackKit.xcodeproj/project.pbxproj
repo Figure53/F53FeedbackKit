@@ -34,7 +34,6 @@
 		3D2E0C7C1BB4A99400370315 /* FRMacFeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D77A2231BACA4EF00789333 /* FRMacFeedbackWindowController.xib */; };
 		3D2E0CA81BB4B11B00370315 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
 		3D2E0CAA1BB4B12D00370315 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */; };
-		3D2E0CAC1BB4B13800370315 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
 		3D2E0CAE1BB4B14000370315 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAD1BB4B14000370315 /* Foundation.framework */; };
 		3D37BB4C1BB9981D00030264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531E1BB5A3450056E64F /* UIKit.framework */; };
 		3D37BB4D1BB9982500030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE0531C1BB5A33F0056E64F /* Foundation.framework */; };
@@ -46,12 +45,9 @@
 		3D37BB541BB9989E00030264 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
 		3D37BB551BB998A300030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAD1BB4B14000370315 /* Foundation.framework */; };
 		3D37BB561BB998A700030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */; };
-		3D37BB571BB998AB00030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
 		3D37BB581BB998B100030264 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37BB501BB9985200030264 /* Cocoa.framework */; };
-		3D37BB591BB998B800030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
 		3D37BB5A1BB99BB200030264 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA71BB4B11B00370315 /* AppKit.framework */; };
 		3D37BB5B1BB99BB700030264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAD1BB4B14000370315 /* Foundation.framework */; };
-		3D37BB5C1BB99BBD00030264 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CAB1BB4B13800370315 /* AddressBook.framework */; };
 		3D37BB5D1BB99BC800030264 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */; };
 		3D37BB5E1BB99C1500030264 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37BB501BB9985200030264 /* Cocoa.framework */; };
 		3D37BB5F1BB99D6C00030264 /* F53FeedbackKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC68D8B1BB602E80002242A /* F53FeedbackKit_iOS.framework */; };
@@ -262,7 +258,6 @@
 		3D1D3071231899CF003A9748 /* FRiOSFeedbackTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRiOSFeedbackTableViewHeaderView.h; path = iOS/FRiOSFeedbackTableViewHeaderView.h; sourceTree = "<group>"; };
 		3D2E0CA71BB4B11B00370315 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		3D2E0CAB1BB4B13800370315 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3D2E0CAD1BB4B14000370315 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3D37BB501BB9985200030264 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3D4B3D872347CBA1005080C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/App.strings; sourceTree = "<group>"; };
@@ -409,7 +404,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2E0CAE1BB4B14000370315 /* Foundation.framework in Frameworks */,
-				3D2E0CAC1BB4B13800370315 /* AddressBook.framework in Frameworks */,
 				3D2E0CAA1BB4B12D00370315 /* SystemConfiguration.framework in Frameworks */,
 				3D2E0CA81BB4B11B00370315 /* AppKit.framework in Frameworks */,
 			);
@@ -421,7 +415,6 @@
 			files = (
 				3D37BB5E1BB99C1500030264 /* Cocoa.framework in Frameworks */,
 				3D37BB5D1BB99BC800030264 /* SystemConfiguration.framework in Frameworks */,
-				3D37BB5C1BB99BBD00030264 /* AddressBook.framework in Frameworks */,
 				3D37BB5B1BB99BB700030264 /* Foundation.framework in Frameworks */,
 				3D37BB5A1BB99BB200030264 /* AppKit.framework in Frameworks */,
 				3D77A0EE1BAC979000789333 /* F53FeedbackKit.framework in Frameworks */,
@@ -444,7 +437,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D0D36BA2347C18400326F5B /* F53FeedbackKit.framework in Frameworks */,
-				3D37BB591BB998B800030264 /* AddressBook.framework in Frameworks */,
 				3D37BB531BB9985D00030264 /* SystemConfiguration.framework in Frameworks */,
 				3D37BB521BB9985700030264 /* AppKit.framework in Frameworks */,
 				3D37BB511BB9985200030264 /* Cocoa.framework in Frameworks */,
@@ -458,7 +450,6 @@
 			files = (
 				3D0D36C12347C32300326F5B /* F53FeedbackKit.framework in Frameworks */,
 				3D37BB581BB998B100030264 /* Cocoa.framework in Frameworks */,
-				3D37BB571BB998AB00030264 /* AddressBook.framework in Frameworks */,
 				3D37BB561BB998A700030264 /* SystemConfiguration.framework in Frameworks */,
 				3D37BB551BB998A300030264 /* Foundation.framework in Frameworks */,
 				3D37BB541BB9989E00030264 /* AppKit.framework in Frameworks */,
@@ -504,7 +495,6 @@
 				3DE0531E1BB5A3450056E64F /* UIKit.framework */,
 				3DE0531C1BB5A33F0056E64F /* Foundation.framework */,
 				3D2E0CAD1BB4B14000370315 /* Foundation.framework */,
-				3D2E0CAB1BB4B13800370315 /* AddressBook.framework */,
 				3D2E0CA91BB4B12D00370315 /* SystemConfiguration.framework */,
 				3D2E0CA71BB4B11B00370315 /* AppKit.framework */,
 			);
